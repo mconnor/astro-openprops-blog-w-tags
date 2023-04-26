@@ -45,3 +45,5 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cf364249-377a-4169-a746-0e20fbfc7934/deploy-status)](https://app.netlify.com/sites/astro-blog-mike/deploys)
