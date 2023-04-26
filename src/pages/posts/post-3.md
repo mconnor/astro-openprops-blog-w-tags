@@ -1,10 +1,10 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: My Third Blog Post
-author: Astro Learner
+author: Mike Connor
 description: 'I had some challenges, but asking in the community really helped!'
 image:
-  url: 'https://astro.build/assets/blog/community-day/cover.jpg'
+  url: 'https://picsum.photos/300/200'
   alt: 'The word community with a heart.'
 pubDate: 2022-07-15
 tags: ['school', 'learning in public', 'setbacks', 'community']
