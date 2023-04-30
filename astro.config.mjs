@@ -5,9 +5,9 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    drafts: true
+    drafts: true,
   },
   integrations: [mdx({
-    drafts: true
+    drafts: true,
   })]
 });

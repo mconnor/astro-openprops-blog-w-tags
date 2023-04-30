@@ -1,18 +1,17 @@
 {
-    "eslint.validate": [
-      "javascript",
-      "javascriptreact",
-      "astro",
-      "typescript",
-      "typescriptreact"
-    ],
-    "prettier.documentSelectors": ["**/*.astro"],
-    "[astro]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "cSpell.words": [
-      "astrojs"
-    ]
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro",
+    "typescript",
+    "typescriptreact"
+  ],
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.words": ["astrojs"],
+  "files.associations": {
+    "*.mdx": "markdown"
   }
-
-  
+}
