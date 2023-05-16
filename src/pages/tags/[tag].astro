@@ -25,6 +25,23 @@ export async function getStaticPaths() {
   })
 }
 
+type Post = {
+  url: string
+  frontmatter: {
+    title: string
+    tags: string[]
+  }
+}
+
+type Params = {
+  tag: string
+}
+
+interface Props {
+  tag: string
+  posts: Post[]
+}
+
 const { tag } = Astro.params
 const { posts } = Astro.props
 
