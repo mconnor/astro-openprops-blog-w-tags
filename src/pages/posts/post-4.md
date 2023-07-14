@@ -4,8 +4,8 @@ title: My Fourth Blog Post
 author: Mike Connor
 description: 'This post will show up on its own!'
 image:
-  url: 'https://picsum.photos/300/200'
-  alt: 'The word “astro” against an illustration of planets and stars.'
+    url: 'https://picsum.photos/300/200'
+    alt: 'The word “astro” against an illustration of planets and stars.'
 pubDate: 2022-08-08
 tags: ['coding', 'successes']
 ---

@@ -7,14 +7,19 @@ const pageTitle = 'Blog Page'
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-  <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
-    {
-      nonDraftPosts.map(
-        (post) =>
-          post.url && <BlogPost url={post.url} title={post.frontmatter.title} />
-      )
-    }
-  </ul>
+    <h2>My awesome blog subtitle</h2>
+    <p>This is where I will post about my journey learning Astro.</p>
+    <ul>
+        {
+            nonDraftPosts.map(
+                (post) =>
+                    post.url && (
+                        <BlogPost
+                            url={post.url}
+                            title={post.frontmatter.title}
+                        />
+                    )
+            )
+        }
+    </ul>
 </BaseLayout>
