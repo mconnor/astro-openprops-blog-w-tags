@@ -4,8 +4,11 @@ dist/
 .astro/
 .vscode/
 
-# dependencies
-node_modules/
+#  default ignored files
+# **/.git
+# **/.svn
+# **/.hg
+# **/node_modules
 
 # logs
 npm-debug.log*

@@ -19,6 +19,7 @@
         "@types/react": "^18.2.15",
         "@types/react-dom": "^18.2.7",
         "astro": "^2.8.3",
+        "open-props": "^1.5.10",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-multi-carousel": "^2.8.4"
@@ -28,7 +29,11 @@
         "eslint": "^8.45.0",
         "eslint-plugin-astro": "^0.27.2",
         "eslint-plugin-jsx-a11y": "^6.7.1",
-        "prettier-plugin-tailwindcss": "^0.4.1"
+        "prettier": "^3.0.0",
+        "prettier-plugin-astro": "^0.11.0",
+        "prettier-plugin-tailwindcss": "^0.4.1",
+        "stylelint": "^15.10.1",
+        "stylelint-config-html": "^1.1.0"
     },
     "packageManager": "pnpm@8.6.7"
 }
