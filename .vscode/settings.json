@@ -1,30 +1,18 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "astro", // Enable .astro
-        "typescript", // Enable .ts
-        "typescriptreact" // Enable .tsx
+    "cssvar.files": [
+        "./node_modules/open-props/open-props.min.css"
+        // if you have an alternative path to where your styles are located
+        // you can add it in this array of files
+        // "assets/styles/variables.css"
     ],
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
 
-    "prettier.documentSelectors": ["**/*.astro"],
+    // Do not ignore node_modules css files, which is ignored by default
+    "cssvar.ignore": [],
 
-    "[astro]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": false,
-        "editor.formatOnPaste": false,
-        "editor.formatOnType": false,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": false
-        }
-    },
-    "cSpell.words": ["astrojs"],
-    "files.associations": {
-        "*.mdx": "markdown"
-    }
+    // add support for autocomplete in JS or JS like files
+    "cssvar.extensions": ["css", "postcss", "jsx", "tsx"],
+    "stylelint.validate": [ "astro"]
 }
