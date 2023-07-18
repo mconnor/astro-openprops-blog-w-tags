@@ -1,10 +1,12 @@
 ---
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import '../styles/global.css'
+
+import OpenProps from 'open-props' // module
 
 import BaseLayout from '../layouts/BaseLayout.astro'
-const pageTitle = 'Home Page'
+
+const pageTitle = 'About Page'
 
 const identity = {
     firstName: 'Mike',
@@ -19,8 +21,9 @@ const happy = true
 const finished = false
 const goal = 3
 
-const skillColor = 'red'
-const fontWeight = 500
+const skillColor = OpenProps['--red-10']
+//let fontWeight = parseFloat(OpenProps['--font-weight-9']);
+const fontWeight = OpenProps['--font-weight-9']
 const textCase = 'uppercase'
 ---
 
@@ -33,7 +36,6 @@ const textCase = 'uppercase'
         }
     </style>
 
-    <h2>About Me</h2>
     <p>Here are a few facts about me:</p>
     <ul>
         <li>My name is {identity.firstName}.</li>

@@ -1,18 +1,26 @@
 ---
 interface Props {
-    platform: string
+    platform: string,
     username: string
 }
 const { platform, username } = Astro.props
 ---
 
+<!-- <a href={`https://www.${platform}.com/${username}`}></a> -->
 <a href={`https://www.${platform}.com/${username}`}>{platform}</a>
-
 <style>
     a {
-        padding: 0.5rem 1rem;
+        border-radius: var(--radius-3);
+        padding: var(--size-4)  var(--size-8);
+        box-shadow: var(--shadow-6);
+
         color: white;
-        background-color: #4c1d95;
+        background-color: var(--indigo-3);
         text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: var(--shadow-3);
+        }
     }
 </style>
