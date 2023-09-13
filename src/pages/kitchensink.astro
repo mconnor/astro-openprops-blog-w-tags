@@ -36,13 +36,13 @@ const foo = () => {
     <h2>h2 Hello World</h2>
 
     <p>
-        Lorem ipsum dolor sit amet, <a href="#">consectetur</a>
-         adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-        qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+        id est laborum.
     </p>
 
     <h2>h2 Hello World</h2>
@@ -52,9 +52,9 @@ const foo = () => {
         elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse <a href="#">consectetur</a> cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        reprehenderit in voluptate velit esse dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+        officia deserunt mollit anim id est laborum.
     </blockquote>
 
     <h3>Hello World</h3>
@@ -80,19 +80,26 @@ const foo = () => {
     </ul>
 
     <form>
-        <div><label for="text">Text</label><input id="text" type="text" /></div>
         <div>
-            <label for="number">Number</label><input
-                id="number"
-                type="number"
-            />
+            <label>
+                Text
+                <input id="text" type="text" />
+            </label>
         </div>
         <div>
-            <label for="select">Select</label>
-            <select id="select"
-                ><option value="one">One</option><option value="two">One</option
-                >
-            </select>
+            <label>
+                Number
+                <input id="number" type="number" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Select
+                <select id="select">
+                    <option value="one">One</option>
+                    <option value="two">Two</option>
+                </select>
+            </label>
         </div>
         <button>Submit</button>
         <button>Cancel</button>
