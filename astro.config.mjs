@@ -15,10 +15,6 @@ export default defineConfig({
         }),
         react(),
     ],
-
-    experimental: {
-        assets: true,
-    },
     vite: {
         ssr: {
             noExternal: ['open-props'],
