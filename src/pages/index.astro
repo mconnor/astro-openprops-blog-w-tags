@@ -2,8 +2,113 @@
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
-import BaseLayout from '../layouts/BaseLayout.astro'
+import Layout from '../layouts/SplashLayout.astro'
+
+
 const pageTitle = 'Hello World'
 ---
+<style>
+    .promo-art {
+        align-self: stretch;
+    }
 
-<BaseLayout pageTitle={pageTitle} />
+    .promo-art > img {
+        block-size: 100%;
+        object-fit: cover;
+    }
+    header {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        background: var(--surface-1);
+    }
+
+    .hero {
+        padding: var(--size-10);
+        display: grid;
+        gap: var(--size-5);
+    }
+
+    .hero-message {
+        display: grid;
+        grid-template-columns: max-content;
+        color: var(--gray-9);
+        line-height: var(--font-lineheight-0);
+    }
+
+    .hero-message > div:last-child {
+        color: var(--indigo-7);
+    }
+
+    .button-list {
+        display: flex;
+        gap: var(--size-3);
+    }
+
+    button {
+        background: white;
+        color: var(--indigo-8);
+        font-size: var(--font-size-3);
+        padding-inline: var(--size-8);
+        padding-block: var(--size-3);
+        border-radius: var(--radius-2);
+        box-shadow: var(--shadow-2);
+    }
+
+    button.primary {
+        background: var(--indigo-8);
+        text-shadow: 0 1px 0 var(--indigo-9);
+        color: white;
+    }
+
+    button.primary:hover {
+        background: var(--indigo-7);
+    }
+
+    
+    .wrapper {
+        display: flex;
+    }
+    body {
+        display: flex;
+    }
+
+   
+
+    .under-hero {
+        color: var(--gray-7);
+        font-size: var(--font-size-4);
+        margin-block-end: var(--size-3);
+    }
+</style>
+<Layout pageTitle={pageTitle}>
+   
+    <header>
+        <section class="hero">
+            <h1 class="hero-message">
+                <div>Hero layout with</div>
+                <div>Open Props</div>
+            </h1>
+            <p class="under-hero">
+                Lorem ipsum dolor sit amet consectetu adipisicing elit. Nemo in
+                doloremque quam, voluptatibus eum voluptatum.
+            </p>
+            <div class="button-list">
+                <a href="about">
+                    <button class="primary">Get started</button>
+                </a>
+                <button>Live demo</button>
+            </div>
+        </section>
+        <picture class="promo-art">
+            <img
+                src="https://doodleipsum.com/700x700/outline?bg=3b5bdb"
+                height="800"
+                width="800"
+                alt="a random doodle"
+            />
+        </picture>
+    </header>
+
+</Layout>
+ 

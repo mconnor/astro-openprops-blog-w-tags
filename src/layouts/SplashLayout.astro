@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import { ViewTransitions } from 'astro:transitions';
 // import '../styles/global.css'
 
 /* the props */
@@ -80,99 +81,24 @@ const { pageTitle } = Astro.props
         line-height: var(--font-lineheight-3);
     }
 
-    body {
-        margin: 0 auto;
-        width: 100%;
-        max-width: 80ch;
-        padding: var(--size-fluid-1);
-        line-height: var(--font-lineheight-3);
+    
 
-        /* typeography */
-
-        h1,
-        h2,
-        h3,
-        h4,
-        p,
-        dt {
-            color: var(--text-1);
-        }
-
-        h5,
-        h6,
-        small,
-        dd {
-            color: var(--text-2);
-        }
-        /* utilities */
-        .surface-1 {
-            background-color: var(--surface-1);
-            color: var(--text-2);
-        }
-
-        .surface-2 {
-            background-color: var(--surface-2);
-            color: var(--text-2);
-        }
-
-        .surface-3 {
-            background-color: var(--surface-3);
-            color: var(--text-1);
-        }
-
-        .surface-4 {
-            background-color: var(--surface-4);
-            color: var(--text-1);
-        }
-
-        /* :is(h1) {
-            margin: var(--size-fluid-1) 0;
-            font-size: var(--font-size-fluid-3);
-            color: purple;
-        }
-        :is(h2) {
-            margin: var(--size-fluid-1) 0;
-            font-size: var(--font-size-fluid-1);
-            color: var(--green-1);
-        } */
-
-        .button-class {
-            border-radius: var(--radius-3);
-            padding: var(--size-4) var(--size-8);
-            box-shadow: var(--shadow-6);
-            text-decoration: none;
-            cursor: pointer;
-            .blue & {
-                color: var(--blue-6);
-                background-color: var(--blue-0);
-                border: var(--border-size-1) solid var(--blue-1);
-                text-shadow: 0 1px 0 var(--blue-2);
-
-                &:hover {
-                    background-color: var(--blue-1);
-                }
-            }
-        }
-    }
+    
 </style>
 
 <html lang="en">
     <head>
+        <ViewTransitions />
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
     </head>
-    <body class="body-class">
-        <Header />
-        <h1>{pageTitle}</h1>
-        <div>
+    <body>
+        
             <slot />
-        </div>
-        <Footer />
-        <script>
-            import '../scripts/menu.js'
-        </script>
+        
+        
     </body>
 </html>

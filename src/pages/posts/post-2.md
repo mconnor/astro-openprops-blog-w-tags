@@ -10,12 +10,12 @@ pubDate: 2022-07-08
 tags: ['astro', 'blogging', 'learning in public', 'successes']
 ---
 
-
 ## Table of Contents
+
 1. [Introduction](#introduction)
 2. [Main Topics](#main-topics)
-   - [Subtopic A](#subtopic-a)
-   - [Subtopic B](#subtopic-b)
+    - [Subtopic A](#subtopic-a)
+    - [Subtopic B](#subtopic-b)
 3. [Images](#images)
 4. [Lists](#lists)
 5. [Code Blocks](#code-blocks)
@@ -51,11 +51,11 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 
 ## Lists
 
-- Item 1
-- Item 2
-  - Subitem 2.1
-  - Subitem 2.2
-- Item 3
+-   Item 1
+-   Item 2
+    -   Subitem 2.1
+    -   Subitem 2.2
+-   Item 3
 
 1. First item
 2. Second item
@@ -71,11 +71,13 @@ Here's a `inline code` example.
 def hello_world():
     print("Hello, Markdown!")
 ```
+
 ---
+
 ## Tables
 
 | Header 1 | Header 2 | Header 3 |
-|----------|----------|----------|
+| -------- | -------- | -------- |
 | Row1Col1 | Row1Col2 | Row1Col3 |
 | Row2Col1 | Row2Col2 | Row2Col3 |
 | Row3Col1 | Row3Col2 | Row3Col3 |
