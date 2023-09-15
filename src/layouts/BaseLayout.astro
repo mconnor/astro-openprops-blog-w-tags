@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 // import '../styles/global.css'
-
+import { ViewTransitions } from 'astro:transitions';
 /* the props */
 import 'open-props/style'
 
@@ -158,6 +158,7 @@ const { pageTitle } = Astro.props
 
 <html lang="en">
     <head>
+        <ViewTransitions />
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
