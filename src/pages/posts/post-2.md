@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: My Second Blog Post
+title: Markdown Kitchen Sink
 author: Mike Connor
 description: "After learning some Astro, I couldn't stop!"
 image:
@@ -10,4 +10,80 @@ pubDate: 2022-07-08
 tags: ['astro', 'blogging', 'learning in public', 'successes']
 ---
 
-But all Duties, Imposts and Excises, to pay the Debts and provide for the same Term, be elected, as follows. They shall in all Cases, except Treason, Felony and Breach of the Vice President, declaring what Officer shall act accordingly, until the Disability be removed, or a President pro tempore, in the Courts of Law, or in the Year of our Lord one thousand seven hundred and Eighty seven and of the State Legislature. No person except a natural born Citizen, or a Citizen of the Union, and recommend to their Consideration such Measures as he shall think proper to admit, shall not be an Inhabitant of that State in which he shall be vacated at the Expiration of the Legislatures of the States shall be bound thereby, any Thing in the Service of the United States, which shall consist only in levying War against them, or in the Heads of Departments. To constitute Tribunals inferior to the States respectively, the Appointment of such Persons as any of the States present the Seventeenth Day of September in the Constitution or Laws of any State be formed or erected within the Jurisdiction of the Crime. But all Duties, Imposts and Excises shall be entered on the Journal.
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Main Topics](#main-topics)
+   - [Subtopic A](#subtopic-a)
+   - [Subtopic B](#subtopic-b)
+3. [Images](#images)
+4. [Lists](#lists)
+5. [Code Blocks](#code-blocks)
+6. [Tables](#tables)
+7. [Links & Quotes](#links--quotes)
+8. [Conclusion](#conclusion)
+
+---
+
+## Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.
+
+---
+
+## Main Topics
+
+### Subtopic A
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+### Subtopic B
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+
+---
+
+## Images
+
+![Sample Image](https://via.placeholder.com/150)
+
+---
+
+## Lists
+
+- Item 1
+- Item 2
+  - Subitem 2.1
+  - Subitem 2.2
+- Item 3
+
+1. First item
+2. Second item
+3. Third item
+
+---
+
+## Code Blocks
+
+Here's a `inline code` example.
+
+```python
+def hello_world():
+    print("Hello, Markdown!")
+```
+---
+## Tables
+
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Row1Col1 | Row1Col2 | Row1Col3 |
+| Row2Col1 | Row2Col2 | Row2Col3 |
+| Row3Col1 | Row3Col2 | Row3Col3 |
+
+---
+
+## Links & Quotes
+
+Check out [OpenAI](https://www.openai.com/) for more interesting projects!
+
+> "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
