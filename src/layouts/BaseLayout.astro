@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 // import '../styles/global.css'
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from 'astro:transitions'
 /* the props */
 import 'open-props/style'
 
@@ -26,6 +26,26 @@ const { pageTitle } = Astro.props
 
 <style>
     :root {
+        --brand-light: var(--orange-6);
+
+        --text-1-light: var(--gray-8);
+        --text-2-light: var(--gray-7);
+
+        --surface-1-light: var(--gray-0);
+        --surface-2-light: var(--gray-1);
+        --surface-3-light: var(--gray-2);
+        --surface-4-light: var(--gray-3);
+
+        --brand-dark: var(--orange-3);
+
+        --text-1-dark: var(--gray-3);
+        --text-2-dark: var(--gray-5);
+
+        --surface-1-dark: var(--gray-12);
+        --surface-2-dark: var(--gray-11);
+        --surface-3-dark: var(--gray-10);
+        --surface-4-dark: var(--gray-9);
+
         --brand: var(--brand-light);
 
         --text-1: var(--text-1-light);
@@ -35,6 +55,13 @@ const { pageTitle } = Astro.props
         --surface-2: var(--surface-2-light);
         --surface-3: var(--surface-3-light);
         --surface-4: var(--surface-4-light);
+
+        --brand: var(--brand-light);
+
+        --text-1: var(--text-1-light);
+        --text-2: var(--text-2-light);
+
+    
     }
 
     @media (prefers-color-scheme: dark) {
@@ -84,8 +111,10 @@ const { pageTitle } = Astro.props
         margin: 0 auto;
         width: 100%;
         max-width: 80ch;
-        padding: var(--size-fluid-1);
-        line-height: var(--font-lineheight-3);
+     
+
+        /* padding: var(--size-fluid-3);
+        line-height: var(--font-lineheight-3); */
 
         /* typeography */
 
@@ -104,28 +133,35 @@ const { pageTitle } = Astro.props
         dd {
             color: var(--text-2);
         }
-        /* utilities */
-        .surface-1 {
-            background-color: var(--surface-1);
-            color: var(--text-2);
-        }
+    }
 
-        .surface-2 {
-            background-color: var(--surface-2);
-            color: var(--text-2);
-        }
+    .headline {
+        padding: var(--size-fluid-1);
+        /* border: var(--border-size-1) solid var(--text-2);
+            border-color: black; */
+    }
+    /* utilities */
+    .surface-1 {
+        background-color: var(--surface-1);
+        color: var(--text-2);
+    }
 
-        .surface-3 {
-            background-color: var(--surface-3);
-            color: var(--text-1);
-        }
+    .surface-2 {
+        background-color: var(--surface-2);
+        color: var(--text-2);
+    }
 
-        .surface-4 {
-            background-color: var(--surface-4);
-            color: var(--text-1);
-        }
+    .surface-3 {
+        background-color: var(--surface-3);
+        color: var(--text-1);
+    }
 
-        /* :is(h1) {
+    .surface-4 {
+        background-color: var(--surface-4);
+        color: var(--text-1);
+    }
+
+    /* :is(h1) {
             margin: var(--size-fluid-1) 0;
             font-size: var(--font-size-fluid-3);
             color: purple;
@@ -136,21 +172,20 @@ const { pageTitle } = Astro.props
             color: var(--green-1);
         } */
 
-        .button-class {
-            border-radius: var(--radius-3);
-            padding: var(--size-4) var(--size-8);
-            box-shadow: var(--shadow-6);
-            text-decoration: none;
-            cursor: pointer;
-            .blue & {
-                color: var(--blue-6);
-                background-color: var(--blue-0);
-                border: var(--border-size-1) solid var(--blue-1);
-                text-shadow: 0 1px 0 var(--blue-2);
+    .button-class {
+        border-radius: var(--radius-3);
+        padding: var(--size-4) var(--size-8);
+        box-shadow: var(--shadow-6);
+        text-decoration: none;
+        cursor: pointer;
+        .blue & {
+            color: var(--blue-6);
+            background-color: var(--blue-0);
+            border: var(--border-size-1) solid var(--blue-1);
+            text-shadow: 0 1px 0 var(--blue-2);
 
-                &:hover {
-                    background-color: var(--blue-1);
-                }
+            &:hover {
+                background-color: var(--blue-1);
             }
         }
     }
@@ -165,15 +200,14 @@ const { pageTitle } = Astro.props
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
     </head>
-    <body class="body-class">
+    <body>
         <Header />
-        <h1>{pageTitle}</h1>
-        <div>
-            <slot />
-        </div>
-        <Footer />
-        <script>
-            import '../scripts/menu.js'
-        </script>
+        <h1 class="headline">{pageTitle}</h1>
+
+        <slot />
     </body>
+    <Footer />
+    <script>
+        import '../scripts/menu.js'
+    </script>
 </html>

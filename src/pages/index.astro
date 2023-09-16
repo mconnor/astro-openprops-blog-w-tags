@@ -3,10 +3,13 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
 import Layout from '../layouts/SplashLayout.astro'
+import HeroBtn from '../components/HeroBtn.astro'
 
-
+import { compileFunction } from 'vm'
+import { componentIsHTMLElement } from 'astro/runtime/server/render/dom.js'
 const pageTitle = 'Hello World'
 ---
+
 <style>
     .promo-art {
         align-self: stretch;
@@ -32,12 +35,11 @@ const pageTitle = 'Hello World'
     .hero-message {
         display: grid;
         grid-template-columns: max-content;
-        color: var(--gray-9);
+        color: var(--brand);
         line-height: var(--font-lineheight-0);
     }
-
     .hero-message > div:last-child {
-        color: var(--indigo-7);
+        color: var(--text-2);
     }
 
     .button-list {
@@ -45,35 +47,9 @@ const pageTitle = 'Hello World'
         gap: var(--size-3);
     }
 
-    button {
-        background: white;
-        color: var(--indigo-8);
-        font-size: var(--font-size-3);
-        padding-inline: var(--size-8);
-        padding-block: var(--size-3);
-        border-radius: var(--radius-2);
-        box-shadow: var(--shadow-2);
-    }
-
-    button.primary {
-        background: var(--indigo-8);
-        text-shadow: 0 1px 0 var(--indigo-9);
-        color: white;
-    }
-
-    button.primary:hover {
-        background: var(--indigo-7);
-    }
-
-    
     .wrapper {
         display: flex;
     }
-    body {
-        display: flex;
-    }
-
-   
 
     .under-hero {
         color: var(--gray-7);
@@ -82,22 +58,22 @@ const pageTitle = 'Hello World'
     }
 </style>
 <Layout pageTitle={pageTitle}>
-   
     <header>
         <section class="hero">
             <h1 class="hero-message">
-                <div>Hero layout with</div>
-                <div>Open Props</div>
+                <div>Astro, styled</div>
+                <div>
+                    with <a href="https://open-props.style/">Open Props</a>
+                </div>
             </h1>
             <p class="under-hero">
                 Lorem ipsum dolor sit amet consectetu adipisicing elit. Nemo in
                 doloremque quam, voluptatibus eum voluptatum.
             </p>
             <div class="button-list">
-                <a href="about">
-                    <button class="primary">Get started</button>
-                </a>
-                <button>Live demo</button>
+                <HeroBtn btnLabel="Get started" link="about" primaryBool />
+
+                <HeroBtn btnLabel="Live demo" link="blog" />
             </div>
         </section>
         <picture class="promo-art">
@@ -109,6 +85,4 @@ const pageTitle = 'Hello World'
             />
         </picture>
     </header>
-
 </Layout>
- 
