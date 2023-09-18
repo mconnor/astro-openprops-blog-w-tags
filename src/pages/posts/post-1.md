@@ -6,7 +6,7 @@ description: This is the first post of my new Astro blog
 author: Mike Connor
 draft: true
 image:
-    url: 'https://picsum.photos/300/200'
+    url: 'https://picsum.photos/300/200/?random=1'
     alt: 'The Astro logo with the word One.'
 tags: ['astro', 'blogging', 'learning in public']
 ---

@@ -4,7 +4,7 @@ title: My 5th Blog Post
 author: Mike
 description: 'Dynamic Post'
 image:
-    url: 'https://picsum.photos/300/200'
+    url: 'https://picsum.photos/300/200?random=5'
     alt: 'The word “astro” against an illustration of planets and stars.'
 pubDate: 2023-04-24
 tags: ['rafting', 'dogs']

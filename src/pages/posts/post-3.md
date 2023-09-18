@@ -4,7 +4,7 @@ title: My Third Blog Post
 author: Mike Connor
 description: 'I had some challenges, but asking in the community really helped!'
 image:
-    url: 'https://picsum.photos/300/200'
+    url: 'https://picsum.photos/300/200/?random=3'
     alt: 'The word community with a heart.'
 pubDate: 2022-07-15
 tags: ['school', 'learning in public', 'setbacks', 'community']
