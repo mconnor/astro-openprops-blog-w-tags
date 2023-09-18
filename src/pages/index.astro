@@ -1,12 +1,10 @@
 ---
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
 
 import Layout from '../layouts/SplashLayout.astro'
 import HeroBtn from '../components/HeroBtn.astro'
+import { Image } from 'astro:assets';
 
-import { compileFunction } from 'vm'
-import { componentIsHTMLElement } from 'astro/runtime/server/render/dom.js'
+
 const pageTitle = 'Hello World'
 ---
 
@@ -77,7 +75,7 @@ const pageTitle = 'Hello World'
             </div>
         </section>
         <picture class="promo-art">
-            <img
+            <Image
                 src="https://doodleipsum.com/700x700/outline?bg=3b5bdb"
                 height="800"
                 width="800"

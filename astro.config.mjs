@@ -6,6 +6,9 @@ import react from '@astrojs/react'
 // your configuration options here...
 // https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
+    image: {   
+        domains: ['doodleipsum.com'],
+    },
     markdown: {
         drafts: true,
     },
