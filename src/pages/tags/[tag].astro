@@ -3,36 +3,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import BlogPost from '../../components/BlogPost.astro'
 import { type CollectionEntry, getCollection } from 'astro:content'
 
-
 // A getStaticPaths function should always return a list of objects containing params
 // (what to call each page route) and optionally any props (data that you want to pass to those pages).
 //  Earlier, you defined each tag name that you knew was used in your blog and passed the entire list
 //  of posts as props to each page.
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('posts');
-  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-  
+    const allPosts = await getCollection('posts')
+    const uniqueTags = [
+        ...new Set(allPosts.map((post) => post.data.tags).flat()),
+    ]
 
-
-
-  return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) =>
-      post.data.tags.includes(tag)
-    );
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    };
-  });
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post) =>
+            post.data.tags.includes(tag)
+        )
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        }
+    })
 }
 
 type Props = {
-  posts:  CollectionEntry<'posts'>[]
+    posts: CollectionEntry<'posts'>[]
 }
 
-const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { tag } = Astro.params
+const { posts } = Astro.props
 ---
 
 <BaseLayout pageTitle="Tags">
@@ -41,7 +39,7 @@ const { posts } = Astro.props;
     <ul>
         {
             posts.map((post) => (
-            <BlogPost url={"/posts/" + post.slug} title={post.data.title} />
+                <BlogPost url={'/posts/' + post.slug} title={post.data.title} />
             ))
         }
     </ul>
