@@ -1,37 +1,13 @@
 ---
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
 
-import OpenProps from 'open-props' // module
+
+
 
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const pageTitle = 'Kitchen Sink'
-
-const identity = {
-    firstName: 'Mike',
-    country: 'US',
-    occupation: 'Developer',
-    hobbies: ['photography', 'birdwatching', 'baseball'],
-}
-
-const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs']
-
-const happy = true
-const finished = false
-const goal = 3
-
-const skillColor = OpenProps['--red-10']
-//let fontWeight = parseFloat(OpenProps['--font-weight-9']);
-const fontWeight = OpenProps['--font-weight-9']
-const textCase = 'uppercase'
-
-const foo = () => {
-    console.log('bar')
-}
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={'Kitchen Sink'}>
     <!-- Add your site or application content here -->
     <h2>h2 Hello World</h2>
 

@@ -11,17 +11,18 @@
         "astro": "astro",
         "info": "prettier.getSupportInfo()",
         "lint": "prettier -w --plugin-search-dir=. .  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-        "slint": "stylelint \"**/*.{css,astro}\" --fix"
+        "slint": "stylelint \"**/*.{css,astro}\" --fix",
+        "check": "astro check"
     },
     "dependencies": {
+        "@astrojs/check": "^0.2.0",
         "@astrojs/mdx": "^1.1.0",
-        "@astrojs/react": "^3.0.2",
         "@astrojs/rss": "^3.0.0",
         "@astrojs/ts-plugin": "^1.1.3",
-        "@types/react": "^18.2.22",
-        "@types/react-dom": "^18.2.7",
-        "astro": "^3.1.0",
-        "open-props": "^1.5.15"
+        "astro": "^3.1.1",
+        "open-props": "^1.5.15",
+        "sharp": "^0.32.6",
+        "typescript": "^5.2.2"
     },
     "devDependencies": {
         "@typescript-eslint/parser": "^6.7.2",
@@ -35,5 +36,5 @@
         "stylelint-config-astro": "^1.0.4",
         "stylelint-prettier": "^4.0.2"
     },
-    "packageManager": "pnpm@8.7.5"
+    "packageManager": "pnpm@8.7.6"
 }

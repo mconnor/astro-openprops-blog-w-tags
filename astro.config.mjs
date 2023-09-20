@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
-import react from '@astrojs/react'
 
 // https://astro.build/config
 // your configuration options here...
@@ -16,7 +15,6 @@ export default defineConfig({
         mdx({
             drafts: true,
         }),
-        react(),
     ],
     vite: {
         ssr: {

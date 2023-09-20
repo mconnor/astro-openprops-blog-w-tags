@@ -1,40 +1,27 @@
 ---
+import type { CollectionEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
 import { Image } from 'astro:assets'
+// import type { PostSchemaType } from '../schemas'
 
-interface Props {
-    frontmatter: {
-        author: string
-        title: string
-        description: string
-        pubDate: string
-        tags: string[]
-        image: {
-            url: string
-            alt: string
-        }
-    }
-}
+type Props = CollectionEntry<'posts'>['data']
 
-const { frontmatter } = Astro.props
+// const { frontmatter } = Astro.props as { frontmatter: PostSchemaType };
+
+const { title, author, description, image, tags, pubDate} = Astro.props
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
-    <p><em>{frontmatter.description}</em></p>
-    <p>{frontmatter.pubDate.slice(0, 10)}</p>
+<BaseLayout pageTitle={title}>
+    <p><em>{description}</em></p>
+    <p>{pubDate.toDateString()}</p>
 
-    <p>Written by: {frontmatter.author}</p>
+    <p>Written by: {author}</p>
 
-    <Image
-        width="300"
-        height="200"
-        src={frontmatter.image.url}
-        alt={frontmatter.image.alt}
-    />
+    <Image width="300" height="200" src={image.url} alt={image.alt} />
 
     <div class="tags">
         {
-            frontmatter.tags.map((tag: string) => (
+            tags.map((tag: string) => (
                 <p class="tag">
                     <a href={`/tags/${tag}`}>{tag}</a>
                 </p>

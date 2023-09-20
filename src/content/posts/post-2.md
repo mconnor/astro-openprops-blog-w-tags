@@ -1,12 +1,11 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: Markdown Kitchen Sink
+pubDate: 2022-07-09
 author: Mike Connor
 description: "After learning some Astro, I couldn't stop!"
 image:
     url: 'https://picsum.photos/300/200/?random=2'
     alt: 'Thumbnails of websites from the Astro Showcase site.'
-pubDate: 2022-07-08
 tags: ['astro', 'blogging', 'learning in public', 'successes']
 ---
 
