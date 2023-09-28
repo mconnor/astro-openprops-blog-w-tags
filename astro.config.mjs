@@ -5,6 +5,7 @@ import mdx from '@astrojs/mdx'
 // your configuration options here...
 // https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
+    site: 'https://www.mikeconnor.tech',
     image: {
         domains: ['doodleipsum.com', 'picsum.photos'],
     },

@@ -3,6 +3,7 @@ import { postSchema } from '../schemas'
 
 const postsCollection = defineCollection({
     type: 'content',
+
     schema: postSchema,
 })
 

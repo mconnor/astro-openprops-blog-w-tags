@@ -26,28 +26,27 @@ const { pageTitle } = Astro.props
 
 <style>
     :root {
+        /* light theme vars */
         --brand-light: var(--orange-6);
-
         --text-1-light: var(--gray-8);
         --text-2-light: var(--gray-7);
-
         --surface-1-light: var(--gray-0);
         --surface-2-light: var(--gray-1);
         --surface-3-light: var(--gray-2);
         --surface-4-light: var(--gray-3);
 
+        /* dark theme values */
         --brand-dark: var(--orange-3);
-
         --text-1-dark: var(--gray-3);
         --text-2-dark: var(--gray-5);
-
         --surface-1-dark: var(--gray-12);
         --surface-2-dark: var(--gray-11);
         --surface-3-dark: var(--gray-10);
         --surface-4-dark: var(--gray-9);
 
-        --brand: var(--brand-light);
+        /* init css var for light theme */
 
+        --brand: var(--brand-light);
         --text-1: var(--text-1-light);
         --text-2: var(--text-2-light);
 
@@ -55,11 +54,6 @@ const { pageTitle } = Astro.props
         --surface-2: var(--surface-2-light);
         --surface-3: var(--surface-3-light);
         --surface-4: var(--surface-4-light);
-
-        --brand: var(--brand-light);
-
-        --text-1: var(--text-1-light);
-        --text-2: var(--text-2-light);
     }
 
     @media (prefers-color-scheme: dark) {
