@@ -30,10 +30,11 @@
         "eslint-plugin-astro": "^0.27.2",
         "eslint-plugin-jsx-a11y": "^6.7.1",
         "postcss-html": "^1.5.0",
+        "prettier": "^3.0.3",
         "prettier-plugin-astro": "^0.12.0",
         "stylelint": "^15.10.3",
         "stylelint-config-astro": "^1.0.4",
         "stylelint-prettier": "^4.0.2"
     },
-    "packageManager": "pnpm@8.7.6"
+    "packageManager": "pnpm@8.8.0"
 }

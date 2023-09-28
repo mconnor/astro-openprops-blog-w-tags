@@ -1,4 +1,4 @@
-import rss, { pagesGlobToRssItems } from '@astrojs/rss'
+import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
 
 export async function GET() {
@@ -14,6 +14,7 @@ export async function GET() {
             description: post.data.description,
             link: `/posts/${post.slug}/`,
         })),
+
         customData: `<language>en-us</language>`,
     })
 }
