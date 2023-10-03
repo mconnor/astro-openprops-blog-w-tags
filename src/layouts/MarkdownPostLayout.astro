@@ -1,27 +1,44 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
 import { Image } from 'astro:assets'
 // import type { PostSchemaType } from '../schemas'
+// import type { MarkdownLayoutProps } from 'astro'
+// import type { Code } from 'astro:components'
 
-type Props = CollectionEntry<'posts'>['data']
+// const { frontmatter } = Astro.props as MarkdownLayoutProps<PostSchemaType>
+import type { MarkdownLayoutProps } from 'astro'
 
-// const { frontmatter } = Astro.props as { frontmatter: PostSchemaType };
-
-const { title, author, description, image, tags, pubDate } = Astro.props
+// type Props = MarkdownLayoutProps<{
+//     // Define frontmatter props here
+//     title: string
+//     author: string
+//     pubDate: Date
+//     description: string
+//     image: {
+//         url: string
+//         alt: string
+//     }
+//     tags: string[]
+// }>
+const { frontmatter } = Astro.props
 ---
 
-<BaseLayout pageTitle={title}>
-    <p><em>{description}</em></p>
-    <p>{pubDate.toDateString()}</p>
+<BaseLayout pageTitle="xxx">
+    <p><em>{frontmatter.description}</em></p>
+    <p>{frontmatter.pubDate.toDateString()}</p>
 
-    <p>Written by: {author}</p>
+    <p>Written by: {frontmatter.author}</p>
 
-    <Image width="300" height="200" src={image.url} alt={image.alt} />
+    <Image
+        width="300"
+        height="200"
+        src={frontmatter.image.url}
+        alt={frontmatter.image.alt}
+    />
 
     <div class="tags">
         {
-            tags.map((tag: string) => (
+            frontmatter.tags.map((tag: string) => (
                 <p class="tag">
                     <a href={`/tags/${tag}`}>{tag}</a>
                 </p>

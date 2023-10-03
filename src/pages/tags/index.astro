@@ -7,11 +7,11 @@ const allPosts = await getCollection('posts')
 
 const tagCounts: Record<string, number> = {}
 
-allPosts.forEach((post) => {
-    ;(post.data.tags || []).forEach((tag) => {
+allPosts.forEach((post) =>
+    (post.data.tags || []).forEach((tag) => {
         tagCounts[tag] = (tagCounts[tag] || 0) + 1
     })
-})
+)
 
 const tags = Object.keys(tagCounts)
 ---
