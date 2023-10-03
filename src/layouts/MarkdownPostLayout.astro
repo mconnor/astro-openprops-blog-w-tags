@@ -1,29 +1,25 @@
 ---
 import BaseLayout from './BaseLayout.astro'
 import { Image } from 'astro:assets'
-// import type { PostSchemaType } from '../schemas'
-// import type { MarkdownLayoutProps } from 'astro'
 // import type { Code } from 'astro:components'
-
-// const { frontmatter } = Astro.props as MarkdownLayoutProps<PostSchemaType>
 import type { MarkdownLayoutProps } from 'astro'
 
-// type Props = MarkdownLayoutProps<{
-//     // Define frontmatter props here
-//     title: string
-//     author: string
-//     pubDate: Date
-//     description: string
-//     image: {
-//         url: string
-//         alt: string
-//     }
-//     tags: string[]
-// }>
+type Props = MarkdownLayoutProps<{
+    // Define frontmatter props here
+    title: string
+    author: string
+    pubDate: Date
+    description: string
+    image: {
+        url: string
+        alt: string
+    }
+    tags: string[]
+}>
 const { frontmatter } = Astro.props
 ---
 
-<BaseLayout pageTitle="xxx">
+<BaseLayout pageTitle={frontmatter.title}>
     <p><em>{frontmatter.description}</em></p>
     <p>{frontmatter.pubDate.toDateString()}</p>
 
