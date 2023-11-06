@@ -2,20 +2,23 @@
 import BaseLayout from './BaseLayout.astro'
 import { Image } from 'astro:assets'
 // import type { Code } from 'astro:components'
+
 import type { MarkdownLayoutProps } from 'astro'
 
-export type Props = MarkdownLayoutProps<{
+export type Props = {
     // Define frontmatter props here
-    title: string
-    author: string
-    pubDate: Date
-    description: string
-    image: {
-        url: string
-        alt: string
+    frontmatter: {
+        title: string
+        author: string
+        pubDate: Date
+        description: string
+        image: {
+            url: string
+            alt: string
+        }
+        tags: string[]
     }
-    tags: string[]
-}>
+}
 const { frontmatter } = Astro.props
 ---
 
