@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
-import BlogPost from '../../components/BlogPost.astro'
+import BaseLayout from '@layouts/BaseLayout.astro.tsx'
+import BlogPost from '@components/BlogPost.astro.tsx'
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 
@@ -40,7 +40,12 @@ const { posts } = Astro.props
     <ul>
         {
             posts.map((post) => (
-                <BlogPost url={'/posts/' + post.slug} title={post.data.title} />
+                <li>
+                    <BlogPost
+                        href={'/posts/' + post.slug}
+                        title={post.data.title}
+                    />
+                </li>
             ))
         }
     </ul>
