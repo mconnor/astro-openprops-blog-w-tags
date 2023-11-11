@@ -7,7 +7,7 @@ export async function GET() {
         title: 'Mike Connor | Blog',
         description:
             'My personal blog about Astro, Svelte, and other web development topics.',
-        site: 'https://astro-blog-mike.netlify.app/',
+        site: context.site,
         items: posts.map((post) => ({
             title: post.data.title,
             pubDate: post.data.pubDate,
