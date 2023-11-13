@@ -1,20 +1,9 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
+import { postSchema } from '../schemas.ts'
 
 const postsCollection = defineCollection({
     type: 'content',
-    schema: z.object({
-        title: z.string(),
-        pubDate: z.coerce.date(),
-        description: z.string(),
-        author: z.string(),
-        draft: z.boolean().optional(),
-        tags: z.array(z.string()),
-        image: z.object({
-            url: z.string(),
-            alt: z.string(),
-        }),
-        updatedDate: z.coerce.date().optional(),
-    }),
+    schema: postSchema,
 })
 
 // const authorCollection = defineCollection({

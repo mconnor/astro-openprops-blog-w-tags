@@ -1,6 +1,6 @@
 import { z } from 'astro:content'
 
-const postSchema = z.object({
+export const postSchema = z.object({
     title: z.string(),
     pubDate: z.coerce.date(),
     description: z.string(),
