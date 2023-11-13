@@ -15,7 +15,21 @@ type Props = {
     entry: CollectionEntry<'posts'>
 }
 
+// interface PostData {
+//     title: string
+//     author: string
+//     description: string
+//     draft: boolean
+//     tags: string[]
+//     pubDate: string
+//     image: {
+//         url: string
+//         alt: string
+//     }
+// }
+
 const { entry } = Astro.props
+// const postData: PostData = entry.data
 
 const { Content } = await entry.render()
 ---
