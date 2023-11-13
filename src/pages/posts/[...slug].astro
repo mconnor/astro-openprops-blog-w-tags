@@ -3,30 +3,18 @@ import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro'
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
     const posts = await getCollection('posts')
-    return posts.map((entry) => ({
+    const objs = posts.map((entry) => ({
         params: { slug: entry.slug },
         props: { entry },
     }))
+    return objs
 }
 
 type Props = {
     entry: CollectionEntry<'posts'>
 }
-
-// interface PostData {
-//     title: string
-//     author: string
-//     description: string
-//     draft: boolean
-//     tags: string[]
-//     pubDate: string
-//     image: {
-//         url: string
-//         alt: string
-//     }
-// }
 
 const { entry } = Astro.props
 // const postData: PostData = entry.data

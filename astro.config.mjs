@@ -7,7 +7,8 @@ import mdx from '@astrojs/mdx'
 export default defineConfig({
     site: 'https://www.mikeconnor.tech',
     image: {
-        domains: ['doodleipsum.com', 'picsum.photos'],
+        domains: ['astro.build'],
+        remotePatterns: [{ protocol: 'https' }],
     },
     markdown: {
         drafts: true,
