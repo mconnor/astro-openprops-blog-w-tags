@@ -11,14 +11,17 @@ const allPosts = await getCollection('posts')
     <p>This is where I will post about my journey learning Astro.</p>
     <ul>
         {
-            allPosts.map((post) => (
-                <li>
-                    <BlogPost
-                        href={'/posts/' + post.slug}
-                        title={post.data.title}
-                    />
-                </li>
-            ))
+            allPosts.map(
+                (post) =>
+                    !post.data.draft && (
+                        <li>
+                            <BlogPost
+                                href={'/posts/' + post.slug}
+                                title={post.data.title}
+                            />
+                        </li>
+                    )
+            )
         }
     </ul>
 </BaseLayout>
