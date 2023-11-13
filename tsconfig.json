@@ -4,10 +4,11 @@
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
         "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@content/*": ["src/content/*"]
-    }
-    }
+        "paths": {
+            "@components/*": ["src/components/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@content/*": ["src/content/*"]
+        }
+    },
+    "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.astro"]
 }
