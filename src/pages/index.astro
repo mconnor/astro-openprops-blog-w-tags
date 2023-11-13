@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/SplashLayout.astro'
-import HeroBtn from '../components/HeroBtn.astro'
+import Layout from '@layouts/SplashLayout.astro'
+import HeroBtn from '@components/HeroBtn.astro'
 import { Image } from 'astro:assets'
 
 const pageTitle = 'Splash'
@@ -67,9 +67,9 @@ const pageTitle = 'Splash'
                 doloremque quam, voluptatibus eum voluptatum.
             </p>
             <div class="button-list">
-                <HeroBtn btnLabel="Get started" link="about" primaryBool />
+                <HeroBtn btnLabel="Get started" href="about" primaryBool />
 
-                <HeroBtn btnLabel="Live demo" link="blog" />
+                <HeroBtn btnLabel="Live demo" href="blog" />
             </div>
         </section>
         <picture class="promo-art">
