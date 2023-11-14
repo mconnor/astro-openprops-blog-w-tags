@@ -1,7 +1,7 @@
 ---
 title: My Third Blog Post
-author:  mike-connor
-description: 'I had some challenges, but asking in the community really helped!'
+author:  bob-dobbs
+description: 'Ich bin Ein Teil von jener Kraft, Die stets das Gute schafft. '
 image:
     url: 'https://picsum.photos/300/200/?random=3'
     alt: 'The word community with a heart.'
