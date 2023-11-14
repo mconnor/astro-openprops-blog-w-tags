@@ -1,7 +1,7 @@
 ---
 title: My 5th Blog Post
 pubDate: 2023-04-24
-author: Mike,
+author:  mike-connor
 description: 'Dynamic Post'
 image:
     url: 'https://picsum.photos/300/200?random=5'

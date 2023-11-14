@@ -14,7 +14,6 @@ export async function GET() {
             description: post.data.description,
             link: `/posts/${post.slug}/`,
         })),
-
         customData: `<language>en-us</language>`,
     })
 }

@@ -1,7 +1,7 @@
 ---
 title: My Fourth Blog Post
 pubDate: 2022-08-08
-author: Mike Connor,
+author:  mike-connor
 description: 'This post will show up on its own!'
 image:
     url: 'https://picsum.photos/300/200/?random=4'

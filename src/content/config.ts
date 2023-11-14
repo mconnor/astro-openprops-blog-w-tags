@@ -1,18 +1,18 @@
 import { defineCollection } from 'astro:content'
-import { postSchema } from '../schemas.ts'
+import { postSchema, authorSchema } from '../schemas.ts'
 
 const postsCollection = defineCollection({
     type: 'content',
     schema: postSchema,
 })
 
-// const authorCollection = defineCollection({
-//     type: 'data',
-//     schema: authorSchema,
-//   });
+const authorCollection = defineCollection({
+    type: 'data',
+    schema: authorSchema,
+})
 
 // 3. Export multiple collections to register them
 export const collections = {
     posts: postsCollection,
-    // 'authors': authorCollection,
+    authors: authorCollection,
 }

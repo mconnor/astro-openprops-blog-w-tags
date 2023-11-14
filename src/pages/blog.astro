@@ -4,24 +4,24 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import BlogPost from '../components/BlogPost.astro'
 
 const pageTitle = 'My Astro Learning Blog'
-const allPosts = await getCollection('posts')
+const publishsedPost = await getCollection(
+    'posts',
+    ({ data }) => data.draft !== true
+)
 ---
 
 <BaseLayout pageTitle={pageTitle}>
     <p>This is where I will post about my journey learning Astro.</p>
     <ul>
         {
-            allPosts.map(
-                (post) =>
-                    !post.data.draft && (
-                        <li>
-                            <BlogPost
-                                href={'/posts/' + post.slug}
-                                title={post.data.title}
-                            />
-                        </li>
-                    )
-            )
+            publishsedPost.map((post) => (
+                <li>
+                    <BlogPost
+                        href={'/posts/' + post.slug}
+                        title={post.data.title}
+                    />
+                </li>
+            ))
         }
     </ul>
 </BaseLayout>

@@ -1,7 +1,7 @@
 ---
 title: Markdown Kitchen Sink
 pubDate: 2022-07-09
-author: Mike Connor
+author:  mike-connor
 description: "After learning some Astro, I couldn't stop!"
 image:
     url: 'https://picsum.photos/300/200/?random=2'

@@ -1,16 +1,27 @@
 ---
+import { getEntry } from 'astro:content'
+//import type { CollectionEntry, getEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
 import { Image } from 'astro:assets'
+import type { PostSchemaType } from '../schemas.ts'
 // import type { Code } from 'astro:components'
 
+type Props = {
+    frontmatter: PostSchemaType
+}
+
 const { frontmatter } = Astro.props
+
+const author = await getEntry(frontmatter.author)
+
+// const names: string[] = authors.data.map((author: any) => author.name)
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
     <p><em>{frontmatter.description}</em></p>
     <p>{frontmatter.pubDate.toDateString()}</p>
 
-    <p>Written by: {frontmatter.author}</p>
+    <p>Written by: {author.data.name}</p>
 
     <Image
         width="300"
