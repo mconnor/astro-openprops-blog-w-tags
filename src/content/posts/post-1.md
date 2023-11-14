@@ -1,7 +1,7 @@
 ---
 title: Draft Post
 pubDate: 2022-07-01
-author:  mike-connor
+author: mike-connor
 description: This is the first post of my new Astro blog
 draft: true
 image:

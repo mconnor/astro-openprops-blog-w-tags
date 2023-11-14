@@ -1,6 +1,6 @@
 ---
 title: My Third Blog Post
-author:  bob-dobbs
+author: bob-dobbs
 description: 'Ich bin Ein Teil von jener Kraft, Die stets das Gute schafft. '
 image:
     url: 'https://picsum.photos/300/200/?random=3'
