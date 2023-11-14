@@ -20,18 +20,18 @@
         "@astrojs/mdx": "^1.1.4",
         "@astrojs/rss": "^3.0.0",
         "astro": "^3.5.3",
-        "open-props": "^1.6.10",
+        "open-props": "^1.6.11",
         "sharp": "^0.32.6",
         "typescript": "^5.2.2"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "^6.10.0",
+        "@typescript-eslint/parser": "^6.11.0",
         "eslint": "^8.53.0",
         "eslint-plugin-astro": "^0.27.2",
         "eslint-plugin-jsx-a11y": "^6.8.0",
         "postcss-html": "^1.5.0",
         "prettier": "^3.1.0",
-        "prettier-plugin-astro": "^0.12.1",
+        "prettier-plugin-astro": "^0.12.2",
         "stylelint": "^15.11.0",
         "stylelint-config-astro": "^1.0.4",
         "stylelint-prettier": "^4.0.2"
