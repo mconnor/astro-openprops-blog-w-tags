@@ -3,24 +3,128 @@ type Props = Record<string, never>
 ---
 
 <style>
-    .hamburger {
-        padding-right: 20px;
-        cursor: pointer;
-        & .line {
-            display: block;
-            width: var(--size-15);
-            height: 5px;
-            margin-bottom: 10px;
-            background-color: var(--brand);
-            @media screen and (min-width: 636px) {
-                display: none;
+    .hamburger-menu {
+        display: block;
+        position: relative;
+
+        #menu__toggle {
+            opacity: 0;
+        }
+
+        .menu__btn {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            z-index: 1;
+
+            span,
+            span::before,
+            span::after {
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #616161;
+                transition-duration: 0.25s;
             }
+
+            span::before {
+                content: '';
+                top: -8px;
+            }
+            span::after {
+                content: '';
+                top: 8px;
+            }
+        }
+
+        .menu__box {
+            display: block;
+            position: absolute;
+            visibility: hidden;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            margin: 0;
+            padding: 20px 0;
+            list-style: none;
+            background-color: #eceff1;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+
+            .menu__item {
+                display: block;
+                padding: 12px 24px;
+                color: #333;
+                text-decoration: none;
+                font-size: 20px;
+
+                &:hover {
+                    background-color: #cfd8dc;
+                }
+            }
+        }
+    }
+
+    #menu__toggle:checked + .menu__btn {
+        span {
+            transform: rotate(45deg);
+        }
+
+        span::before {
+            top: 0;
+            transform: rotate(0deg);
+        }
+
+        span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+    }
+
+    #menu__toggle:checked ~ .menu__box {
+        visibility: visible;
+    }
+   /* Hide the hamburger menu and show a horizontal menu at min-width of 636px */
+   @media screen and (min-width: 636px) {
+        .hamburger-menu #menu__toggle,
+        .hamburger-menu .menu__btn {
+            display: none;
+        }
+
+        .hamburger-menu .menu__box {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: visible;
+            background: none;
+            box-shadow: none;
+        }
+
+        .hamburger-menu .menu__box .menu__item {
+            display: inline-block;
+            margin: 0 10px;
         }
     }
 </style>
 
-<div class="hamburger">
-    <span class="line"></span>
-    <span class="line"></span>
-    <span class="line"></span>
+<div class="hamburger-menu">
+    <input id="menu__toggle" type="checkbox" />
+    <label class="menu__btn" for="menu__toggle">
+        <span></span>
+    </label>
+
+    <ul class="menu__box">
+        <li><a class="menu__item" href="/">Home</a></li>
+        <li><a class="menu__item" href="/about/">About</a></li>
+        <li><a class="menu__item" href="/kitchensink/">Kitchen Sink</a></li>
+        <li><a class="menu__item" href="/blog/">Blog</a></li>
+        <li><a class="menu__item" href="/tags/">Tags</a></li>
+    </ul>
 </div>
