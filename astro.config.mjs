@@ -22,5 +22,5 @@ export default defineConfig({
         ssr: {
             noExternal: ['open-props'],
         },
-    }
+    },
 })
