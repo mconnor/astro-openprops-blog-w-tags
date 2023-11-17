@@ -4,30 +4,6 @@ import Footer from '@components/Footer.astro'
 // import '../styles/global.css'
 import { ViewTransitions } from 'astro:transitions'
 
-/* the props */
-// import 'open-props/style'
-
-/* optional imports that use the props */
-// import 'open-props/normalize'
-// import 'open-props/normalize.light'
-// import 'open-props/normalize.dark'
-// import 'open-props/theme.light'
-// import 'open-props/theme.dark'
-// import 'open-props/buttons.light'
-// import 'open-props/buttons.dark'
-
-/* just light or dark themes */
-// import 'open-props/normalize/dark'
-// import 'open-props/buttons/dark'
-// import 'open-props/normalize/light'
-// import 'open-props/buttons/light'
-
-// import 'open-props/shadows'
-// import 'open-props/sizes'
-// import 'open-props/zindex'
-// import 'open-props/fonts'
-// import 'open-props/borders'
-
 interface Props {
     pageTitle: string
 }
@@ -36,25 +12,46 @@ const { pageTitle } = Astro.props
 
 <style>
     @import 'open-props/style';
-    @import 'open-props/normalize';
+    /* @import 'open-props/normalize'; */
     @import 'open-props/buttons';
     @import 'open-props/animations';
     @import 'open-props/colors';
     :root {
         /* opt the entire page into the user's color scheme preferences declare color-scheme on the :root element */
 
-        color-scheme: light;
+        color-scheme: light dark;
 
+        /* light theme values */
+        --brand-light: var(--orange-6);
+        --text-1-light: var(--gray-8);
+        --text-2-light: var(--gray-7);
+        --surface-1-light: var(--gray-0);
+        --surface-2-light: var(--gray-1);
+        --surface-3-light: var(--gray-2);
+        --surface-4-light: var(--gray-3);
+
+        /* dark theme values */
+        --brand-dark: var(--orange-3);
+        --text-1-dark: var(--gray-3);
+        --text-2-dark: var(--gray-5);
+        --surface-1-dark: var(--gray-12);
+        --surface-2-dark: var(--gray-11);
+        --surface-3-dark: var(--gray-10);
+        --surface-4-dark: var(--gray-9);
+    }
+
+    html {
+        /* background-color: var(--surface-1);
+        color: var(--text-1);
+        accent-color: var(--link); */
+
+        font-family: var(--font-sans);
+        line-height: var(--font-lineheight-3);
+    }
+
+    /* Default colors */
+    body {
         /* set defaults */
-        --brand: var(--brand-light);
-        --text-1: var(--text-1-light);
-        --text-2: var(--text-2-light);
-        --surface-1: var(--surface-1-light);
-        --surface-2: var(--surface-2-light);
-        --surface-3: var(--surface-3-light);
-        --surface-4: var(--surface-4-light);
-        --surface-shadow: var(--surface-shadow-light);
-        --shadow-strength: var(--shadow-strength-light);
 
         @media (prefers-color-scheme: light) {
             --brand: var(--brand-light);
@@ -80,33 +77,7 @@ const { pageTitle } = Astro.props
             --surface-4: var(--surface-4-dark);
         }
     }
-
-    html {
-        /* light theme values */
-        --brand-light: var(--orange-6);
-        --text-1-light: var(--gray-8);
-        --text-2-light: var(--gray-7);
-        --surface-1-light: var(--gray-0);
-        --surface-2-light: var(--gray-1);
-        --surface-3-light: var(--gray-2);
-        --surface-4-light: var(--gray-3);
-
-        /* dark theme values */
-        --brand-dark: var(--orange-3);
-        --text-1-dark: var(--gray-3);
-        --text-2-dark: var(--gray-5);
-        --surface-1-dark: var(--gray-12);
-        --surface-2-dark: var(--gray-11);
-        --surface-3-dark: var(--gray-10);
-        --surface-4-dark: var(--gray-9);
-
-        /* background-color: var(--surface-1);
-        color: var(--text-1);
-        accent-color: var(--link); */
-
-        font-family: var(--font-sans);
-        line-height: var(--font-lineheight-3);
-    }
+    /* Dark theme colors */
 
     body {
         margin: 0 auto;
@@ -132,6 +103,23 @@ const { pageTitle } = Astro.props
         small,
         dd {
             color: var(--text-2);
+        }
+
+        margin: auto;
+        background-color: var(--surface-3);
+        /* padding: 1rem; */
+        border: 1px solid white;
+        width: var(--size-md);
+        max-width: calc(100% - 2rem);
+        /* color: white; */
+        font-size: var(--font-size-2);
+        line-height: 1.6;
+        display: flex;
+        gap: var(--size-fluid-2);
+        flex-direction: column;
+
+        :is(h1) {
+            align-self: center;
         }
     }
     /* 
@@ -272,22 +260,6 @@ const { pageTitle } = Astro.props
         }
     }
     main {
-        margin: auto;
-        background-color: var(--surface-3);
-        /* padding: 1rem; */
-        border: 1px solid white;
-        width: var(--size-md);
-        max-width: calc(100% - 2rem);
-        /* color: white; */
-        font-size: var(--font-size-2);
-        line-height: 1.6;
-        display: flex;
-        gap: var(--size-fluid-2);
-        flex-direction: column;
-
-        :is(h1) {
-            align-self: center;
-        }
     }
 </style>
 
@@ -301,10 +273,9 @@ const { pageTitle } = Astro.props
         <ViewTransitions />
     </head>
     <body>
-        <main>
-            <Header />
-            <h1 class="headline">{pageTitle}</h1>
-
+        <Header />
+        <h1 class="headline">{pageTitle}</h1>
+        <main role="main">
             <slot />
         </main>
     </body>
