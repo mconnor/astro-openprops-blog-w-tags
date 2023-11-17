@@ -1,7 +1,3 @@
 module.exports = {
-    plugins: {
-        'postcss-nesting': {},
-        autoprefixer: {},
-      }
+    plugins: [require('autoprefixer'), require('postcss-nesting')],
 }
-
