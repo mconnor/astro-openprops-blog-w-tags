@@ -12,11 +12,12 @@ const { pageTitle } = Astro.props
 
 <style>
     @import 'open-props/style';
-    /* @import 'open-props/normalize'; */
+    @import 'open-props/normalize';
     @import 'open-props/fonts';
     @import 'open-props/buttons';
     @import 'open-props/animations';
     @import 'open-props/colors';
+    @import 'open-props/borders';
 
     :root {
         /* opt the entire page into the user's color scheme preferences declare color-scheme on the :root element */
@@ -179,9 +180,6 @@ const { pageTitle } = Astro.props
 
         /* margin: auto; */
         background-color: var(--surface-3);
-        /* padding: 1rem; */
-        border-width: var(--border-size-3);
-        border-color: var(--surface-4);
 
         padding-inline: var(--size-fluid-4);
 
