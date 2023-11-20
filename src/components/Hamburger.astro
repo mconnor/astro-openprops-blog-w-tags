@@ -5,98 +5,70 @@ type Props = Record<string, never>
 <style>
     #menu__toggle {
         display: none;
-       
+
         &:checked + .menu__btn {
-            & span {
+            :is(span) {
                 transform: rotate(45deg);
-                animation(--animations)
             }
-            & span::before {
+            :is(span),
+            ::before {
                 top: 0;
                 transform: rotate(0);
             }
-            & span::after {
+            :is(span),
+            ::after {
                 top: 0;
                 transform: rotate(90deg);
             }
         }
-        
-        &:checked ~ .menu__box {
-            display: flex;
-            flex-direction:column;
+        @media (width< 630px) {
+            display: none;
+            &:checked ~ .menu__box {
+                display: block;
+            }
         }
     }
 
     .hamburger-menu {
-
-     
-
         display: block;
         position: relative;
         & .menu__btn {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            position: relative;
-            top: var(--size-5);
-            left: var(--size-5);
+            justify-content: center;
 
-            width: var(--size-12);
-            height: var(--size-1);
-        
-            cursor: pointer;
-            z-index: 1;
+            background: var(--surface-4);
+
+            width: var(--size-8);
+            height: var(--size-8);
             user-select: none;
-         
 
             :is(span),
             :is(span)::before,
             :is(span)::after {
                 display: block;
-                position: absolute;
+                width: var(--size-5);
                 height: var(--size-1);
-                width: var(--size-4);
-                background-color: var(--surface-1);
-                transition: all 0.3s ease;
+
+                transition: transform 0.4s cubic-bezier(0.54, -0.81, 0.57, 0.57);
                 content: '';
-
-                @media (prefers-color-scheme: dark) {
-                    // --brand: var(--brand-light);
-                    // --text-1: var(--text-1-light);
-                    // --text-2: var(--text-2-light);
-                    --surface-1: var(--surface-1-light);
-                    // --surface-2: var(--surface-2-light);
-                    // --surface-3: var(--surface-3-light);
-                    // --surface-4: var(--surface-4-light);
-                    // --surface-shadow: var(--surface-shadow-light);
-                    // --shadow-strength: var(--shadow-strength-light);
-        }
-
-        /* set defaults */
-
-                @media (prefers-color-scheme: light) {
-                    // --brand: var(--brand-dark);
-                    // --text-1: var(--text-1-dark);
-                    // --text-2: var(--text-2-dark);
-                    --surface-1: var(--surface-1-dark);
-                    // --surface-2: var(--surface-2-dark);
-                    // --surface-3: var(--surface-3-dark);
-                    // --surface-4: var(--surface-4-dark);
-                }
+                background-color: var(--surface-1);
             }
 
+            :is(span)::before,
+            :is(span)::after {
+                content: '';
+                display: block;
+                position: absolute;
+            }
 
-
-            :is(span)::before{
-                top: calc(-1 * var(--size-2))
+            :is(span)::before {
+                top: 25%;
             }
             :is(span)::after {
-                top:var(--size-2)
+                bottom: 25%;
             }
-
-
-          
-            
-
             @media (min-width: 630px) {
                 display: none;
             }
@@ -104,48 +76,35 @@ type Props = Record<string, never>
 
         & .menu__box {
             display: none;
-            position: absolute;
-           
-           
+            position: relative;
+            width: 75%;
             box-shadow: var(--shadow-1);
 
-           
             & li {
-             
                 list-style: none;
                 border-width: var(--border-size-1);
                 background-color: var(--surface-4);
                 white-space: nowrap;
+                & .menu__item {
+                    color: var(--text-1);
+                    text-decoration: none;
+
+                    padding-left: var(--size-2);
+                    @media (min-width: 630px) {
+                        padding: var(--size-4) var(--size-4);
+                    }
+                }
                 &:hover {
-                    background-color: var(--surface-3);
+                    background-color: var(--surface-1);
+                    cursor: pointer;
                 }
             }
             @media (width>= 630px) {
                 display: flex;
-                flex-direction:row;
-       
+                flex-direction: row;
                 position: static;
-            
+
                 /* background: none; */
-
-               
-            }
-
-            & .menu__item {
-              
-                color: var(--text-1);
-                
-               
-                // padding: 12px 24px;
-                text-decoration: none;
-                transition: background-color 0.3s ease;
-                @media (min-width: 630px) {
-                    padding: 10px 15px;
-                }
-
-                // &:hover {
-                //     background-color: var(--surface-4)
-                // }
             }
         }
     }
@@ -157,7 +116,7 @@ type Props = Record<string, never>
         <span></span>
     </label>
 
- <ul class="menu__box">
+    <ul class="menu__box">
         <li><a class="menu__item" href="/">Home</a></li>
         <li><a class="menu__item" href="/about/">About</a></li>
         <li><a class="menu__item" href="/kitchensink/">Kitchen Sink</a></li>
