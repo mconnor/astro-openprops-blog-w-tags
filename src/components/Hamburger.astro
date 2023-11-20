@@ -7,24 +7,41 @@ type Props = Record<string, never>
         display: none;
 
         &:checked + .menu__btn {
-            :is(span) {
+            & span {
                 transform: rotate(45deg);
             }
-            :is(span),
-            ::before {
+            & span::before {
                 top: 0;
                 transform: rotate(0);
             }
-            :is(span),
-            ::after {
+            & span::after {
                 top: 0;
                 transform: rotate(90deg);
             }
         }
         @media (width< 630px) {
             display: none;
+
             &:checked ~ .menu__box {
                 display: block;
+                & li {
+                    animation: var(--animation-slide-in-right);
+                }
+                & li:nth-child(1) {
+                    animation-delay: 0.1s;
+                }
+                & li:nth-child(2) {
+                    animation-delay: 0.2s;
+                }
+                & li:nth-child(3) {
+                    animation-delay: 0.3s;
+                }
+                & li:nth-child(4) {
+                    animation-delay: 0.4s;
+                }
+                & li:nth-child(5) {
+                    animation-delay: 0.5s;
+                }
             }
         }
     }
@@ -76,6 +93,7 @@ type Props = Record<string, never>
 
         & .menu__box {
             display: none;
+
             position: relative;
             width: 75%;
             box-shadow: var(--shadow-1);
