@@ -33,9 +33,13 @@ const author = await getEntry(frontmatter.author)
     <div class="tags">
         {
             frontmatter.tags.map((tag: string) => (
-                <p class="tag">
-                    <a href={`/tags/${tag}`}>{tag}</a>
-                </p>
+                <ul class="tag">
+                    <li>
+                        <a class="menu__item" href={`/tags/${tag}`}>
+                            {tag}
+                        </a>
+                    </li>
+                </ul>
             ))
         }
     </div>
@@ -52,9 +56,12 @@ const author = await getEntry(frontmatter.author)
     .tag {
         border: dotted 1px #a1a1a1;
         border-radius: 0.5em;
-        padding: 0.5em 1em;
-
-        background-color: #f8fcfd;
+        padding-inline: var(--size-3);
+        white-space: nowrap;
+        background-color: var(--surface-2);
+        & li {
+            list-style: none;
+        }
     }
 </style>
  ../schemas.mjs
