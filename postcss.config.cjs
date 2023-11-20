@@ -1,5 +1,7 @@
 const postcssPresetEnv = require('postcss-preset-env')
 const postcssNesting = require('postcss-nesting')
+const postcssHasPseudo = require('css-has-pseudo');
+
 
 module.exports = {
     plugins: [
@@ -11,5 +13,6 @@ module.exports = {
                 'logical-properties-and-values': false,
             },
         }),
+        postcssHasPseudo
     ],
 }
