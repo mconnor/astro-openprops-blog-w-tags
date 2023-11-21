@@ -6,7 +6,7 @@ description: "After learning some Astro, I couldn't stop!"
 image:
     url: 'https://picsum.photos/300/200/?random=2'
     alt: 'Thumbnails of websites from the Astro Showcase site.'
-tags: ['astro', 'blogging', 'learning in public', 'successes']
+tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 ---
 
 ## Table of Contents
