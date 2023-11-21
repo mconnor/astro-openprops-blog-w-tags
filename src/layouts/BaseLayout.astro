@@ -1,4 +1,12 @@
 ---
+import 'open-props/style'
+import 'open-props/normalize'
+import 'open-props/fonts'
+import 'open-props/buttons'
+import 'open-props/animations'
+import 'open-props/colors'
+import 'open-props/borders'
+
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
 // import '../styles/global.css'
@@ -11,14 +19,6 @@ const { pageTitle } = Astro.props
 ---
 
 <style>
-    @import 'open-props/style';
-    @import 'open-props/normalize';
-    @import 'open-props/fonts';
-    @import 'open-props/buttons';
-    @import 'open-props/animations';
-    @import 'open-props/colors';
-    @import 'open-props/borders';
-
     :root {
         /* opt the entire page into the user's color scheme preferences declare color-scheme on the :root element */
 
