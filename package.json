@@ -19,26 +19,26 @@
         "@astrojs/check": "^0.3.1",
         "@astrojs/mdx": "^1.1.5",
         "@astrojs/rss": "^3.0.0",
-        "astro": "^3.6.0",
+        "astro": "^3.6.3",
         "open-props": "^1.6.13",
         "sharp": "^0.32.6",
         "typescript": "^5.3.2"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "^6.12.0",
+        "@typescript-eslint/parser": "^6.13.1",
         "autoprefixer": "^10.4.16",
-        "css-has-pseudo": "^6.0.0",
         "eslint": "^8.54.0",
         "eslint-plugin-astro": "^0.29.1",
         "eslint-plugin-jsx-a11y": "^6.8.0",
         "postcss-html": "^1.5.0",
+        "postcss-jit-props": "^1.0.14",
         "postcss-nesting": "^12.0.1",
         "postcss-preset-env": "^9.3.0",
         "prettier": "^3.1.0",
         "prettier-plugin-astro": "^0.12.2",
         "stylelint": "^15.11.0",
         "stylelint-config-astro": "^1.0.4",
-        "stylelint-prettier": "^4.0.2"
+        "stylelint-prettier": "^4.1.0"
     },
     "packageManager": "pnpm@8.10.5"
 }
