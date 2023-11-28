@@ -86,112 +86,31 @@ const { pageTitle } = Astro.props
         }
     }
 
-    /* Default colors */
     body {
-        font-size: 100%;
+        font-size: 16px;
         font-weight: var(--font-weight-5);
         line-height: var(--font-lineheight-3);
 
-        line-height: var(--font-lineheight-3);
+        max-width: var(--size-lg);
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+        /* gap: var(--size-1); */
+        grid-template-areas: 'content';
     }
-    /* Dark theme colors */
+    .content {
+        justify-self: center;
+        border-width: 1px;
+        border-color: black;
 
-    body {
-        /* margin: 0 auto;
-        width: 100%;
-        max-width: 80ch; */
+        grid-area: content;
+        display: grid;
+        grid-template-columns: 1fr;
 
-        /* padding: var(--size-fluid-3);
-        line-height: var(--font-lineheight-3); */
-
-        /* typeography */
-
-        h1,
-        .h1,
-        h2,
-        .h2,
-        h3,
-        .h3,
-        h4,
-        .h4,
-        h5,
-        .h5,
-        h6,
-        .h6 {
-            /* margin-top: var(--size-7);
-            margin-bottom: var(--size-3);
-            font-weight: var(--font-weight-7);
-            line-height: var(--size-3); */
-        }
-        small {
-            font-size: var(--text-size-90);
-        }
-        h6,
-        .h6 {
-            font-size: var(--text-size-200);
-        }
-        h5,
-        .h5 {
-            font-size: var(--text-size-300);
-        }
-        h4,
-        .h4 {
-            font-size: var(--text-size-400);
-        }
-        h3,
-        .h3 {
-            font-size: var(--text-size-500);
-        }
-        h2,
-        .h2 {
-            font-size: var(--text-size-600);
-        }
-        h1,
-        .h1 {
-            font-size: var(--text-size-700);
-        }
-        .text-size-80 {
-            font-size: var(--text-size-80);
-        }
-        .text-size-90 {
-            font-size: var(--text-size-90);
-        }
-        .text-size-100 {
-            font-size: var(--text-size-100);
-        }
-        .text-size-200 {
-            font-size: var(--text-size-200);
-        }
-        .text-size-300 {
-            font-size: var(--text-size-300);
-        }
-        .text-size-400 {
-            font-size: var(--text-size-400);
-        }
-        .text-size-500 {
-            font-size: var(--text-size-500);
-        }
-        .text-size-600 {
-            font-size: var(--text-size-600);
-        }
-        .text-size-700 {
-            font-size: var(--text-size-700);
-        }
-
-        /* margin: auto; */
-        background-color: var(--surface-3);
-
-        padding-inline: var(--size-fluid-4);
-
-        max-width: calc(100% - 2rem);
-        /* color: white; */
-        font-size: var(--font-size-2);
-        line-height: 1.6;
-        /* display: flex; */
-
-        :is(h1) {
-            align-self: center;
-        }
+        grid-template-rows: auto auto 1fr auto;
+        background-color: var(--surface-2);
+        row-gap: var(--size-1);
     }
 
     /* 
@@ -287,6 +206,7 @@ const { pageTitle } = Astro.props
         }
     }
     main {
+        block-size: 100%;
     }
 </style>
 
@@ -300,11 +220,13 @@ const { pageTitle } = Astro.props
         <ViewTransitions />
     </head>
     <body>
-        <Header />
-        <h1>{pageTitle}</h1>
-        <main role="main">
-            <slot />
-        </main>
+        <section class="content">
+            <Header />
+            <h1>{pageTitle}</h1>
+            <main role="main">
+                <slot />
+            </main>
+            <Footer />
+        </section>
     </body>
-    <Footer />
 </html>

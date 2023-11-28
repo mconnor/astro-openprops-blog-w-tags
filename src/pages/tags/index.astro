@@ -38,19 +38,18 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
     }
 
     .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--size-3);
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+
+        gap: var(--size-1);
 
         & button {
             display: inline-flex;
             white-space: nowrap;
 
-            font-size: var(--font-size-fluid-1);
+            font-size: var(--font-size-1);
             font-weight: var(--font-weight-7);
-
-            /* padding-inline: var(--size-6);
-            padding-block: var(--size-3); */
 
             color: var(--blue-9);
             border: var(--border-size-2) solid var(--blue-5);
