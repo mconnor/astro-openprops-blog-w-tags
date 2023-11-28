@@ -14,6 +14,8 @@ export const postSchema = z.object({
     image: z.object({
         url: z.string(),
         alt: z.string(),
+        width: z.number().optional(),
+        height: z.number().optional(),
     }),
     updatedDate: z.coerce.date().optional(),
     // canonicalURL: z.string().url(),
