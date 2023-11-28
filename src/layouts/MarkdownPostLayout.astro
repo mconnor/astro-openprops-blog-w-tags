@@ -1,18 +1,9 @@
 ---
-import 'open-props/style'
-import 'open-props/normalize'
-import 'open-props/fonts'
-import 'open-props/buttons'
-import 'open-props/animations'
-import 'open-props/colors'
-import 'open-props/borders'
-
 import { getEntry } from 'astro:content'
-//import type { CollectionEntry, getEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
 import { Image } from 'astro:assets'
 import type { PostSchemaType } from '../schemas.ts'
-// import type { Code } from 'astro:components'
+
 
 type Props = {
     frontmatter: PostSchemaType
@@ -21,8 +12,6 @@ type Props = {
 const { frontmatter } = Astro.props
 
 const author = await getEntry(frontmatter.author)
-
-// const names: string[] = authors.data.map((author: any) => author.name)
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
@@ -32,8 +21,8 @@ const author = await getEntry(frontmatter.author)
     <p>Written by: {author.data.name}</p>
 
     <Image
-        width="300"
-        height="200"
+        width={frontmatter.image.width || 300}
+        height={frontmatter.image.height || 200}
         src={frontmatter.image.url}
         alt={frontmatter.image.alt}
     />
