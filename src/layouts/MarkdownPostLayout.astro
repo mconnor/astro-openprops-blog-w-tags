@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
 import { Image } from 'astro:assets'
 import type { PostSchemaType } from '../schemas.ts'
-
+import  TagButton from '@components/TagButton.astro'
 
 type Props = {
     frontmatter: PostSchemaType
@@ -12,7 +12,12 @@ type Props = {
 const { frontmatter } = Astro.props
 
 const author = await getEntry(frontmatter.author)
+
+
+
 ---
+
+
 
 <BaseLayout pageTitle={frontmatter.title}>
     <p><em>{frontmatter.description}</em></p>
@@ -30,13 +35,7 @@ const author = await getEntry(frontmatter.author)
     <div class="tags">
         {
             frontmatter.tags.map((tag: string) => (
-                <ul class="tag">
-                    <li>
-                        <a class="menu__item" href={`/tags/${tag}`}>
-                            {tag}
-                        </a>
-                    </li>
-                </ul>
+                <TagButton tag={tag} />
             ))
         }
     </div>
@@ -46,19 +45,13 @@ const author = await getEntry(frontmatter.author)
 <style>
     .tags {
         display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+  
+       gap: var(--size-9);
+   
     }
 
-    .tag {
-        border: dotted 1px #a1a1a1;
-        border-radius: 0.5em;
-        padding-inline: var(--size-3);
-        white-space: nowrap;
-        background-color: var(--surface-2);
-        & li {
-            list-style: none;
-        }
-    }
+   
 </style>
  ../schemas.mjs
