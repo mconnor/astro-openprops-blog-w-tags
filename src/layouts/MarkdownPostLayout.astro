@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content'
 import BaseLayout from './BaseLayout.astro'
 import { Image } from 'astro:assets'
 import type { PostSchemaType } from '../schemas.ts'
-import  TagButton from '@components/TagButton.astro'
+import TagButton from '@components/TagButton.astro'
 
 type Props = {
     frontmatter: PostSchemaType
@@ -12,12 +12,7 @@ type Props = {
 const { frontmatter } = Astro.props
 
 const author = await getEntry(frontmatter.author)
-
-
-
 ---
-
-
 
 <BaseLayout pageTitle={frontmatter.title}>
     <p><em>{frontmatter.description}</em></p>
@@ -30,14 +25,12 @@ const author = await getEntry(frontmatter.author)
         height={frontmatter.image.height || 200}
         src={frontmatter.image.url}
         alt={frontmatter.image.alt}
+        loading="lazy"
+        decoding="async"
     />
 
     <div class="tags">
-        {
-            frontmatter.tags.map((tag: string) => (
-                <TagButton tag={tag} />
-            ))
-        }
+        {frontmatter.tags.map((tag: string) => <TagButton tag={tag} />)}
     </div>
 
     <slot />
@@ -47,11 +40,8 @@ const author = await getEntry(frontmatter.author)
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
-  
-       gap: var(--size-9);
-   
-    }
 
-   
+        gap: var(--size-9);
+    }
 </style>
  ../schemas.mjs

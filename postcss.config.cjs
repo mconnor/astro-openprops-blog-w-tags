@@ -1,11 +1,8 @@
 const postcssPresetEnv = require('postcss-preset-env')
 const postcssNesting = require('postcss-nesting')
 
-
-
 module.exports = {
     plugins: [
-
         postcssNesting,
         postcssPresetEnv({
             /* pluginOptions */
@@ -13,6 +10,6 @@ module.exports = {
             features: {
                 'logical-properties-and-values': false,
             },
-        })
+        }),
     ],
 }
