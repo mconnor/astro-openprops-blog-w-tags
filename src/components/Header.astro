@@ -4,10 +4,16 @@ import Hamburger from './Hamburger.astro'
 type Props = Record<string, never>
 ---
 
-<style></style>
+<style>
+    header {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        background-color: var(--surface-4);
+    }
+</style>
 
 <header role="banner">
-    <nav role="navigation">
-        <Hamburger />
-    </nav>
+    <Hamburger />
 </header>

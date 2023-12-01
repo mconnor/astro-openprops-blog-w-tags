@@ -1,15 +1,4 @@
 ---
-// import 'open-props/style'
-// import 'open-props/normalize'
-// import 'open-props/fonts'
-// import 'open-props/buttons'
-// import 'open-props/animations'
-// import 'open-props/colors'
-// import 'open-props/borders'
-// import 'open-props/gradients'
-
-// import  'open-props/style'
-
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
 import { ViewTransitions } from 'astro:transitions'
@@ -24,12 +13,12 @@ const { pageTitle } = Astro.props
     @import 'open-props/postcss/style';
     @import 'open-props/postcss/normalize';
     @import 'open-props/postcss/buttons';
-    :root {
-        /* opt the entire page into the user's color scheme preferences declare color-scheme on the :root element */
 
-        color-scheme: light dark;
+    @layer reset, legacy, defaults,  patterns, components, utilities, overrides;
 
-        /* set defaults */
+    @layer reset {
+    }
+    @layer defaults {
         --brand: var(--brand-light);
         --text-1: var(--text-1-light);
         --text-2: var(--text-2-light);
@@ -39,10 +28,7 @@ const { pageTitle } = Astro.props
         --surface-4: var(--surface-4-light);
         --surface-shadow: var(--surface-shadow-light);
         --shadow-strength: var(--shadow-strength-light);
-    }
 
-    html {
-        /* light theme values */
         --brand-light: var(--orange-6);
         --text-1-light: var(--gray-8);
         --text-2-light: var(--gray-7);
@@ -64,61 +50,46 @@ const { pageTitle } = Astro.props
         font-size: 16px;
 
         block-size: 100%;
-        background-image: var(--gradient-5);
+
         color: var(--text-1);
-        accent-color: var(--brand);
+    }
 
-        @media (prefers-color-scheme: light) {
-            --brand: var(--brand-light);
-            --text-1: var(--text-1-light);
-            --text-2: var(--text-2-light);
-            --surface-1: var(--surface-1-light);
-            --surface-2: var(--surface-2-light);
-            --surface-3: var(--surface-3-light);
-            --surface-4: var(--surface-4-light);
-            --surface-shadow: var(--surface-shadow-light);
-            --shadow-strength: var(--shadow-strength-light);
+    @layer legacy {
+        :root {
+            /* opt the entire page into the user's color scheme preferences declare color-scheme on the :root element */
+
+            color-scheme: light dark;
         }
 
-        @media (prefers-color-scheme: dark) {
-            --brand: var(--brand-dark);
-            --text-1: var(--text-1-dark);
-            --text-2: var(--text-2-dark);
-            --surface-1: var(--surface-1-dark);
-            --surface-2: var(--surface-2-dark);
-            --surface-3: var(--surface-3-dark);
-            --surface-4: var(--surface-4-dark);
+        html {
+            /* light theme values */
+
+            accent-color: var(--brand);
         }
-    }
 
-    body {
-        font-size: 16px;
-        font-weight: var(--font-weight-5);
-        line-height: var(--font-lineheight-3);
+        body {
+            font-size: 16px;
+            font-weight: var(--font-weight-5);
+            line-height: var(--font-lineheight-3);
 
-        max-width: var(--size-lg);
+            display: grid;
+            grid-area: 'base-layout';
 
-        display: grid;
+            justify-items: center;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto 4fr 1fr;
+            background-color: aqua;
+            /* gap: var(--size-1); */
+        }
 
-        grid-template-columns: 1fr;
-        /* gap: var(--size-1); */
-        grid-template-areas: 'content';
-    }
-    .content {
-        justify-self: center;
-        border-width: 1px;
-        border-color: black;
+        .kontent {
+            justify-self: center;
+            border-width: 1px;
+            border-color: black;
+            grid-area: 'content';
+        }
 
-        grid-area: content;
-        display: grid;
-        grid-template-columns: 1fr;
-
-        grid-template-rows: auto auto 1fr auto;
-        background-color: var(--surface-2);
-        row-gap: var(--size-1);
-    }
-
-    /* 
+        /* 
     [color-scheme='light'] {
         color-scheme: light;
 
@@ -189,29 +160,38 @@ const { pageTitle } = Astro.props
         --shadow-strength: var(--shadow-strength-choco);
     } */
 
-    code {
-        font-family: var(--fontmono);
-    }
+        code {
+            font-family: var(--fontmono);
+        }
 
-    .button-class {
-        border-radius: var(--radius-3);
-        padding: var(--size-4) var(--size-8);
-        box-shadow: var(--shadow-6);
-        text-decoration: none;
-        cursor: pointer;
-        .blue & {
-            color: var(--blue-6);
-            background-color: var(--blue-0);
-            border: var(--border-size-1) solid var(--blue-1);
-            text-shadow: 0 1px 0 var(--blue-2);
+        .button-class {
+            border-radius: var(--radius-3);
+            padding: var(--size-4) var(--size-8);
+            box-shadow: var(--shadow-6);
+            text-decoration: none;
+            cursor: pointer;
+            .blue & {
+                color: var(--blue-6);
+                background-color: var(--blue-0);
+                border: var(--border-size-1) solid var(--blue-1);
+                text-shadow: 0 1px 0 var(--blue-2);
 
-            &:hover {
-                background-color: var(--blue-1);
+                &:hover {
+                    background-color: var(--blue-1);
+                }
             }
         }
     }
-    main {
-        block-size: 100%;
+    @layer patterns {
+    }
+    @layer components {
+        main {
+            block-size: 100%;
+            background-color:;
+        }
+        a:any-link {
+            color: var(--brand);
+        }
     }
 </style>
 
@@ -225,13 +205,11 @@ const { pageTitle } = Astro.props
         <ViewTransitions />
     </head>
     <body>
-        <section class="content">
-            <Header />
-            <h1>{pageTitle}</h1>
-            <main role="main">
-                <slot />
-            </main>
-            <Footer />
-        </section>
+        <Header />
+        <h1>{pageTitle}</h1>
+        <main role="main">
+            <slot />
+        </main>
+        <Footer />
     </body>
 </html>
