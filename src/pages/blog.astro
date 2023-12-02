@@ -19,6 +19,14 @@ const publishsedPost = await getCollection(
                     <BlogPost
                         href={'/posts/' + post.slug}
                         title={post.data.title}
+                        date={post.data.pubDate.toDateString()}
+                        auth={post.data.author.id
+                            .split('-')
+                            .map(
+                                (part) =>
+                                    part.charAt(0).toUpperCase() + part.slice(1)
+                            )
+                            .join(' ')}
                     />
                 </li>
             ))

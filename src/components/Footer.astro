@@ -8,9 +8,17 @@ type Props = Record<string, never>
 
 <style>
     footer {
-        display: flex;
-        gap: var(--size-3);
-        margin-top: var(--size-7);
+        background-color: var(--surface-4);
+
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        background-color: var(--surface-4);
+        padding-top: var(--size-1);
+    }
+    .social {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 </style>
 
@@ -19,7 +27,9 @@ type Props = Record<string, never>
         Learn more about my projects on
         <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!
     </p>
-    <Social platform="twitter" username="astrodotbuild" />
-    <Social platform="github" username="withastro" />
-    <Social platform="youtube" username="astrodotbuild" />
+    <div class="social">
+        <Social platform="twitter" username="astrodotbuild" />
+        <Social platform="github" username="withastro" />
+        <Social platform="youtube" username="astrodotbuild" />
+    </div>
 </footer>

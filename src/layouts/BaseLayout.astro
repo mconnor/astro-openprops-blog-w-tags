@@ -10,6 +10,7 @@ const { pageTitle } = Astro.props
 ---
 
 <style>
+    /* @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'; */
     @import 'open-props/postcss/style';
     @import 'open-props/postcss/normalize';
     @import 'open-props/postcss/buttons';
@@ -77,16 +78,10 @@ const { pageTitle } = Astro.props
 
             justify-items: center;
             grid-template-columns: 1fr;
-            grid-template-rows: auto auto 4fr 1fr;
+            grid-template-rows: auto auto 1fr auto;
             background-color: aqua;
+            row-gap: var(--size-fluid-4);
             /* gap: var(--size-1); */
-        }
-
-        .kontent {
-            justify-self: center;
-            border-width: 1px;
-            border-color: black;
-            grid-area: 'content';
         }
 
         /* 
@@ -163,7 +158,17 @@ const { pageTitle } = Astro.props
         code {
             font-family: var(--fontmono);
         }
-
+    }
+    @layer patterns {
+    }
+    @layer components {
+        main {
+            block-size: 100%;
+            background-color:;
+        }
+        a:any-link {
+            color: var(--brand);
+        }
         .button-class {
             border-radius: var(--radius-3);
             padding: var(--size-4) var(--size-8);
@@ -180,17 +185,6 @@ const { pageTitle } = Astro.props
                     background-color: var(--blue-1);
                 }
             }
-        }
-    }
-    @layer patterns {
-    }
-    @layer components {
-        main {
-            block-size: 100%;
-            background-color:;
-        }
-        a:any-link {
-            color: var(--brand);
         }
     }
 </style>

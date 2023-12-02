@@ -1,5 +1,5 @@
 {
-    "extends": ["stylelint-config-astro", "stylelint-prettier"],
+    "extends": ["stylelint-config-astro"],
     "rules": {
         "no-invalid-position-at-import-rule": null,
         "at-rule-no-unknown": [
