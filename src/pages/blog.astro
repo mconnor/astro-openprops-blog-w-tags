@@ -8,6 +8,13 @@ const publishsedPost = await getCollection(
     'posts',
     ({ data }) => data.draft !== true
 )
+
+const getFormatAuth = (authorId: string) => {
+    return authorId
+        .split('-')
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(' ')
+}
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -16,18 +23,11 @@ const publishsedPost = await getCollection(
         {
             publishsedPost.map((post) => (
                 <li>
-                    <BlogPost
-                        href={'/posts/' + post.slug}
-                        title={post.data.title}
-                        date={post.data.pubDate.toDateString()}
-                        auth={post.data.author.id
-                            .split('-')
-                            .map(
-                                (part) =>
-                                    part.charAt(0).toUpperCase() + part.slice(1)
-                            )
-                            .join(' ')}
-                    />
+                    <BlogPost href={'/posts/' + post.slug}>
+                        {post.data.title}-
+                        <em>{getFormatAuth(post.data.author.id)}</em>-
+                        {post.data.pubDate.toDateString()}
+                    </BlogPost>
                 </li>
             ))
         }
