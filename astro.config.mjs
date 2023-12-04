@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 
 // your configuration options here...
 // https://docs.astro.build/en/reference/configuration-reference/
-import vercel from "@astrojs/vercel/serverless";
+// import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +24,5 @@ export default defineConfig({
     ssr: {
       noExternal: ['open-props']
     }
-  },
-  output: "server",
-  adapter: vercel()
+  }
 });
