@@ -3,4 +3,4 @@ dist/
 # generated types
 .astro/
 .vscode/
-vercel/
+.vercel/
