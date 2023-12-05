@@ -1,15 +1,6 @@
-const postcssPresetEnv = require('postcss-preset-env')
-const postcssNesting = require('postcss-nesting')
+const postcssJitProps = require('postcss-jit-props');
+const OpenProps = require('open-props');
 
 module.exports = {
-    plugins: [
-        postcssNesting,
-        postcssPresetEnv({
-            /* pluginOptions */
-            stage: 2,
-            features: {
-                'logical-properties-and-values': false,
-            },
-        }),
-    ],
-}
+  plugins: [postcssJitProps(OpenProps)],
+};
