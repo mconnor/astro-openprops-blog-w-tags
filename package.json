@@ -40,6 +40,6 @@
     },
     "packageManager": "pnpm@8.11.0",
     "engines": {
-        "node": "20.10.0"
+        "node": "18.x"
     }
 }
