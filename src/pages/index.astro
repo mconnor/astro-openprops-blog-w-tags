@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/SplashLayout.astro'
 import HeroBtn from '@components/HeroBtn.astro'
+
 import { Image } from 'astro:assets'
 
 const pageTitle = 'Splash'
@@ -53,7 +54,7 @@ const pageTitle = 'Splash'
         /* margin-block-end: var(--size-3); */
     }
 </style>
-<Layout pageTitle={pageTitle}>
+<Layout pageTitle={pageTitle} description="mikes site">
     <header>
         <section class="hero">
             <h1 class="hero-message">
