@@ -1,5 +1,5 @@
 import { defineCollection } from 'astro:content'
-import { postSchema, authorSchema } from '../schemas.ts'
+import { postSchema, authorSchema } from '../schemas'
 
 const postsCollection = defineCollection({
     type: 'content',
