@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 
-import vercelServerless from "@astrojs/vercel/serverless";
+import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
   output: 'server',
@@ -23,5 +23,5 @@ export default defineConfig({
       noExternal: ['open-props']
     }
   },
-  adapter: vercelServerless()
+  adapter: vercel()
 });
