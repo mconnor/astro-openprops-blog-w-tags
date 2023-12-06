@@ -1,6 +1,4 @@
 ---
-import OpenProps from 'open-props' // module
-
 import BaseLayout from '../layouts/BaseLayout.astro'
 
 const pageTitle = 'About Page'
@@ -18,21 +16,18 @@ const happy = true
 const finished = false
 const goal = 3
 
-// const skillColor = OpenProps['--red-10']
-//let fontWeight = parseFloat(OpenProps['--font-weight-9']);
-const fontWeight = OpenProps['--font-weight-7']
 const textCase = 'uppercase'
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-    <style define:vars={{ fontWeight, textCase }}>
-        .skill {
-            color: var(--brand);
-            font-weight: var(--fontWeight);
-            text-transform: var(--textCase);
-        }
-    </style>
+<style define:vars={{ textCase }}>
+    .skill {
+        color: var(--brand);
+        font-weight: var(--font-weight-7);
+        text-transform: var(--textCase);
+    }
+</style>
 
+<BaseLayout pageTitle={pageTitle}>
     <p>Here are a few facts about me:</p>
     <ul>
         <li>My name is {identity.firstName}.</li>

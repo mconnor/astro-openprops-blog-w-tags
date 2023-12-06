@@ -48,8 +48,7 @@ type Props = Record<string, never>
 
     .hamburger-menu {
         display: grid;
-        grid-template-columns: auto-fit;
-        background-color: red;
+
         position: relative;
         & .menu__btn {
             display: grid;
@@ -98,23 +97,24 @@ type Props = Record<string, never>
 
             position: relative;
             padding-inline: 0;
+            row-gap: var(--size-1);
 
             & li {
                 padding-inline: var(--size-2);
                 border-width: var(--border-size-2);
                 border-color: var(--brand);
                 border-radius: var(--radius-2);
-                background-color: var(--surface-4);
+                background-color: var(--surface-2);
                 white-space: nowrap;
                 display: grid;
                 grid-template-columns: auto-fill;
                 justify-content: center;
-                shadow: var(--shadow-1);
+
                 & .menu__item {
                     color: var(--text-1);
                 }
                 &:hover {
-                    background-color: red;
+                    background-color: var(--surface-3);
                     cursor: pointer;
                     text-decoration: none;
                 }
@@ -132,7 +132,7 @@ type Props = Record<string, never>
     }
 </style>
 
-<div class="hamburger-menu">
+<nav class="hamburger-menu">
     <input id="menu__toggle" type="checkbox" />
     <label class="menu__btn" for="menu__toggle">
         <span></span>
@@ -140,9 +140,11 @@ type Props = Record<string, never>
 
     <ul class="menu__box">
         <li><a class="menu__item" href="/">Home</a></li>
-        <li><a class="menu__item" href="/about/">About</a></li>
+        <li>
+            <a class="menu__item" href="/about/">About</a>
+        </li>
         <li><a class="menu__item" href="/kitchensink/">Kitchen Sink</a></li>
         <li><a class="menu__item" href="/blog/">Blog</a></li>
         <li><a class="menu__item" href="/tags/">Tags</a></li>
     </ul>
-</div>
+</nav>
