@@ -1,8 +1,9 @@
 ---
 import Layout from '@layouts/SplashLayout.astro'
 import HeroBtn from '@components/HeroBtn.astro'
-
 import { Image } from 'astro:assets'
+
+import myImage from '@assets/splash.webp'
 
 const pageTitle = 'Splash'
 ---
@@ -73,13 +74,14 @@ const pageTitle = 'Splash'
                 <HeroBtn btnLabel="Live demo" href="blog" />
             </div>
         </section>
-        <picture class="promo-art">
+
+        <div class="promo-art">
             <Image
-                src="https://doodleipsum.com/800x800/outline?bg=3b5bdb"
-                height="800"
-                width="800"
+                src={myImage}
+                width={myImage.width}
+                height={myImage.height}
                 alt="a random doodle"
             />
-        </picture>
+        </div>
     </header>
 </Layout>
