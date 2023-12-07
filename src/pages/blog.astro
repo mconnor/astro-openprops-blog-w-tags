@@ -6,7 +6,7 @@ import BlogPost from '../components/BlogPost.astro'
 const pageTitle = 'My Astro Learning Blog'
 const publishsedPost = await getCollection(
     'posts',
-    ({ data }) => data.draft !== true
+    ({ data }) => data.draft !== true,
 )
 
 const getFormatAuth = (authorId: string) => {

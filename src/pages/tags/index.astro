@@ -10,7 +10,7 @@ const tagCounts: Record<string, number> = {}
 allPosts.forEach((post) =>
     (post.data.tags || []).forEach((tag: string) => {
         tagCounts[tag] = (tagCounts[tag] || 0) + 1
-    })
+    }),
 )
 
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
