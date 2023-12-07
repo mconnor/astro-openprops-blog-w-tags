@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro'
-
+import HeartBtn from '@components/HeartBtn.astro'
 export const prerender = true
 export const getStaticPaths = async () => {
     const posts = await getCollection('posts')
@@ -24,5 +24,5 @@ const { Content } = await entry.render()
 ---
 
 <MarkdownPostLayout frontmatter={entry.data}>
-    <Content />
+    <Content /><HeartBtn />
 </MarkdownPostLayout>
