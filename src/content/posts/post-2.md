@@ -26,7 +26,8 @@ tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 
 ## Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio
+vitae vestibulum.
 
 ---
 
@@ -34,11 +35,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vi
 
 ### Subtopic A
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur.
 
 ### Subtopic B
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+doloremque laudantium.
 
 ---
 
