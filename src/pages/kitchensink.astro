@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
 ---
 
 <BaseLayout pageTitle={'Kitchen Sink'}>
@@ -366,15 +366,17 @@ import BaseLayout from '../layouts/BaseLayout.astro'
                 <header><h1>HTML Comments</h1></header>
                 <div>
                     <p>
-                        There is comment here: <!--This comment should not be displayed-->
+                        <strong
+                            >Strong is used to indicate strong importance. But,
+                            it should not be displayed in a comment</strong
+                        >
                     </p>
                     <p>
-                        There is a comment spanning multiple tags and lines
-                        below here.
+                        <em
+                            >This text has added emphasis. But, it should not be
+                            displayed in a comment</em
+                        >
                     </p>
-                    <!--<p><a href="#!">This is a text link. But it should not be displayed in a comment</a>.</p>
-              <p><strong>Strong is used to indicate strong importance. But, it should not be displayed in a comment</strong></p>
-              <p><em>This text has added emphasis. But, it should not be displayed in a comment</em></p>-->
                 </div>
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </article>
@@ -435,13 +437,13 @@ import BaseLayout from '../layouts/BaseLayout.astro'
                 <header><h2>Meter</h2></header>
                 <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
             </article>
-            <!-- <article id="embedded__progress">
+            <article id="embedded__progress">
                 <header><h2>Progress</h2></header>
                 <div>
                     <progress indeterminate>progress</progress>
                     <progress value=".5">progress</progress>
                 </div>
-            </article> -->
+            </article>
             <article id="embedded__svg">
                 <header><h2>Inline SVG</h2></header>
                 <div>
@@ -451,13 +453,12 @@ import BaseLayout from '../layouts/BaseLayout.astro'
                     >
                 </div>
             </article>
-            <article id="embedded__iframe">
+            <!-- <article id="embedded__iframe">
                 <header><h2>IFrame</h2></header>
-                <!-- <div>
-                    <iframe src="./index_files/index.html" height="300"
-                    ></iframe>
-                </div> -->
-            </article>
+                <div>
+                    <iframe src="../about.html" height="300"></iframe>
+                </div>
+            </article> -->
         </section>
         <section id="forms">
             <header><h1>Form elements</h1></header>
@@ -670,41 +671,48 @@ import BaseLayout from '../layouts/BaseLayout.astro'
                         <label for="idw">Week input</label>
                         <input type="week" id="idw" value="1970-W01" />
                     </p>
-                    <!-- <p>
+                    <p>
                         <label for="idt">Datetime input</label>
                         <input
                             type="datetime"
                             id="idt"
                             value="1970-01-01T00:00:00Z"
-                        /> -->
-                </fieldset>
-                <!-- <p>
+                        />
+                    </p>
+                    <p>
                         <label for="idtl">Datetime-local input</label>
                         <input
                             type="datetime-local"
                             id="idtl"
                             value="1970-01-01T00:00"
                         />
-                    </p> -->
+                    </p>
+                </fieldset>
+                <fieldset id="forms__action">
+                    <legend>Action buttons</legend>
+                    <p class="buttons-list">
+                        <input type="submit" value="<input type=submit>" />
+                        <input type="button" value="<input type=button>" />
+                        <input type="reset" value="<input type=reset>" />
+                        <input
+                            type="submit"
+                            value="<input disabled>"
+                            disabled=""
+                        />
+                    </p>
+                    <br />
+                    <p class="buttons-list">
+                        <button type="submit">&lt;button type=submit&gt;</button
+                        >
+                        <button type="button">&lt;button type=button&gt;</button
+                        >
+                        <button type="reset">&lt;button type=reset&gt;</button>
+                        <button type="button" disabled=""
+                            >&lt;button disabled&gt;</button
+                        >
+                    </p>
+                </fieldset>
             </form>
-            <fieldset id="forms__action">
-                <legend>Action buttons</legend>
-                <p class="buttons-list">
-                    <input type="submit" value="<input type=submit>" />
-                    <input type="button" value="<input type=button>" />
-                    <input type="reset" value="<input type=reset>" />
-                    <input type="submit" value="<input disabled>" disabled="" />
-                </p>
-                <br />
-                <p class="buttons-list">
-                    <button type="submit">&lt;button type=submit&gt;</button>
-                    <button type="button">&lt;button type=button&gt;</button>
-                    <button type="reset">&lt;button type=reset&gt;</button>
-                    <button type="button" disabled=""
-                        >&lt;button disabled&gt;</button
-                    >
-                </p>
-            </fieldset>
         </section>
     </main>
 </BaseLayout>
