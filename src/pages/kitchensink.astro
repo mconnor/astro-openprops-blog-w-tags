@@ -1,8 +1,9 @@
 ---
+import { Image } from 'astro:assets'
 import BaseLayout from '@layouts/BaseLayout.astro'
 ---
 
-<BaseLayout pageTitle={'Kitchen Sink'}>
+<BaseLayout pageTitle={'Kitchen Sink'} surfaceClass="surface-3">
     <header role="banner">
         <div class="open-props">
             <svg class="op-icon" viewBox="0 0 200 200">
@@ -87,8 +88,8 @@ import BaseLayout from '@layouts/BaseLayout.astro'
                 for.
             </p>
         </div>
-        <hr />
-        <h2>Normalized HTML5 Elemenets</h2>
+
+        <h2>Normalized HTML5 Elements</h2>
         <p>
             Based on <a href="https://cbracco.github.io/html5-test-page"
                 >this html5 test page</a
@@ -388,8 +389,12 @@ import BaseLayout from '@layouts/BaseLayout.astro'
                 <div class="spaced">
                     <h5>No <code>&lt;figure&gt;</code> element</h5>
                     <p>
-                        <img
-                            src="https://doodleipsum.com/420/outline?bg=7463D9&i=5493adbcd8a47597df8e1fc4b1b87733"
+                        <Image
+                            class="box-with-corner-cuts"
+                            width="400"
+                            height="225"
+                            quality="max"
+                            src="https://doodleipsum.com/400x225?bg=FF3C3C&i=1862f60997857bee396485d52e2de972"
                             alt="Image alt text"
                         />
                     </p>
@@ -399,8 +404,12 @@ import BaseLayout from '@layouts/BaseLayout.astro'
                         >
                     </h5>
                     <figure>
-                        <img
-                            src="https://doodleipsum.com/420/outline?bg=7463D9&i=5493adbcd8a47597df8e1fc4b1b87733"
+                        <Image
+                            class="box-with-corner-cuts"
+                            width="400"
+                            height="225"
+                            quality="high"
+                            src="https://doodleipsum.com/400x225/flat?bg=6392D9&i=7c7da9842c3f30b047e7577952a73ac3"
                             alt="Image alt text"
                         />
                     </figure>
@@ -411,8 +420,12 @@ import BaseLayout from '@layouts/BaseLayout.astro'
                         <code>&lt;figcaption&gt;</code>
                     </h5>
                     <figure>
-                        <img
-                            src="https://doodleipsum.com/420/outline?bg=7463D9&i=5493adbcd8a47597df8e1fc4b1b87733"
+                        <Image
+                            class="box-with-corner-cuts"
+                            width="400"
+                            height="225"
+                            quality="high"
+                            src="https://doodleipsum.com/400x225/hand-drawn?bg=FF3C3C&i=222b26c23a8f805f506d35b0a536569c"
                             alt="Image alt text"
                         />
                         <figcaption>
@@ -716,6 +729,27 @@ import BaseLayout from '@layouts/BaseLayout.astro'
         </section>
     </main>
 </BaseLayout>
+
+<style>
+    figure {
+        position: relative;
+
+        & figcaption {
+            position: absolute;
+            z-index: var(--layer-1);
+            inset-inline: 0;
+            inset-block: auto 0;
+        }
+    }
+
+    .box-with-corner-cuts {
+        -webkit-mask: var(--mask-corner-cut-angles-2);
+    }
+    article {
+        display: grid;
+        gap: var(--size-3);
+    }
+</style>
 
 <!-- <script is:inline>
 

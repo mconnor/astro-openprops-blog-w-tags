@@ -7,12 +7,14 @@ interface Props {
     pageTitle: string
     description?: string
     image?: string
+    surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
     children: any
 }
 const {
     pageTitle,
     description = 'my description',
     image = '/placeholder-social.jpg',
+    surfaceClass = 'surface-2',
 } = Astro.props
 ---
 
@@ -20,7 +22,7 @@ const {
     <head>
         <BaseHead title={pageTitle} description={description} image={image} />
     </head>
-    <body>
+    <body class={surfaceClass}>
         <Header />
         <h1 transition:animate="fade">{pageTitle}</h1>
         <main>

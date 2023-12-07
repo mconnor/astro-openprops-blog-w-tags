@@ -15,19 +15,9 @@ const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs']
 const happy = true
 const finished = false
 const goal = 3
-
-const textCase = 'uppercase'
 ---
 
-<style define:vars={{ textCase }}>
-    .skill {
-        color: var(--brand);
-        font-weight: var(--font-weight-7);
-        text-transform: var(--textCase);
-    }
-</style>
-
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} surfaceClass="surface-1">
     <p>Here are a few facts about me:</p>
     <ul>
         <li>My name is {identity.firstName}.</li>
@@ -45,7 +35,7 @@ const textCase = 'uppercase'
     </ul>
     <p>My skills are:</p>
     <ul>
-        {skills.map((skill) => <li class="skill">{skill}</li>)}
+        {skills.map((skill) => <li class="skill surface-2">{skill}</li>)}
     </ul>
 
     {happy && <p>I am happy to be learning Astro!</p>}

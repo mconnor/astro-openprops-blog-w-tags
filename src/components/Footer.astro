@@ -8,13 +8,10 @@ type Props = Record<string, never>
 
 <style>
     footer {
-        background-color: var(--surface-4);
-
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
         justify-items: center;
-        background-color: var(--surface-4);
         padding-top: var(--size-1);
     }
     .social {
@@ -22,7 +19,7 @@ type Props = Record<string, never>
     }
 </style>
 
-<footer>
+<footer class="surface-4">
     <p>
         Learn more about my projects on
         <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!
