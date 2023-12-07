@@ -4,7 +4,7 @@ import BaseLayout from './BaseLayout.astro'
 import { Image } from 'astro:assets'
 import type { PostSchemaType } from '../schemas.ts'
 import TagButton from '@components/TagButton.astro'
-
+import HeartBtn from '@components/HeartBtn.astro'
 type Props = {
     frontmatter: PostSchemaType
 }
@@ -34,6 +34,7 @@ const author = await getEntry(frontmatter.author)
     </div>
 
     <slot />
+    <HeartBtn />
 </BaseLayout>
 <style>
     .tags {

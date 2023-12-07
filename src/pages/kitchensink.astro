@@ -440,7 +440,7 @@ import BaseLayout from '@layouts/BaseLayout.astro'
             <article id="embedded__progress">
                 <header><h2>Progress</h2></header>
                 <div>
-                    <progress indeterminate>progress</progress>
+                    <progress id="indeterminate">progress</progress>
                     <progress value=".5">progress</progress>
                 </div>
             </article>
@@ -674,7 +674,7 @@ import BaseLayout from '@layouts/BaseLayout.astro'
                     <p>
                         <label for="idt">Datetime input</label>
                         <input
-                            type="datetime"
+                            type="datetime-local"
                             id="idt"
                             value="1970-01-01T00:00:00Z"
                         />
@@ -716,3 +716,10 @@ import BaseLayout from '@layouts/BaseLayout.astro'
         </section>
     </main>
 </BaseLayout>
+
+<!-- <script is:inline>
+
+    const progress = document.querySelector('progress');
+    progress &&  progress.indeterminate = true;
+   
+</script> -->
