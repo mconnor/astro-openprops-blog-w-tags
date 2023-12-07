@@ -14,7 +14,7 @@ import { getCollection } from 'astro:content'
 // (what to call each page route) and optionally any props (data that you want to pass to those pages).
 //  Earlier, you defined each tag name that you knew was used in your blog and passed the entire list
 //  of posts as props to each page.
-
+export const prerender = true
 export const getStaticPaths = async () => {
     const allPosts = await getCollection('posts')
     const uniqueTags = [
