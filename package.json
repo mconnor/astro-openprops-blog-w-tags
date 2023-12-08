@@ -22,7 +22,7 @@
         "@astrojs/rss": "^4.0.1",
         "@astrojs/vercel": "^6.0.1",
         "astro": "^4.0.3",
-        "open-props": "^1.6.13",
+        "open-props": "^1.6.16",
         "sharp": "^0.32.6",
         "typescript": "^5.3.3"
     },
