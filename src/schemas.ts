@@ -19,7 +19,7 @@ export const postSchema = z.object({
             height: z.number().optional(),
         })
         .optional(),
-    updatedDate: z.coerce.date().optional(),
+    // updatedDate: z.coerce.date().optional(),
     // canonicalURL: z.string().url(),
 })
 
