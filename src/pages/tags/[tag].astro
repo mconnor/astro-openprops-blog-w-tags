@@ -5,7 +5,7 @@ import type {
     // GetStaticPaths,
 } from 'astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import BlogPost from '@components/BlogPost.astro'
+import BlogLink from '@components/BlogLink.astro'
 import { getCollection } from 'astro:content'
 
 // import type { CollectionEntry } from 'astro:content'
@@ -45,16 +45,14 @@ const { tag } = Astro.params as Params
 const { posts } = Astro.props
 ---
 
-<BaseLayout pageTitle="Tags">
-    <p>Posts tagged with {tag}</p>
-
+<BaseLayout pageTitle={tag}>
     <ul>
         {
             posts.map((post) => (
                 <li>
-                    <BlogPost href={'/posts/' + post.slug}>
+                    <BlogLink href={'/posts/' + post.slug}>
                         {post.data.title}
-                    </BlogPost>
+                    </BlogLink>
                 </li>
             ))
         }

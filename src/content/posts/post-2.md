@@ -22,14 +22,10 @@ tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 7. [Links & Quotes](#links--quotes)
 8. [Conclusion](#conclusion)
 
----
-
 ## Introduction
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio
 vitae vestibulum.
-
----
 
 ## Main Topics
 
@@ -43,13 +39,9 @@ fugiat nulla pariatur.
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 doloremque laudantium.
 
----
-
 ## Images
 
 ![Sample Image](https://via.placeholder.com/150)
-
----
 
 ## Lists
 
@@ -63,8 +55,6 @@ doloremque laudantium.
 2. Second item
 3. Third item
 
----
-
 ## Code Blocks
 
 Here's a `inline code` example.
@@ -74,8 +64,6 @@ def hello_world():
     print("Hello, Markdown!")
 ```
 
----
-
 ## Tables
 
 | Header 1 | Header 2 | Header 3 |
@@ -83,8 +71,6 @@ def hello_world():
 | Row1Col1 | Row1Col2 | Row1Col3 |
 | Row2Col1 | Row2Col2 | Row2Col3 |
 | Row3Col1 | Row3Col2 | Row3Col3 |
-
----
 
 ## Links & Quotes
 

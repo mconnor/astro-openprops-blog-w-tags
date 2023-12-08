@@ -11,12 +11,14 @@ export const postSchema = z.object({
     relatedPosts: z.array(reference('blog')).optional(),
     draft: z.boolean().optional(),
     tags: z.array(z.string()),
-    image: z.object({
-        url: z.string(),
-        alt: z.string(),
-        width: z.number().optional(),
-        height: z.number().optional(),
-    }),
+    image: z
+        .object({
+            url: z.string(),
+            alt: z.string(),
+            width: z.number().optional(),
+            height: z.number().optional(),
+        })
+        .optional(),
     updatedDate: z.coerce.date().optional(),
     // canonicalURL: z.string().url(),
 })

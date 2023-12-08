@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
 import BaseLayout from '../layouts/BaseLayout.astro'
-import BlogPost from '../components/BlogPost.astro'
+import BlogLink from '../components/BlogLink.astro'
 
-const pageTitle = 'My Astro Learning Blog'
+const pageTitle = "Mike's Bloggy Blog Blog"
 const publishsedPost = await getCollection(
     'posts',
     ({ data }) => data.draft !== true,
@@ -18,17 +18,41 @@ const getFormatAuth = (authorId: string) => {
 ---
 
 <BaseLayout pageTitle={pageTitle} surfaceClass="surface-3">
+    <p>
+        Below are static lorem-ipsum blog post created in <a
+            href="https://www.markdownguide.org">Mardown</a
+        >. No CMS, not html, or CSS. Just a .md file basted off a template.
+    </p>
+    <code>
+        <pre>
+        ---
+title: Draft Post
+pubDate: 2022-07-01
+author: mike-connor
+description: This is the first post of my new Astro blog
+draft: true
+image:
+    url: 'https://picsum.photos/300/200'
+    alt: 'The Astro logo with the word One.'
+tags: ['astro', 'blogging', 'learning-in-public']
+---
+    </pre>
+    </code>
     <ul>
         {
-            publishsedPost.map((post) => (
-                <li>
-                    <BlogPost href={'/posts/' + post.slug}>
-                        {post.data.title}-
-                        <em>{getFormatAuth(post.data.author.id)}</em>-
-                        {post.data.pubDate.toDateString()}
-                    </BlogPost>
-                </li>
-            ))
+            publishsedPost
+                .sort((a, b) => {
+                    return a.data.pubDate > b.data.pubDate ? -1 : 1
+                })
+                .map((post) => (
+                    <li>
+                        <BlogLink href={'/posts/' + post.slug}>
+                            {post.data.title}-
+                            <em>{getFormatAuth(post.data.author.id)}</em>-
+                            {post.data.pubDate.toDateString()}
+                        </BlogLink>
+                    </li>
+                ))
         }
     </ul>
 </BaseLayout>
