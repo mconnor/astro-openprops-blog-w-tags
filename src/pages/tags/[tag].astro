@@ -1,10 +1,11 @@
 ---
+import BaseLayout from '@layouts/BaseLayout.astro'
 import type {
     InferGetStaticParamsType,
     // InferGetStaticPropsType,
     // GetStaticPaths,
 } from 'astro'
-import BaseLayout from '@layouts/BaseLayout.astro'
+
 import BlogLink from '@components/BlogLink.astro'
 import { getCollection } from 'astro:content'
 
@@ -49,11 +50,11 @@ const { posts } = Astro.props
     <ul>
         {
             posts.map((post) => (
-                <li>
+               
                     <BlogLink href={'/posts/' + post.slug}>
                         {post.data.title}
                     </BlogLink>
-                </li>
+                
             ))
         }
     </ul>

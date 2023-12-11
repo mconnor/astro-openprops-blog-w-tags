@@ -2,14 +2,25 @@
 import TagIcon from './TagIcon.astro'
 type Props = {
     tag: string
+    count?: number
 }
 
-const { tag } = Astro.props
+const { tag, count } = Astro.props
+
+const buttonCopy = count ? `${tag} - ${count}` : tag
 ---
 
-<button class="btn">
+<a class="menu__item" href={`/tags/${tag}`}>
+    <button type="button">
+
     <TagIcon />
-    <a class="menu__item" href={`/tags/${tag}`}>
-        {tag}
-    </a>
+    {buttonCopy}
 </button>
+</a>
+
+<style>
+    button {
+        & a {
+        }
+    }
+</style>

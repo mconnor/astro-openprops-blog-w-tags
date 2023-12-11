@@ -1,6 +1,6 @@
 ---
-import { getCollection } from 'astro:content'
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
 import BlogLink from '../components/BlogLink.astro'
 
 const pageTitle = "Mike's Bloggy Blog Blog"
@@ -23,21 +23,7 @@ const getFormatAuth = (authorId: string) => {
             href="https://www.markdownguide.org">Mardown</a
         >. No CMS, not html, or CSS. Just a .md file basted off a template.
     </p>
-    <code>
-        <pre>
-        ---
-title: Draft Post
-pubDate: 2022-07-01
-author: mike-connor
-description: This is the first post of my new Astro blog
-draft: true
-image:
-    url: 'https://picsum.photos/300/200'
-    alt: 'The Astro logo with the word One.'
-tags: ['astro', 'blogging', 'learning-in-public']
----
-    </pre>
-    </code>
+ 
     <ul>
         {
             publishsedPost
@@ -45,13 +31,13 @@ tags: ['astro', 'blogging', 'learning-in-public']
                     return a.data.pubDate > b.data.pubDate ? -1 : 1
                 })
                 .map((post) => (
-                    <li>
+               
                         <BlogLink href={'/posts/' + post.slug}>
                             {post.data.title}-
                             <em>{getFormatAuth(post.data.author.id)}</em>-
                             {post.data.pubDate.toDateString()}
                         </BlogLink>
-                    </li>
+                  
                 ))
         }
     </ul>
