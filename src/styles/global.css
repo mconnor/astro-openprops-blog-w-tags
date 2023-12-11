@@ -176,14 +176,11 @@
 @layer utilities {
 
    
-    .skill {
-        font-weight: var(--font-weight-7);
-        text-transform: var(--textCase);
-    }
+ 
 
     .surface-1 {
-        background-image: var(--gradient-5);
-        color: var(--text-2);
+        background-image: var(--surface-1);
+        color: var(--text-1);
     }
 
     .surface-2 {

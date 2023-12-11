@@ -3,23 +3,21 @@ import Social from './Social.astro'
 const platform = 'github'
 const username = 'withastro'
 
-type Props = Record<string, never>
+
+const { class: className , ...rest} = Astro.props
+
 ---
 
 <style>
-    footer {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-
-        padding-top: var(--size-1);
-    }
+ 
     .social {
-        grid-template-columns: 1fr 1fr 1fr;
+        justify-self: center;
+        display: flex;
+        flex-direction: row;
     }
 </style>
 
-<footer class="surface-4">
+<footer class:list={[className ]}  {...rest}>
     <p>
         Learn more about my projects on
         <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!

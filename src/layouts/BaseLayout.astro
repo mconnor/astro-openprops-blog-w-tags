@@ -14,8 +14,8 @@ interface Props {
     children: any
 }
 
-const isProd = import.meta.env.PROD;
-const isDev = import.meta.env.DEV;
+const isProd = import.meta.env.PROD
+const isDev = import.meta.env.DEV
 
 const {
     pageTitle,
@@ -31,30 +31,50 @@ const {
     </head>
     <body class={surfaceClass}>
         <Header />
-        <h1 transition:animate="fade">{pageTitle}</h1>
-        <main class="devborder">
+        <h1 class="span-5" transition:animate="fade">{pageTitle}</h1>
+        <main class:list={['devborder', 'span-5']}>
             <slot transition:animate="none" />
         </main>
-        <Footer />
+        <Footer class:list={['span-5',' surface-1']} />
+
         <style>
-             .devborder {
-        border: var(--border-size-2) solid var(--brand);
-       
-    }
+            @import utilities layer;
+
+            .center-self {
+                align-self: center;
+            }
+            .devborder {
+                border: var(--border-size-2) solid var(--brand);
+            }
             body {
                 display: grid;
-                grid-area: 'base-layout';
-
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: min-content min-content 4fr 1fr;
                 justify-items: center;
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto 1fr auto;
+                align-items: start;
+                grid-gap: var(--size-fluid-1);
+
+                @media screen and (min-width: 600px) {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+            }
+
+            .span-5 {
+                grid-column: span 5;
+                padding: 25px 0;
+            }
+
+            footer {
+                width: 100%;
             }
             main {
-                 p {
+                grid-column: span 5;
+                p {
                     row-gap: var(--size-fluid-4);
                     font-family: var(--font-mono);
 
-                    color: white;
+                   
                 }
             }
 

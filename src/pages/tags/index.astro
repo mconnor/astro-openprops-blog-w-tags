@@ -30,10 +30,9 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 
 <style>
     .tags {
-        display: grid;
-        grid-template-columns: repeat(4, auto);
-
-        gap: var(--size-1);
-        translate:;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+   
     }
 </style>
