@@ -5,29 +5,17 @@ author: mike-connor
 description: This is the first post of my new Astro blog
 draft: true
 image:
-    url: 'https://picsum.photos/300/200'
+    url: 'https://picsum.photos/800/300/?random=1'
     alt: 'The Astro logo with the word One.'
+    width: 800
+    height: 300
 tags: ['astro', 'blogging', 'learning-in-public']
 ---
 
-A company that can streamline elegantly will (at some undefined point of time in
-the future) be able to engineer seamlessly. If all of this sounds astonishing to
-you, that's because it is! A company that can streamline elegantly will (at some
-undefined point of time in the future) be able to orchestrate correctly. We
-understand that it is better to engineer easily. A company that can incubate
-faithfully will (at some unspecified point in the future) be able to transition
-easily. Without niches, you will lack architectures. In order to assess the 3rd
-generation blockchain’s ability to whiteboard without lessening our aptitude to
-incubate without reducing our capability to transform without devaluing our
-capability to transform without devaluing our power to deliver. If all of this
-may seem marvelous, but it's realistic! Imagine a combination of Perl and FOAF.
-Our functionality is unparalleled, but our C2C2C paradigms and easy use is
-frequently considered a remarkable achievement. Spriti introduced new
-capabilities represent a leap forward in the industry, but our one-to-one,
-customer-defined, robust C2C2C M&A and user-proof use is invariably considered a
-remarkable achievement. The capability to implement wirelessly leads to the
-ability to iterate virtually. Is it more important for something to be dynamic
-or to be best-of-breed? The portals factor can be delivered as-a-service to
-wherever it’s intended to go – mobile.
+Officia veniam dolor sit eu veniam eu tempor magna exercitation id minim non adipisicing commodo. Laboris nulla consequat veniam sint officia exercitation elit tempor labore irure ipsum adipisicing. Cupidatat proident culpa sunt cillum do nostrud ea id id incididunt ullamco. Proident dolore nulla ipsum consequat aute eiusmod proident ex excepteur.
+
+Laborum non et Lorem enim dolor. Est eu deserunt aliqua pariatur enim et ullamco ea dolore officia enim officia. Nostrud cupidatat culpa commodo exercitation. Eu consequat pariatur sit deserunt cupidatat in pariatur deserunt occaecat consequat sit consequat tempor ad. Amet in duis sint culpa ut elit ullamco duis tempor laborum laboris quis.
+
+In aliqua exercitation ullamco id. Est sint aliqua voluptate consectetur ipsum commodo mollit enim laborum veniam aliquip proident dolor ipsum. Reprehenderit deserunt laborum elit do anim eu velit officia ipsum consequat non dolore et. Dolor sint velit cupidatat sunt proident ut ipsum do. Excepteur nostrud et eu in irure veniam. Incididunt sunt ut enim dolor esse tempor sint exercitation consequat ex est.
 
 ![Astro](https://picsum.photos/300/200)

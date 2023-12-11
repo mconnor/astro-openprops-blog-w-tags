@@ -1,15 +1,16 @@
 @import 'open-props/postcss/style';
-@import 'open-props/postcss/normalize';
-@import 'open-props/postcss/buttons';
 
 @layer reset, legacy, defaults,  patterns, components, utilities, overrides;
 
-@layer reset {
+@layer overrides {
+
+   
+    
 }
+
+
 @layer defaults {
     :root {
-       
-
         --brand-light: var(--orange-6);
         --text-1-light: var(--gray-8);
         --text-2-light: var(--gray-7);
@@ -26,9 +27,6 @@
         --surface-2-dark: var(--gray-11);
         --surface-3-dark: var(--gray-10);
         --surface-4-dark: var(--gray-9);
-
-        font-family: var(--font-sans);
-        font-size: 16px;
 
         block-size: 100%;
 
@@ -60,22 +58,8 @@
             --shadow-strength: var(--shadow-strength-dark);
         }
     }
-  
-    body {
-        font-size: 16px;
-        font-weight: var(--font-weight-5);
-        line-height: var(--font-lineheight-3);
 
-        display: grid;
-        grid-area: 'base-layout';
-
-        justify-items: center;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr auto;
-
-        row-gap: var(--size-fluid-4);
-        /* gap: var(--size-1); */
-    }
+   
 
     /* 
 [color-scheme='light'] {
@@ -149,7 +133,7 @@
 } */
 
     code {
-        font-family: var(--fontmono);
+        font-family: var(--font-mono);
     }
 }
 @layer patterns {
@@ -190,12 +174,13 @@
     }
 }
 @layer utilities {
+
    
     .skill {
         font-weight: var(--font-weight-7);
         text-transform: var(--textCase);
     }
-    
+
     .surface-1 {
         background-image: var(--gradient-5);
         color: var(--text-2);
@@ -234,7 +219,7 @@
         background-color: var(--_bg);
         justify-self: flex-start;
     }
-    h1,
+    /* h1,
     h2,
     h3,
     h4,
@@ -248,5 +233,5 @@
     small,
     dd {
         color: var(--text-2);
-    }
+    } */
 }

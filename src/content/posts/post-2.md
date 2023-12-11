@@ -4,8 +4,10 @@ pubDate: 2022-07-09
 author: mike-connor
 description: "After learning some Astro, I couldn't stop!"
 image:
-    url: 'https://picsum.photos/300/200/?random=2'
+    url: 'https://picsum.photos/800/300/?random=2'
     alt: 'Thumbnails of websites from the Astro Showcase site.'
+    width: 800
+    height: 300
 tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 ---
 

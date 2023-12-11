@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
-        "build": "astro check && astro build",
+        "build": "printversion && astro check && astro build",
         "devbuild": "astro check && astro build development",
         "preview": "astro preview",
         "astro": "astro",
@@ -14,26 +14,27 @@
         "format": "prettier --write . --plugin=prettier-plugin-astro",
         "lint": "eslint  \"src/**/*.{js,ts,jsx,tsx,astro}\"",
         "slint": "stylelint \"src/**/*.{css,astro}\"",
-        "check": "astro check"
+        "check": "astro check",
+        "hello": "node  --version"
     },
     "dependencies": {
-        "@astrojs/check": "^0.3.1",
-        "@astrojs/mdx": "^2.0.0",
+        "@astrojs/check": "^0.3.2",
+        "@astrojs/mdx": "^2.0.1",
         "@astrojs/rss": "^4.0.1",
-        "@astrojs/vercel": "^6.0.1",
-        "astro": "^4.0.3",
+        "@astrojs/vercel": "^6.0.2",
+        "astro": "^4.0.4",
         "open-props": "^1.6.16",
         "sharp": "^0.32.6",
         "typescript": "^5.3.3"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "^6.13.2",
+        "@typescript-eslint/parser": "^6.14.0",
         "autoprefixer": "^10.4.16",
         "eslint": "^8.55.0",
         "eslint-plugin-astro": "^0.30.0",
         "eslint-plugin-jsx-a11y": "^6.8.0",
         "postcss-jit-props": "^1.0.14",
-        "prettier": "^3.1.0",
+        "prettier": "^3.1.1",
         "prettier-plugin-astro": "^0.12.2",
         "stylelint": "^15.11.0",
         "stylelint-config-astro": "^1.0.4",

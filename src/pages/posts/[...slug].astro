@@ -1,7 +1,8 @@
 ---
-import { getCollection } from 'astro:content'
-import type { CollectionEntry } from 'astro:content'
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro'
+import { getCollection } from 'astro:content'
+
+
 import HeartBtn from '@components/HeartBtn.astro'
 export const prerender = true
 export const getStaticPaths = async () => {
@@ -13,12 +14,7 @@ export const getStaticPaths = async () => {
     return objs
 }
 
-type Props = {
-    entry: CollectionEntry<'posts'>
-}
-
 const { entry } = Astro.props
-// const postData: PostData = entry.data
 
 const { Content } = await entry.render()
 ---

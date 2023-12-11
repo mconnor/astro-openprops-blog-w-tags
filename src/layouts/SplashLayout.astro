@@ -1,4 +1,6 @@
 ---
+import 'open-props/postcss/normalize';
+import 'open-props/postcss/buttons';
 import BaseHead from '@components/BaseHead.astro'
 interface Props {
     pageTitle: string
@@ -18,9 +20,6 @@ const {
         background-color: var(--surface-1);
         color: var(--text-1);
         /* accent-color: var(--link); */
-
-        font-family: var(--font-sans);
-        line-height: var(--font-lineheight-3);
     }
     body {
         display: flex;

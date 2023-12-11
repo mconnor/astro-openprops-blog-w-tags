@@ -1,4 +1,7 @@
 ---
+import 'open-props/postcss/normalize'
+import 'open-props/postcss/buttons'
+
 import BaseHead from '@components/BaseHead.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
@@ -10,6 +13,10 @@ interface Props {
     surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
     children: any
 }
+
+const isProd = import.meta.env.PROD;
+const isDev = import.meta.env.DEV;
+
 const {
     pageTitle,
     description = 'my description',
@@ -25,9 +32,35 @@ const {
     <body class={surfaceClass}>
         <Header />
         <h1 transition:animate="fade">{pageTitle}</h1>
-        <main>
+        <main class="devborder">
             <slot transition:animate="none" />
         </main>
         <Footer />
+        <style>
+             .devborder {
+        border: var(--border-size-2) solid var(--brand);
+       
+    }
+            body {
+                display: grid;
+                grid-area: 'base-layout';
+
+                justify-items: center;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto;
+            }
+            main {
+                 p {
+                    row-gap: var(--size-fluid-4);
+                    font-family: var(--font-mono);
+
+                    color: white;
+                }
+            }
+
+            h1 {
+                font-weight: var(--font-weight-9);
+            }
+        </style>
     </body>
 </html>

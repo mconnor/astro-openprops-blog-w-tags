@@ -23,8 +23,8 @@ const author = await getEntry(frontmatter.author)
     {
         frontmatter.image && (
             <Image
-                width={frontmatter.image.width || 300}
-                height={frontmatter.image.height || 200}
+                width={frontmatter.image.width || 800}
+                height={frontmatter.image.height || 300}
                 src={frontmatter.image.url}
                 alt={frontmatter.image.alt}
                 loading="lazy"
@@ -33,9 +33,9 @@ const author = await getEntry(frontmatter.author)
         )
     }
 
-    <div class="tags">
+    <ul class="tags">
         {frontmatter.tags.map((tag: string) => <TagButton tag={tag} />)}
-    </div>
+    </ul>
 
     <slot />
 </BaseLayout>
@@ -44,7 +44,10 @@ const author = await getEntry(frontmatter.author)
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
-
         gap: var(--size-9);
     }
+    p {
+        color: white;
+    }
+   
 </style>
