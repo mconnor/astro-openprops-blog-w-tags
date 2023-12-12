@@ -14,7 +14,7 @@ const { frontmatter } = Astro.props
 const author = await getEntry(frontmatter.author)
 ---
 
-<BaseLayout pageTitle={frontmatter.title} surfaceClass="surface-1">
+<BaseLayout pageTitle={frontmatter.title} surfaceClass="surface-4">
     <h2>{frontmatter.description}</h2>
     <p>{frontmatter.pubDate.toDateString()}</p>
 
@@ -44,10 +44,8 @@ const author = await getEntry(frontmatter.author)
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
-        gap: var(--size-9);
+        gap: var(--size-1);
     }
-    p {
-        color: white;
-    }
+ 
    
 </style>

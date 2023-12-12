@@ -1,14 +1,39 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 
+type SocialType = 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube'
+
 interface Props extends HTMLAttributes<'a'> {
-    platform: string
+
     username: string
+    platform: SocialType
+
+    
 }
 const { platform, username } = Astro.props
+
+const myicon = (platform: SocialType) => {
+    switch (platform) {
+        case 'twitter':
+            return 'fab fa-twitter'
+        case 'instagram':
+            return 'fab fa-instagram'
+        case 'github':
+            return 'fab fa-github'
+        case 'linkedin':
+            return 'fab fa-linkedin'
+        default:
+            return 'fab fa-twitter'
+    }
+}
+
+
 ---
 
 <!-- <a href={`https://www.${platform}.com/${username}`}></a> -->
-<a class="button-class blue" href={`https://www.${platform}.com/${username}`}
-    >{platform}</a
->
+<button type="button" class="btn btn-primary">
+    <a class="" href={`https://www.${platform}.com/${username}`}>
+        <i class={myicon(platform)}></i>
+    {platform}
+    </a>
+    </button>

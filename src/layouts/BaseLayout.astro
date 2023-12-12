@@ -32,13 +32,13 @@ const {
     <body class={surfaceClass}>
         <Header />
         <h1 class="span-5" transition:animate="fade">{pageTitle}</h1>
-        <main class:list={['devborder', 'span-5']}>
+        <main class:list={['span-5', 'type-1']}>
             <slot transition:animate="none" />
         </main>
         <Footer class:list={['span-5',' surface-1']} />
 
         <style>
-            @import utilities layer;
+      
 
             .center-self {
                 align-self: center;
@@ -60,23 +60,26 @@ const {
                 }
             }
 
+            .type-1 {
+                font-size: var(--font-size-4);
+                font-weight: var(--font-weight-3);
+                line-height: var(--line-height-1);
+            }
+
             .span-5 {
                 grid-column: span 5;
                 padding: 25px 0;
             }
 
             footer {
-                width: 100%;
+             
             }
             main {
                 grid-column: span 5;
-                p {
-                    row-gap: var(--size-fluid-4);
-                    font-family: var(--font-mono);
-
-                   
-                }
+                
             }
+
+
 
             h1 {
                 font-weight: var(--font-weight-9);

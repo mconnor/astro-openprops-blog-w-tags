@@ -1,7 +1,6 @@
 ---
 import Social from './Social.astro'
-const platform = 'github'
-const username = 'withastro'
+
 
 
 const { class: className , ...rest} = Astro.props
@@ -11,20 +10,21 @@ const { class: className , ...rest} = Astro.props
 <style>
  
     .social {
-        justify-self: center;
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid: 1fr/ 1fr 1fr 1fr;
+        gap: var(--size-fluid-5);
+       
     }
 </style>
 
 <footer class:list={[className ]}  {...rest}>
     <p>
         Learn more about my projects on
-        <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!
+       
     </p>
     <div class="social">
-        <Social platform="twitter" username="astrodotbuild" />
-        <Social platform="github" username="withastro" />
-        <Social platform="youtube" username="astrodotbuild" />
+        <Social platform="twitter" username="mconnor" />
+        <Social platform="github" username="mconnor" />
+        <Social platform="youtube" username="mconnor"/>
     </div>
 </footer>
