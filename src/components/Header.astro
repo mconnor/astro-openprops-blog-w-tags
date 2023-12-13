@@ -6,14 +6,19 @@ type Props = Record<string, never>
 
 <style>
     header {
-       
         display: grid;
         grid-column: span 5;
- 
+
         justify-items: center;
+    }
+    .top {
+        background-color: var(--brand);
     }
 </style>
 
 <header role="banner">
+    <div class:list='["top"]'>
+        <h4>mike</h4>
+    </div>
     <Hamburger />
 </header>
