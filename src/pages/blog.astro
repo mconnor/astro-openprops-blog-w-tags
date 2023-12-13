@@ -1,7 +1,8 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
-import BlogLink from '../components/BlogLink.astro'
+
+import Link   from '@components/PolyMorphicElement.astro'
 
 const pageTitle = "Mike's Bloggy Blog Blog"
 const publishsedPost = await getCollection(
@@ -31,12 +32,13 @@ const getFormatAuth = (authorId: string) => {
                     return a.data.pubDate > b.data.pubDate ? -1 : 1
                 })
                 .map((post) => (
-               
-                        <BlogLink href={'/posts/' + post.slug}>
+               <li>
+                        <Link as='a' href={'/posts/' + post.slug}>
                             {post.data.title}-
                             <em>{getFormatAuth(post.data.author.id)}</em>-
                             {post.data.pubDate.toDateString()}
-                        </BlogLink>
+                        </Link>
+                    </li>
                   
                 ))
         }
