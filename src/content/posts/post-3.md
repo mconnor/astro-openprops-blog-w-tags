@@ -8,7 +8,7 @@ image:
     width: 800
     height: 300
 pubDate: 2022-07-15
-tags: ['school', 'learning in public', 'setbacks', 'community']
+tags: ['school', 'public-learning', 'setbacks', 'community']
 ---
 
 Elit nostrud magna labore occaecat velit eiusmod ex veniam pariatur proident. Laboris aute eu dolore dolor incididunt adipisicing nulla sit labore irure minim consequat laboris aute. Cupidatat officia non aliquip reprehenderit occaecat nulla culpa eiusmod excepteur consequat adipisicing aliqua elit id. Commodo duis cupidatat pariatur duis. Proident nulla culpa aliquip.

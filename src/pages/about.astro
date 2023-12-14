@@ -1,5 +1,7 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
+// Import the PolymorphicElement component
+import PolyMorphicElement from '@components/PolyMorphicElement.astro';
 export const prerender = true;
 const pageTitle = 'About Page'
 
@@ -15,9 +17,20 @@ const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs']
 const happy = true
 const finished = false
 const goal = 3
+
+
+
+
+
 ---
 
 <BaseLayout pageTitle={pageTitle} surfaceClass="surface-1">
+
+
+<PolyMorphicElement as="a" href="#" class="link">Link</PolyMorphicElement>
+
+
+
     <p>Here are a few facts about me:</p>
     <ul>
         <li>My name is {identity.firstName}.</li>

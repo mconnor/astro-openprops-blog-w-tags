@@ -1,5 +1,5 @@
 ---
-
+import { format } from 'date-fns'
 import Link from '@components/PolyMorphicElement.astro';
 
 
@@ -52,6 +52,7 @@ const { tag } = Astro.params as Params
 // const { posts } = Astro.props
 
 const {  posts} = Astro.props;
+
 ---
 
 <BaseLayout pageTitle={tag}>
@@ -61,7 +62,7 @@ const {  posts} = Astro.props;
                
                     <li>
                         <Link as="a" href={'/posts/' + post.slug}>
-                            <span></span>   {post.data.title}
+                             {post.data.title}, <span class="small-text">{format(post.data.pubDate, 'MMMM do, yyyy')}</span>
                     </Link>
                     </li>
                 
@@ -69,3 +70,9 @@ const {  posts} = Astro.props;
         }
     </ul>
 </BaseLayout>
+
+<style>
+    .small-text {
+        font-size: 0.8rem;
+    }
+</style>
