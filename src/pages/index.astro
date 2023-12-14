@@ -4,23 +4,24 @@ import HeroBtn from '@components/HeroBtn.astro'
 import { Image } from 'astro:assets'
 
 import myImage from '@assets/splash.webp'
-export const prerender = true;
+export const prerender = true
 const pageTitle = 'Splash'
 ---
 
 <style>
     .promo-art {
         align-self: stretch;
+        > img {
+            block-size: 100%;
+            object-fit: cover;
+        }
     }
 
-    .promo-art > img {
-        block-size: 100%;
-        object-fit: cover;
-    }
     header {
         display: grid;
         align-items: center;
         grid-template-columns: 1fr 1fr;
+    
         background: var(--surface-1);
     }
 

@@ -1,39 +1,33 @@
 ---
+import Link from '@components/PolyMorphicElement.astro'
 import type { HTMLAttributes } from 'astro/types'
 
 type SocialType = 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube'
 
 interface Props extends HTMLAttributes<'a'> {
-
-    username: string
+    username?: string
     platform: SocialType
-
-    
 }
-const { platform, username } = Astro.props
+const { platform, username='mconnor' } = Astro.props
 
 const myicon = (platform: SocialType) => {
     switch (platform) {
         case 'twitter':
-            return 'fab fa-twitter'
+            return 'fa-twitter'
         case 'instagram':
-            return 'fab fa-instagram'
+            return 'fa-instagram'
         case 'github':
-            return 'fab fa-github'
+            return 'fa-github'
         case 'linkedin':
-            return 'fab fa-linkedin'
+            return 'fa-linkedin'
         default:
-            return 'fab fa-twitter'
+            return 'fa-twitter'
     }
 }
-
-
 ---
 
 <!-- <a href={`https://www.${platform}.com/${username}`}></a> -->
-<button type="button" class="btn btn-primary">
-    <a class="" href={`https://www.${platform}.com/${username}`}>
-        <i class={myicon(platform)}></i>
+<Link as="a" class="" href={`https://www.${platform}.com/${username}`}>
+    <i class:list={['fa-brands', myicon(platform)]}></i>
     {platform}
-    </a>
-    </button>
+</Link>

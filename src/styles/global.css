@@ -1,6 +1,23 @@
 @import 'open-props/postcss/style';
+
+/* 
+the above import brings in
+@import 'props.media.css';
+@import 'props.fonts.css';
+@import 'props.sizes.css';
+@import 'props.easing.css';
+@import 'props.zindex.css';
+@import 'props.shadows.css';
+@import 'props.aspects.css';
+@import 'props.colors.css';
+@import 'props.gradients.css';
+@import 'props.animations.css';
+@import 'props.borders.css';
+ */
 @import 'open-props/postcss/normalize';
 @import 'open-props/postcss/buttons';
+@import 'open-props/postcss/buttons/light';
+@import 'open-props/postcss/buttons/dark';
 
 
 @layer reset, legacy, defaults,  patterns, components, utilities, overrides;
@@ -149,6 +166,7 @@
         border-radius: var(--radius-3);
         padding: var(--size-4) var(--size-8);
         box-shadow: var(--shadow-6);
+        xxx: var(--xs-n-below);
         text-decoration: none;
         cursor: pointer;
         .blue & {
@@ -162,19 +180,7 @@
             }
         }
     }
-    .op-icon-p {
-        stroke: var(--indigo-2);
-        @nest a:hover & {
-            stroke: var(--indigo-1);
-        }
-
-        @nest [data-theme='light'] & {
-            stroke: var(--indigo-9);
-            @nest a:hover & {
-                stroke: var(--indigo-8);
-            }
-        }
-    }
+    
 }
 @layer utilities {
 

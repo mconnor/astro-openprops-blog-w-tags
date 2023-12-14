@@ -20,35 +20,40 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 ---
 
 <BaseLayout pageTitle="Tag Index">
-    <ul class="tags" transition:animate="slide">
+   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit accusantium voluptates exercitationem est aperiam, aliquid veniam, eveniet labore, laudantium dolores pariatur aut beatae incidunt. Perspiciatis exercitationem debitis quas alias magnam.</p>
+   <ul class="tags" transition:animate="slide">
         {
             tags.map((tag) => (
                 <li class:list={['button-class']}>
-                   
-                    <TagButton as="a" href={`/tags/${tag}`} >
-                       <span class="icon-class"> <TagIcon />{`${tag}-${tagCounts[tag]}`}</span>
+                    <TagButton as="a" href={`/tags/${tag}`}>
+                        <span class="icon-class">
+                            {' '}
+                            <TagIcon />
+                            {`${tag}-${tagCounts[tag]}`}
+                        </span>
                     </TagButton>
                 </li>
             ))
         }
     </ul>
 </BaseLayout>
-fis
+
 <style>
+     p {
+        color: red;
+    }
     .tags {
-      
         display: grid;
         grid: 100px / repeat(2, 1fr 3fr);
-  grid-gap: 10px;
+        grid-gap: 10px;
         & li {
             list-style: none;
         }
     }
     .no-wrap {
-       display: grid;
-     grid-template-columns: auto 1fr;
-     grid-template-rows: auto;
-     
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto;
     }
 
     .icon-class {
@@ -58,9 +63,6 @@ fis
     }
 
     .button-class {
-
-       
-
         /* white-space: nowrap; */
 
         font-size: var(--font-size-1);
@@ -70,11 +72,8 @@ fis
         padding-block: var(--size-3); */
 
         color: var(--blue-9);
-        border: var(--border-size-2) solid var(--blue-5);
-        background-color: transparent;
-        border-radius: var(--radius-2);
-       
-      
+
+
         &:is(:hover, :focus) {
             cursor: pointer;
             color: var(--blue-0);

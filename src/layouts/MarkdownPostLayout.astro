@@ -39,7 +39,7 @@ const author = await getEntry(frontmatter.author)
 
     <slot />
 </BaseLayout>
-<style>
+<style is:global>
     .tags {
         display: flex;
         flex-flow: row wrap;
