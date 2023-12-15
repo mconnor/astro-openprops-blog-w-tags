@@ -1,24 +1,27 @@
 ---
 import Hamburger from './Hamburger.astro'
 
-type Props = Record<string, never>
+interface Props {
+    class?: string
+}
+
+
+const { class: className ='header', ...rest} = Astro.props
 ---
 
 <style>
-    header {
-        display: grid;
-        grid-column: span 5;
-
-        justify-items: center;
-    }
-    .top {
+    
+    .banner {
         background-color: var(--brand);
+        width: 100%;
     }
+
 </style>
 
-<header role="banner">
-    <div class:list='["top"]'>
-        <h4>mike</h4>
-    </div>
-    <Hamburger />
+<header class={className} {...rest}>
+    <!-- <div class="banner">
+        <h4 >mike</h4>
+    </div> -->
+    <Hamburger class={className}/>
 </header>
+

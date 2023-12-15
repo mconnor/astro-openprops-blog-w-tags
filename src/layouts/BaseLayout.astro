@@ -1,14 +1,8 @@
 ---
-
-
-
-
-
-
 import BaseHead from '@components/BaseHead.astro'
-import Header from '@components/Header.astro'
+// import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-
+import Hamburger from '@components/Hamburger.astro'
 interface Props {
     pageTitle: string
     description?: string
@@ -16,6 +10,8 @@ interface Props {
     surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
     children: any
 }
+
+
 
 // const isProd = import.meta.env.PROD
 // const isDev = import.meta.env.DEV
@@ -32,35 +28,40 @@ const {
     <head>
         <BaseHead title={pageTitle} description={description} image={image} />
     </head>
-    <body class={surfaceClass}>
-        <Header />
-        <h1 class="span-5" transition:animate="fade">{pageTitle}</h1>
-        <main class:list={['span-5', 'type-1']}>
+
+    <body class:list={[surfaceClass, 'center-self']}>
+       <Hamburger  class="header" />
+        <!-- <Header class:list={['header']} /> -->
+        <h1 class="pageHeadline" transition:animate="fade">{pageTitle}</h1>
+        <main class="mainClass">
             <slot transition:animate="none" />
         </main>
-        <Footer class:list={['span-5',' surface-1']} />
+        <Footer class:list={['footer']} />
 
         <style>
-      
+            body {
+                grid-template-rows: auto;
+                grid-template-areas:
+                    'header header header '
+                    '.  headline .'
+                    '. main . '
+                    'footer footer footer';
+              
+            }
 
+            .pageHeadline {
+                grid-area: headline;
+            }
+
+            .mainClass {
+                grid-area: main;
+                border: var(--border-size-2) solid var(--brand);
+            }
             .center-self {
                 align-self: center;
             }
             .devborder {
                 border: var(--border-size-2) solid var(--brand);
-            }
-            body {
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-                grid-template-rows: min-content min-content 4fr 1fr;
-                justify-items: center;
-                align-items: start;
-                grid-gap: var(--size-fluid-1);
-
-                @media screen and (min-width: 600px) {
-                    width: 80%;
-                    margin: 0 auto;
-                }
             }
 
             .type-1 {
@@ -69,20 +70,13 @@ const {
                 line-height: var(--line-height-1);
             }
 
-            .span-5 {
-                grid-column: span 5;
-                padding: 25px 0;
+           
+            .header {
+                grid-area: header;
             }
-
-            footer {
-             
+            .footer {
+                grid-area: footer;
             }
-            main {
-                grid-column: span 5;
-                
-            }
-
-
 
             h1 {
                 font-weight: var(--font-weight-9);
@@ -90,5 +84,3 @@ const {
         </style>
     </body>
 </html>
-
-

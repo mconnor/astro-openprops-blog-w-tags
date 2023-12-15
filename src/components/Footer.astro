@@ -1,9 +1,12 @@
 ---
 import Social from './Social.astro'
 
+interface Props {
+    class?: string
+}
 
 
-const { class: className , ...rest} = Astro.props
+const { class: className ='footer', ...rest} = Astro.props
 
 ---
 

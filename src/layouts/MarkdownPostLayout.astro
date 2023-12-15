@@ -14,7 +14,7 @@ const { frontmatter } = Astro.props
 const author = await getEntry(frontmatter.author)
 ---
 
-<BaseLayout pageTitle={frontmatter.title} surfaceClass="surface-4">
+<BaseLayout pageTitle={frontmatter.title}>
     <h2>{frontmatter.description}</h2>
     <p>{frontmatter.pubDate.toDateString()}</p>
 

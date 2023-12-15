@@ -3,8 +3,8 @@ import  type { HTMLTag, Polymorphic } from 'astro/types';
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
 
-const { as: Tag = 'div', ...props } = Astro.props;
+const { as: Tag, ...props } = Astro.props;
 ---
 
-<Tag {...props} class="'no-wrap"><slot /></Tag>
+<Tag {...props}><slot /></Tag>
 

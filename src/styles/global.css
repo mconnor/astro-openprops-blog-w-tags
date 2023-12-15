@@ -1,4 +1,4 @@
-@import 'open-props/postcss/style';
+/* @import 'open-props/postcss/style'; */
 
 /* 
 the above import brings in
@@ -15,12 +15,13 @@ the above import brings in
 @import 'props.borders.css';
  */
 @import 'open-props/postcss/normalize';
+@import 'open-props/postcss/theme';
 @import 'open-props/postcss/buttons';
 @import 'open-props/postcss/buttons/light';
 @import 'open-props/postcss/buttons/dark';
 
 
-@layer reset, legacy, defaults,  patterns, components, utilities, overrides;
+@layer reset, defaults, legacy,  layout, patterns, components, utilities, overrides;
 
 @layer overrides {
 
@@ -28,7 +29,38 @@ the above import brings in
     
 }
 
+@layer layout {
+    body {
+        padding-block-start: var(--size-fluid-2);
+        overflow-x: hidden;
+        display: grid;
+        justify-items: center;
+      
+        grid-template-columns:
+          var(--size-8) 
+          calc(100% - 2 * var(--size-8)) 
+          var(--size-8) 
+        ;
+      
+        & > * {
+          grid-column: 2;
+        }
+      
+        & > .place-full {
+          width: 100%;
+          grid-column: 1 / -1;
+        }
+      
+        @media (--md-n-below) {
+          grid-template-columns:
+            var(--size-3) 
+            calc(100% - 2 * var(--size-3))  
+            var(--size-3) 
+          ;
+        }
+      }
 
+}
 @layer defaults {
     :root {
         --brand-light: var(--orange-6);
@@ -48,7 +80,7 @@ the above import brings in
         --surface-3-dark: var(--gray-10);
         --surface-4-dark: var(--gray-9);
 
-        block-size: 100%;
+ 
 
         color-scheme: dark;
     }
@@ -65,6 +97,14 @@ the above import brings in
         --surface-4: var(--surface-4-light);
         --surface-shadow: var(--surface-shadow-light);
         --shadow-strength: var(--shadow-strength-light);
+
+        .surface1 {
+            background-color: var(--surface-1);
+            color: var(--text-2);
+        }
+    
+       
+    
 
         @media (--OSdark) {
             --brand: var(--brand-dark);
@@ -185,7 +225,9 @@ the above import brings in
 @layer utilities {
 
    
- 
+    .span-all {
+        grid-column: span 12;
+    }
 
     .surface-1 {
         background-image: var(--surface-1);
