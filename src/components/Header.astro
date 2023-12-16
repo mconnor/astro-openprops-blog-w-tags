@@ -5,23 +5,19 @@ interface Props {
     class?: string
 }
 
-
-const { class: className ='header', ...rest} = Astro.props
+const { class: className = 'header', ...rest } = Astro.props
 ---
 
 <style>
-    
     .banner {
         background-color: var(--brand);
         width: 100%;
     }
-
 </style>
 
 <header class={className} {...rest}>
     <!-- <div class="banner">
         <h4 >mike</h4>
     </div> -->
-    <Hamburger class={className}/>
+    <Hamburger class={className} />
 </header>
-

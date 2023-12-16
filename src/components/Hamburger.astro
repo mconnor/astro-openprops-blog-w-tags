@@ -5,14 +5,11 @@ interface Props {
     class?: string
 }
 
-const {class: className ='header', ...rest} = Astro.props;
+const { class: className = 'header', ...rest } = Astro.props
 // type Props = Record<string, never>
-
-
 ---
 
 <style>
-
     #menu__toggle {
         display: none;
 
@@ -29,7 +26,7 @@ const {class: className ='header', ...rest} = Astro.props;
                 transform: rotate(90deg);
             }
         }
-        @media (width<630px)  {
+        @media (width<630px) {
             display: none;
 
             &:checked ~ .menu__box {
@@ -67,8 +64,6 @@ const {class: className ='header', ...rest} = Astro.props;
             align-items: center;
             justify-content: center;
             position: static;
-           
-       
 
             height: var(--size-8);
             user-select: none;
@@ -99,7 +94,7 @@ const {class: className ='header', ...rest} = Astro.props;
             :is(span)::after {
                 bottom: 25%;
             }
-          
+
             @media (width>=630px) {
                 display: none;
             }
@@ -107,10 +102,10 @@ const {class: className ='header', ...rest} = Astro.props;
 
         & .menu__box {
             display: none;
-           list-style: none;
+            list-style: none;
             position: relative;
             list-style-position: outside;
-        
+
             row-gap: var(--size-1);
 
             border-width: var(--size-0);
@@ -136,7 +131,6 @@ const {class: className ='header', ...rest} = Astro.props;
                 }
             }
             @media (width>=630px) {
-               
                 display: grid;
                 justify-content: flex-start;
                 /* grid-template-columns: repeat(5, minmax(250px, 1fr)); */
@@ -159,21 +153,19 @@ const {class: className ='header', ...rest} = Astro.props;
         <label class="menu__btn" for="menu__toggle">
             <span></span>
         </label>
-    
+
         <ul class="menu__box">
             <li><Link as="a" class={className} href="/">Home</Link></li>
             <li>
-                <Link as="a" class={className}  href="/about/">About</Link>
+                <Link as="a" class={className} href="/about/">About</Link>
             </li>
             <li>
-                <Link as="a" class={className}  href="/kitchensink/">
+                <Link as="a" class={className} href="/kitchensink/">
                     Kitchen Sink
                 </Link>
             </li>
-            <li><Link as="a" class={className}  href="/blog/">Blog</Link></li>
-            <li><Link as="a" class={className}  href="/tags/">Tags</Link></li>
-    
-            
+            <li><Link as="a" class={className} href="/blog/">Blog</Link></li>
+            <li><Link as="a" class={className} href="/tags/">Tags</Link></li>
         </ul>
     </nav>
 </div>

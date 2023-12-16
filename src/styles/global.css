@@ -20,13 +20,9 @@ the above import brings in
 @import 'open-props/postcss/buttons/light';
 @import 'open-props/postcss/buttons/dark';
 
-
 @layer reset, defaults, legacy,  layout, patterns, components, utilities, overrides;
 
 @layer overrides {
-
-   
-    
 }
 
 @layer layout {
@@ -35,31 +31,28 @@ the above import brings in
         overflow-x: hidden;
         display: grid;
         justify-items: center;
-      
-        grid-template-columns:
-          var(--size-8) 
-          calc(100% - 2 * var(--size-8)) 
-          var(--size-8) 
-        ;
-      
-        & > * {
-          grid-column: 2;
-        }
-      
-        & > .place-full {
-          width: 100%;
-          grid-column: 1 / -1;
-        }
-      
-        @media (--md-n-below) {
-          grid-template-columns:
-            var(--size-3) 
-            calc(100% - 2 * var(--size-3))  
-            var(--size-3) 
-          ;
-        }
-      }
 
+        grid-template-columns:
+            var(--size-8)
+            calc(100% - 2 * var(--size-8))
+            var(--size-8);
+
+        & > * {
+            grid-column: 2;
+        }
+
+        & > .place-full {
+            width: 100%;
+            grid-column: 1 / -1;
+        }
+
+        @media (--md-n-below) {
+            grid-template-columns:
+                var(--size-3)
+                calc(100% - 2 * var(--size-3))
+                var(--size-3);
+        }
+    }
 }
 @layer defaults {
     :root {
@@ -79,8 +72,6 @@ the above import brings in
         --surface-2-dark: var(--gray-11);
         --surface-3-dark: var(--gray-10);
         --surface-4-dark: var(--gray-9);
-
- 
 
         color-scheme: dark;
     }
@@ -102,9 +93,6 @@ the above import brings in
             background-color: var(--surface-1);
             color: var(--text-2);
         }
-    
-       
-    
 
         @media (--OSdark) {
             --brand: var(--brand-dark);
@@ -118,8 +106,6 @@ the above import brings in
             --shadow-strength: var(--shadow-strength-dark);
         }
     }
-
-   
 
     /* 
 [color-scheme='light'] {
@@ -220,11 +206,8 @@ the above import brings in
             }
         }
     }
-    
 }
 @layer utilities {
-
-   
     .span-all {
         grid-column: span 12;
     }

@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
 // Import the PolymorphicElement component
-import PolyMorphicElement from '@components/PolyMorphicElement.astro';
-export const prerender = true;
+import PolyMorphicElement from '@components/PolyMorphicElement.astro'
+export const prerender = true
 const pageTitle = 'About Page'
 
 const identity = {
@@ -17,19 +17,10 @@ const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs']
 const happy = true
 const finished = false
 const goal = 3
-
-
-
-
-
 ---
 
 <BaseLayout pageTitle={pageTitle} surfaceClass="surface-1">
-
-
-<PolyMorphicElement as="a" href="#" class="link">Link</PolyMorphicElement>
-
-
+    <PolyMorphicElement as="a" href="#" class="link">Link</PolyMorphicElement>
 
     <p>Here are a few facts about me:</p>
     <ul>
@@ -47,9 +38,7 @@ const goal = 3
         }
     </ul>
 
-
     <h3>My skills are:</h3>
-
 
     <ul>
         {skills.map((skill) => <li class="skill">{skill}</li>)}
@@ -69,10 +58,9 @@ const goal = 3
 </BaseLayout>
 
 <style>
-      .skill {
+    .skill {
         font-weight: var(--font-weight-7);
         text-transform: var(--textCase);
-        color: var(--brand)
+        color: var(--brand);
     }
-
 </style>

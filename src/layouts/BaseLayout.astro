@@ -11,8 +11,6 @@ interface Props {
     children: any
 }
 
-
-
 // const isProd = import.meta.env.PROD
 // const isDev = import.meta.env.DEV
 
@@ -30,7 +28,7 @@ const {
     </head>
 
     <body class:list={[surfaceClass, 'center-self']}>
-       <Hamburger  class="header" />
+        <Hamburger class="header" />
         <!-- <Header class:list={['header']} /> -->
         <h1 class="pageHeadline" transition:animate="fade">{pageTitle}</h1>
         <main class="mainClass">
@@ -46,7 +44,6 @@ const {
                     '.  headline .'
                     '. main . '
                     'footer footer footer';
-              
             }
 
             .pageHeadline {
@@ -70,7 +67,6 @@ const {
                 line-height: var(--line-height-1);
             }
 
-           
             .header {
                 grid-area: header;
             }

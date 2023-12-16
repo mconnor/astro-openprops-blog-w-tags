@@ -2,7 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
-import Link   from '@components/PolyMorphicElement.astro'
+import Link from '@components/PolyMorphicElement.astro'
 
 const pageTitle = "Mike's Bloggy Blog Blog"
 const publishsedPost = await getCollection(
@@ -24,7 +24,7 @@ const getFormatAuth = (authorId: string) => {
             href="https://www.markdownguide.org">Mardown</a
         >. No CMS, not html, or CSS. Just a .md file basted off a template.
     </p>
- 
+
     <ul>
         {
             publishsedPost
@@ -32,14 +32,13 @@ const getFormatAuth = (authorId: string) => {
                     return a.data.pubDate > b.data.pubDate ? -1 : 1
                 })
                 .map((post) => (
-               <li>
-                        <Link as='a' href={'/posts/' + post.slug}>
+                    <li>
+                        <Link as="a" href={'/posts/' + post.slug}>
                             {post.data.title}-
                             <em>{getFormatAuth(post.data.author.id)}</em>-
                             {post.data.pubDate.toDateString()}
                         </Link>
                     </li>
-                  
                 ))
         }
     </ul>

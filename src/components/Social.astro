@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<'a'> {
     username?: string
     platform: SocialType
 }
-const { platform, username='mconnor' } = Astro.props
+const { platform, username = 'mconnor' } = Astro.props
 
 const myicon = (platform: SocialType) => {
     switch (platform) {

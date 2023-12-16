@@ -5,29 +5,22 @@ interface Props {
     class?: string
 }
 
-
-const { class: className ='footer', ...rest} = Astro.props
-
+const { class: className = 'footer', ...rest } = Astro.props
 ---
 
 <style>
- 
     .social {
         display: grid;
         grid: 1fr/ 1fr 1fr 1fr;
         gap: var(--size-fluid-5);
-       
     }
 </style>
 
-<footer class:list={[className ]}  {...rest}>
-    <p>
-        Learn more about my projects on
-       
-    </p>
+<footer class:list={[className]} {...rest}>
+    <p>Learn more about my projects on</p>
     <div class="social">
         <Social platform="twitter" />
         <Social platform="github" />
-        <Social platform="youtube"/>
+        <Social platform="youtube" />
     </div>
 </footer>

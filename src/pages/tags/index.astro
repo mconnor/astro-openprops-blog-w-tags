@@ -31,7 +31,11 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
             tags.map((tag) => (
                 <li class:list={['btn']}>
                     <TagButton as="a" href={`/tags/${tag}`}>
-                      <span class="nowrap"> <TagIcon />{`${tag}-${tagCounts[tag]}`}</span>
+                        <span class="nowrap">
+                            {' '}
+                            <TagIcon />
+                            {`${tag}-${tagCounts[tag]}`}
+                        </span>
                     </TagButton>
                 </li>
             ))
@@ -40,7 +44,6 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 </BaseLayout>
 
 <style>
-
     p {
         color: red;
     }
@@ -51,19 +54,11 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
         gap: var(--size-2);
         max-inline-size: var(--size-content-3);
         & li {
-            
-       
             & .nowrap {
                 display: flex;
                 flex-wrap: nowrap;
                 column-gap: var(--size-2);
-                
             }
-            
         }
     }
- 
-
-
-  
 </style>
