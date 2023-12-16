@@ -18,7 +18,7 @@ const {
     pageTitle,
     description = 'my description',
     image = '/placeholder-social.jpg',
-    surfaceClass = 'surface-2',
+    surfaceClass = 'surface-1',
 } = Astro.props
 ---
 
@@ -28,38 +28,54 @@ const {
     </head>
 
     <body class:list={[surfaceClass, 'center-self']}>
-        <Hamburger class="header" />
-        <!-- <Header class:list={['header']} /> -->
-        <h1 class="pageHeadline" transition:animate="fade">{pageTitle}</h1>
+        <Hamburger class={surfaceClass} />
+
+        <h1 style="grid-area: headline" transition:animate="fade">
+            {pageTitle}
+        </h1>
         <main class="mainClass">
             <slot transition:animate="none" />
         </main>
-        <Footer class:list={['footer']} />
+        <Footer class=var(--surface-2) />
 
         <style>
             body {
-                grid-template-rows: auto;
+                display:grid;
+                align-items: start;
+                grid-template-rows: min-content min-content 1fr min-content;
                 grid-template-areas:
                     'header header header '
                     '.  headline .'
                     '. main . '
                     'footer footer footer';
+                height: 100vh;
+                grid-row-gap: var(--size-fluid-5) ;
             }
 
-            .pageHeadline {
+            Hamburger{
+                grid-area: header;
+            }
+            Footer{
+                grid-area: footer;
+             
+            }
+
+            h1 {
                 grid-area: headline;
             }
-
-            .mainClass {
+            main {
                 grid-area: main;
-                border: var(--border-size-2) solid var(--brand);
+               align-self: stretch;
+               
             }
+
+         
             .center-self {
                 align-self: center;
             }
-            .devborder {
+            /* .devborder {
                 border: var(--border-size-2) solid var(--brand);
-            }
+            } */
 
             .type-1 {
                 font-size: var(--font-size-4);
@@ -67,12 +83,8 @@ const {
                 line-height: var(--line-height-1);
             }
 
-            .header {
-                grid-area: header;
-            }
-            .footer {
-                grid-area: footer;
-            }
+           
+           
 
             h1 {
                 font-weight: var(--font-weight-9);

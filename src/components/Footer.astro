@@ -1,26 +1,55 @@
 ---
 import Social from './Social.astro'
+import type { HTMLAttributes } from 'astro/types'
 
-interface Props {
-    class?: string
+interface Props extends HTMLAttributes<'footer'> {
+    kolors?: string
 }
 
-const { class: className = 'footer', ...rest } = Astro.props
+const { kolors = 'footer', ...rest } = Astro.props
 ---
 
 <style>
-    .social {
+    footer {
+        justify-self: stretch;
+
         display: grid;
-        grid: 1fr/ 1fr 1fr 1fr;
-        gap: var(--size-fluid-5);
+        grid-template-rows: min-content min-content min-content;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            'headline headline headline'
+            'link1 link2 link3';
+    }
+
+
+    p {
+        grid-area: headline;
+        white-space: nowrap;
+           justify-self: center;
+    }
+
+    Social {
+        .link1 {
+            grid-area: link1;
+          
+          
+        }
+
+        .link2 {
+            grid-area: link2;
+        }
+
+        .link3 {
+            grid-area: link3;
+            
+            
+        }
     }
 </style>
 
-<footer class:list={[className]} {...rest}>
-    <p>Learn more about my projects on</p>
-    <div class="social">
-        <Social platform="twitter" />
-        <Social platform="github" />
-        <Social platform="youtube" />
-    </div>
+<footer {...rest}>
+    <p>More about me</p>
+    <Social platform="twitter" class="link1" />
+    <Social platform="github" class="link2" />
+    <Social platform="youtube" class="link3" />
 </footer>
