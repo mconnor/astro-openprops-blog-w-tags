@@ -1,5 +1,4 @@
 ---
-import { navigate } from 'astro:transitions/client';
 import type { HTMLAttributes } from 'astro/types'
 import Link from '@components/PolyMorphicElement.astro'
 
@@ -36,6 +35,7 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
                 display: grid;
                 & li {
                     animation: var(--animation-slide-in-right);
+                    animation-duration: 1s;
                 }
                 & li:nth-child(1) {
                     animation-delay: 0.1s;
@@ -63,7 +63,9 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
         position: relative;
         & .menu__btn {
             display: grid;
-            grid-template-columns: repeat(3, auto-fill);
+            grid-template-columns: 1fr;
+            grid-template-rows: min-content, min-content, min-content;
+           
             align-items: center;
             justify-content: center;
             position: static;
@@ -77,7 +79,6 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
                 display: block;
                 width: var(--size-5);
                 height: var(--size-1);
-
                 transition: transform 0.4s cubic-bezier(0.54, -0.81, 0.57, 0.57);
                 content: '';
                 background-color: var(--brand);
