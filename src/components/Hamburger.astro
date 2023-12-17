@@ -117,12 +117,6 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
 
             & li {
                 white-space: nowrap;
-                display: grid;
-                grid-template-columns: auto-fill;
-                justify-content: center;
-                /* padding-inline: var(--size-4); */
-      
-
                 & a {
                     &:hover {
                         background-color: var(--surface-3);
@@ -130,6 +124,12 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
                         text-decoration: none;
                         text-font-weight: var(--font-weight-6);
                     }
+                }
+                .active {
+                    background-color: var(--surface-3);
+                    cursor: pointer;
+                    text-decoration: none;
+                    text-font-weight: var(--font-weight-6);
                 }
             }
             @media (width>=630px) {
@@ -158,17 +158,17 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
         </label>
 
         <ul class="menu__box">
-            <li><Link as="a"  href="/">Home</Link></li>
+            <li><Link as="a" class="nav-link" href="/">Home</Link></li>
             <li>
-                <Link as="a"  href="/about/">About</Link>
+                <Link as="a" class="nav-link" href="/about/">About</Link>
             </li>
             <li>
-                <Link as="a"  href="/kitchensink/">
+                <Link as="a" class="nav-link" href="/kitchensink/">
                     Kitchen Sink
                 </Link>
             </li>
-            <li><Link as="a"  href="/blog/">Blog</Link></li>
-            <li><Link as="a"  href="/tags/">Tags</Link></li>
+            <li><Link as="a" class="nav-link" href="/blog/">Blog</Link></li>
+            <li><Link as="a" class="nav-link" href="/tags/">Tags</Link></li>
         </ul>
     </nav>
 </div>
@@ -178,7 +178,7 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
   
     navLinks.forEach(link => {
       link.addEventListener('click', (event) => {
-        event.preventDefault();
+        // event.preventDefault();
   
         // Remove "active" class from all links
         navLinks.forEach(link => link.classList.remove('active'));
