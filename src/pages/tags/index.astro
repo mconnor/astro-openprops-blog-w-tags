@@ -26,7 +26,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
         eveniet labore, laudantium dolores pariatur aut beatae incidunt.
         Perspiciatis exercitationem debitis quas alias magnam.
     </p>
-    <ul class="tags" transition:animate="slide">
+    <ul class="tags">
         {
             tags.map((tag) => (
                 <li class:list={['btn']}>
