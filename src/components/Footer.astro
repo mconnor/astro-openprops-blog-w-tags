@@ -1,16 +1,18 @@
 ---
 import Social from './Social.astro'
-import type { HTMLAttributes } from 'astro/types'
 
-interface Props extends HTMLAttributes<'footer'> {
-    kolors?: string
+import type { HTMLAttributes } from 'astro/types'
+import Link from '@components/PolyMorphicElement.astro'
+
+interface Props extends HTMLAttributes<'div'> {
+    surface?: string
 }
 
-const { kolors = 'footer', ...rest } = Astro.props
+const { class: className = 'surface1' } = Astro.props
 ---
 
 <style>
-    footer {
+    .layout {
         justify-self: stretch;
 
         display: grid;
@@ -21,18 +23,15 @@ const { kolors = 'footer', ...rest } = Astro.props
             'link1 link2 link3';
     }
 
-
     p {
         grid-area: headline;
         white-space: nowrap;
-           justify-self: center;
+        justify-self: center;
     }
 
     Social {
         .link1 {
             grid-area: link1;
-          
-          
         }
 
         .link2 {
@@ -41,13 +40,11 @@ const { kolors = 'footer', ...rest } = Astro.props
 
         .link3 {
             grid-area: link3;
-            
-            
         }
     }
 </style>
 
-<footer {...rest}>
+<footer class:list={['layout', className]}>
     <p>More about me</p>
     <Social platform="twitter" class="link1" />
     <Social platform="github" class="link2" />
