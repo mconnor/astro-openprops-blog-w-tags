@@ -36,11 +36,11 @@ const {
         <main transition:animate="slide" class="mainClass">
             <slot />
         </main>
-        <Footer class=var(--surface-2) />
+        <Footer class="surface-3" />
 
         <style>
             body {
-                display:grid;
+                display: grid;
                 align-items: start;
                 grid-template-rows: min-content min-content 1fr min-content;
                 grid-template-areas:
@@ -49,15 +49,14 @@ const {
                     '. main . '
                     'footer footer footer';
                 height: 100vh;
-                grid-row-gap: var(--size-fluid-5) ;
+                grid-row-gap: var(--size-fluid-5);
             }
 
-            Hamburger{
+            Hamburger {
                 grid-area: header;
             }
-            Footer{
+            Footer {
                 grid-area: footer;
-             
             }
 
             h1 {
@@ -65,11 +64,9 @@ const {
             }
             main {
                 grid-area: main;
-               align-self: stretch;
-               
+                align-self: stretch;
             }
 
-         
             .center-self {
                 align-self: center;
             }
@@ -83,12 +80,12 @@ const {
                 line-height: var(--line-height-1);
             }
 
-           
-           
-
             h1 {
                 font-weight: var(--font-weight-9);
             }
         </style>
+        <script>
+            import '../scripts/menu.js'
+        </script>
     </body>
 </html>

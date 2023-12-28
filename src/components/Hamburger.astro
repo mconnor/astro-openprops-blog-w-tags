@@ -2,12 +2,9 @@
 import type { HTMLAttributes } from 'astro/types'
 import Link from '@components/PolyMorphicElement.astro'
 
-interface Props extends HTMLAttributes<'div'> {
-  
-    surface?: string
-}
+interface Props extends HTMLAttributes<'div'> {}
 
-const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.props
+const { class: className = 'surface1', ...rest } = Astro.props
 // type Props = Record<string, never>
 ---
 
@@ -65,7 +62,7 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: min-content, min-content, min-content;
-           
+
             align-items: center;
             justify-content: center;
             position: static;
@@ -112,7 +109,6 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
 
             row-gap: var(--size-1);
 
-   
             padding-inline: 0;
 
             & li {
@@ -149,8 +145,7 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
     }
 </style>
 
-<div class={className}
- {...rest}>
+<div class={className} {...rest}>
     <nav class="hamburger-menu" aria-labelledby="header-navigation">
         <input id="menu__toggle" type="checkbox" />
         <label class="menu__btn" for="menu__toggle">
@@ -174,22 +169,22 @@ const {surface='surface-1', class: className = 'surface1', ...rest } = Astro.pro
 </div>
 
 <script>
-    const navLinks = document.querySelectorAll('.nav-link');
-  
-    navLinks.forEach(link => {
-      link.addEventListener('click', (event) => {
-        // event.preventDefault();
-  
-        // Remove "active" class from all links
-        navLinks.forEach(link => link.classList.remove('active'));
-  
-        // Add "active" class to the clicked link
-        link.classList.add('active');
-      });
-    });
-  </script>
+    const navLinks = document.querySelectorAll('.nav-link')
 
-    <!-- document.querySelector('select').onchange = (ev) => {
+    navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+            // event.preventDefault();
+
+            // Remove "active" class from all links
+            navLinks.forEach((link) => link.classList.remove('active'))
+
+            // Add "active" class to the clicked link
+            link.classList.add('active')
+        })
+    })
+</script>
+
+<!-- document.querySelector('select').onchange = (ev) => {
         let href = ev.target.value;
         navigate(href);
     }; -->
