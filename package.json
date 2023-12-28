@@ -18,18 +18,18 @@
         "hello": "node  --version"
     },
     "dependencies": {
-        "@astrojs/check": "^0.3.3",
-        "@astrojs/mdx": "^2.0.1",
+        "@astrojs/check": "^0.3.4",
+        "@astrojs/mdx": "^2.0.3",
         "@astrojs/rss": "^4.0.1",
-        "@astrojs/vercel": "^6.1.0",
-        "astro": "^4.0.6",
+        "@astrojs/vercel": "^6.1.1",
+        "astro": "^4.0.8",
         "date-fns": "^2.30.0",
         "open-props": "^1.6.16",
         "sharp": "^0.32.6",
         "typescript": "^5.3.3"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "^6.15.0",
+        "@typescript-eslint/parser": "^6.16.0",
         "autoprefixer": "^10.4.16",
         "eslint": "^8.56.0",
         "eslint-plugin-astro": "^0.30.0",
@@ -38,12 +38,12 @@
         "postcss-jit-props": "^1.0.14",
         "postcss-preset-env": "^9.3.0",
         "prettier": "^3.1.1",
-        "prettier-plugin-astro": "^0.12.2",
-        "stylelint": "^16.0.2",
+        "prettier-plugin-astro": "^0.12.3",
+        "stylelint": "^16.1.0",
         "stylelint-config-html": "^1.1.0",
         "stylelint-prettier": "^5.0.0"
     },
-    "packageManager": "pnpm@8.12.1",
+    "packageManager": "pnpm@8.13.1",
     "engines": {
         "node": "18.x"
     }
