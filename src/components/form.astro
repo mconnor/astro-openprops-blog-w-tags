@@ -2,10 +2,22 @@
 
 ---
 
-<select>
+<select data-navigate-select>
     <option value="/play">Play</option>
     <option value="/blog">Blog</option>
     <option value="/about">About</option>
     <option value="/tags">Tags</option>
 </select>
-<script src="../scripts/startnav.ts"></script>
+
+
+<script>
+
+import { navigate } from 'astro:transitions/client'
+
+
+document.addEventListener('astro:page-load', () => {
+    const navSelect =  document.querySelector('[data-navigate-select]');
+    navSelect.addEventListener('change', (e) =>  navigate(e.target.value));
+})
+
+</script>
