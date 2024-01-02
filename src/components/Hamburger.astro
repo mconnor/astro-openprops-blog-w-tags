@@ -113,18 +113,19 @@ const { class: className = 'surface1', ...rest } = Astro.props
 
             & li {
                 white-space: nowrap;
+
                 & a {
+                    text-font-weight: var(--font-weight-3);
                     &:hover {
                         background-color: var(--surface-3);
-                        cursor: pointer;
-                        text-decoration: none;
                         text-font-weight: var(--font-weight-6);
+                        text-decoration: none;
                     }
                 }
                 .active {
                     background-color: var(--surface-3);
                     cursor: pointer;
-                    text-decoration: none;
+                    text-decoration: underline;
                     text-font-weight: var(--font-weight-6);
                 }
             }
@@ -168,23 +169,16 @@ const { class: className = 'surface1', ...rest } = Astro.props
     </nav>
 </div>
 
-<script>
-    const navLinks = document.querySelectorAll('.nav-link')
-
-    navLinks.forEach((link) => {
-        link.addEventListener('click', (event) => {
-            // event.preventDefault();
-
-            // Remove "active" class from all links
-            navLinks.forEach((link) => link.classList.remove('active'))
-
-            // Add "active" class to the clicked link
-            link.classList.add('active')
+<script type="module">
+    document.addEventListener('astro:page-load', () => {
+        const navLinks = document.querySelectorAll('.nav-link')
+        navLinks.forEach((link) => {
+            link.addEventListener('click', (event) => {
+                // event.preventDefault();
+                console.log('clicked ' + Astro.url)
+                // Remove "active" class from all links
+                navLinks.forEach((link) => link.classList.toggle('active'))
+            })
         })
     })
 </script>
-
-<!-- document.querySelector('select').onchange = (ev) => {
-        let href = ev.target.value;
-        navigate(href);
-    }; -->

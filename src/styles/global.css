@@ -208,6 +208,11 @@ the above import brings in
     }
 }
 @layer utilities {
+
+    .expanded {
+        display: unset;
+      }
+      
     .span-all {
         grid-column: span 12;
     }

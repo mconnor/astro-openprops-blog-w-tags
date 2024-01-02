@@ -28,7 +28,5 @@ export default defineConfig({
         },
     },
     adapter: vercel(),
-    
-        cacheDir: './my-custom-cache-directory'
-      
+    cacheDir: './my-custom-cache-directory',
 })
