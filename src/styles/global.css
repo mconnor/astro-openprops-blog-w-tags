@@ -27,7 +27,7 @@ the above import brings in
 
 @layer layout {
     body {
-        padding-block-start: var(--size-fluid-2);
+   
         overflow-x: hidden;
         display: grid;
         justify-items: center;
