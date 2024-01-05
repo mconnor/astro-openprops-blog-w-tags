@@ -15,24 +15,24 @@
         "lint": "eslint  \"src/**/*.{js,ts,jsx,tsx,astro}\"",
         "stylelint": "stylelint \"src/**/*.{css,astro}\"",
         "check": "astro check",
-        "hello": "node  --version"
+        "hello": "node --version"
     },
     "dependencies": {
         "@astrojs/check": "^0.3.4",
         "@astrojs/mdx": "^2.0.3",
         "@astrojs/rss": "^4.0.1",
-        "@astrojs/vercel": "^6.1.1",
-        "astro": "^4.0.8",
+        "@astrojs/vercel": "^6.1.2",
+        "astro": "^4.0.9",
         "date-fns": "^2.30.0",
         "open-props": "^1.6.16",
-        "sharp": "^0.32.6",
+        "sharp": "^0.33.1",
         "typescript": "^5.3.3"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "^6.16.0",
+        "@typescript-eslint/parser": "^6.17.0",
         "autoprefixer": "^10.4.16",
         "eslint": "^8.56.0",
-        "eslint-plugin-astro": "^0.30.0",
+        "eslint-plugin-astro": "^0.31.0",
         "eslint-plugin-jsx-a11y": "^6.8.0",
         "postcss-html": "^1.5.0",
         "postcss-jit-props": "^1.0.14",

@@ -107,7 +107,7 @@ the above import brings in
         }
     }
 
-    /* 
+
 [color-scheme='light'] {
     color-scheme: light;
 
@@ -135,7 +135,7 @@ the above import brings in
     --surface-shadow: var(--surface-shadow-dark);
     --shadow-strength: var(--shadow-strength-dark);
 }
-
+    /* 
 [color-scheme='dim'] {
     color-scheme: dark;
 
