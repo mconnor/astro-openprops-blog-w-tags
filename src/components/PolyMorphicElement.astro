@@ -3,10 +3,19 @@ import type { HTMLTag, Polymorphic } from 'astro/types'
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
     as: Tag
+    isActive?: boolean
+    activeClass?: string
     bgColor?: string
 }>
 
-const { as: Tag, class: className, bgColor = 'red', ...rest } = Astro.props
+const {
+    as: Tag,
+    isActive = false,
+    activeClass = 'active',
+    class: className,
+    bgColor = 'red',
+    ...rest
+} = Astro.props
 ---
 
-<Tag class={className} {...rest}><slot /></Tag>
+<Tag class:list={[className, { active: isActive }]} {...rest}><slot /></Tag>

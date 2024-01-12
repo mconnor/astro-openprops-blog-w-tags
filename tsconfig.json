@@ -1,9 +1,7 @@
 {
     "extends": "astro/tsconfigs/strict",
     "compilerOptions": {
-        "verbatimModuleSyntax": true,
         "baseUrl": ".",
-        "allowJs": true,
         "paths": {
             "@components/*": ["src/components/*"],
             "@layouts/*": ["src/layouts/*"],

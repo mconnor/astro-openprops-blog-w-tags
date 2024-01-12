@@ -20,12 +20,13 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 ---
 
 <BaseLayout pageTitle="Tag Index">
-    <p>
+    <p class="block-wrap">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
         accusantium voluptates exercitationem est aperiam, aliquid veniam,
         eveniet labore, laudantium dolores pariatur aut beatae incidunt.
         Perspiciatis exercitationem debitis quas alias magnam.
     </p>
+
     <ul class="tags">
         {
             tags.map((tag) => (
@@ -44,9 +45,14 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 </BaseLayout>
 
 <style>
-    p {
-        color: red;
+    .block-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: var(--size-content-2);
+        gap: var(--size-5) var(--size-8);
+        align-items: flex-start;
     }
+
     .tags {
         display: flex;
         flex-flow: row wrap;
