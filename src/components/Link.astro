@@ -4,6 +4,7 @@ import type { HTMLTag, Polymorphic } from 'astro/types'
 type Props<Tag extends HTMLTag> = Polymorphic<{
     as: Tag
     isActive?: boolean
+    class?: string
     activeClass?: string
     bgColor?: string
 }>
@@ -12,10 +13,14 @@ const {
     as: Tag,
     isActive = false,
     activeClass = 'active',
-    class: className,
-    bgColor = 'red',
+    class: className = 'nav-link',
+    href,
     ...rest
 } = Astro.props
+
+const path = Astro.url.pathname
 ---
 
-<Tag class:list={[className, { active: isActive }]} {...rest}><slot /></Tag>
+<Tag href={href} class:list={[className, { active: path === href }]} {...rest}>
+    <slot />
+</Tag>
