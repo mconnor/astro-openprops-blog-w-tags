@@ -10,7 +10,7 @@ const { tag, count } = Astro.props
 const buttonCopy = count ? `${tag} - ${count}` : tag
 ---
 
-<a class="menu__item" href={`/tags/${tag}`}>
+<a href={`/tags/${tag}`}>
     <button type="button">
         <TagIcon />
         {buttonCopy}

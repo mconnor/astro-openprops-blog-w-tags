@@ -1,0 +1,14 @@
+---
+import TagButton from './TagButton.astro'
+const { tags } = Astro.props
+---
+
+<ul class="tags">
+    {
+        tags.map((tag: string) => (
+            <li>
+                <TagButton tag={tag} />
+            </li>
+        ))
+    }
+</ul>

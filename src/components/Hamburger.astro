@@ -6,8 +6,6 @@ interface Props extends HTMLAttributes<'div'> {}
 
 const { ...rest } = Astro.props
 
-type LinkType = typeof Link
-
 // type Props = Record<string, never>
 ---
 
@@ -113,13 +111,11 @@ type LinkType = typeof Link
             row-gap: var(--size-1);
 
             padding-inline: 0;
-
+            font-weight: var(--font-weight-9);
             & li {
                 white-space: nowrap;
-                padding: var(--size-2);
 
                 & a {
-                    font-weight: var(--font-weight-9);
                     transition: text-shadow 1s ease;
                     &:hover {
                         /* background-color: var(--surface-3); */
@@ -133,7 +129,7 @@ type LinkType = typeof Link
                     cursor: pointer;
 
                     pointer-events: none;
-                    text-shadow: 0 0 1px var(--brand);
+                    text-shadow: 0 0 1px var(--surface-3);
                 }
             }
             @media (width>=630px) {

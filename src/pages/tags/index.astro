@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
-import TagButton from '@components/Link.astro'
-import TagIcon from '@components/TagIcon.astro'
 import { getCollection } from 'astro:content'
+import TagContainer from '@components/TagContainer.astro'
 
 const allPosts = await getCollection('posts')
 
@@ -19,52 +18,12 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 // const tags = Object.keys(tagCounts)
 ---
 
-<BaseLayout pageTitle="Tag Index">
-    <p class="block-wrap">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
-        accusantium voluptates exercitationem est aperiam, aliquid veniam,
-        eveniet labore, laudantium dolores pariatur aut beatae incidunt.
-        Perspiciatis exercitationem debitis quas alias magnam.
-    </p>
-
-    <ul class="tags">
-        {
-            tags.map((tag) => (
-                <li class:list={['btn']}>
-                    <TagButton as="a" href={`/tags/${tag}`}>
-                        <span class="nowrap">
-                            {' '}
-                            <TagIcon />
-                            {`${tag}-${tagCounts[tag]}`}
-                        </span>
-                    </TagButton>
-                </li>
-            ))
-        }
-    </ul>
+<BaseLayout pageTitle="Tag Index" surfaceClass="surface-1">
+    <TagContainer tags={tags} />
 </BaseLayout>
 
 <style>
     .block-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        flex-basis: var(--size-content-2);
-        gap: var(--size-5) var(--size-8);
-        align-items: flex-start;
-    }
-
-    .tags {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: flex-start;
-        gap: var(--size-2);
-        max-inline-size: var(--size-content-3);
-        & li {
-            & .nowrap {
-                display: flex;
-                flex-wrap: nowrap;
-                column-gap: var(--size-2);
-            }
-        }
+        max-inline-size: 80%;
     }
 </style>
