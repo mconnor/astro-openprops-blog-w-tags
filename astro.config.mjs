@@ -24,7 +24,7 @@ export default defineConfig({
     ],
     vite: {
         ssr: {
-            noExternal: ['open-props'],
+            noExternal: ['date-fns', 'open-props'],
         },
     },
     adapter: vercel(),

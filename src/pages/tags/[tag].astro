@@ -1,6 +1,5 @@
 ---
-import { format } from 'date-fns'
-import Link from '@components/Link.astro'
+import TitleDate from '@components/BlogTitleDate.astro'
 
 import BaseLayout from '@layouts/BaseLayout.astro'
 import type { InferGetStaticParamsType } from 'astro'
@@ -45,35 +44,5 @@ const { posts } = Astro.props
 ---
 
 <BaseLayout pageTitle={tag}>
-    <ul>
-        {
-            posts.map((post) => (
-                <li>
-                    <Link as="a" href={'/posts/' + post.slug}>
-                        {post.data.title},{' '}
-                        <span class="small-text">
-                            {format(post.data.pubDate, 'MMMM do, yyyy')}
-                        </span>
-                    </Link>
-                </li>
-            ))
-        }
-    </ul>
+    <TitleDate posts={posts} />
 </BaseLayout>
-
-<style>
-    li {
-        & a {
-            transition: text-shadow 1s ease;
-            &:hover {
-                /* background-color: var(--surface-3); */
-                /* font-weight: var(--font-weight-6); */
-                text-decoration: none;
-                text-shadow: 0 0 1px var(--brand);
-            }
-        }
-    }
-    .small-text {
-        font-size: 0.8rem;
-    }
-</style>
