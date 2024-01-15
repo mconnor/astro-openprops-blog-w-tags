@@ -1,20 +1,14 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
+
 import TitleDate from '@components/BlogTitleDate.astro'
 
 const pageTitle = "Mike's Bloggy Blog Blog"
-const publishsedPost = await getCollection(
+const publishsedPosts = await getCollection(
     'posts',
     ({ data }) => data.draft !== true,
 )
-
-const getFormatAuth = (authorId: string) => {
-    return authorId
-        .split('-')
-        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-        .join(' ')
-}
 ---
 
 <BaseLayout pageTitle={pageTitle} surfaceClass="surface-3">
@@ -24,5 +18,5 @@ const getFormatAuth = (authorId: string) => {
         >. No CMS, not html, or CSS. Just a .md file basted off a template.
     </p>
 
-    <TitleDate posts={publishsedPost} />
+    <TitleDate posts={publishsedPosts} />
 </BaseLayout>

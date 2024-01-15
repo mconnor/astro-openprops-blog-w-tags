@@ -1,18 +1,20 @@
 ---
 import { format } from 'date-fns'
 import Link from '@components/Link.astro'
+import type { CollectionEntry } from 'astro:content'
 
 interface Props {
-    posts: {
-        data: {
-            title: string
-            pubDate: string
-        }
-        slug: string
-    }[]
+    posts: CollectionEntry<'posts'>[]
 }
 
 const { posts } = Astro.props
+
+const getFormatAuth = (authorId: string) => {
+    return authorId
+        .split('-')
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(' ')
+}
 ---
 
 <ul>
@@ -20,8 +22,9 @@ const { posts } = Astro.props
         posts.map((post) => (
             <li>
                 <Link as="a" href={'/posts/' + post.slug}>
-                    {post.data.title},{' '}
+                    {post.data.title},
                     <span class="small-text">
+                        - {getFormatAuth(post.data.author.id)}
                         {format(post.data.pubDate, 'MMMM do, yyyy')}
                     </span>
                 </Link>
