@@ -3,7 +3,7 @@ title: Draft Post
 pubDate: 2022-09-01
 author: mike-connor
 description: This is the first post of my new Astro blog
-draft: true
+draft: false
 image:
     url: 'https://picsum.photos/800/300/?random=1'
     alt: 'The Astro logo with the word One.'

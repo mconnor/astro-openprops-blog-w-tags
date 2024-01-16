@@ -2,6 +2,7 @@
 title: Markdown and Astro
 pubDate: 2024-01-11
 author: mike-connor
+draft: true
 description: 'The Future of Dynamic Web Content'
 tags: ['coding', 'successes', 'learning-in-public']
 ---
