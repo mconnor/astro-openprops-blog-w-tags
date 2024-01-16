@@ -17,7 +17,7 @@ const { frontmatter, url } = Astro.props
 const author = await getEntry('authors', frontmatter.author.id)
 ---
 
-<BaseLayout pageTitle={frontmatter.title} url={frontmatter.url}>
+<BaseLayout pageTitle={frontmatter.title} url={url}>
     <h2>{frontmatter.description}</h2>
 
     {
