@@ -9,7 +9,7 @@ export const blogSchema = z.object({
     author: reference('authors'),
     // Reference an array of related posts from the `blog` collection by `slug`
     relatedPosts: z.array(reference('blog')).optional(),
-    draft: z.boolean().optional(),
+    draft: z.boolean(),
     tags: z.array(z.string()),
     image: z
         .object({
