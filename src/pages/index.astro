@@ -1,16 +1,9 @@
 ---
 import Form from "../components/form.astro"
-import { ViewTransitions } from 'astro:transitions'
+import BaseLayout from '@layouts/BaseLayout.astro'
 
 ---
-<html>
-  <head>
-    <ViewTransitions />
-  </head>
-  <body>
-    <Form/>
 
-  </body>
-
-</html>
-
+<BaseLayout pageTitle='home' surfaceClass="surface-3">
+  <Form/>
+</BaseLayout>

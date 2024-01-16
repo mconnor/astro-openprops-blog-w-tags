@@ -5,19 +5,19 @@ import { format } from 'date-fns'
 import { getEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
-import type { BlogSchemaType, AurthorSchemaType } from '../schemas'
+import type { BlogSchemaType } from '../schemas'
 
 import TagContainer from '@components/TagContainer.astro'
 
-type ComboSchemaType = BlogSchemaType & AurthorSchemaType
+// type ComboSchemaType = BlogSchemaType & AurthorSchemaType
 
-type Props = MarkdownLayoutProps<ComboSchemaType>
-const { frontmatter, url } = Astro.props
+type Props = MarkdownLayoutProps<BlogSchemaType>
+const { frontmatter } = Astro.props
 
 const author = await getEntry('authors', frontmatter.author.id)
 ---
 
-<BaseLayout pageTitle={frontmatter.title} url={url}>
+<BaseLayout pageTitle={frontmatter.title} url={frontmatter.url}>
     <h2>{frontmatter.description}</h2>
 
     {
@@ -36,8 +36,6 @@ const author = await getEntry('authors', frontmatter.author.id)
                 height={frontmatter.image.height || 300}
                 src={frontmatter.image.url}
                 alt={frontmatter.image.alt}
-                loading="lazy"
-                decoding="async"
             />
         )
     }
