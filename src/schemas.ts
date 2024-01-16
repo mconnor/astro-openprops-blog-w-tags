@@ -1,6 +1,6 @@
 import { z, reference } from 'astro:content'
 
-export const postSchema = z.object({
+export const blogSchema = z.object({
     title: z.string(),
     pubDate: z.coerce.date(),
     description: z.string(),
@@ -30,5 +30,5 @@ export const authorSchema = z.object({
     bio: z.string().optional(),
 })
 
-export type PostSchemaType = z.infer<typeof postSchema>
+export type BlogSchemaType = z.infer<typeof blogSchema>
 export type AurthorSchemaType = z.infer<typeof authorSchema>

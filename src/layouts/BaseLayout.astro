@@ -3,12 +3,12 @@ import BaseHead from '@components/BaseHead.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
 
-interface Props {
+type Props = {
     pageTitle: string
     description?: string
     image?: string
+    url?: string
     surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
-    children: any
 }
 
 // const isProd = import.meta.env.PROD
@@ -19,12 +19,21 @@ const {
     description = 'my description',
     image = '/placeholder-social.jpg',
     surfaceClass = 'surface-4',
+    url,
 } = Astro.props
 ---
 
 <html transition:animate="none">
     <head>
         <BaseHead title={pageTitle} description={description} image={image} />
+        {
+            url && (
+                <link
+                    rel="canonical"
+                    href={new URL(url, Astro.site).pathname}
+                />
+            )
+        }
     </head>
 
     <body class:list={[surfaceClass, 'center-self']}>

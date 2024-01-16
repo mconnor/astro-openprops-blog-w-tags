@@ -3,17 +3,17 @@ import BaseLayout from '@layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 import TagContainer from '@components/TagContainer.astro'
 
-const allPosts = await getCollection('posts')
+const allBlogPost = await getCollection('blog')
 
 const tagCounts: Record<string, number> = {}
 
-allPosts.forEach((post) =>
+allBlogPost.forEach((post) =>
     (post.data.tags || []).forEach((tag: string) => {
         tagCounts[tag] = (tagCounts[tag] || 0) + 1
     }),
 )
 
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+const tags = [...new Set(allBlogPost.map((post) => post.data.tags).flat())]
 
 // const tags = Object.keys(tagCounts)
 ---

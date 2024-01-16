@@ -1,25 +1,33 @@
 ---
+import type { MarkdownLayoutProps } from 'astro'
+import { format } from 'date-fns'
+
 import { getEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
-import type { PostSchemaType } from '../schemas'
+import type { BlogSchemaType, AurthorSchemaType } from '../schemas'
 
 import TagContainer from '@components/TagContainer.astro'
 
-type Props = {
-    frontmatter: PostSchemaType
-}
+type ComboSchemaType = BlogSchemaType & AurthorSchemaType
 
-const { frontmatter } = Astro.props
+type Props = MarkdownLayoutProps<ComboSchemaType>
+const { frontmatter, url } = Astro.props
 
-const author = await getEntry(frontmatter.author)
+const author = await getEntry('authors', frontmatter.author.id)
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={frontmatter.title} url={frontmatter.url}>
     <h2>{frontmatter.description}</h2>
-    <p>{frontmatter.pubDate.toDateString()}</p>
 
-    <p>Written by: {author.data.name}</p>
+    {
+        author && (
+            <p>
+                Written by: {author.data.name},{' '}
+                {format(frontmatter.pubDate, 'd MMM, yyyy')}
+            </p>
+        )
+    }
 
     {
         frontmatter.image && (

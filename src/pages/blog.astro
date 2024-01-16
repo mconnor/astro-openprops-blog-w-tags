@@ -6,7 +6,7 @@ import TitleDate from '@components/BlogTitleDate.astro'
 
 const pageTitle = "Mike's Bloggy Blog Blog"
 const publishsedPosts = await getCollection(
-    'posts',
+    'blog',
     ({ data }) => data.draft !== true,
 )
 ---
