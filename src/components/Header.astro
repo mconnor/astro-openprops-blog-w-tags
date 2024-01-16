@@ -21,9 +21,6 @@ const { class: className = 'surface-1', ...rest } = Astro.props
         display: subgrid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-       
-        
-   
     }
     .icon {
         grid-area: icon;
@@ -35,8 +32,7 @@ const { class: className = 'surface-1', ...rest } = Astro.props
 
 <header class:list={['layout', className, 'banner']} {...rest}>
     <div class="icon">
-       <ThemeIcon>
+        <ThemeIcon />
+        <Hamburger class="nav" />
     </div>
-    <Hamburger  class="nav">
-   
 </header>
