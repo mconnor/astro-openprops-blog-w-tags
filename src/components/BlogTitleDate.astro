@@ -1,0 +1,51 @@
+---
+import { format } from 'date-fns'
+import Link from '@components/Link.astro'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+    posts: CollectionEntry<'blog'>[]
+}
+
+const { posts } = Astro.props
+
+const getFormatAuth = (authorId: string) => {
+    return authorId
+        .split('-')
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(' ')
+}
+---
+
+<ul>
+    {
+        posts.map((post) => (
+            <li>
+                <Link as="a" href={'/posts/' + post.slug}>
+                    {post.data.title},
+                    <span class="small-text">
+                        - {getFormatAuth(post.data.author.id)}
+                        {format(post.data.pubDate, 'MMMM do, yyyy')}
+                    </span>
+                </Link>
+            </li>
+        ))
+    }
+</ul>
+
+<style>
+    li {
+        & a {
+            transition: text-shadow 1s ease;
+            &:hover {
+                /* background-color: var(--surface-3); */
+                /* font-weight: var(--font-weight-6); */
+                text-decoration: none;
+                text-shadow: 0 0 1px var(--brand);
+            }
+        }
+    }
+    .small-text {
+        font-size: 0.8rem;
+    }
+</style>

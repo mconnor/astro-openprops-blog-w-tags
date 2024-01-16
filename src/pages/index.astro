@@ -1,87 +1,16 @@
 ---
-import Layout from '@layouts/SplashLayout.astro'
-import HeroBtn from '@components/HeroBtn.astro'
-import { Image } from 'astro:assets'
+import Form from "../components/form.astro"
+import { ViewTransitions } from 'astro:transitions'
 
-import myImage from '@assets/splash.webp'
-
-const pageTitle = 'Splash'
 ---
+<html>
+  <head>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Form/>
 
-<style>
-    .promo-art {
-        align-self: stretch;
-    }
+  </body>
 
-    .promo-art > img {
-        block-size: 100%;
-        object-fit: cover;
-    }
-    header {
-        display: grid;
-        align-items: center;
-        grid-template-columns: 1fr 1fr;
-        background: var(--surface-1);
-    }
+</html>
 
-    .hero {
-        padding: var(--size-10);
-        display: grid;
-        gap: var(--size-5);
-    }
-
-    .hero-message {
-        display: grid;
-        grid-template-columns: max-content;
-        color: var(--brand);
-        line-height: var(--font-lineheight-0);
-    }
-    .hero-message > div:last-child {
-        color: var(--text-2);
-    }
-
-    .button-list {
-        display: flex;
-        gap: var(--size-3);
-    }
-
-    .wrapper {
-        display: flex;
-    }
-
-    .under-hero {
-        color: var(--gray-7);
-        font-size: var(--font-size-4);
-        /* margin-block-end: var(--size-3); */
-    }
-</style>
-<Layout pageTitle={pageTitle} description="mikes site">
-    <header>
-        <section class="hero">
-            <h1 class="hero-message">
-                <div>Astro, styled</div>
-                <div>
-                    with <a href="https://open-props.style/">Open Props</a>
-                </div>
-            </h1>
-            <p class="under-hero">
-                Lorem ipsum dolor sit amet consectetu adipisicing elit. Nemo in
-                doloremque quam, voluptatibus eum voluptatum.
-            </p>
-            <div class="button-list">
-                <HeroBtn btnLabel="Get started" href="about" primaryBool />
-
-                <HeroBtn btnLabel="Live demo" href="blog" />
-            </div>
-        </section>
-
-        <div class="promo-art">
-            <Image
-                src={myImage}
-                width={myImage.width}
-                height={myImage.height}
-                alt="a random doodle"
-            />
-        </div>
-    </header>
-</Layout>

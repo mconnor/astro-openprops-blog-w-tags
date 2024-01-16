@@ -1,35 +1,51 @@
 ---
 import Social from './Social.astro'
-const platform = 'github'
-const username = 'withastro'
 
-type Props = Record<string, never>
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'div'> {
+    surface?: string
+}
+
+const { class: className = 'surface1' } = Astro.props
 ---
 
 <style>
-    footer {
-        background-color: var(--surface-4);
+    .layout {
+        justify-self: stretch;
 
-        width: 100%;
         display: grid;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        background-color: var(--surface-4);
-        padding-top: var(--size-1);
-    }
-    .social {
+        grid-template-rows: min-content min-content min-content;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            'headline headline headline'
+            'link1 link2 link3';
+    }
+
+    p {
+        grid-area: headline;
+        white-space: nowrap;
+        justify-self: center;
+    }
+
+    Social {
+        .link1 {
+            grid-area: link1;
+        }
+
+        .link2 {
+            grid-area: link2;
+        }
+
+        .link3 {
+            grid-area: link3;
+        }
     }
 </style>
 
-<footer>
-    <p>
-        Learn more about my projects on
-        <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!
-    </p>
-    <div class="social">
-        <Social platform="twitter" username="astrodotbuild" />
-        <Social platform="github" username="withastro" />
-        <Social platform="youtube" username="astrodotbuild" />
-    </div>
+<footer class:list={['layout', className]}>
+    <p>More about me</p>
+    <Social platform="twitter" class="link1" />
+    <Social platform="github" class="link2" />
+    <Social platform="youtube" class="link3" />
 </footer>

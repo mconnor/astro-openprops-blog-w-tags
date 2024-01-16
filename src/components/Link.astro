@@ -1,0 +1,19 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types'
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+    as: Tag
+}>
+
+const { as: HtmTag, class: className = 'nav-link', ...rest } = Astro.props
+
+const path = Astro.url.pathname
+---
+
+<HtmTag
+    href={rest.href}
+    class:list={[className, { active: path === rest.href }]}
+    {...rest}
+>
+    <slot />
+</HtmTag>

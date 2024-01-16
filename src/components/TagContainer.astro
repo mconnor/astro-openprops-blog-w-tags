@@ -1,0 +1,39 @@
+---
+import TagIcon from './TagIcon.astro'
+interface Props {
+    tags: string[]
+    tagCounts?: Record<string, number>
+}
+const { tags, tagCounts } = Astro.props
+---
+
+<ul class="tags">
+    {
+        tags.map((tag: string) => (
+            <li>
+                {tagCounts && tagCounts[tag] ? (
+                    <a href={`/tags/${tag}`}>
+                        <button type="button">
+                            <TagIcon />
+                            {tag}, {tagCounts[tag]}
+                        </button>
+                    </a>
+                ) : (
+                    <a href={`/tags/${tag}`}>
+                        <button type="button">
+                            <TagIcon />
+                            {tag}
+                        </button>
+                    </a>
+                )}
+            </li>
+        ))
+    }
+</ul>
+
+<style>
+    button {
+        & a {
+        }
+    }
+</style>

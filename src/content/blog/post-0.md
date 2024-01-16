@@ -1,11 +1,14 @@
 ---
-title: My 5th Blog Post
-pubDate: 2023-04-24
+title: 2024 Post
+pubDate: 2024-01-13
 author: mike-connor
-description: 'Dynamic Post'
+draft: true
+description: Draft Post
 image:
     url: 'https://picsum.photos/300/200?random=5'
     alt: 'The word “astro” against an illustration of planets and stars.'
+    width: 800
+    height: 300
 tags: ['rafting', 'dogs']
 ---
 

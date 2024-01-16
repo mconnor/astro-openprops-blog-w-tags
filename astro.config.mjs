@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx'
 import vercel from '@astrojs/vercel/serverless'
 
 export default defineConfig({
-    output: 'server',
+    output: 'static',
     site: 'https://www.mikeconnor.tech',
     image: {
         domains: ['astro.build'],
@@ -24,8 +24,8 @@ export default defineConfig({
     ],
     vite: {
         ssr: {
-            noExternal: ['open-props'],
+            noExternal: ['date-fns', 'open-props'],
         },
     },
-    adapter: vercel(),
+    cacheDir: './my-custom-cache-directory',
 })

@@ -1,6 +1,7 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
 
+export const prerender = true
 const pageTitle = 'About Page'
 
 const identity = {
@@ -15,19 +16,9 @@ const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs']
 const happy = true
 const finished = false
 const goal = 3
-
-const textCase = 'uppercase'
 ---
 
-<style define:vars={{ textCase }}>
-    .skill {
-        color: var(--brand);
-        font-weight: var(--font-weight-7);
-        text-transform: var(--textCase);
-    }
-</style>
-
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} surfaceClass="surface-1">
     <p>Here are a few facts about me:</p>
     <ul>
         <li>My name is {identity.firstName}.</li>
@@ -43,7 +34,9 @@ const textCase = 'uppercase'
             )
         }
     </ul>
-    <p>My skills are:</p>
+
+    <h3>My skills are:</h3>
+
     <ul>
         {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
@@ -60,3 +53,11 @@ const textCase = 'uppercase'
         )
     }
 </BaseLayout>
+
+<style>
+    .skill {
+        font-weight: var(--font-weight-7);
+        text-transform: var(--textCase);
+        color: var(--brand);
+    }
+</style>

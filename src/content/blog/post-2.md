@@ -2,10 +2,13 @@
 title: Markdown Kitchen Sink
 pubDate: 2022-07-09
 author: mike-connor
+draft: false
 description: "After learning some Astro, I couldn't stop!"
 image:
-    url: 'https://picsum.photos/300/200/?random=2'
+    url: 'https://picsum.photos/800/300/?random=2'
     alt: 'Thumbnails of websites from the Astro Showcase site.'
+    width: 800
+    height: 300
 tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 ---
 
@@ -22,31 +25,26 @@ tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 7. [Links & Quotes](#links--quotes)
 8. [Conclusion](#conclusion)
 
----
-
 ## Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.
-
----
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio
+vitae vestibulum.
 
 ## Main Topics
 
 ### Subtopic A
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur.
 
 ### Subtopic B
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-
----
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+doloremque laudantium.
 
 ## Images
 
 ![Sample Image](https://via.placeholder.com/150)
-
----
 
 ## Lists
 
@@ -60,8 +58,6 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 2. Second item
 3. Third item
 
----
-
 ## Code Blocks
 
 Here's a `inline code` example.
@@ -71,8 +67,6 @@ def hello_world():
     print("Hello, Markdown!")
 ```
 
----
-
 ## Tables
 
 | Header 1 | Header 2 | Header 3 |
@@ -80,8 +74,6 @@ def hello_world():
 | Row1Col1 | Row1Col2 | Row1Col3 |
 | Row2Col1 | Row2Col2 | Row2Col3 |
 | Row3Col1 | Row3Col2 | Row3Col3 |
-
----
 
 ## Links & Quotes
 

@@ -1,57 +1,36 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
-
 import { getCollection } from 'astro:content'
+import TagContainer from '@components/TagContainer.astro'
 
-const allPosts = await getCollection('posts')
+const allBlogPost = await getCollection('blog')
 
 const tagCounts: Record<string, number> = {}
 
-allPosts.forEach((post) =>
+allBlogPost.forEach((post) =>
     (post.data.tags || []).forEach((tag: string) => {
         tagCounts[tag] = (tagCounts[tag] || 0) + 1
-    })
+    }),
 )
 
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+const tags = [
+    ...new Set(
+        allBlogPost
+            .filter((post) => post.data.draft !== true)
+            .map((post) => post.data.tags)
+            .flat(),
+    ),
+]
 
 // const tags = Object.keys(tagCounts)
 ---
 
-<BaseLayout pageTitle="Tag Index">
-    <div class="tags">
-        {
-            tags.map((tag) => (
-                <button type="button">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="16"
-                        width="14"
-                        viewBox="0 0 448 512"
-                    >
-                        <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
-                    </svg>
-                    <a href={`/tags/${tag}`}>
-                        {tag} <span>({tagCounts[tag]})</span>
-                    </a>
-                </button>
-            ))
-        }
-    </div>
+<BaseLayout pageTitle="Tag Index" surfaceClass="surface-1">
+    <TagContainer tags={tags} tagCounts={tagCounts} />
 </BaseLayout>
 
 <style>
-    a {
-    }
-
-    .tags {
-        width: 100%;
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-
-        gap: var(--size-1);
-
-        & button {
-        }
+    .block-wrap {
+        max-inline-size: 80%;
     }
 </style>

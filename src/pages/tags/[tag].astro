@@ -1,11 +1,9 @@
 ---
-import type {
-    InferGetStaticParamsType,
-    // InferGetStaticPropsType,
-    // GetStaticPaths,
-} from 'astro'
+import TitleDate from '@components/BlogTitleDate.astro'
+
 import BaseLayout from '@layouts/BaseLayout.astro'
-import BlogPost from '@components/BlogPost.astro'
+import type { InferGetStaticParamsType } from 'astro'
+
 import { getCollection } from 'astro:content'
 
 // import type { CollectionEntry } from 'astro:content'
@@ -14,17 +12,18 @@ import { getCollection } from 'astro:content'
 // (what to call each page route) and optionally any props (data that you want to pass to those pages).
 //  Earlier, you defined each tag name that you knew was used in your blog and passed the entire list
 //  of posts as props to each page.
+export const prerender = true
 
 export const prerender = true
 export const getStaticPaths = async () => {
-    const allPosts = await getCollection('posts')
+    const allPosts = await getCollection('blog')
     const uniqueTags = [
         ...new Set(allPosts.map((post) => post.data.tags).flat()),
     ]
 
     const objs = uniqueTags.map((tag: string) => {
-        const filteredPosts = allPosts.filter((post) =>
-            post.data.tags.includes(tag)
+        const filteredPosts = allPosts.filter(
+            (post) => post.data.draft !== true && post.data.tags.includes(tag),
         )
         return {
             params: { tag },
@@ -46,18 +45,6 @@ const { tag } = Astro.params as Params
 const { posts } = Astro.props
 ---
 
-<BaseLayout pageTitle="Tags">
-    <p>Posts tagged with {tag}</p>
-
-    <ul>
-        {
-            posts.map((post) => (
-                <li>
-                    <BlogPost href={'/posts/' + post.slug}>
-                        {post.data.title}
-                    </BlogPost>
-                </li>
-            ))
-        }
-    </ul>
+<BaseLayout pageTitle={tag}>
+    <TitleDate posts={posts} />
 </BaseLayout>

@@ -1,46 +1,48 @@
 ---
+import type { MarkdownLayoutProps } from 'astro'
+import { format } from 'date-fns'
+
 import { getEntry } from 'astro:content'
-import BaseLayout from './BaseLayout.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
-import type { PostSchemaType } from '../schemas.ts'
-import TagButton from '@components/TagButton.astro'
+import type { BlogSchemaType, AurthorSchemaType } from '../schemas'
 
-type Props = {
-    frontmatter: PostSchemaType
-}
+import TagContainer from '@components/TagContainer.astro'
 
-const { frontmatter } = Astro.props
+type ComboSchemaType = BlogSchemaType & AurthorSchemaType
 
-const author = await getEntry(frontmatter.author)
+type Props = MarkdownLayoutProps<ComboSchemaType>
+const { frontmatter, url } = Astro.props
+
+const author = await getEntry('authors', frontmatter.author.id)
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
-    <p><em>{frontmatter.description}</em></p>
-    <p>{frontmatter.pubDate.toDateString()}</p>
+<BaseLayout pageTitle={frontmatter.title} url={url}>
+    <h2>{frontmatter.description}</h2>
 
-    <p>Written by: {author.data.name}</p>
+    {
+        author && (
+            <p>
+                Written by: {author.data.name},{' '}
+                {format(frontmatter.pubDate, 'd MMM, yyyy')}
+            </p>
+        )
+    }
 
-    <Image
-        width={frontmatter.image.width || 300}
-        height={frontmatter.image.height || 200}
-        src={frontmatter.image.url}
-        alt={frontmatter.image.alt}
-        loading="lazy"
-        decoding="async"
-    />
+    {
+        frontmatter.image && (
+            <Image
+                width={frontmatter.image.width || 800}
+                height={frontmatter.image.height || 300}
+                src={frontmatter.image.url}
+                alt={frontmatter.image.alt}
+                loading="lazy"
+                decoding="async"
+            />
+        )
+    }
 
-    <div class="tags">
-        {frontmatter.tags.map((tag: string) => <TagButton tag={tag} />)}
-    </div>
+    <TagContainer tags={frontmatter.tags} />
 
     <slot />
 </BaseLayout>
-<style>
-    .tags {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-start;
-
-        gap: var(--size-9);
-    }
-</style>

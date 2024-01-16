@@ -1,19 +1,42 @@
 ---
-import Hamburger from './Hamburger.astro'
+import type { HTMLAttributes } from 'astro/types'
+interface Props extends HTMLAttributes<'header'> {}
 
-type Props = Record<string, never>
+import Hamburger from './Hamburger.astro'
+import ThemeIcon from './ThemeIcon.astro'
+
+interface Props {
+    class?: string
+}
+
+const { class: className = 'surface-1', ...rest } = Astro.props
 ---
 
 <style>
-    header {
+    .banner {
+        background-color: var(--surface-1);
         width: 100%;
-        display: grid;
+    }
+    .layout {
+        display: subgrid;
         grid-template-columns: 1fr;
-        justify-items: center;
-        background-color: var(--surface-4);
+        grid-template-rows: 1fr 1fr;
+       
+        
+   
+    }
+    .icon {
+        grid-area: icon;
+    }
+    .nav {
+        grid-area: hamburger;
     }
 </style>
 
-<header role="banner">
-    <Hamburger />
+<header class:list={['layout', className, 'banner']} {...rest}>
+    <div class="icon">
+       <ThemeIcon>
+    </div>
+    <Hamburger  class="nav">
+   
 </header>
