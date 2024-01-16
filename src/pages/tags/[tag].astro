@@ -21,8 +21,8 @@ export const getStaticPaths = async () => {
     ]
 
     const objs = uniqueTags.map((tag: string) => {
-        const filteredPosts = allPosts.filter((post) =>
-            post.data.tags.includes(tag),
+        const filteredPosts = allPosts.filter(
+            (post) => post.data.draft !== true && post.data.tags.includes(tag),
         )
         return {
             params: { tag },

@@ -13,13 +13,20 @@ allBlogPost.forEach((post) =>
     }),
 )
 
-const tags = [...new Set(allBlogPost.map((post) => post.data.tags).flat())]
+const tags = [
+    ...new Set(
+        allBlogPost
+            .filter((post) => post.data.draft !== true)
+            .map((post) => post.data.tags)
+            .flat(),
+    ),
+]
 
 // const tags = Object.keys(tagCounts)
 ---
 
 <BaseLayout pageTitle="Tag Index" surfaceClass="surface-1">
-    <TagContainer tags={tags} />
+    <TagContainer tags={tags} tagCounts={tagCounts} />
 </BaseLayout>
 
 <style>

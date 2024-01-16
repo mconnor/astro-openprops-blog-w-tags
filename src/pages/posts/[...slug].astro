@@ -3,7 +3,7 @@ import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro'
 import { getCollection } from 'astro:content'
 
 import HeartBtn from '@components/HeartBtn.astro'
-export const prerender = true
+
 export const getStaticPaths = async () => {
     const posts = await getCollection('blog')
     const objs = posts.map((entry) => ({
