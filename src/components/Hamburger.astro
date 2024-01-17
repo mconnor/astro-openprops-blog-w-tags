@@ -6,10 +6,19 @@ interface Props extends HTMLAttributes<'div'> {}
 
 const { ...rest } = Astro.props
 
+const path = Astro.url.pathname
 // type Props = Record<string, never>
 ---
 
 <style>
+    .currentTab {
+        background-color: var(--brand);
+        color: var(--text-1);
+        cursor: pointer;
+
+        pointer-events: none;
+        text-shadow: 0 0 1px var(--surface-3);
+    }
     #menu__toggle {
         display: none;
 
@@ -115,21 +124,29 @@ const { ...rest } = Astro.props
             & li {
                 white-space: nowrap;
 
-                & a {
-                  
+                & > a {
+                    color: var(--brand);
+                    padding-inline: var(--size-3);
+                    padding-block: var(--size-2);
+                    border-radius: var(--radius-3);
+                    text-decoration: none;
+                    outline-offset: 3px;
+                    transition:
+                        background-color 0.2s var(--ease-3),
+                        color 0.2s var(--ease-3);
                     &:hover {
-                        /* background-color: var(--surface-3); */
+                        background-color: var(--surface-3);
+                        color: var(--text1);
                         /* font-weight: var(--font-weight-6); */
                         text-decoration: none;
                         text-shadow: 0 0 1px var(--brand);
                     }
-                }
-                .active {
-                    background-color: var(--brand);
-                    cursor: pointer;
-
-                    pointer-events: none;
-                    text-shadow: 0 0 1px var(--surface-3);
+                    &:visited {
+                        color: red;
+                    }
+                    &:active {
+                        color: green;
+                    }
                 }
             }
             @media (width>=630px) {
@@ -158,19 +175,49 @@ const { ...rest } = Astro.props
 
         <ul class="menu__box">
             <li>
-                <Link as="a" href="/">Home</Link>
+                <Link
+                    as="a"
+                    class:list={[{ currentTab: path === '/' }]}
+                    href="/"
+                >
+                    Home
+                </Link>
             </li>
             <li>
-                <Link as="a" class="nav-link" href="/about/">About</Link>
+                <Link
+                    class:list={[{ currentTab: path === '/about/' }]}
+                    as="a"
+                    href="/about/"
+                >
+                    About
+                </Link>
             </li>
             <li>
-                <Link as="a" href="/kitchensink/">Kitchen Sink</Link>
+                <Link
+                    class:list={[{ currentTab: path === '/kitchensink/' }]}
+                    as="a"
+                    href="/kitchensink/"
+                >
+                    Kitchen Sink
+                </Link>
             </li>
             <li>
-                <Link as="a" href="/blog/">Blog</Link>
+                <Link
+                    class:list={[{ currentTab: path === '/blog/' }]}
+                    as="a"
+                    href="/blog/"
+                >
+                    Blog
+                </Link>
             </li>
             <li>
-                <Link as="a" class="nav-link" href="/tags/">Tags</Link>
+                <Link
+                    class:list={[{ currentTab: path === '/tags/' }]}
+                    as="a"
+                    href="/tags/"
+                >
+                    Tags
+                </Link>
             </li>
         </ul>
     </nav>

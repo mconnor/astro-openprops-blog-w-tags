@@ -1,6 +1,5 @@
 ---
 import { format } from 'date-fns'
-import Link from '@components/Link.astro'
 import type { CollectionEntry } from 'astro:content'
 
 interface Props {
@@ -21,13 +20,15 @@ const getFormatAuth = (authorId: string) => {
     {
         posts.map((post) => (
             <li>
-                <Link as="a" href={'/posts/' + post.slug}>
-                    {post.data.title},
-                    <span class="small-text">
-                        - {getFormatAuth(post.data.author.id)}
-                        {format(post.data.pubDate, 'MMMM do, yyyy')}
-                    </span>
-                </Link>
+                <button>
+                    <a href={'/posts/' + post.slug}>
+                        {post.data.title},
+                        <span class="small-text">
+                            - {getFormatAuth(post.data.author.id)}
+                            {format(post.data.pubDate, 'MMMM do, yyyy')}
+                        </span>
+                    </a>
+                </button>
             </li>
         ))
     }
@@ -35,16 +36,13 @@ const getFormatAuth = (authorId: string) => {
 
 <style>
     li {
-        & a {
-           
-            &:hover {
-                /* background-color: var(--surface-3); */
-                /* font-weight: var(--font-weight-6); */
-                text-decoration: none;
-                text-shadow: 0 0 1px var(--brand);
-            }
+        list-style: none;
+        button {
+            margin-top: var(--size-2);
+            width: 100%;
         }
     }
+
     .small-text {
         font-size: 0.8rem;
     }

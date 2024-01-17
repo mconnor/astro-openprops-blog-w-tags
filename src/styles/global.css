@@ -23,9 +23,9 @@ the above import brings in
 
 
 @import 'open-props/postcss/buttons/light';
-
+@import 'open-props/postcss/buttons/dark';
 /* @import 'open-props/postcss/theme';
-@import 'open-props/postcss/buttons/dark'; */
+ */
 
 .tags {
         display: flex;
