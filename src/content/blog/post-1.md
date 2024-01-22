@@ -1,5 +1,5 @@
 ---
-title: Draft Post
+title: My first post
 pubDate: 2022-09-01
 author: mike-connor
 description: This is the first post of my new Astro blog
