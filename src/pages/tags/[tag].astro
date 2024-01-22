@@ -2,7 +2,6 @@
 import TitleDate from '@components/BlogTitleDate.astro'
 
 import BaseLayout from '@layouts/BaseLayout.astro'
-import type { InferGetStaticParamsType } from 'astro'
 
 import { getCollection } from 'astro:content'
 
@@ -17,12 +16,13 @@ export const prerender = true
 export const getStaticPaths = async () => {
     const allPosts = await getCollection('blog')
     const uniqueTags = [
-        ...new Set(allPosts.map((post) => post.data.tags).flat()),
+        ...new Set(allPosts.map((post) => post.data?.tags || []).flat()),
     ]
 
-    const objs = uniqueTags.map((tag: string) => {
+    const objs = uniqueTags.map((tag) => {
         const filteredPosts = allPosts.filter(
-            (post) => post.data.draft !== true && post.data.tags.includes(tag),
+            (post) =>
+                post.data.draft !== true && post.data?.tags?.includes(tag),
         )
         return {
             params: { tag },
@@ -35,12 +35,7 @@ export const getStaticPaths = async () => {
     return objs
 }
 
-type Params = InferGetStaticParamsType<typeof getStaticPaths>
-// interface Props {
-//     posts: CollectionEntry<'posts'>[]
-// }
-
-const { tag } = Astro.params as Params
+const { tag } = Astro.params
 const { posts } = Astro.props
 ---
 

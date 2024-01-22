@@ -2,17 +2,20 @@
 title: Markdown and Astro
 pubDate: 2024-01-11
 author: mike-connor
-draft: true
-description: 'The Future of Dynamic Web Content'
+draft: false
+cover:
+    url: 'https://picsum.photos/1200/300?random=4'
+    alt: 'lorem'
+description: The Future of Dynamic Web Content
 tags: ['coding', 'successes', 'learning-in-public']
 ---
 
-<!-- Local image stored in src/assets/ -->
-<!-- Use a relative file path or import alias -->
-
-![Astro and markdown are cool](./markdown-cartoon.png)
+<!-- TODO - set up an MDX file to do this -->
+<!-- ![Astro and markdown are cool](@assets/markdown-cartoon.png) -->
 
 ### The Essence of Markdown
+
+xxx
 
 Markdown represents the epitome of technological minimalism in content creation. Its importance lies in its unobtrusive nature - a plain-text formatting syntax that's intuitive, yet powerful enough to be converted into complex HTML. This simplicity is crucial in a digital landscape where agility and adaptability are paramount. Markdown allows content creators to focus on the essence of their message, free from the constraints of intricate coding.
 

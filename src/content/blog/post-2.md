@@ -4,11 +4,9 @@ pubDate: 2022-07-09
 author: mike-connor
 draft: false
 description: "After learning some Astro, I couldn't stop!"
-image:
-    url: 'https://picsum.photos/800/300/?random=2'
-    alt: 'Thumbnails of websites from the Astro Showcase site.'
-    width: 800
-    height: 300
+cover:
+    url: 'https://picsum.photos/1200/300?random=2'
+    alt: 'A photograph of a sunset behind a mountain range.'
 tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 ---
 

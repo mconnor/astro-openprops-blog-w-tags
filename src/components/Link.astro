@@ -7,8 +7,6 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 }>
 
 const { as: HtmTag, class: className, ...rest } = Astro.props
-
-const path = Astro.url.pathname
 ---
 
 <HtmTag class={className} {...rest}>

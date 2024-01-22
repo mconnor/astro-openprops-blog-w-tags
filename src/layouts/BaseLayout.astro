@@ -7,7 +7,6 @@ type Props = {
     pageTitle: string
     description?: string
     image?: string
-    url?: string
     surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
 }
 
@@ -19,26 +18,21 @@ const {
     description = 'my description',
     image = '/placeholder-social.jpg',
     surfaceClass = 'surface-4',
-    url,
 } = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <html transition:animate="none">
     <head>
         <BaseHead title={pageTitle} description={description} image={image} />
-        {
-            url && (
-                <link
-                    rel="canonical"
-                    href={new URL(url, Astro.site).pathname}
-                />
-            )
-        }
+
+        <link rel="canonical" href={canonicalURL} />
     </head>
 
-    <body class:list={[surfaceClass, 'center-self']}>
+    <body class:list={[surfaceClass]}>
         <div style="grid-area: header">
-            <Header class={surfaceClass} />
+            <Header />
         </div>
 
         <div style="grid-area: headline">
@@ -85,18 +79,14 @@ const {
                 height: 100vh;
                 grid-row-gap: var(--size-fluid-3);
 
-                accent-color: var(--link);
+                /* accent-color: var(--link); */
             }
 
-            code {
-                font-family: var(--font-mono);
-            }
-
-            h1 {
+            /* h1 {
                 font-weight: var(--font-weight-9);
-            }
+            } */
 
-            .surface-1 {
+            /* .surface-1 {
                 background-image: var(--surface-1);
                 color: var(--text-1);
             }
@@ -126,7 +116,7 @@ const {
                 border-color: var(--_accent-2);
                 background-color: var(--_bg);
                 justify-self: flex-start;
-            }
+            } */
         </style>
     </body>
 </html>

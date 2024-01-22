@@ -2,7 +2,10 @@ import { z, reference } from 'astro:content'
 
 export const blogSchema = z.object({
     title: z.string(),
-    pubDate: z.coerce.date(),
+    pubDate: z.date({
+        required_error: 'Please select a date and time',
+        invalid_type_error: "That's not a date!",
+    }),
     description: z.string(),
 
     // Reference a single author from the `authors` collection by `id`
@@ -11,16 +14,8 @@ export const blogSchema = z.object({
     relatedPosts: z.array(reference('blog')).optional(),
     draft: z.boolean(),
     tags: z.array(z.string()),
-    image: z
-        .object({
-            url: z.string(),
-            alt: z.string(),
-            width: z.number().optional(),
-            height: z.number().optional(),
-        })
-        .optional(),
-    // updatedDate: z.coerce.date().optional(),
-    // canonicalURL: z.string().url(),
+
+    cover: z.object({ url: z.string(), alt: z.string() }),
 })
 
 export const authorSchema = z.object({
@@ -29,6 +24,8 @@ export const authorSchema = z.object({
     portfolio: z.string().url().optional(),
     bio: z.string().optional(),
 })
+
+// const blogSchema = blogCollection.schema
 
 export type BlogSchemaType = z.infer<typeof blogSchema>
 export type AurthorSchemaType = z.infer<typeof authorSchema>

@@ -4,11 +4,9 @@ pubDate: 2024-01-13
 author: mike-connor
 draft: true
 description: Draft Post
-image:
-    url: 'https://picsum.photos/300/200?random=5'
-    alt: 'The word “astro” against an illustration of planets and stars.'
-    width: 800
-    height: 300
+cover:
+    url: 'https://picsum.photos/1200/300?random=0'
+    alt: 'A photograph of a sunset behind a mountain range.'
 tags: ['rafting', 'dogs']
 ---
 

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
+import { Code } from 'astro:components'
 import { Image } from 'astro:assets'
 import OpIcon from '@components/OpIcon.astro'
 ---
@@ -257,18 +258,29 @@ import OpIcon from '@components/OpIcon.astro'
             </article>
             <article id="text__code">
                 <header><h1>Code</h1></header>
+                <p>
+                    <a
+                        href="https://docs.astro.build/en/reference/api-reference/#code-"
+                        >The Astro Code component provides hilighting</a
+                    >
+                </p>
                 <div>
-                    <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
+                    <!-- Syntax highlight some JavaScript code. -->
+                    <Code code={`const foo = 'bar';`} lang="js" />
+                    <!-- Optional: Customize your theme. -->
+                    <Code
+                        code={`const foo = 'bar';`}
+                        lang="js"
+                        theme="dark-plus"
+                    />
+                    <!-- Optional: Enable word wrapping. -->
+                    <Code code={`const foo = 'bar';`} lang="js" wrap />
+                    <!-- Optional: Output inline code. -->
                     <p>
-                        <strong>Inline code:</strong>
-                        <code>&lt;div&gt;code&lt;/div&gt;</code>
+                        <Code code={`const foo = 'bar';`} lang="js" inline />
+                        will be rendered inline.
                     </p>
-                    <p>
-                        <strong>Sample output:</strong>
-                        <samp
-                            >This is sample output from a computer program.</samp
-                        >
-                    </p>
+
                     <h2>Pre-formatted text</h2>
                     <pre>P R E F O R M A T T E D T E X T
                 ! " # $ % &amp; ' ( ) * + , - . /

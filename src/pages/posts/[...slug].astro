@@ -2,8 +2,6 @@
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro'
 import { getCollection } from 'astro:content'
 
-import HeartBtn from '@components/HeartBtn.astro'
-
 export const getStaticPaths = async () => {
     const posts = await getCollection('blog')
     const objs = posts.map((entry) => ({
@@ -14,12 +12,9 @@ export const getStaticPaths = async () => {
 }
 
 const { entry } = Astro.props
-
 const { Content } = await entry.render()
 ---
 
-<MarkdownPostLayout
-    frontmatter={entry.data}
->
-    <Content /><HeartBtn />
+<MarkdownPostLayout {...entry}>
+    <Content />
 </MarkdownPostLayout>

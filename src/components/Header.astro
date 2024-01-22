@@ -13,30 +13,27 @@ const { class: className = 'surface-1', ...rest } = Astro.props
 ---
 
 <style>
-    .banner {
-        background-color: var(--surface-1);
-        width: 100%;
-    }
-    .layout {
-        display: subgrid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-       
-        
-   
-    }
-    .icon {
-        grid-area: icon;
-    }
-    .nav {
-        grid-area: hamburger;
+    div {
+        .mybanner {
+            width: 500px;
+            border: 1px solid var(--gray-5);
+            z-index: 2;
+        }
+        .layout {
+            display: subgrid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+        .icon {
+            grid-area: icon;
+        }
+        .nav {
+            grid-area: hamburger;
+        }
     }
 </style>
 
-<header class:list={['layout', className, 'banner']} {...rest}>
-    <div class="icon">
-       <ThemeIcon>
-    </div>
-    <Hamburger  class="nav">
-   
-</header>
+<div class="mybanner" {...rest}>
+    <ThemeIcon />
+    <Hamburger class="nav" />
+</div>

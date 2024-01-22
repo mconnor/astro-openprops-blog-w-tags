@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
-
+import { Code } from 'astro:components'
 export const prerender = true
 const pageTitle = 'About Page'
 
@@ -20,6 +20,17 @@ const goal = 3
 
 <BaseLayout pageTitle={pageTitle} surfaceClass="surface-1">
     <p>Here are a few facts about me:</p>
+    <!-- Syntax highlight some JavaScript code. -->
+    <Code code={`const foo = 'bar';`} lang="js" />
+    <!-- Optional: Customize your theme. -->
+    <Code code={`const foo = 'bar';`} lang="js" theme="dark-plus" />
+    <!-- Optional: Enable word wrapping. -->
+    <Code code={`const foo = 'bar';`} lang="js" wrap />
+    <!-- Optional: Output inline code. -->
+    <p>
+        <Code code={`const foo = 'bar';`} lang="js" inline />
+        will be rendered inline.
+    </p>
     <ul>
         <li>My name is {identity.firstName}.</li>
         <li>

@@ -15,12 +15,11 @@ the above import brings in
 @import 'props.borders.css';
  */
 
- @import "open-props/postcss/style";
+@import 'open-props/postcss/style';
 
 @import 'open-props/postcss/normalize';
 
 @import 'open-props/postcss/buttons';
-
 
 @import 'open-props/postcss/buttons/light';
 @import 'open-props/postcss/buttons/dark';
@@ -28,17 +27,17 @@ the above import brings in
  */
 
 .tags {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: flex-start;
-        gap: var(--size-2);
-        max-inline-size: var(--size-content-3);
-        & li {
-            list-style-type: none;
-            & .nowrap {
-                display: flex;
-                flex-wrap: nowrap;
-                column-gap: var(--size-2);
-            }
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    gap: var(--size-2);
+    max-inline-size: var(--size-content-3);
+    & li {
+        list-style-type: none;
+        & .nowrap {
+            display: flex;
+            flex-wrap: nowrap;
+            column-gap: var(--size-2);
         }
     }
+}

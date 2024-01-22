@@ -1,43 +1,44 @@
 ---
-
 import { format } from 'date-fns'
 import { getEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
-
+import type { BlogSchemaType } from '../schemas.ts'
 
 import TagContainer from '@components/TagContainer.astro'
 
+interface Props {
+    data: BlogSchemaType
+}
 
-const { frontmatter } = Astro.props
+const { data } = Astro.props
 
-const author = await getEntry('authors', frontmatter.author.id)
+const { title, description, pubDate, author, cover, tags } = data
+
+// const { title, description, pubDate, author } = entry.data
+
+const { data: authroData } = await getEntry('authors', author.id)
 ---
 
-<BaseLayout pageTitle={frontmatter.title} url={frontmatter.url}>
-    <h2>{frontmatter.description}</h2>
+<BaseLayout pageTitle={title} description={description}>
+    <h2>{description}</h2>
 
     {
         author && (
             <p>
-                Written by: {author.data.name},{' '}
-                {format(frontmatter.pubDate, 'd MMM, yyyy')}
+                Written by: {authroData.name}, {format(pubDate, 'd MMM, yyyy')}
             </p>
         )
     }
 
-    {
-        frontmatter.image && (
-            <Image
-                width={frontmatter.image.width || 800}
-                height={frontmatter.image.height || 300}
-                src={frontmatter.image.url}
-                alt={frontmatter.image.alt}
-            />
-        )
-    }
+    <Image
+        src={cover.url}
+        width="1200"
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
+        height="300"
+        alt={cover.alt}
+    />
 
-    <TagContainer tags={frontmatter.tags} />
-
+    <TagContainer tags={tags} />
     <slot />
 </BaseLayout>

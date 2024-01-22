@@ -21,13 +21,17 @@ const tags = [
             .flat(),
     ),
 ]
-
-// const tags = Object.keys(tagCounts)
 ---
 
-<BaseLayout pageTitle="Tag Index" surfaceClass="surface-1">
-    <TagContainer tags={tags} tagCounts={tagCounts} />
-</BaseLayout>
+{
+    tags ? (
+        <BaseLayout pageTitle="Tag Index" surfaceClass="surface-1">
+            <TagContainer tags={tags} tagCounts={tagCounts} />
+        </BaseLayout>
+    ) : (
+        <>No tags found</>
+    )
+}
 
 <style>
     .block-wrap {
