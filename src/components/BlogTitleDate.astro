@@ -1,31 +1,47 @@
 ---
 import { format } from 'date-fns'
 import type { CollectionEntry } from 'astro:content'
+import { getEntry } from 'astro:content'
+import { authorSchema } from 'src/schemas'
+import { prerender } from 'src/pages/about.astro'
 
+type BlogPostType = CollectionEntry<'blog'>[]
 interface Props {
-    posts: CollectionEntry<'blog'>[]
+    posts: BlogPostType
 }
 
 const { posts } = Astro.props
 
-const getFormatAuth = (authorId: string) => {
-    return authorId
-        .split('-')
-        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-        .join(' ')
+const formatPost = async (origPosts: BlogPostType) => {
+    const formattedPosts = await Promise.all(
+        origPosts.map(async (p) => {
+            const author = await getEntry('authors', p.data.author.id)
+            return {
+                title: p.data.title,
+                authName: author.data.name,
+                pubDate: p.data.pubDate,
+                slug: p.slug,
+            }
+        }),
+    )
+    return formattedPosts
 }
+
+const fp = await formatPost(posts)
+
+// {format(post.data.pubDate, 'MMM do, yyyy')}
 ---
 
 <ul class="mygrid">
     {
-        posts.map((post) => (
+        fp.map(({ title, authName, pubDate, slug }) => (
             <li>
                 <button>
-                    <a href={'/posts/' + post.slug}>
-                        {post.data.title},
+                    <a href={'/posts/' + slug}>
+                        {title},
                         <span class="small-text">
-                            {getFormatAuth(post.data.author.id)},
-                            {format(post.data.pubDate, 'MMM do, yyyy')}
+                            {authName}
+                            {format(pubDate, 'MMM do, yyyy')}
                         </span>
                     </a>
                 </button>
@@ -41,10 +57,10 @@ const getFormatAuth = (authorId: string) => {
 
         border: 1px solid var(--color-gray-300);
 
-        li {
+        > li {
             align-self: stretch;
             list-style: none;
-            button {
+            > button {
                 width: 100%;
                 margin-top: var(--size-2);
 
