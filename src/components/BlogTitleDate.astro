@@ -2,8 +2,6 @@
 import { format } from 'date-fns'
 import type { CollectionEntry } from 'astro:content'
 import { getEntry } from 'astro:content'
-import { authorSchema } from 'src/schemas'
-import { prerender } from 'src/pages/about.astro'
 
 type BlogPostType = CollectionEntry<'blog'>[]
 interface Props {
@@ -65,7 +63,7 @@ const fp = await formatPost(posts)
                 margin-top: var(--size-2);
 
                 .small-text {
-                    font-size: 0.8rem;
+                    font-size: var(--size-1);
                 }
             }
         }

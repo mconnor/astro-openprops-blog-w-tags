@@ -23,18 +23,6 @@ const tags = [
 ]
 ---
 
-{
-    tags ? (
-        <BaseLayout pageTitle="Tag Index" surfaceClass="surface-1">
-            <TagContainer tags={tags} tagCounts={tagCounts} />
-        </BaseLayout>
-    ) : (
-        <>No tags found</>
-    )
-}
-
-<style>
-    .block-wrap {
-        max-inline-size: 80%;
-    }
-</style>
+<BaseLayout pageTitle="Tag Index" surfaceClass="surface-1">
+    {tags && <TagContainer tags={tags} tagCounts={tagCounts} />}
+</BaseLayout>
