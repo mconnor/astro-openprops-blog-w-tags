@@ -1,0 +1,42 @@
+---
+import 'open-props/postcss/style'
+
+import 'open-props/postcss/normalize'
+---
+
+<slot />
+<style is:global>
+    .tags {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+        gap: var(--size-2);
+        max-inline-size: var(--size-content-3);
+        & li {
+            list-style-type: none;
+            & .nowrap {
+                display: flex;
+                flex-wrap: nowrap;
+                column-gap: var(--size-2);
+            }
+        }
+    }
+
+    :where(html) {
+        line-height: var(--font-lineheight-3);
+    }
+
+    :root {
+        --brand-light: var(--orange-6);
+
+        /* dark theme values */
+        --brand-dark: var(--orange-3);
+        --brand: var(--brand-light);
+
+        @media (--OSdark) {
+            --brand: var(--brand-dark);
+        }
+
+        color-scheme: dark;
+    }
+</style>

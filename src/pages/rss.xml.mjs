@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content'
 
 export const prerender = true
 export async function GET() {
-    const posts = await getCollection('posts')
+    const posts = await getCollection('blog')
     return rss({
         title: 'Mike Connor | Blog',
         description:

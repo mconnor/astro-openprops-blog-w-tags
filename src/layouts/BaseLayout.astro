@@ -2,7 +2,8 @@
 import BaseHead from '@components/BaseHead.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-
+import GlobalStyle from '@styles/GlobalStyle.astro'
+import { ViewTransitions } from 'astro:transitions'
 type Props = {
     pageTitle: string
     description?: string
@@ -29,94 +30,46 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
         <link rel="canonical" href={canonicalURL} />
     </head>
+    <GlobalStyle>
+        <ViewTransitions />
+        <body class:list={[surfaceClass]}>
+            <div style="grid-area: header">
+                <Header />
+            </div>
 
-    <body class:list={[surfaceClass]}>
-        <div style="grid-area: header">
-            <Header />
-        </div>
+            <div style="grid-area: headline">
+                <h1 transition:animate="fade">
+                    {pageTitle}
+                </h1>
+            </div>
 
-        <div style="grid-area: headline">
-            <h1 transition:animate="fade">
-                {pageTitle}
-            </h1>
-        </div>
+            <div style="grid-area: main">
+                <main transition:animate="slide" class="mainClass">
+                    <slot />
+                </main>
+            </div>
+            <div style="grid-area: footer">
+                <Footer class={surfaceClass} />
+            </div>
+        </body>
+    </GlobalStyle>
+    <style>
+        body {
+            overflow-x: hidden;
+            display: grid;
+            justify-items: center;
 
-        <div style="grid-area: main">
-            <main transition:animate="slide" class="mainClass">
-                <slot />
-            </main>
-        </div>
-        <div style="grid-area: footer">
-            <Footer class={surfaceClass} />
-        </div>
+            align-items: start;
+            grid-template-rows: 1fr 1fr 5fr 1fr;
+            grid-template-areas:
+                '. header .'
+                '. headline .'
+                '. main . '
+                '. footer .';
+            height: 100vh;
+            grid-row-gap: var(--size-fluid-3);
 
-        <style>
-            :root {
-                --brand-light: var(--orange-6);
-
-                /* dark theme values */
-                --brand-dark: var(--orange-3);
-                --brand: var(--brand-light);
-
-                @media (--OSdark) {
-                    --brand: var(--brand-dark);
-                }
-
-                color-scheme: dark;
-            }
-            body {
-                overflow-x: hidden;
-                display: grid;
-                justify-items: center;
-
-                align-items: start;
-                grid-template-rows: 1fr 1fr 5fr 1fr;
-                grid-template-areas:
-                    '. header .'
-                    '. headline .'
-                    '. main . '
-                    '. footer .';
-                height: 100vh;
-                grid-row-gap: var(--size-fluid-3);
-
-                /* accent-color: var(--link); */
-            }
-
-            /* h1 {
-                font-weight: var(--font-weight-9);
-            } */
-
-            /* .surface-1 {
-                background-image: var(--surface-1);
-                color: var(--text-1);
-            }
-
-            .surface-2 {
-                background-color: var(--surface-2);
-                color: var(--text-2);
-            }
-
-            .surface-3 {
-                background-color: var(--surface-3);
-                color: var(--text-1);
-            }
-
-            .surface-4 {
-                background-color: var(--surface-4);
-                color: var(--text-1);
-            }
-
-            blockquote {
-                --_accent-1: var(--lime-5);
-                --_accent-2: var(--lime-4);
-                --_bg: var(--surface-2);
-                --_ink: var(--text-1);
-
-                color: var(--_ink);
-                border-color: var(--_accent-2);
-                background-color: var(--_bg);
-                justify-self: flex-start;
-            } */
-        </style>
-    </body>
+            /* accent-color: var(--link); */
+        }
+    </style>
 </html>
