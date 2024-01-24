@@ -7,34 +7,24 @@ interface Props {
 const { tags, tagCounts } = Astro.props
 ---
 
-<ul class="tags">
+<ul class="tags-class" data-columns="2">
     {
-        tags &&
-            tags.map((tag: string) => (
-                <li>
-                    {tagCounts && tagCounts[tag] ? (
-                        <a href={`/tags/${tag}`}>
-                            <button type="button">
-                                <TagIcon />
-                                {tag}, {tagCounts[tag]}
-                            </button>
-                        </a>
-                    ) : (
-                        <a href={`/tags/${tag}`}>
-                            <button type="button">
-                                <TagIcon />
-                                {tag}
-                            </button>
-                        </a>
-                    )}
-                </li>
-            ))
+        tagCounts
+            ? tags.map((tag) => (
+                  <li>
+                      <a href={`/tags/${tag}`}>
+                          <TagIcon />
+                          {tag}, {tagCounts[tag]}
+                      </a>
+                  </li>
+              ))
+            : tags.map((tag) => (
+                  <li>
+                      <a href={`/tags/${tag}`}>
+                          <TagIcon />
+                          {tag}
+                      </a>
+                  </li>
+              ))
     }
 </ul>
-
-<style>
-    button {
-        & a {
-        }
-    }
-</style>

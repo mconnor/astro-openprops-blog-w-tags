@@ -29,31 +29,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         <BaseHead title={pageTitle} description={description} image={image} />
 
         <link rel="canonical" href={canonicalURL} />
-    </head>
-    <GlobalStyle>
+        <GlobalStyle />
         <ViewTransitions />
-        <body class:list={[surfaceClass]}>
-            <div style="grid-area: header">
-                <Header />
-            </div>
+    </head>
 
-            <div style="grid-area: headline">
-                <h1 transition:animate="fade">
-                    {pageTitle}
-                </h1>
-            </div>
+    <body class:list={[surfaceClass]}>
+        <div style="grid-area: header">
+            <Header />
+        </div>
 
-            <div style="grid-area: main">
-                <main transition:animate="slide" class="mainClass">
-                    <slot />
-                </main>
-            </div>
-            <div style="grid-area: footer">
-                <Footer class={surfaceClass} />
-            </div>
-        </body>
-    </GlobalStyle>
-    <style>
+        <div style="grid-area: headline">
+            <h1 transition:animate="fade">
+                {pageTitle}
+            </h1>
+        </div>
+
+        <div style="grid-area: main">
+            <main transition:animate="slide" class="mainClass">
+                <slot />
+            </main>
+        </div>
+        <div style="grid-area: footer">
+            <Footer class={surfaceClass} />
+        </div>
+    </body><style>
         body {
             overflow-x: hidden;
             display: grid;

@@ -30,42 +30,33 @@ const fp = await formatPost(posts)
 // {format(post.data.pubDate, 'MMM do, yyyy')}
 ---
 
-<ul class="mygrid">
+<ul class="tags-class" data-columns="2">
     {
         fp.map(({ title, authName, pubDate, slug }) => (
             <li>
-                <button>
-                    <a href={'/posts/' + slug}>
+                <a href={'/posts/' + slug}>
+                    <span>
                         {title},
-                        <span class="small-text">
+                        <small>
                             {authName}
                             {format(pubDate, 'MMM do, yyyy')}
-                        </span>
-                    </a>
-                </button>
+                        </small>
+                    </span>
+                </a>
             </li>
         ))
     }
 </ul>
 
 <style>
-    .mygrid {
-        display: grid;
-        grid-template-columns: 1fr;
+    a {
+        padding: var(--size-fluid-2);
 
-        border: 1px solid var(--color-gray-300);
+        .small-text {
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
 
-        > li {
-            align-self: stretch;
-            list-style: none;
-            > button {
-                width: 100%;
-                margin-top: var(--size-2);
-
-                .small-text {
-                    font-size: var(--size-1);
-                }
-            }
+            font-size: var(--font-size-0);
         }
     }
 </style>
