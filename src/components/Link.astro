@@ -2,15 +2,15 @@
 import type { HTMLTag, Polymorphic } from 'astro/types'
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
-    as: Tag
-    activeClass?: string
+  as: Tag
+  activeClass?: string
 }>
 
 const { as: HtmTag, class: className, ...rest } = Astro.props
 ---
 
 <HtmTag class={className} {...rest}>
-    <slot />
-    <!-- <p>{path}</p>
+  <slot />
+  <!-- <p>{path}</p>
     <p>{rest.href}</p> -->
 </HtmTag>

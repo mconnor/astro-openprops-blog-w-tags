@@ -3,12 +3,12 @@ import { format } from 'date-fns'
 import { getEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
-import type { BlogSchemaType } from '../schemas.ts'
+import type { BlogSchemaType } from '../schemas'
 
 import TagContainer from '@components/TagContainer.astro'
 
 interface Props {
-    data: BlogSchemaType
+  data: BlogSchemaType
 }
 
 const { data } = Astro.props
@@ -21,24 +21,24 @@ const { data: authroData } = await getEntry('authors', author.id)
 ---
 
 <BaseLayout pageTitle={title} description={description}>
-    <h2>{description}</h2>
+  <h2>{description}</h2>
 
-    {
-        author && (
-            <p>
-                Written by: {authroData.name}, {format(pubDate, 'd MMM, yyyy')}
-            </p>
-        )
-    }
+  {
+    author && (
+      <p>
+        Written by: {authroData.name}, {format(pubDate, 'd MMM, yyyy')}
+      </p>
+    )
+  }
 
-    <Image
-        src={cover.url}
-        width="1200"
-        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
-        height="300"
-        alt={cover.alt}
-    />
+  <Image
+    src={cover.url}
+    width="1200"
+    sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
+    height="300"
+    alt={cover.alt}
+  />
 
-    <TagContainer tags={tags} />
-    <slot />
+  <TagContainer tags={tags} />
+  <slot />
 </BaseLayout>

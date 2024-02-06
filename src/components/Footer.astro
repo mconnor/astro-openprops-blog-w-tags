@@ -4,48 +4,48 @@ import Social from './Social.astro'
 import type { HTMLAttributes } from 'astro/types'
 
 interface Props extends HTMLAttributes<'div'> {
-    surface?: string
+  surface?: string
 }
 
 const { class: className = 'surface1' } = Astro.props
 ---
 
 <style>
-    .layout {
-        justify-self: stretch;
+  .layout {
+    justify-self: stretch;
 
-        display: grid;
-        grid-template-rows: min-content min-content min-content;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-areas:
-            'headline headline headline'
-            'link1 link2 link3';
+    display: grid;
+    grid-template-rows: min-content min-content min-content;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      'headline headline headline'
+      'link1 link2 link3';
+  }
+
+  p {
+    grid-area: headline;
+    white-space: nowrap;
+    justify-self: center;
+  }
+
+  Social {
+    .link1 {
+      grid-area: link1;
     }
 
-    p {
-        grid-area: headline;
-        white-space: nowrap;
-        justify-self: center;
+    .link2 {
+      grid-area: link2;
     }
 
-    Social {
-        .link1 {
-            grid-area: link1;
-        }
-
-        .link2 {
-            grid-area: link2;
-        }
-
-        .link3 {
-            grid-area: link3;
-        }
+    .link3 {
+      grid-area: link3;
     }
+  }
 </style>
 
 <footer class:list={['layout', className]}>
-    <p>More about me</p>
-    <Social platform="twitter" class="link1" />
-    <Social platform="github" class="link2" />
-    <Social platform="youtube" class="link3" />
+  <p>More about me</p>
+  <Social platform="twitter" class="link1" />
+  <Social platform="github" class="link2" />
+  <Social platform="youtube" class="link3" />
 </footer>

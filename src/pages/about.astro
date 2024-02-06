@@ -5,10 +5,10 @@ export const prerender = true
 const pageTitle = 'About Page'
 
 const identity = {
-    firstName: 'Mike',
-    country: 'US',
-    occupation: 'Developer',
-    hobbies: ['photography', 'birdwatching', 'baseball'],
+  firstName: 'Mike',
+  country: 'US',
+  occupation: 'Developer',
+  hobbies: ['photography', 'birdwatching', 'baseball'],
 }
 
 const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs']
@@ -19,56 +19,55 @@ const goal = 3
 ---
 
 <BaseLayout pageTitle={pageTitle} surfaceClass="surface-1">
-    <p>Here are a few facts about me:</p>
-    <!-- Syntax highlight some JavaScript code. -->
-    <Code code={`const foo = 'bar';`} lang="js" />
-    <!-- Optional: Customize your theme. -->
-    <Code code={`const foo = 'bar';`} lang="js" theme="dark-plus" />
-    <!-- Optional: Enable word wrapping. -->
-    <Code code={`const foo = 'bar';`} lang="js" wrap />
-    <!-- Optional: Output inline code. -->
-    <p>
-        <Code code={`const foo = 'bar';`} lang="js" inline />
-        will be rendered inline.
-    </p>
-    <ul>
-        <li>My name is {identity.firstName}.</li>
-        <li>
-            I live in {identity.country} and I work as a {identity.occupation}.
-        </li>
-        {
-            identity.hobbies.length >= 2 && (
-                <li>
-                    Two of my hobbies are: {identity.hobbies[0]} and{' '}
-                    {identity.hobbies[1]}
-                </li>
-            )
-        }
-    </ul>
-
-    <h3>My skills are:</h3>
-
-    <ul>
-        {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-
-    {happy && <p>I am happy to be learning Astro!</p>}
-
-    {finished && <p>I finished this tutorial!</p>}
-
+  <p>Here are a few facts about me:</p>
+  <!-- Syntax highlight some JavaScript code. -->
+  <Code code={`const foo = 'bar';`} lang="js" />
+  <!-- Optional: Customize your theme. -->
+  <Code code={`const foo = 'bar';`} lang="js" theme="dark-plus" />
+  <!-- Optional: Enable word wrapping. -->
+  <Code code={`const foo = 'bar';`} lang="js" wrap />
+  <!-- Optional: Output inline code. -->
+  <p>
+    <Code code={`const foo = 'bar';`} lang="js" inline />
+    will be rendered inline.
+  </p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>
+      I live in {identity.country} and I work as a {identity.occupation}.
+    </li>
     {
-        goal === 3 ? (
-            <p>My goal is to finish in 3 days.</p>
-        ) : (
-            <p>My goal is not 3 days.</p>
-        )
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+        </li>
+      )
     }
+  </ul>
+
+  <h3>My skills are:</h3>
+
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+
+  {finished && <p>I finished this tutorial!</p>}
+
+  {
+    goal === 3 ? (
+      <p>My goal is to finish in 3 days.</p>
+    ) : (
+      <p>My goal is not 3 days.</p>
+    )
+  }
 </BaseLayout>
 
 <style>
-    .skill {
-        font-weight: var(--font-weight-7);
-        text-transform: var(--textCase);
-        /* color: var(--accent); */
-    }
+  .skill {
+    font-weight: var(--font-weight-7);
+    text-transform: var(--textCase);
+    /* color: var(--accent); */
+  }
 </style>

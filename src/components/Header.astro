@@ -6,19 +6,19 @@ import Hamburger from './Hamburger.astro'
 import ThemeIcon from './ThemeIcon.astro'
 
 interface Props {
-    class?: string
+  class?: string
 }
 
 const { class: className = 'surface-1', ...rest } = Astro.props
 ---
 
 <div class="mybanner" {...rest}>
-    <!-- <ThemeIcon /> -->
-    <Hamburger class="nav" />
+  <!-- <ThemeIcon /> -->
+  <Hamburger class="nav" />
 </div>
 
 <style>
-    .mybanner {
-        width: 100vh;
-    }
+  .mybanner {
+    width: 100vh;
+  }
 </style>

@@ -3,12 +3,12 @@ import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro'
 import { getCollection } from 'astro:content'
 
 export const getStaticPaths = async () => {
-    const posts = await getCollection('blog')
-    const objs = posts.map((entry) => ({
-        params: { slug: entry.slug },
-        props: { entry },
-    }))
-    return objs
+  const posts = await getCollection('blog')
+  const objs = posts.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+  return objs
 }
 
 const { entry } = Astro.props
@@ -16,5 +16,5 @@ const { Content } = await entry.render()
 ---
 
 <MarkdownPostLayout {...entry}>
-    <Content />
+  <Content />
 </MarkdownPostLayout>

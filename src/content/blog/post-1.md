@@ -5,8 +5,8 @@ author: mike-connor
 description: This is the first post of my new Astro blog
 draft: false
 cover:
-    url: 'https://picsum.photos/1200/300?random=1'
-    alt: 'A photograph of a sunset behind a mountain range.'
+  url: 'https://picsum.photos/1200/300?random=1'
+  alt: 'A photograph of a sunset behind a mountain range.'
 tags: ['astro', 'blogging', 'learning-in-public']
 ---
 

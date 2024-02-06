@@ -4,8 +4,8 @@ pubDate: 2024-01-02
 author: mike-connor
 draft: false
 cover:
-    url: 'https://picsum.photos/1200/300?random=3'
-    alt: 'lorem'
+  url: 'https://picsum.photos/1200/300?random=3'
+  alt: 'lorem'
 description: The Future of Dynamic Web Content
 tags: ['coding', 'successes', 'learning-in-public']
 ---

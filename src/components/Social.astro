@@ -5,50 +5,50 @@ import type { HTMLAttributes } from 'astro/types'
 type SocialType = 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube'
 
 interface Props extends HTMLAttributes<'a'> {
-    username?: string
-    platform: SocialType
+  username?: string
+  platform: SocialType
 }
 const { class: className, platform, username = 'mconnor' } = Astro.props
 
 const myicon = (platform: SocialType) => {
-    switch (platform) {
-        case 'twitter':
-            return 'fa-twitter'
-        case 'instagram':
-            return 'fa-instagram'
-        case 'github':
-            return 'fa-github'
-        case 'linkedin':
-            return 'fa-linkedin'
-        default:
-            return 'fa-twitter'
-    }
+  switch (platform) {
+    case 'twitter':
+      return 'fa-twitter'
+    case 'instagram':
+      return 'fa-instagram'
+    case 'github':
+      return 'fa-github'
+    case 'linkedin':
+      return 'fa-linkedin'
+    default:
+      return 'fa-twitter'
+  }
 }
 ---
 
 <!-- <a href={`https://www.${platform}.com/${username}`}></a> -->
 <Link
-    as="a"
-    class:list={[className, 'link']}
-    href={`https://www.${platform}.com/${username}`}
+  as="a"
+  class:list={[className, 'link']}
+  href={`https://www.${platform}.com/${username}`}
 >
-    <i class:list={['fa-brands', myicon(platform)]}></i>
-    {platform}
+  <i class:list={['fa-brands', myicon(platform)]}></i>
+  {platform}
 </Link>
 
 <style>
-    .link {
-        white-space: nowrap;
-        justify-self: center;
-        /* padding-inline: var(--size-4); */
+  .link {
+    white-space: nowrap;
+    justify-self: center;
+    /* padding-inline: var(--size-4); */
 
-        & a {
-            &:hover {
-                background-color: var(--surface-3);
-                cursor: pointer;
-                text-decoration: none;
-                text-font-weight: var(--font-weight-6);
-            }
-        }
+    & a {
+      &:hover {
+        background-color: var(--surface-3);
+        cursor: pointer;
+        text-decoration: none;
+        text-font-weight: var(--font-weight-6);
+      }
     }
+  }
 </style>

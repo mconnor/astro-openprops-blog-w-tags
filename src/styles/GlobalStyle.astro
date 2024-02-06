@@ -4,78 +4,78 @@ import 'open-props/postcss/normalize'
 ---
 
 <style is:global>
-    :where(html) {
-        line-height: var(--font-lineheight-3);
-    }
+  :where(html) {
+    line-height: var(--font-lineheight-3);
+  }
 
-    /* span,
+  /* span,
     a,
     p {
         font-size: var(--font-size-1);
     } */
 
-    :root {
-        --brand-light: var(--orange-6);
+  :root {
+    --brand-light: var(--orange-6);
 
-        /* dark theme values */
-        --brand-dark: var(--orange-3);
-        --brand: var(--brand-light);
+    /* dark theme values */
+    --brand-dark: var(--orange-3);
+    --brand: var(--brand-light);
 
-        @media (--OSdark) {
-            --brand: var(--brand-dark);
-        }
-
-        color-scheme: dark;
+    @media (--OSdark) {
+      --brand: var(--brand-dark);
     }
 
-    .tags-class {
-        /* display: grid;
+    color-scheme: dark;
+  }
+
+  .tags-class {
+    /* display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: var(--size-2); */
 
-        > li {
-            background-color: var(--brand);
-            list-style-type: none;
+    > li {
+      background-color: var(--brand);
+      list-style-type: none;
 
-            > a {
-                display: flex;
-                flex-wrap: nowrap;
-                column-gap: var(--size-2);
-            }
-            &:hover a {
-                text-decoration: none;
-                color: red; /* replace with your desired hover styles */
-            }
-        }
+      > a {
+        display: flex;
+        flex-wrap: nowrap;
+        column-gap: var(--size-2);
+      }
+      &:hover a {
+        text-decoration: none;
+        color: red; /* replace with your desired hover styles */
+      }
     }
+  }
 
-    [data-columns] {
-        display: grid;
-        grid-gap: 1rem;
-        border-radius: var(--radius-2);
+  [data-columns] {
+    display: grid;
+    grid-gap: 1rem;
+    border-radius: var(--radius-2);
 
-        box-shadow: var(--shadow-2);
-        padding: var(--size-fluid-1);
-        margin: 0 0 1rem 0;
-    }
+    box-shadow: var(--shadow-2);
+    padding: var(--size-fluid-1);
+    margin: 0 0 1rem 0;
+  }
 
-    [data-columns] > div {
-        height: 100px;
-        background: white;
-    }
+  [data-columns] > div {
+    height: 100px;
+    background: white;
+  }
 
-    [data-columns='2'] {
-        background: #64b5f6;
-        grid-template-columns: repeat(2, 1fr);
-    }
+  [data-columns='2'] {
+    background: #64b5f6;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    [data-columns='3'] {
-        background: #9ccc65;
-        grid-template-columns: repeat(3, 1fr);
-    }
+  [data-columns='3'] {
+    background: #9ccc65;
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    [data-columns='4'] {
-        background: #ffb74d;
-        grid-template-columns: repeat(4, 1fr);
-    }
+  [data-columns='4'] {
+    background: #ffb74d;
+    grid-template-columns: repeat(4, 1fr);
+  }
 </style>

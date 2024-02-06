@@ -8,21 +8,21 @@ const allBlogPost = await getCollection('blog')
 const tagCounts: Record<string, number> = {}
 
 allBlogPost.forEach((post) =>
-    (post.data.tags || []).forEach((tag: string) => {
-        tagCounts[tag] = (tagCounts[tag] || 0) + 1
-    }),
+  (post.data.tags || []).forEach((tag: string) => {
+    tagCounts[tag] = (tagCounts[tag] || 0) + 1
+  }),
 )
 
 const tags = [
-    ...new Set(
-        allBlogPost
-            .filter((post) => post.data.draft !== true)
-            .map((post) => post.data.tags)
-            .flat(),
-    ),
+  ...new Set(
+    allBlogPost
+      .filter((post) => post.data.draft !== true)
+      .map((post) => post.data.tags)
+      .flat(),
+  ),
 ]
 ---
 
 <BaseLayout pageTitle="Tag Index" surfaceClass="surface-1">
-    {tags && <TagContainer tags={tags} tagCounts={tagCounts} />}
+  {tags && <TagContainer tags={tags} tagCounts={tagCounts} />}
 </BaseLayout>

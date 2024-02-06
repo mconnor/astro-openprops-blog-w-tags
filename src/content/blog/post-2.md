@@ -5,8 +5,8 @@ author: mike-connor
 draft: false
 description: "After learning some Astro, I couldn't stop!"
 cover:
-    url: 'https://picsum.photos/1200/300?random=2'
-    alt: 'A photograph of a sunset behind a mountain range.'
+  url: 'https://picsum.photos/1200/300?random=2'
+  alt: 'A photograph of a sunset behind a mountain range.'
 tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 ---
 
@@ -14,8 +14,8 @@ tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 
 1. [Introduction](#introduction)
 2. [Main Topics](#main-topics)
-    - [Subtopic A](#subtopic-a)
-    - [Subtopic B](#subtopic-b)
+   - [Subtopic A](#subtopic-a)
+   - [Subtopic B](#subtopic-b)
 3. [Images](#images)
 4. [Lists](#lists)
 5. [Code Blocks](#code-blocks)
@@ -46,11 +46,11 @@ doloremque laudantium.
 
 ## Lists
 
--   Item 1
--   Item 2
-    -   Subitem 2.1
-    -   Subitem 2.2
--   Item 3
+- Item 1
+- Item 2
+  - Subitem 2.1
+  - Subitem 2.2
+- Item 3
 
 1. First item
 2. Second item
