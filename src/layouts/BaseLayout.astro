@@ -52,25 +52,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <div style="grid-area: footer">
       <Footer class={surfaceClass} />
     </div>
-    <style>
-      body {
-        overflow-x: hidden;
-        display: grid;
-        justify-items: center;
-
-        align-items: start;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 5fr 1fr;
-        grid-template-areas:
-          '. header .'
-          '. headline .'
-          '. main . '
-          '. footer .';
-        height: 100vh;
-        grid-row-gap: var(--size-fluid-3);
-
-        /* accent-color: var(--link); */
-      }
-    </style>
+    <style></style>
   </body>
 </html>

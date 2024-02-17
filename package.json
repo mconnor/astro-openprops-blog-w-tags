@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "host": "astro dev --host",
     "build": "astro check && astro build",
     "devbuild": "astro check && astro build development",
     "preview": "astro preview",

@@ -9,10 +9,10 @@ interface Props {
   class?: string
 }
 
-const { class: className = 'surface-1', ...rest } = Astro.props
+const { class: className = 'surface-1' } = Astro.props
 ---
 
-<div class="mybanner" {...rest}>
+<div class={className}>
   <!-- <ThemeIcon /> -->
   <Hamburger class="nav" />
 </div>

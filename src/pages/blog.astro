@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro'
+import Layout from '@layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
 import TitleDate from '@components/BlogTitleDate.astro'
@@ -11,7 +11,7 @@ const publishsedPosts = await getCollection(
 )
 ---
 
-<BaseLayout pageTitle={pageTitle} surfaceClass="surface-3">
+<Layout pageTitle={pageTitle} surfaceClass="surface-3">
   <p>
     Below are static lorem-ipsum blog post created in <a
       href="https://www.markdownguide.org">Markdown</a
@@ -19,4 +19,4 @@ const publishsedPosts = await getCollection(
   </p>
 
   <TitleDate posts={publishsedPosts} />
-</BaseLayout>
+</Layout>

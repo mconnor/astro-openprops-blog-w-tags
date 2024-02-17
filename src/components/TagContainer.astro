@@ -28,3 +28,26 @@ const { tags, tagCounts } = Astro.props
         ))
   }
 </ul>
+
+<style>
+  .tags-class {
+    /* display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--size-2); */
+
+    > li {
+      background-color: var(--brand);
+      list-style-type: none;
+
+      > a {
+        display: flex;
+        flex-wrap: nowrap;
+        column-gap: var(--size-2);
+      }
+      &:hover a {
+        text-decoration: none;
+        color: red; /* replace with your desired hover styles */
+      }
+    }
+  }
+</style>
