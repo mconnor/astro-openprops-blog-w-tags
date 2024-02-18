@@ -11,6 +11,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@cc/*": ["src/astro-custom-layout-components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@content/*": ["src/content/*"],
       "@assets/*": ["src/assets/*"],
