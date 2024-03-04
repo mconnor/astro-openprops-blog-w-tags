@@ -4,6 +4,9 @@ import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
 import GlobalStyle from '@styles/GlobalStyle.astro'
 import { ViewTransitions } from 'astro:transitions'
+
+import { Cover } from '@cc/index'
+
 type Props = {
   pageTitle: string
   description?: string
@@ -34,24 +37,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   </head>
 
   <body class:list={[surfaceClass]}>
-    <div style="grid-area: header">
+    <Cover centeredElement="main">
       <Header />
-    </div>
 
-    <div style="grid-area: headline">
-      <h1 transition:animate="fade">
-        {pageTitle}
-      </h1>
-    </div>
-
-    <div style="grid-area: main">
       <main transition:animate="slide" class="mainClass">
+        <h1 transition:animate="fade">
+          {pageTitle}xxx
+        </h1>
+
         <slot />
       </main>
-    </div>
-    <div style="grid-area: footer">
+
       <Footer class={surfaceClass} />
-    </div>
-    <style></style>
+    </Cover>
   </body>
 </html>
