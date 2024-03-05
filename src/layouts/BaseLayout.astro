@@ -30,10 +30,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 <html transition:animate="none">
   <head>
     <BaseHead title={pageTitle} description={description} image={image} />
-
     <link rel="canonical" href={canonicalURL} />
     <GlobalStyle />
     <ViewTransitions />
+    <!-- <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Your Site's Title"
+      href={`${Astro.site}rss.xml`}
+    /> -->
   </head>
 
   <body class:list={[surfaceClass]}>
