@@ -10,10 +10,13 @@ interface Props {
 
 const { posts } = Astro.props
 
-const formatPost = async (origPosts: BlogPostType) => {
+const getDecoratedPosts = async (_posts: BlogPostType) => {
   const formattedPosts = await Promise.all(
-    origPosts.map(async (p) => {
-      const author = await getEntry('authors', p.data.author.id)
+    _posts.map(async (p) => {
+      const author = await getEntry(
+        'authors',
+        p.data.author.id ?? 'mike-connor',
+      )
       return {
         title: p.data.title,
         authName: author.data.name,
@@ -25,14 +28,14 @@ const formatPost = async (origPosts: BlogPostType) => {
   return formattedPosts
 }
 
-const fp = await formatPost(posts)
+const decoratedPosts = await getDecoratedPosts(posts)
 
 // {format(post.data.pubDate, 'MMM do, yyyy')}
 ---
 
 <ul class="tags-class" data-columns="2">
   {
-    fp.map(({ title, authName, pubDate, slug }) => (
+    decoratedPosts.map(({ title, authName, pubDate, slug }) => (
       <li>
         <a href={'/posts/' + slug}>
           <span>
