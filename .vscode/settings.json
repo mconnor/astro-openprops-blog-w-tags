@@ -4,7 +4,8 @@
   "scss.validate": false,
   "cssvar.files": [
     "./node_modules/open-props/open-props.min.css",
-    "src/styles/global.css"
+    "src/styles/global.css",
+    "src/styles/GlobalStyle.astro"
     // if you have an alternative path to where your styles are located
     // you can add it in this array of files
     // "assets/styles/variables.css"

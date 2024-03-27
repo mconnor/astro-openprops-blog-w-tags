@@ -1,5 +1,7 @@
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   env: {
+    node: true,
     browser: true,
     es2021: true,
   },
@@ -34,5 +36,8 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint'],
-  rules: {},
+  rules: {
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
+  },
 }
