@@ -1,6 +1,7 @@
 ---
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro'
 import { getCollection } from 'astro:content'
+import { PostSchemaType } from '../../schema'
 
 export const getStaticPaths = async () => {
   const posts = await getCollection('blog')

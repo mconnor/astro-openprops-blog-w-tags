@@ -1,7 +1,9 @@
 ---
-import Form from '../components/form.astro'
+import Form from '@components/form.astro'
+
 import BaseLayout from '@layouts/BaseLayout.astro'
 import HeartBtn from '@components/HeartBtn.astro'
+import { Box } from '@cc/index'
 ---
 
 <BaseLayout pageTitle="home" surfaceClass="surface-3">
@@ -12,4 +14,6 @@ import HeartBtn from '@components/HeartBtn.astro'
   </button>
   <HeartBtn />
   <Form />
+  <Box> hello </Box>
+  <Box invert borderWidth="2px" padding="10px"> hello </Box>
 </BaseLayout>

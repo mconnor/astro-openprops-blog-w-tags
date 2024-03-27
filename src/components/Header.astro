@@ -1,21 +1,25 @@
 ---
-import Hamburger from './Hamburger.astro'
-import ThemeIcon from './ThemeIcon.astro'
+// import Hamburger from './Hamburger.astro'
 
-interface Props {
-  class?: string
-}
-
-const { class: className = 'surface-1' } = Astro.props
+import Link from '@components/Link.astro'
+const path = Astro.url.pathname
+import { Switcher } from '@cc/index'
 ---
 
-<div class={className}>
-  <!-- <ThemeIcon /> -->
-  <Hamburger class="nav" />
-</div>
+<!-- <Hamburger class="nav" /> --><!-- <ThemeIcon /> -->
+<Switcher>
+  <Link path={path} href="/">Home</Link>
 
-<style>
-  .mybanner {
-    width: 100vh;
-  }
-</style>
+  <Link path={path} href="/about/">About</Link>
+
+  <Link path={path} href="/kitchensink/">Kitchen Sink</Link>
+
+  <Link path={path} href="/blog/">Blog</Link>
+  <Link path={path} href="/tags/">Tags</Link>
+  <style>
+    header {
+      color: var(--text-3);
+      background-color: var(--surface-3);
+    }
+  </style>
+</Switcher>

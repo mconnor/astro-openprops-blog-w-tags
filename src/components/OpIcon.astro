@@ -1,50 +1,45 @@
----
-
----
-
-<svg class="op-icon" viewBox="0 0 200 200">
-  <line class="op-icon-p" x1="66" x2="66" y1="100" y2="175" stroke-width="25"
-  ></line>
-  <circle
-    class="op-icon-p"
-    cx="100"
-    cy="100"
-    r="35"
-    fill="transparent"
-    stroke-width="25"></circle>
-  <circle
-    class="op-icon-o"
-    cx="100"
-    cy="100"
-    r="85"
-    fill="transparent"
-    stroke-width="25"></circle>
-</svg>
-
+<div style="font-size: 8rem">
+  <span class="with-icon">
+    <svg class="op-icon icon" viewBox="0 0 200 200">
+      <line
+        class="op-icon-p"
+        x1="66"
+        x2="66"
+        y1="100"
+        y2="175"
+        stroke-width="25"></line>
+      <circle
+        class="op-icon-p"
+        cx="100"
+        cy="100"
+        r="35"
+        fill="transparent"
+        stroke-width="25"></circle>
+      <circle
+        class="op-icon-o"
+        cx="100"
+        cy="100"
+        r="85"
+        fill="transparent"
+        stroke-width="25"></circle>
+    </svg>Open Props
+  </span>
+</div>
 <style>
-  .op-logo {
-    display: grid;
-    font-weight: var(--font-weight-3);
-    font-size: var(--font-size-2);
-    color: var(--indigo-3);
-    letter-spacing: var(--font-letterspacing-4);
+  .icon {
+    width: 0.75em;
+    width: 1cap;
+    height: 0.75em;
+    height: 1cap;
+  }
 
-    @media (--xs-n-below) {
-      display: none;
-    }
+  .with-icon {
+    display: inline-flex;
+    align-items: baseline;
+  }
 
-    [data-theme='light'] & {
-      color: var(--indigo-7);
-    }
-
-    & > span {
-      line-height: 0.9;
-      text-transform: uppercase;
-
-      &::first-letter {
-        font-weight: var(--font-weight-9);
-      }
-    }
+  .with-icon .icon {
+    margin-inline-end: 1rem;
   }
   .op-icon-p {
     stroke: var(--indigo-2);

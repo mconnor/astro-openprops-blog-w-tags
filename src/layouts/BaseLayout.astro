@@ -5,7 +5,7 @@ import Footer from '@components/Footer.astro'
 import GlobalStyle from '@styles/GlobalStyle.astro'
 import { ViewTransitions } from 'astro:transitions'
 
-import { Cover } from '@cc/index'
+import { Cover, Center, Box, Stack } from '@cc/index'
 
 type Props = {
   pageTitle: string
@@ -21,7 +21,6 @@ const {
   pageTitle,
   description = 'my description',
   image = '/placeholder-social.jpg',
-  surfaceClass = 'surface-4',
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -41,19 +40,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     /> -->
   </head>
 
-  <body class:list={[surfaceClass]}>
-    <Cover centeredElement="main">
+  <body color-scheme="light">
+    <Cover centeredElement="center-l">
       <Header />
 
-      <main transition:animate="slide" class="mainClass">
-        <h1 transition:animate="fade">
-          {pageTitle}xxx
-        </h1>
+      <Center><slot /></Center>
 
-        <slot />
-      </main>
-
-      <Footer class={surfaceClass} />
+      <Footer />
     </Cover>
+    <style>
+      body {
+        color: var(--text-1);
+        background-color: var(--surface-4);
+      }
+    </style>
   </body>
 </html>

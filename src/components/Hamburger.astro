@@ -6,7 +6,6 @@ interface Props extends HTMLAttributes<'div'> {}
 
 const { ...rest } = Astro.props
 
-
 const path = Astro.url.pathname
 // type Props = Record<string, never>
 ---
@@ -28,41 +27,12 @@ const path = Astro.url.pathname
         transform: rotate(45deg);
       }
       & span::before {
-        top: 0;
+        /* top: 0; */
         transform: rotate(0);
       }
       & span::after {
-        top: 0;
+        /* top: 0; */
         transform: rotate(90deg);
-      }
-    }
-  }
-
-  @media (width<630px) {
-    #menu__toggle {
-      display: none;
-
-      &:checked ~ .menu__box {
-        flex-direction: column;
-        & li {
-          animation: var(--animation-slide-in-right);
-          animation-duration: 1s;
-        }
-        & li:nth-child(1) {
-          animation-delay: 0.1s;
-        }
-        & li:nth-child(2) {
-          animation-delay: 0.2s;
-        }
-        & li:nth-child(3) {
-          animation-delay: 0.3s;
-        }
-        & li:nth-child(4) {
-          animation-delay: 0.4s;
-        }
-        & li:nth-child(5) {
-          animation-delay: 0.5s;
-        }
       }
     }
   }
@@ -73,21 +43,24 @@ const path = Astro.url.pathname
 
     position: relative;
     & .menu__btn {
-      display: grid;
+      /* display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: min-content, min-content, min-content;
+      grid-template-rows: min-content, min-content, min-content; */
 
-      align-items: center;
-      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      row-gap: var(--size-1);
+
+      /* align-items: center;
+      justify-content: center; */
       position: static;
 
-      height: var(--size-8);
       user-select: none;
 
       :is(span),
       :is(span)::before,
       :is(span)::after {
-        display: block;
+        /* display: block; */
         width: var(--size-5);
         height: var(--size-1);
         transition: transform 0.4s cubic-bezier(0.54, -0.81, 0.57, 0.57);
@@ -136,9 +109,9 @@ const path = Astro.url.pathname
         border-radius: var(--radius-3);
         text-decoration: none;
         outline-offset: 3px;
-        transition:
+        /* transition:
           background-color 0.2s var(--ease-3),
-          color 0.2s var(--ease-3);
+          color 0.2s var(--ease-3); */
         &:hover {
           background-color: var(--surface-3);
           color: var(--text1);
@@ -172,13 +145,13 @@ const path = Astro.url.pathname
       <span></span>
     </label>
 
-    <ul class="menu__box">
-      <li>
+    <ul class="menu__box" role="tablist">
+      <li role="tab">
         <Link as="a" class:list={[{ currentTab: path === '/' }]} href="/">
           Home
         </Link>
       </li>
-      <li>
+      <li role="tab">
         <Link
           class:list={[{ currentTab: path === '/about/' }]}
           as="a"
@@ -187,7 +160,7 @@ const path = Astro.url.pathname
           About
         </Link>
       </li>
-      <li>
+      <li role="tab">
         <Link
           class:list={[{ currentTab: path === '/kitchensink/' }]}
           as="a"
@@ -196,7 +169,7 @@ const path = Astro.url.pathname
           Kitchen Sink
         </Link>
       </li>
-      <li>
+      <li role="tab">
         <Link
           class:list={[{ currentTab: path === '/blog/' }]}
           as="a"
@@ -205,7 +178,7 @@ const path = Astro.url.pathname
           Blog
         </Link>
       </li>
-      <li>
+      <li role="tab">
         <Link
           class:list={[{ currentTab: path === '/tags/' }]}
           as="a"

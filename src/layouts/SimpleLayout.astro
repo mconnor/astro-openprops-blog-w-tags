@@ -1,0 +1,45 @@
+---
+import BaseHead from '@components/BaseHead.astro'
+
+import GlobalStyle from '@styles/GlobalStyle.astro'
+import { ViewTransitions } from 'astro:transitions'
+
+import { Cover, Center, Box, Stack } from '@cc/index'
+
+type Props = {
+  pageTitle: string
+  description?: string
+  image?: string
+  surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
+}
+
+// const isProd = import.meta.env.PROD
+// const isDev = import.meta.env.DEV
+
+const {
+  pageTitle,
+  description = 'my description',
+  image = '/placeholder-social.jpg',
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+---
+
+<html transition:animate="none">
+  <head>
+    <BaseHead title={pageTitle} description={description} image={image} />
+    <link rel="canonical" href={canonicalURL} />
+    <GlobalStyle />
+    <ViewTransitions />
+    <!-- <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Your Site's Title"
+      href={`${Astro.site}rss.xml`}
+    /> -->
+  </head>
+
+  <body color-scheme="light">
+    <Center max="60ch"><slot /></Center>
+  </body>
+</html>

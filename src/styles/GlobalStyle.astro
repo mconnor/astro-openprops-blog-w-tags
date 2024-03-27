@@ -1,6 +1,6 @@
 ---
 import 'open-props/postcss/style'
-import 'open-props/postcss/normalize'
+import 'open-props/postcss/buttons'
 ---
 
 <style is:global>
@@ -15,17 +15,49 @@ import 'open-props/postcss/normalize'
     } */
 
   :root {
+    --measure: 60ch;
+    color-scheme: light dark;
+
     --brand-light: var(--orange-6);
 
     /* dark theme values */
     --brand-dark: var(--orange-3);
     --brand: var(--brand-light);
+  }
 
-    @media (--OSdark) {
-      --brand: var(--brand-dark);
-    }
+  html {
+    font-family: var(--font-sans);
 
-    color-scheme: dark;
+    --color-light: hsl(0, 0%, 80%);
+    --color-dark: hsl(0, 0%, 20%);
+
+    /* light */
+    --brand-light: var(--orange-12);
+
+    /* open-props light theme as defaults but these are better */
+    --text-1-light: var(--gray-8);
+    --text-2-light: var(--gray-7);
+    --surface-1-light: var(--gray-0);
+    --surface-2-light: var(--gray-1);
+    --surface-3-light: var(--gray-2);
+    --surface-4-light: var(--gray-3);
+
+    --surface-shadow-light: var(--gray-8-hsl);
+    --shadow-strength-light: 2%;
+
+    /* dark */
+    --brand-dark: var(--orange-3);
+
+    /* open-props dark theme as defaults but these are better */
+    --text-1-dark: var(--gray-3);
+    --text-2-dark: var(--gray-5);
+    --surface-1-dark: var(--gray-12);
+    --surface-2-dark: var(--gray-11);
+    --surface-3-dark: var(--gray-10);
+    --surface-4-dark: var(--gray-9);
+
+    --surface-shadow-dark: var(--gray-12-hsl);
+    --shadow-strength-dark: 80%;
   }
 
   [data-columns] {

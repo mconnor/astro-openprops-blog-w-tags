@@ -18,19 +18,18 @@ const finished = false
 const goal = 3
 ---
 
-<BaseLayout pageTitle={pageTitle} surfaceClass="surface-1">
+<BaseLayout pageTitle={pageTitle}>
   <p>Here are a few facts about me:</p>
-  <!-- Syntax highlight some JavaScript code. -->
-  <Code code={`const foo = 'bar';`} lang="js" />
-  <!-- Optional: Customize your theme. -->
-  <Code code={`const foo = 'bar';`} lang="js" theme="dark-plus" />
-  <!-- Optional: Enable word wrapping. -->
-  <Code code={`const foo = 'bar';`} lang="js" wrap />
-  <!-- Optional: Output inline code. -->
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quam non
+    eaque sapiente, inventore rem facere cum minima, tempora in accusamus
+    voluptatum nobis, delectus eius itaque accusantium. Odio, maiores fugit.
+  </p>
   <p>
     <Code code={`const foo = 'bar';`} lang="js" inline />
     will be rendered inline.
   </p>
+  <button>press me</button>
   <ul>
     <li>My name is {identity.firstName}.</li>
     <li>

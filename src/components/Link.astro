@@ -1,16 +1,25 @@
 ---
-import type { HTMLTag, Polymorphic } from 'astro/types'
+type Props = {
+  path: string
+  href: string
+}
 
-type Props<Tag extends HTMLTag> = Polymorphic<{
-  as: Tag
-  activeClass?: string
-}>
-
-const { as: HtmTag, class: className, ...rest } = Astro.props
+const { path, href } = Astro.props
 ---
 
-<HtmTag class={className} {...rest}>
-  <slot />
-  <!-- <p>{path}</p>
-    <p>{rest.href}</p> -->
-</HtmTag>
+<button class="blue">
+  <a href={href}><slot /></a>
+</button>
+
+<style>
+  button.blue {
+    color: var(--blue-6);
+    background-color: var(--blue-0);
+    border: 1px solid var(--blue-1);
+    text-shadow: 0 1px 0 var(--blue-2);
+
+    &:hover {
+      background-color: var(--blue-1);
+    }
+  }
+</style>
