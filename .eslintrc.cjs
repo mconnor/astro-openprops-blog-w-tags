@@ -22,6 +22,8 @@ module.exports = {
       parserOptions: {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
+        ecmaVersion: 'latest',
+        sourceType: 'module',
       },
       rules: {
         // override/add rules settings here, such as:
@@ -32,12 +34,18 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: true,
+    tsconfigRootDir: __dirname,
+    allowAutomaticSingleRunInference: true,
     ecmaVersion: 'latest',
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+      globalReturn: false,
+    },
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
   },
 }
