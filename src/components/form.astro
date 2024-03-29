@@ -9,4 +9,14 @@
   <option value="/tags">Tags</option>
 </select>
 
-<script src="@scripts/select"></script>
+<script>
+  import { navigate } from 'astro:transitions/client'
+
+  document.addEventListener('astro:page-load', () => {
+    document
+      .querySelector('[data-navigate-select]')
+      ?.addEventListener('change', (e) => {
+        navigate((e.target as HTMLSelectElement).value)
+      })
+  })
+</script>

@@ -15,7 +15,7 @@ const getDecoratedPosts = async (_posts: BlogPostType) => {
     _posts.map(async (p) => {
       const author = await getEntry(
         'authors',
-        p.data.author.id ?? 'mike-connor',
+        p.data.author.id ?? 'mike-connor'
       )
       return {
         title: p.data.title,
@@ -23,7 +23,7 @@ const getDecoratedPosts = async (_posts: BlogPostType) => {
         pubDate: p.data.pubDate,
         slug: p.slug,
       }
-    }),
+    })
   )
   return formattedPosts
 }

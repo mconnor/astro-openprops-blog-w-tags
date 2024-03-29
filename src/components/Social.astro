@@ -1,14 +1,13 @@
 ---
 import Link from '@components/Link.astro'
-import type { HTMLAttributes } from 'astro/types'
 
 type SocialType = 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube'
 
-interface Props extends HTMLAttributes<'a'> {
+interface Props {
   username?: string
   platform: SocialType
 }
-const { class: className, platform, username = 'mconnor' } = Astro.props
+const { platform, username = 'mconnor' } = Astro.props
 
 const myicon = (platform: SocialType) => {
   switch (platform) {
@@ -26,12 +25,7 @@ const myicon = (platform: SocialType) => {
 }
 ---
 
-<!-- <a href={`https://www.${platform}.com/${username}`}></a> -->
-<Link
-  as="a"
-  class:list={[className, 'link']}
-  href={`https://www.${platform}.com/${username}`}
->
+<Link href={`https://www.${platform}.com/${username}`}>
   <i class:list={['fa-brands', myicon(platform)]}></i>
   {platform}
 </Link>

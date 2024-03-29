@@ -1,15 +1,12 @@
 ---
-type Props = {
-  path: string
+interface Props {
   href: string
 }
 
-const { path, href } = Astro.props
+const { href } = Astro.props
 ---
 
-<button class="blue">
-  <a href={href}><slot /></a>
-</button>
+<a href={href}><slot /></a>
 
 <style>
   button.blue {
@@ -17,6 +14,7 @@ const { path, href } = Astro.props
     background-color: var(--blue-0);
     border: 1px solid var(--blue-1);
     text-shadow: 0 1px 0 var(--blue-2);
+    text-decoration: none;
 
     &:hover {
       background-color: var(--blue-1);
