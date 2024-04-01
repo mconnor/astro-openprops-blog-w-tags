@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config'
-import mdx from '@astrojs/mdx'
-import sentry from '@sentry/astro'
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sentry from '@sentry/astro';
 
 // var token = loadEnv(process.env.SENTRY_AUTH_TOKEN, process.cwd(), ''),
 // pnpm does not allow you to import modules that are not directly installed in your project. If you are using pnpm, you will need to install vite to use the loadEnv helper.
@@ -38,4 +38,4 @@ export default defineConfig({
     },
   },
   cacheDir: './my-custom-cache-directory',
-})
+});
