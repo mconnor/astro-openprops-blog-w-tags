@@ -27,3 +27,4 @@ pnpm-debug.log*
 /src/astro-custom-layout-components
 /.env.development
 /.env.sentry-build-plugin
+/**/vendor/*.js

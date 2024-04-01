@@ -15,11 +15,13 @@
   "cssvar.ignore": [],
 
   // add support for autocomplete in JS or JS like files
-  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
 
   "stylelint.validate": ["astro"],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "astro-build.astro-vscode",
+  "typescript.inlayHints.parameterNames.enabled": "none",
+  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.formatOnType": true,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
