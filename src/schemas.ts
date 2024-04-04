@@ -1,4 +1,4 @@
-import { z, reference } from 'astro:content';
+import { z, reference } from 'astro:content'
 
 export const blogSchema = z.object({
   title: z.string(),
@@ -16,7 +16,7 @@ export const blogSchema = z.object({
   tags: z.array(z.string()),
 
   cover: z.object({ url: z.string(), alt: z.string() }),
-});
+})
 
 export const authorSchema = z.object({
   id: z.string(),
@@ -24,9 +24,7 @@ export const authorSchema = z.object({
   email: z.string().email().optional(),
   portfolio: z.string().url().optional(),
   bio: z.string().optional(),
-});
+})
 
-// const blogSchema = blogCollection.schema
-
-export type BlogSchemaType = z.infer<typeof blogSchema>;
-export type AurthorSchemaType = z.infer<typeof authorSchema>;
+export type AurthorSchemaType = z.infer<typeof authorSchema>
+export type BlogSchemaType = z.infer<typeof blogSchema>

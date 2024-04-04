@@ -1,12 +1,12 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-import Link from '@components/Link.astro';
+import type { HTMLAttributes } from 'astro/types'
+import Link from '@components/Link.astro'
 
 interface Props extends HTMLAttributes<'div'> {}
 
-const { ...rest } = Astro.props;
+const { ...rest } = Astro.props
 
-const path = Astro.url.pathname;
+const path = Astro.url.pathname
 // type Props = Record<string, never>
 ---
 

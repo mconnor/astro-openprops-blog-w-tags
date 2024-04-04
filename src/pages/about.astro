@@ -1,21 +1,21 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import { Code } from 'astro:components';
-export const prerender = true;
-const pageTitle = 'About Page';
+import BaseLayout from '@layouts/BaseLayout.astro'
+import { Code } from 'astro:components'
+export const prerender = true
+const pageTitle = 'About Page'
 
 const identity = {
   firstName: 'Mike',
   country: 'US',
   occupation: 'Developer',
   hobbies: ['photography', 'birdwatching', 'baseball'],
-};
+}
 
-const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs'];
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs']
 
-const happy = true;
-const finished = false;
-const goal = 3;
+const happy = true
+const finished = false
+const goal = 3
 ---
 
 <BaseLayout pageTitle={pageTitle}>

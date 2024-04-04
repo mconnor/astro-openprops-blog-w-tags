@@ -1,14 +1,14 @@
 ---
-import Layout from '@layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import Layout from '@layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
 
-import TitleDate from '@components/BlogTitleDate.astro';
+import TitleDate from '@components/BlogTitleDate.astro'
 
-const pageTitle = 'Blog';
+const pageTitle = 'Blog'
 const publishsedPosts = await getCollection(
   'blog',
   ({ data }) => data.draft !== true,
-);
+)
 ---
 
 <Layout pageTitle={pageTitle} surfaceClass="surface-3">

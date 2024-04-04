@@ -1,23 +1,23 @@
 ---
-import { format } from 'date-fns';
-import { getEntry } from 'astro:content';
-import BaseLayout from '@layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-import type { BlogSchemaType } from '../schemas';
+import { format } from 'date-fns'
+import { getEntry } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import { Image } from 'astro:assets'
+import type { BlogSchemaType } from '../schemas'
 
-import TagContainer from '@components/TagContainer.astro';
+import TagContainer from '@components/TagContainer.astro'
 
 interface Props {
-  data: BlogSchemaType;
+  data: BlogSchemaType
 }
 
-const { data } = Astro.props;
+const { data } = Astro.props
 
-const { title, description, pubDate, author, cover, tags } = data;
+const { title, description, pubDate, author, cover, tags } = data
 
 // const { title, description, pubDate, author } = entry.data
 
-const { data: authorData } = await getEntry('authors', author.id);
+const { data: authorData } = await getEntry('authors', author.id)
 ---
 
 <BaseLayout pageTitle={title} description={description}>

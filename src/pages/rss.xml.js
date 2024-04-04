@@ -1,13 +1,13 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
-import sanitizeHtml from 'sanitize-html';
-import MarkdownIt from 'markdown-it';
-const parser = new MarkdownIt();
+import rss from '@astrojs/rss'
+import { getCollection } from 'astro:content'
+import sanitizeHtml from 'sanitize-html'
+import MarkdownIt from 'markdown-it'
+const parser = new MarkdownIt()
 
-export const prerender = true;
+export const prerender = true
 
 export async function GET(context) {
-  const posts = await getCollection('blog');
+  const posts = await getCollection('blog')
   return rss({
     title: 'Mike Connor | Blog',
     description:
@@ -21,5 +21,5 @@ export async function GET(context) {
     })),
     customData: `<language>en-us</language>`,
     stylesheet: '/rss/styles.xsl',
-  });
+  })
 }
