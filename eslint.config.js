@@ -1,9 +1,10 @@
-import eslintPluginAstro from 'eslint-plugin-astro'
-import eslintConfigPrettier from 'eslint-config-prettier'
-import globals from 'globals'
-import js from '@eslint/js'
-import markdown from 'eslint-plugin-markdown'
-import tsParser from '@typescript-eslint/parser'
+// ver 1.0.0
+import eslintPluginAstro from 'eslint-plugin-astro';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import globals from 'globals';
+import js from '@eslint/js';
+import markdown from 'eslint-plugin-markdown';
+import tsParser from '@typescript-eslint/parser';
 
 // import tsPlugin from '@typescript-eslint/eslint-plugin';
 
@@ -12,7 +13,9 @@ export default [
   // js.configs.recommended,
   js.configs.recommended,
   ...eslintPluginAstro.configs['flat/recommended'],
-
+  {
+    ignores: ['pnpm-lock.yaml', '.astro/', 'dist/'],
+  },
   {
     languageOptions: {
       ecmaVersion: 2022,
@@ -55,19 +58,16 @@ export default [
     rules: {
       // override/add rules settings here, such as:
       // "astro/no-set-html-directive": "error"
-      'no-unused-vars': 'warn',
+      'no-unused-vars': 'error',
       // semi: 'warn',  this rule gets tossed out by eslintConfigPrettier
     },
   },
 
   {
+    files: ['src/**/*.md'],
     plugins: {
       markdown,
     },
-  },
-
-  {
-    files: ['src/**/*.md'],
     processor: 'markdown/markdown',
     rules: {
       // ...
@@ -83,4 +83,4 @@ export default [
     },
   },
   eslintConfigPrettier, // eslint-config-prettier last
-]
+];
