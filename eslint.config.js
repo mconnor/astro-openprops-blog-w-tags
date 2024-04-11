@@ -10,26 +10,23 @@ import tsParser from '@typescript-eslint/parser';
 
 export default [
   // add more generic rule sets here, such as:
-  // js.configs.recommended,
   js.configs.recommended,
   ...eslintPluginAstro.configs['flat/recommended'],
   {
-    ignores: ['pnpm-lock.yaml', '.astro/', 'dist/'],
-  },
-  {
+    rules: {
+      'no-unused-vars': 'warn',
+    },
+
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'module',
       globals: {
         ...globals.browser,
-
-        // alert: 'readonly',
       },
     },
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
-
     languageOptions: {
       parser: tsParser,
       globals: {
@@ -40,10 +37,6 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest',
       },
-    },
-    rules: {
-      'no-unused-vars': 'warn',
-      // "prettier/prettier"?: undefined;
     },
     // processor: string;
     // plugins?: undefined;
@@ -58,7 +51,7 @@ export default [
     rules: {
       // override/add rules settings here, such as:
       // "astro/no-set-html-directive": "error"
-      'no-unused-vars': 'error',
+      // 'no-unused-vars': 'error',
       // semi: 'warn',  this rule gets tossed out by eslintConfigPrettier
     },
   },

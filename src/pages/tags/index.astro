@@ -1,17 +1,17 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro'
-import { getCollection } from 'astro:content'
-import TagContainer from '@components/TagContainer.astro'
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import TagContainer from '@components/TagContainer.astro';
 
-const allBlogPost = await getCollection('blog')
+const allBlogPost = await getCollection('blog');
 
-const tagCounts: Record<string, number> = {}
+const tagCounts: Record<string, number> = {};
 
 allBlogPost.forEach((post) =>
   (post.data.tags || []).forEach((tag: string) => {
-    tagCounts[tag] = (tagCounts[tag] || 0) + 1
+    tagCounts[tag] = (tagCounts[tag] || 0) + 1;
   }),
-)
+);
 
 const tags = [
   ...new Set(
@@ -20,7 +20,7 @@ const tags = [
       .map((post) => post.data.tags)
       .flat(),
   ),
-]
+];
 ---
 
 <BaseLayout pageTitle="Tag Index" surfaceClass="surface-1">

@@ -1,14 +1,14 @@
 ---
-import { format } from 'date-fns'
-import type { CollectionEntry } from 'astro:content'
-import { getEntry } from 'astro:content'
+import { format } from 'date-fns';
+import type { CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
 
-type PostType = CollectionEntry<'blog'>[]
+type PostType = CollectionEntry<'blog'>[];
 interface Props {
-  posts: PostType
+  posts: PostType;
 }
 
-const { posts } = Astro.props
+const { posts } = Astro.props;
 
 const getDecoratedPosts = async (_posts: PostType) => {
   const formattedPosts = await Promise.all(
@@ -16,19 +16,19 @@ const getDecoratedPosts = async (_posts: PostType) => {
       const author = await getEntry(
         'authors',
         p.data.author.id ?? 'mike-connor',
-      )
+      );
       return {
         title: p.data.title,
         authName: author.data.name,
         pubDate: p.data.pubDate,
         slug: p.slug,
-      }
+      };
     }),
-  )
-  return formattedPosts
-}
+  );
+  return formattedPosts;
+};
 
-const decoratedPosts = await getDecoratedPosts(posts)
+const decoratedPosts = await getDecoratedPosts(posts);
 
 // {format(post.data.pubDate, 'MMM do, yyyy')}
 ---

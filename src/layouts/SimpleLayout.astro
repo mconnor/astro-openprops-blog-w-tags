@@ -1,17 +1,17 @@
 ---
-import BaseHead from '@components/BaseHead.astro'
+import BaseHead from '@components/BaseHead.astro';
 
-import GlobalStyle from '@styles/GlobalStyle.astro'
-import { ViewTransitions } from 'astro:transitions'
+import GlobalStyle from '@styles/GlobalStyle.astro';
+import { ViewTransitions } from 'astro:transitions';
 
-import { Cover, Center, Box, Stack } from '@cc/index'
+import { Cover, Center, Box, Stack } from '@cc/index';
 
 type Props = {
-  pageTitle: string
-  description?: string
-  image?: string
-  surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
-}
+  pageTitle: string;
+  description?: string;
+  image?: string;
+  surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4';
+};
 
 // const isProd = import.meta.env.PROD
 // const isDev = import.meta.env.DEV
@@ -20,9 +20,9 @@ const {
   pageTitle,
   description = 'my description',
   image = '/placeholder-social.jpg',
-} = Astro.props
+} = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html transition:animate="none">
