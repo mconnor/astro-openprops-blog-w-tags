@@ -2,20 +2,22 @@
 // import Hamburger from './Hamburger.astro'
 
 import Link from '@components/Link.astro';
-const path = Astro.url.pathname;
+
 import { Switcher } from '@cc/index';
+
+const { pathname } = Astro.url;
 ---
 
 <!-- <Hamburger class="nav" /> --><!-- <ThemeIcon /> -->
 <Switcher>
-  <Link path={path} href="/">Home</Link>
+  <Link href="/">Home</Link>
 
-  <Link path={path} href="/about/">About</Link>
+  <Link href="/about/">About</Link>
 
-  <Link path={path} href="/kitchensink/">Kitchen Sink</Link>
+  <Link href="/kitchensink/">Kitchen Sink</Link>
 
-  <Link path={path} href="/blog/">Blog</Link>
-  <Link path={path} href="/tags/">Tags</Link>
+  <Link href="/blog/">Blog</Link>
+  <Link href="/tags/">Tags</Link>
   <style>
     header {
       color: var(--text-3);

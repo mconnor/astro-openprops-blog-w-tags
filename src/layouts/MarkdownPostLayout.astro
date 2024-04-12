@@ -2,9 +2,9 @@
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-import type { BlogSchemaType } from '../schemas';
 
+import type { BlogSchemaType } from '../schemas';
+import { Frame, Box } from '@cc/index';
 import TagContainer from '@components/TagContainer.astro';
 
 interface Props {
@@ -21,24 +21,19 @@ const { data: authorData } = await getEntry('authors', author.id);
 ---
 
 <BaseLayout pageTitle={title} description={description}>
-  <h2>{description}</h2>
+  <Box><h2>{description}</h2></Box>
+  <Box> <slot name="banner" /></Box>
 
   {
     author && (
-      <p>
-        Written by: {authorData.name}, {format(pubDate, 'd MMM, yyyy')}
-      </p>
+      <Box>
+        <p>
+          Written by: {authorData.name}, {format(pubDate, 'd MMM, yyyy')}
+        </p>
+      </Box>
     )
   }
 
-  <Image
-    src={cover.url}
-    width="1200"
-    sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
-    height="300"
-    alt={cover.alt}
-  />
-
   <TagContainer tags={tags} />
-  <slot />
+  <slot name="main" />
 </BaseLayout>
