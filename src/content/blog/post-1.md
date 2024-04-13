@@ -2,7 +2,7 @@
 title: My first post
 pubDate: 2022-09-01
 author: mike-connor
-description: This is the first post of my new Astro blog
+description: Morlochs and Eloi
 draft: false
 cover:
   url: 'https://picsum.photos/1200/300?random=1'

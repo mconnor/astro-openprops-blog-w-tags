@@ -1,7 +1,7 @@
 ---
 import TitleDate from '@components/BlogTitleDate.astro';
 
-import BaseLayout from '@layouts/BaseLayout.astro';
+import Layout from '@layouts/BaseLayout.astro';
 
 import { getCollection } from 'astro:content';
 
@@ -38,6 +38,6 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<BaseLayout pageTitle={tag}>
+<Layout pageTitle={tag}>
   <TitleDate posts={posts} />
-</BaseLayout>
+</Layout>

@@ -1,5 +1,5 @@
 ---
-title: Markdown and Astro
+title: It's Friday
 pubDate: 2024-01-11
 author: mike-connor
 draft: false

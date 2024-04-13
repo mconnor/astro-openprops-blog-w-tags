@@ -2,6 +2,11 @@
 import { format } from 'date-fns';
 import type { CollectionEntry } from 'astro:content';
 import { getEntry } from 'astro:content';
+import { Switcher, Stack, Box, Frame } from '@cc/index.ts';
+
+import Card from '@components/Card.astro';
+import { Image } from 'astro:assets';
+import { clearCachedFetchImplementation } from '@sentry/browser/types/transports/utils';
 
 type PostType = CollectionEntry<'blog'>[];
 interface Props {
@@ -19,9 +24,11 @@ const getDecoratedPosts = async (_posts: PostType) => {
       );
       return {
         title: p.data.title,
-        authName: author.data.name,
+        // authName: author.data.name,
         pubDate: p.data.pubDate,
         slug: p.slug,
+        cover: p.data.cover,
+        desc: p.data.description,
       };
     }),
   );
@@ -33,33 +40,51 @@ const decoratedPosts = await getDecoratedPosts(posts);
 // {format(post.data.pubDate, 'MMM do, yyyy')}
 ---
 
-<ul class="tags-class" data-columns="2">
+<Stack space="var(--size-6)" recursive>
   {
-    decoratedPosts.map(({ title, authName, pubDate, slug }) => (
-      <li>
-        <a href={'/posts/' + slug}>
-          <span>
-            {title},
-            <small>
-              {authName}
-              {format(pubDate, 'MMM do, yyyy')}
-            </small>
-          </span>
-        </a>
-      </li>
+    decoratedPosts.map(({ pubDate, slug, title, desc, cover }) => (
+      <Card href={'/posts/' + slug}>
+        <Box slot="top">{format(pubDate, 'MMM do, yyyy')}</Box>
+
+        <Frame ratio="4:3" slot="middle">
+          <Image src={cover.url} alt={cover.alt} width="1500" height="643" />
+        </Frame>
+
+        <Switcher slot="bottom" threshold="var(--size-fluid-10)">
+          <h2 class="title">{title}</h2>
+
+          <p class="truncate">{desc}</p>
+        </Switcher>
+      </Card>
     ))
   }
-</ul>
+</Stack>
 
 <style>
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
   a {
-    padding: var(--size-fluid-2);
+    text-decoration: none;
+  }
 
-    .small-text {
-      font-size: 0.8rem;
-      margin-left: 0.5rem;
-
-      font-size: var(--font-size-0);
-    }
+  .small-text {
+    font-size: var(--font-size-0);
+  }
+  p {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-2);
+  }
+  .truncate {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .title {
+    flex-grow: 1;
   }
 </style>
