@@ -1,0 +1,36 @@
+---
+
+---
+
+<astro-navigate-select>
+  <select data-navigate-select>
+    <option value="/play">Play</option>
+    <option value="/blog">Blog</option>
+    <option value="/about">About</option>
+    <option value="/tags">Tags</option>
+  </select>
+</astro-navigate-select>
+
+<script>
+  import { navigate } from 'astro:transitions/client';
+
+  // document.addEventListener('astro:page-load', () => {
+  //   document
+  //     .querySelector('[data-navigate-select]')
+  //     ?.addEventListener('change', (e) => {
+  //       navigate((e.target as HTMLSelectElement).value);
+  //     });
+  // });
+
+  class AstroNavigateSelect extends HTMLElement {
+    constructor() {
+      super();
+      const select = this.querySelector('[data-navigate-select]');
+      select &&
+        select.addEventListener('change', (e) => {
+          navigate((e.target as HTMLSelectElement).value);
+        });
+    }
+  }
+  customElements.define('astro-navigate-select', AstroNavigateSelect);
+</script>
