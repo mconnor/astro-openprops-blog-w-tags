@@ -1,7 +1,7 @@
 ---
 import 'open-props/postcss/style';
 import 'open-props/postcss/buttons';
-import './EveryLayout.css';
+import 'open-props/postcss/normalize';
 ---
 
 <style is:global>
@@ -31,8 +31,8 @@ import './EveryLayout.css';
 
     --size-conditional-5: clamp(0px, calc(100vw - 100%) * 1e5, var(--size-5));
 
-    --color-light: hsl(0, 0%, 80%);
-    --color-dark: hsl(0, 0%, 20%);
+    --color-light: hsl(0 0% 80%);
+    --color-dark: hsl(0 0% 20%);
 
     /* light */
     --brand-light: var(--orange-12);
@@ -95,7 +95,6 @@ import './EveryLayout.css';
 
   [color-scheme='light'] {
     color-scheme: light;
-
     --brand: var(--brand-light);
     --text-1: var(--text-1-light);
     --text-2: var(--text-2-light);

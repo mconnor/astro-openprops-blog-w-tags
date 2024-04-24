@@ -9,7 +9,7 @@ import markdown from 'eslint-plugin-markdown';
 
 export default tseslint.config(
   eslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs['flat/recommended'],
   {
     ignores: [
@@ -64,6 +64,13 @@ export default tseslint.config(
       // 2. Disable other rules.
       // 'no-console': 'off',
       // 'import/no-unresolved': 'off',
+    },
+  },
+  {
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
   eslintConfigPrettier, // eslint-config-prettier last

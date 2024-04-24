@@ -15,43 +15,45 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,jsx,astro,md}\"",
     "fix": "eslint \"src/**/*.{js,jsx,ts,jsx,astro,md}\" --fix",
     "format": "prettier --write . --plugin=prettier-plugin-astro",
-    "stylelint": "stylelint \"src/**/*.{css,astro}\""
+    "stylelint": "stylelint \"src/**/*.{css,astro}\"",
+    "sfix": "stylelint \"src/**/*.{css,astro}\" --fix"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^2.3.0",
+    "@astrojs/mdx": "^2.3.1",
     "@astrojs/rss": "^4.0.5",
-    "@sentry/astro": "^7.110.0",
-    "@sentry/browser": "^7.110.0",
-    "astro": "^4.6.0",
+    "@sentry/astro": "^7.112.2",
+    "@sentry/browser": "^7.112.2",
+    "astro": "^4.6.4",
     "date-fns": "^3.6.0",
-    "open-props": "^1.7.2",
+    "open-props": "^1.7.3",
     "sanitize-html": "^2.13.0",
     "sharp": "^0.33.3"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^7.6.0",
+    "@eslint/js": "^9.1.1",
     "autoprefixer": "^10.4.19",
-    "eslint": "^9.0.0",
+    "eslint": "^9.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^0.34.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-markdown": "^4.0.1",
     "globals": "^15.0.0",
     "postcss-html": "^1.6.0",
     "postcss-import": "^16.1.0",
     "postcss-jit-props": "^1.0.14",
-    "postcss-nesting": "^12.1.1",
+    "postcss-nesting": "^12.1.2",
+    "postcss-pow": "^1.0.1",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "stylelint": "^16.3.1",
+    "stylelint": "^16.4.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-prettier": "^5.0.0",
     "typescript": "^5.4.5",
-    "vite": "^5.2.8"
+    "typescript-eslint": "^7.7.1",
+    "vite": "^5.2.10"
   },
   "engines": {
-    "node": ">=18.17.1 <19.0.0 || >=20.3.0"
-  },
-  "packageManager": "pnpm@8.15.7+sha256.50783dd0fa303852de2dd1557cd4b9f07cb5b018154a6e76d0f40635d6cee019"
+    "node": ">=20.12.0",
+    "pnpm": ">=9"
+  }
 }

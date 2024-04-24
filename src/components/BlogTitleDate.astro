@@ -6,7 +6,7 @@ import { Switcher, Stack, Box, Frame } from '@cc/index.ts';
 
 import Card from '@components/Card.astro';
 import { Image } from 'astro:assets';
-import { clearCachedFetchImplementation } from '@sentry/browser/types/transports/utils';
+// import { clearCachedFetchImplementation } from '@sentry/browser/types/transports/utils';
 
 type PostType = CollectionEntry<'blog'>[];
 interface Props {
@@ -18,10 +18,7 @@ const { posts } = Astro.props;
 const getDecoratedPosts = async (_posts: PostType) => {
   const formattedPosts = await Promise.all(
     _posts.map(async (p) => {
-      const author = await getEntry(
-        'authors',
-        p.data.author.id ?? 'mike-connor',
-      );
+      await getEntry('authors', p.data.author.id ?? 'mike-connor');
       return {
         title: p.data.title,
         // authName: author.data.name,
@@ -61,19 +58,6 @@ const decoratedPosts = await getDecoratedPosts(posts);
 </Stack>
 
 <style>
-  .bottom-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  .small-text {
-    font-size: var(--font-size-0);
-  }
   p {
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-2);

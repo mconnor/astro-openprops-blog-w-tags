@@ -2,6 +2,7 @@
 import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
+
 import GlobalStyle from '@styles/GlobalStyle.astro';
 import { ViewTransitions } from 'astro:transitions';
 
@@ -30,6 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <BaseHead title={pageTitle} description={description} image={image} />
     <link rel="canonical" href={canonicalURL} />
+
     <GlobalStyle />
     <ViewTransitions />
     <script

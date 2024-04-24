@@ -3,7 +3,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import { Code } from 'astro:components';
 import { Image } from 'astro:assets';
 import OpIcon from '@components/OpIcon.astro';
-import { Icon, Box, Stack } from '@cc/index';
+import { Box, Stack } from '@cc/index';
 ---
 
 <BaseLayout pageTitle={'Kitchen Sink'} surfaceClass="surface-2">
@@ -699,26 +699,6 @@ import { Icon, Box, Stack } from '@cc/index';
     box-shadow: var(--shadow-6);
   }
 
-  .surface1 {
-    background-color: var(--surface-1);
-    color: var(--text-2);
-  }
-
-  .surface2 {
-    background-color: var(--surface-2);
-    color: var(--text-2);
-  }
-
-  .surface3 {
-    background-color: var(--surface-3);
-    color: var(--text-1);
-  }
-
-  .surface4 {
-    background-color: var(--surface-4);
-    color: var(--text-1);
-  }
-
   .text-samples {
     display: grid;
     gap: var(--size-3);
@@ -733,17 +713,9 @@ import { Icon, Box, Stack } from '@cc/index';
   .text1 {
     color: var(--text-1);
   }
-  p.text1 {
-    font-weight: var(--font-weight-2);
-  }
 
   .text2 {
     color: var(--text-2);
-  }
-
-  .brand {
-    color: var(--brand);
-    background-color: var(--brand);
   }
 
   .link {

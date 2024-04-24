@@ -6,6 +6,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import type { BlogSchemaType } from '../schemas';
 import { Frame, Box } from '@cc/index';
 import TagContainer from '@components/TagContainer.astro';
+import Card from '@components/Card.astro';
 
 interface Props {
   data: BlogSchemaType;
@@ -21,19 +22,20 @@ const { data: authorData } = await getEntry('authors', author.id);
 ---
 
 <BaseLayout pageTitle={title} description={description}>
-  <Box><h2>{description}</h2></Box>
-  <Box> <slot name="banner" /></Box>
+  <Card>
+    <Box><h2>{description}</h2></Box>
+    <Box> <slot name="banner" /></Box>
 
-  {
-    author && (
-      <Box>
-        <p>
-          Written by: {authorData.name}, {format(pubDate, 'd MMM, yyyy')}
-        </p>
-      </Box>
-    )
-  }
-
+    {
+      author && (
+        <Box>
+          <p>
+            Written by: {authorData.name}, {format(pubDate, 'd MMM, yyyy')}
+          </p>
+        </Box>
+      )
+    }
+  </Card>
   <TagContainer tags={tags} />
   <slot name="main" />
 </BaseLayout>
