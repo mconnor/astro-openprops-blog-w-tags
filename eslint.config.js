@@ -2,58 +2,49 @@
 import eslintPluginAstro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
-import js from '@eslint/js';
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+
 import markdown from 'eslint-plugin-markdown';
-import tsParser from '@typescript-eslint/parser';
 
-// import tsPlugin from '@typescript-eslint/eslint-plugin';
-
-export default [
-  // add more generic rule sets here, such as:
-  js.configs.recommended,
+export default tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
   ...eslintPluginAstro.configs['flat/recommended'],
   {
-    rules: {
-      'no-unused-vars': 'warn',
-    },
+    ignores: [
+      'pnpm-lock.yaml',
+      '.astro/',
+      'dist/',
+      '**/test.ts',
+      'my-custom-cache-directory',
+      'src/env.d.ts',
+    ],
+  },
 
+  {
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
         ...globals.browser,
       },
-    },
-  },
-  {
-    files: ['**/*.ts', '**/*.tsx'],
-    languageOptions: {
-      parser: tsParser,
-      globals: {
-        ...globals.browser,
-        // myCustomGlobal: "readonly"
-      },
-      // sourceType: string;
       parserOptions: {
-        ecmaVersion: 'latest',
+        project: true,
       },
     },
-    // processor: string;
-    // plugins?: undefined;
+    rules: {
+      // add more rules here
+      // 'no-console': 'off',
+      'astro/no-unused-css-selector': 'warn',
+      '@typescript-eslint/no-duplicate-type-constituents': 'off',
+    },
   },
 
   {
-    files: ['**/*.astro'],
-
-    // Parse the script in `.astro` as TypeScript by adding the following configuration.
-    // It's the setting you need when using TypeScript.
-
-    rules: {
-      // override/add rules settings here, such as:
-      // "astro/no-set-html-directive": "error"
-      // 'no-unused-vars': 'error',
-      // semi: 'warn',  this rule gets tossed out by eslintConfigPrettier
-    },
+    // disable type-aware linting on JS files
+    files: ['**/*.js'],
+    ...tseslint.configs.disableTypeChecked,
   },
 
   {
@@ -76,4 +67,4 @@ export default [
     },
   },
   eslintConfigPrettier, // eslint-config-prettier last
-];
+);
