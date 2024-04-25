@@ -4,24 +4,13 @@
 import Link from '@components/Link.astro';
 
 import { Switcher } from '@cc/index';
-
-const { pathname } = Astro.url;
 ---
 
 <!-- <Hamburger class="nav" /> --><!-- <ThemeIcon /> -->
 <Switcher>
   <Link href="/">Home</Link>
-
   <Link href="/about/">About</Link>
-
   <Link href="/kitchensink/">Kitchen Sink</Link>
-
   <Link href="/blog/">Blog</Link>
   <Link href="/tags/">Tags</Link>
-  <style>
-    header {
-      color: var(--text-3);
-      background-color: var(--surface-3);
-    }
-  </style>
 </Switcher>

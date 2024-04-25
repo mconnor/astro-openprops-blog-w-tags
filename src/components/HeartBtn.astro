@@ -1,27 +1,28 @@
-<astro-heart>
+---
+
+---
+
+<!-- <astro-heart>
   <button aria-label="Heart">💜</button> × <span>0</span>
-</astro-heart>
-
+</astro-heart> -->
 <script>
-  // Define the behaviour for our new type of HTML element.
-  class AstroHeart extends HTMLElement {
-    constructor() {
-      super();
-      let count = 0;
+  import { LitElement, html } from 'lit';
+  import { customElement, property } from 'lit/decorators.js';
 
-      const heartButton = this.querySelector('button');
-      const countSpan = this.querySelector('span');
+  @customElement('astro-heart')
+  class AstroHeart extends LitElement {
+    @property()
+    count: number = 0;
 
-      // Each time the button is clicked, update the count.
-      heartButton &&
-        countSpan &&
-        heartButton.addEventListener('click', () => {
-          count++;
-          countSpan.textContent = count.toString();
-        });
+    click() {
+      this.count++;
+    }
+
+    render() {
+      return html`
+        <button @click=${this.click} aria-label="Heart">💜</button>${this
+          .count}<span>0</span>
+      `;
     }
   }
-
-  // Tell the browser to use our AstroHeart class for <astro-heart> elements.
-  customElements.define('astro-heart', AstroHeart);
 </script>
