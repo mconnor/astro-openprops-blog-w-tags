@@ -13,6 +13,6 @@
       "@scripts/*": ["src/scripts/*"]
     }
   },
-  "include": ["src/**/*.d.ts", "**/*.ts", "**/*.js", "**/*.astro"],
+  "include": ["src/**/*.d.ts", "**/*.ts", "**/*.js", "src/**/*.astro"],
   "exclude": ["node_modules"]
 }
