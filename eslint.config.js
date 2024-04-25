@@ -1,5 +1,5 @@
 // ver 1.0.0
-import eslintPluginAstro from 'eslint-plugin-astro';
+import astro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import eslint from '@eslint/js';
@@ -8,9 +8,6 @@ import tseslint from 'typescript-eslint';
 import markdown from 'eslint-plugin-markdown';
 
 export default tseslint.config(
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  ...eslintPluginAstro.configs['flat/recommended'],
   {
     ignores: [
       'pnpm-lock.yaml',
@@ -19,6 +16,13 @@ export default tseslint.config(
       '**/test.ts',
       'my-custom-cache-directory',
       'src/env.d.ts',
+    ],
+  },
+  {
+    extends: [
+      eslint.configs.recommended,
+      ...tseslint.configs.recommended,
+      ...astro.configs['flat/jsx-a11y-recommended'],
     ],
   },
 
@@ -34,9 +38,8 @@ export default tseslint.config(
       },
     },
     rules: {
-      // add more rules here
-      // 'no-console': 'off',
       'astro/no-unused-css-selector': 'warn',
+      'astro/missing-client-only-directive-value': 'warn',
       '@typescript-eslint/no-duplicate-type-constituents': 'off',
     },
   },
