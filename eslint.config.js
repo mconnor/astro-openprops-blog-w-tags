@@ -22,7 +22,8 @@ export default tseslint.config(
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.recommended,
-      ...astro.configs['flat/jsx-a11y-recommended'],
+      ...astro.configs['flat/recommended'],
+      // ...astro.configs['flat/jsx-a11y-recommended'],
     ],
   },
 
