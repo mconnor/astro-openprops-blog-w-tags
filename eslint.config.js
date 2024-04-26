@@ -25,7 +25,7 @@ export default tseslint.config(
   {
     extends: [
       eslint.configs.recommended,
-      ...tseslint.configs.recommended,
+      ...tseslint.configs.recommendedTypeChecked,
       ...astro.configs['flat/recommended'],
       // ...astro.configs['flat/jsx-a11y-recommended'],
     ],
@@ -40,6 +40,7 @@ export default tseslint.config(
       },
       parserOptions: {
         project: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     rules: {
