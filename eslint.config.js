@@ -2,7 +2,7 @@
 import astro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
-import eslint from '@eslint/js';
+import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 // import lit from 'eslint-plugin-lit';
 
@@ -14,6 +14,7 @@ import markdown from 'eslint-plugin-markdown';
 export default tseslint.config(
   {
     ignores: [
+      'src/astro-custom-layout-components/**/*.*',
       'pnpm-lock.yaml',
       '.astro/',
       'dist/',
@@ -24,8 +25,8 @@ export default tseslint.config(
   },
   {
     extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
       ...astro.configs['flat/recommended'],
       // ...astro.configs['flat/jsx-a11y-recommended'],
     ],

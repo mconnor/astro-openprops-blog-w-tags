@@ -7,7 +7,7 @@ const parser = new MarkdownIt();
 export const prerender = true;
 
 export async function GET(context) {
-  const posts = await getCollection('blog');
+  const posts = await getCollection('blogs');
   return rss({
     title: 'Mike Connor | Blog',
     description:

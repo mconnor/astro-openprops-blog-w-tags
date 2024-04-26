@@ -1,22 +1,35 @@
 ---
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
-export const getStaticPaths = async () => {
-  const posts = await getCollection('blog');
-  const objs = posts.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
-  return objs;
-};
+
 import { Frame } from '@cc/index';
-const { entry } = Astro.props;
-const { cover } = entry.data;
-const { Content } = await entry.render();
+
+interface Props {
+  blogPost: CollectionEntry<'blog'>;
+}
+
+export const getStaticPaths = async () => {
+  const _posts = await getCollection('blog');
+  return _posts.map((blogPost) => ({
+    params: { slug: blogPost.slug },
+    props: { blogPost },
+  }));
+};
+
+const { blogPost } = Astro.props;
+
+const { description, title, author, cover ,tags} = blogPost.data;
+
+const { Content, headings } = await blogPost.render();
 ---
 
-<MarkdownPostLayout {...entry}>
+<MarkdownPostLayout
+  title={title}
+  description={description}
+  authorId={author.id}
+  tags={tags}
+>
   <Frame ratio="16:9" slot="banner">
     <Image src={cover.url} alt={cover.alt} width="1200" height="300" />
   </Frame>

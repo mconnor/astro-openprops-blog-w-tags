@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "verbatimModuleSyntax": true,
     "experimentalDecorators": true,
     "declaration": true,
     "useDefineForClassFields": false,

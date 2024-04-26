@@ -3,7 +3,7 @@ import TitleDate from '@components/BlogTitleDate.astro';
 
 import Layout from '@layouts/BaseLayout.astro';
 
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 // import type { CollectionEntry } from 'astro:content'
 
@@ -13,31 +13,38 @@ import { getCollection } from 'astro:content';
 //  of posts as props to each page.
 export const prerender = true;
 
+interface Props {
+  filteredPosts: CollectionEntry<'blog'>[];
+}
+
 export const getStaticPaths = async () => {
   const allPosts = await getCollection('blog');
   const uniqueTags = [
-    ...new Set(allPosts.map((post) => post.data?.tags || []).flat()),
+    ...new Set(
+      allPosts
+        .map((__post: CollectionEntry<'blog'>) => __post.data.tags)
+        .flat(),
+    ),
   ];
 
-  const objs = uniqueTags.map((tag) => {
+  return uniqueTags.map((uTag) => {
     const filteredPosts = allPosts.filter(
-      (post) => post.data.draft !== true && post.data?.tags?.includes(tag),
+      (_post: CollectionEntry<'blog'>) =>
+        _post.data.draft !== true && _post.data.tags.includes(uTag),
     );
     return {
-      params: { tag },
+      params: { tag: uTag },
       props: {
-        posts: filteredPosts,
+        filteredPosts,
       },
     };
   });
-
-  return objs;
 };
 
 const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { filteredPosts } = Astro.props;
 ---
 
 <Layout pageTitle={tag}>
-  <TitleDate posts={posts} />
+  <TitleDate posts={filteredPosts} />
 </Layout>

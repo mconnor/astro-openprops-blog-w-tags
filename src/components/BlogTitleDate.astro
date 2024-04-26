@@ -8,24 +8,31 @@ import Card from '@components/Card.astro';
 import { Image } from 'astro:assets';
 // import { clearCachedFetchImplementation } from '@sentry/browser/types/transports/utils';
 
-type PostType = CollectionEntry<'blog'>[];
+type PostType = CollectionEntry<'blog'>;
+
 interface Props {
-  posts: PostType;
+  posts: PostType[];
 }
 
 const { posts } = Astro.props;
 
-const getDecoratedPosts = async (_posts: PostType) => {
+const getDecoratedPosts = async (_posts: CollectionEntry<'blog'>[]) => {
   const formattedPosts = await Promise.all(
     _posts.map(async (p) => {
-      await getEntry('authors', p.data.author.id ?? 'mike-connor');
+      const { data, slug } = p;
+      const { author, title, pubDate, cover, description } = data;
+      const { id } = author;
+
+      const authorObj = await getEntry('authors', id);
+      const { name } = authorObj.data;
+
       return {
-        title: p.data.title,
-        // authName: author.data.name,
-        pubDate: p.data.pubDate,
-        slug: p.slug,
-        cover: p.data.cover,
-        desc: p.data.description,
+        title,
+        authName: name,
+        pubDate,
+        slug,
+        cover,
+        desc: description,
       };
     }),
   );

@@ -3,39 +3,44 @@ import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 
-import type { BlogSchemaType } from '../schemas';
 import { Box } from '@cc/index';
 import TagContainer from '@components/TagContainer.astro';
 import Card from '@components/Card.astro';
 
 interface Props {
-  data: BlogSchemaType;
+  description: string;
+  title: string;
+  children: HTMLElement[];
+  authorId: string;
+  pubDate: string;
+  tags: string[];
 }
 
-const { data } = Astro.props;
+const props = Astro.props;
 
-const { title, description, pubDate, author, tags } = data;
+const { title, description, authorId, pubDate, tags } = props;
 
 // const { title, description, pubDate, author } = entry.data
 
-const { data: authorData } = await getEntry('authors', author.id);
+const authorDataObj = await getEntry('authors', authorId);
 ---
-
+<!-- TODO: fix the date format -->
 <BaseLayout pageTitle={title} description={description}>
-  <Card>
+  <Box>
     <Box><h2>{description}</h2></Box>
     <Box> <slot name="banner" /></Box>
 
     {
-      author && (
+      authorDataObj?.data.name && (
         <Box>
           <p>
-            Written by: {authorData.name}, {format(pubDate, 'd MMM, yyyy')}
+            Written by: {authorDataObj.data.name},{' '}
+            {/* {format(pubDate, 'd MMM, yyyy')} */}
           </p>
         </Box>
       )
     }
-  </Card>
+  </Box>
   <TagContainer tags={tags} />
   <slot name="main" />
 </BaseLayout>
