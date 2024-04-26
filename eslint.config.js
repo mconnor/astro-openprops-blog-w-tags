@@ -4,8 +4,12 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
+// import lit from 'eslint-plugin-lit';
 
 import markdown from 'eslint-plugin-markdown';
+
+// const litRules = lit.configs.recommended.rules;
+// const keys = Object.keys(litRules);
 
 export default tseslint.config(
   {
@@ -47,9 +51,25 @@ export default tseslint.config(
 
   {
     // disable type-aware linting on JS files
-    files: ['**/*.js'],
+    files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
+  // {
+  //   files: ['src/web-components/*.ts'],
+
+  //   plugins: {
+  //     lit,
+  //     rules: {
+  //       // ...
+  //       'lit/attribute-value-entities': 'error',
+  //       'lit/binding-positions': 'error',
+  //       'lit/no-duplicate-template-bindings': 'error',
+  //       'lit/no-invalid-html': 'error',
+  //       'lit/no-legacy-template-syntax': 'error',
+  //       'lit/no-property-change-update': 'error',
+  //     },
+  //   },
+  // },
 
   {
     files: ['src/**/*.md'],

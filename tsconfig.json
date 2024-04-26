@@ -1,6 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "declaration": true,
+    "useDefineForClassFields": false,
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
@@ -10,9 +13,16 @@
       "@content/*": ["src/content/*"],
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
-      "@scripts/*": ["src/scripts/*"]
+      "@scripts/*": ["src/scripts/*"],
+      "@wc/*": ["src/web-components/*"]
     }
   },
-  "include": ["src/**/*.d.ts", "**/*.ts", "**/*.js", "src/**/*.astro"],
+  "include": [
+    "src/**/*.d.ts",
+    "**/*.mjs",
+    "**/*.ts",
+    "**/*.js",
+    "src/**/*.astro"
+  ],
   "exclude": ["node_modules"]
 }

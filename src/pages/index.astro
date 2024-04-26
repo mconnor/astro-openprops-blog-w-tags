@@ -2,16 +2,19 @@
 import AstroNavigateSelect from '@components/AstroNavigateSelect.astro';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
-import HeartBtn from '@components/HeartBtn.astro';
+import { LitHeartButton } from '@wc/LitHeartButton';
+import { MyElement } from '@components/my-element.js';
 import { Box } from '@cc/index';
 ---
 
 <BaseLayout pageTitle="home" surfaceClass="surface-3">
-  <HeartBtn />
-  <button onclick="throw new Error('This is a test error')">
+  <!-- <button onclick="throw new Error('This is a test error')">
     Throw test error
-  </button>
-  <HeartBtn />
+  </button> -->
+  <LitHeartButton client:only="lit" />
+  <LitHeartButton client:only="lit" />
+  <LitHeartButton client:only="lit" />
+  <MyElement client:only="lit" />
   <AstroNavigateSelect />
   <Box> hello </Box>
   <Box invert borderWidth="2px" padding="10px"> hello </Box>
