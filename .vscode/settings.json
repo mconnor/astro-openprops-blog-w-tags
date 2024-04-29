@@ -17,11 +17,17 @@
   // add support for autocomplete in JS or JS like files
 
   "stylelint.validate": ["astro"],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "[astro]": {
+  // "editor.defaultFormatter": "astro-build.astro-vscode",
+
+  // "editor.formatOnPaste": true,
+  // "editor.formatOnSave": true,
+  // "editor.formatOnType": false,
+
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.formatOnSave": false
+  },
+
+  "[astro][javascript][typescript][markdown]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
