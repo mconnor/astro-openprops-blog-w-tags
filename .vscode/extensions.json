@@ -2,7 +2,6 @@
   "recommendations": [
     "astro-build.astro-vscode",
     "phoenisx.cssvar",
-    "stylelint.vscode-stylelint",
-    "esbenp.prettier-vscode"
+    "stylelint.vscode-stylelint"
   ]
 }

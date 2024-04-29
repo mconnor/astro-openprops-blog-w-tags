@@ -24,6 +24,7 @@ const { title, description, authorId, pubDate, tags } = props;
 
 const authorDataObj = await getEntry('authors', authorId);
 ---
+
 <!-- TODO: fix the date format -->
 <BaseLayout pageTitle={title} description={description}>
   <Box>
