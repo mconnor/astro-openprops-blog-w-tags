@@ -19,9 +19,9 @@ export const getStaticPaths = async () => {
 
 const { blogPost } = Astro.props;
 
-const { description, title, author, cover, tags } = blogPost.data;
+const { description, title, author, cover, tags, pubDate } = blogPost.data;
 
-const { Content, headings } = await blogPost.render();
+const { Content } = await blogPost.render();
 ---
 
 <MarkdownPostLayout
@@ -29,6 +29,7 @@ const { Content, headings } = await blogPost.render();
   description={description}
   authorId={author.id}
   tags={tags}
+  pubDate={pubDate}
 >
   <Frame ratio="16:9" slot="banner">
     <Image src={cover.url} alt={cover.alt} width="1200" height="300" />

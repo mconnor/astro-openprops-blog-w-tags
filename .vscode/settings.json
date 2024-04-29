@@ -19,22 +19,30 @@
   "stylelint.validate": ["astro"],
   // "editor.defaultFormatter": "astro-build.astro-vscode",
 
-  // "editor.formatOnPaste": true,
-  // "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   // "editor.formatOnType": false,
 
   "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.formatOnSave": false
   },
 
-  "[astro][javascript][typescript][markdown]": {
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ],
+
+  "[astro][javascript][typescript][markdown][json]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+ 
+  "editor.defaultFormatter":  "astro-build.astro-vscode",
   "typescript.inlayHints.parameterNames.enabled": "none"
 }
