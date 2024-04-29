@@ -24,7 +24,6 @@ pnpm-debug.log*
 /src/.DS_Store
 /src/assets/.DS_Store
 /my-custom-cache-directory/
-/src/astro-custom-layout-components
 /.env.development
 /.env.sentry-build-plugin
 /**/vendor/*.js

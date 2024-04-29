@@ -14,7 +14,6 @@ import markdown from 'eslint-plugin-markdown';
 export default tseslint.config(
   {
     ignores: [
-      'src/astro-custom-layout-components/**/*.*',
       'pnpm-lock.yaml',
       '.astro/',
       'dist/',

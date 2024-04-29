@@ -1,0 +1,26 @@
+---
+import type { RmUnitType } from '../Types'
+
+type Props = {
+  max?: RmUnitType
+  andText?: boolean
+  gutters?: boolean
+  intrinsic?: boolean
+}
+const { max, ...rest } = Astro.props
+---
+
+<center-l max={max} {...rest}>
+  <slot />
+</center-l>
+
+<script src="./Center"></script>
+
+<style is:global>
+  center-l {
+    display: block;
+    box-sizing: content-box;
+    margin-inline: auto;
+    max-inline-size: var(--measure);
+  }
+</style>
