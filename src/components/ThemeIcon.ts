@@ -15,11 +15,11 @@ document.addEventListener('astro:page-load', () => {
     document.documentElement.classList.add('dark');
   }
 
-  window.localStorage.setItem('theme', theme);
+  theme && window.localStorage.setItem('theme', theme);
 
   const btnSunMoo = document.getElementById('themeToggle');
 
-  btnSunMoo?.addEventListener('click', (e) => {
+  btnSunMoo?.addEventListener('click', () => {
     const element = document.documentElement;
     // // element.classList.toggle('dark')
 

@@ -53,7 +53,7 @@ export default class Stack extends HTMLElement {
     return this.hasAttribute('recursive')
   }
 
-  set recursive(val: boolean) {
+  set recursive(val) {
     if (val) {
       this.setAttribute('recursive', '')
     } else {
@@ -66,7 +66,7 @@ export default class Stack extends HTMLElement {
     return value !== null ? value : ''
   }
 
-  set splitAfter(val: string) {
+  set splitAfter(val) {
     if (val) {
       this.setAttribute('splitAfter', val)
     } else {

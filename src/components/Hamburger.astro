@@ -147,43 +147,28 @@ const path = Astro.url.pathname;
 
     <ul class="menu__box" role="tablist">
       <li role="tab">
-        <Link as="a" class:list={[{ currentTab: path === '/' }]} href="/">
-          Home
-        </Link>
+        <Link class:list={[{ currentTab: path === '/' }]} href="/"> Home </Link>
       </li>
       <li role="tab">
-        <Link
-          class:list={[{ currentTab: path === '/about/' }]}
-          as="a"
-          href="/about/"
-        >
+        <Link class:list={[{ currentTab: path === '/about/' }]} href="/about/">
           About
         </Link>
       </li>
       <li role="tab">
         <Link
           class:list={[{ currentTab: path === '/kitchensink/' }]}
-          as="a"
           href="/kitchensink/"
         >
           Kitchen Sink
         </Link>
       </li>
       <li role="tab">
-        <Link
-          class:list={[{ currentTab: path === '/blog/' }]}
-          as="a"
-          href="/blog/"
-        >
+        <Link class:list={[{ currentTab: path === '/blog/' }]} href="/blog/">
           Blog
         </Link>
       </li>
       <li role="tab">
-        <Link
-          class:list={[{ currentTab: path === '/tags/' }]}
-          as="a"
-          href="/tags/"
-        >
+        <Link class:list={[{ currentTab: path === '/tags/' }]} href="/tags/">
           Tags
         </Link>
       </li>

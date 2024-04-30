@@ -43,7 +43,7 @@ const { title, description, image } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <!-- <script src="https://kit.fontawesome.com/fe2049e447.js" is:inline crossorigin="anonymous"
 ></script> -->
-<script is:inline>
+<!-- <script is:inline>
   import * as Sentry from '@sentry/browser';
 
   Sentry.init({
@@ -57,4 +57,4 @@ const { title, description, image } = Astro.props;
     replaysOnErrorSampleRate: 1.0,
     integrations: [new Sentry.BrowserTracing(), new Sentry.Replay()],
   });
-</script>
+</script> -->

@@ -2,9 +2,9 @@
 import Layout from '@layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import { Box } from '@cc/index.ts';
+import { Box } from '@cc/index.js';
 import TitleDate from '@components/BlogTitleDate.astro';
-import { Stack } from '@cc/index.ts';
+import { Stack } from '@cc/index.js';
 
 const pageTitle = 'Blog';
 const publishsedPosts: CollectionEntry<'blog'>[] = await getCollection(

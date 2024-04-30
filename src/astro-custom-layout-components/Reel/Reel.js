@@ -8,6 +8,7 @@
  * @property {boolean} noBar=false Whether to display the scrollbar
  */
 export default class Reel extends HTMLElement {
+
   constructor() {
     super()
     this.render = () => {
