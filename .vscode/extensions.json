@@ -1,7 +1,8 @@
 {
   "recommendations": [
     "astro-build.astro-vscode",
-    "phoenisx.cssvar",
+     "dbaeumer.vscode-eslint",
+   "unifiedjs.vscode-mdx",
     "stylelint.vscode-stylelint"
   ]
 }

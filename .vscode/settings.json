@@ -36,6 +36,8 @@
     "typescriptreact" // Enable .tsx
   ],
 
+  
+
   "[astro][javascript][typescript][markdown][json]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
     "editor.formatOnPaste": true,
