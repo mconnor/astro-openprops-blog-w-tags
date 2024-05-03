@@ -1,7 +1,9 @@
 ---
-import 'open-props/postcss/style';
-import 'open-props/postcss/buttons';
-import 'open-props/postcss/normalize';
+import 'open-props/postcss/style'
+import 'open-props/postcss/buttons'
+import 'open-props/postcss/normalize'
+import './variables.css'
+import './modular-scale.css'
 ---
 
 <style is:global>
@@ -15,100 +17,8 @@ import 'open-props/postcss/normalize';
         font-size: var(--font-size-1);
     } */
 
-  :root {
-    --measure: 60ch;
-    color-scheme: light dark;
-
-    --brand-light: var(--orange-6);
-
-    /* dark theme values */
-    --brand-dark: var(--orange-3);
-    --brand: var(--brand-light);
-  }
-
   html {
     font-family: var(--font-sans);
-
-    --size-conditional-5: clamp(0px, calc(100vw - 100%) * 1e5, var(--size-5));
-
-    --color-light: hsl(0 0% 80%);
-    --color-dark: hsl(0 0% 20%);
-
-    /* light */
-    --brand-light: var(--orange-12);
-
-    /* open-props light theme as defaults but these are better */
-    --text-1-light: var(--gray-8);
-    --text-2-light: var(--gray-7);
-    --surface-1-light: var(--gray-0);
-    --surface-2-light: var(--gray-1);
-    --surface-3-light: var(--gray-2);
-    --surface-4-light: var(--gray-3);
-
-    --surface-shadow-light: var(--gray-8-hsl);
-    --shadow-strength-light: 2%;
-
-    /* dark */
-    --brand-dark: var(--orange-3);
-
-    /* open-props dark theme as defaults but these are better */
-    --text-1-dark: var(--gray-3);
-    --text-2-dark: var(--gray-5);
-    --surface-1-dark: var(--gray-12);
-    --surface-2-dark: var(--gray-11);
-    --surface-3-dark: var(--gray-10);
-    --surface-4-dark: var(--gray-9);
-
-    --surface-shadow-dark: var(--gray-12-hsl);
-    --shadow-strength-dark: 80%;
-  }
-
-  [data-columns] {
-    display: grid;
-    grid-gap: 1rem;
-    border-radius: var(--radius-2);
-
-    box-shadow: var(--shadow-2);
-    padding: var(--size-fluid-1);
-    margin: 0 0 1rem 0;
-  }
-
-  [data-columns] > div {
-    height: 100px;
-    background: white;
-  }
-
-  [data-columns='2'] {
-    background: #64b5f6;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  [data-columns='3'] {
-    background: #9ccc65;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  [data-columns='4'] {
-    background: #ffb74d;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  [color-scheme='light'] {
-    color-scheme: light;
-    --brand: var(--brand-light);
-    --text-1: var(--text-1-light);
-    --text-2: var(--text-2-light);
-    --surface-1: var(--surface-1-light);
-    --surface-2: var(--surface-2-light);
-    --surface-3: var(--surface-3-light);
-    --surface-4: var(--surface-4-light);
-    --surface-shadow: var(--surface-shadow-light);
-    --shadow-strength: var(--shadow-strength-light);
-  }
-
-  [color-scheme='dark'] {
-    color-scheme: dark;
-
     --brand: var(--brand-dark);
     --text-1: var(--text-1-dark);
     --text-2: var(--text-2-dark);
@@ -119,4 +29,23 @@ import 'open-props/postcss/normalize';
     --surface-shadow: var(--surface-shadow-dark);
     --shadow-strength: var(--shadow-strength-dark);
   }
+
+  [class^='box'].invert {
+    filter: invert(100%);
+  }
+
+  [class^='box'] {
+    * {
+      color: inherit;
+      background-color: inherit;
+    }
+  }
+  .myLayoutColors {
+    color: var(--color-dark) !important;
+    background-color: var(--color-light) !important;
+  }
+  /* .my-colors {
+    color: !var(--text-1);
+    background-color: !var(--surface-1);
+  } */
 </style>

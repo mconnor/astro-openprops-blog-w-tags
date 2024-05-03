@@ -1,25 +1,16 @@
 ---
-import Social from './Social.astro';
+import Social from './Social.astro'
 
-import { Box, Cluster } from '@cc/index.js';
+import { Box, Cluster } from '@cc/index.js'
 ---
 
-<Box
-  ><footer>
+<footer class="my-colors">
+  <Box>
+    <h3>footer</h3>
     <Cluster justify="space-around">
       <Social platform="twitter" />
       <Social platform="github" />
       <Social platform="youtube" />
     </Cluster>
-  </footer></Box
->
-
-<style>
-  .fake {
-    background-color: var(--surface-3);
-  }
-  footer {
-    color: var(--text-3);
-    background-color: var(--surface-3);
-  }
-</style>
+  </Box>
+</footer>

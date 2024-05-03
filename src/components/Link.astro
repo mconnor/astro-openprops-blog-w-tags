@@ -1,10 +1,10 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-type Props = HTMLAttributes<'a'>;
+import type { HTMLAttributes } from 'astro/types'
+type Props = HTMLAttributes<'a'>
 
-const path = Astro.url.pathname;
-const { href, ...props } = Astro.props;
-const isActive = href === path || href === path.replace(/\/$/, '');
+const path = Astro.url.pathname
+const { href, ...props } = Astro.props
+const isActive = href === path || href === path.replace(/\/$/, '')
 ---
 
 <a href={href} class:list={['btn', { active: isActive }]} {...props}><slot /></a

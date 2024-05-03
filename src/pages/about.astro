@@ -1,66 +1,75 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import { Code } from 'astro:components';
-export const prerender = true;
-const pageTitle = 'About Page';
+import BaseLayout from '@layouts/BaseLayout.astro'
+import { Box, Stack } from '@cc/index.js'
+import { Code } from 'astro:components'
+export const prerender = true
+const pageTitle = 'About Page'
 
 const identity = {
   firstName: 'Mike',
   country: 'US',
   occupation: 'Developer',
   hobbies: ['photography', 'birdwatching', 'baseball'],
-};
+}
 
-const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs'];
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs']
 
-const happy = true;
-const finished = false;
-const goal = 3;
+const happy = true
+const finished = false
+const goal = 3
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p>Here are a few facts about me:</p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quam non
-    eaque sapiente, inventore rem facere cum minima, tempora in accusamus
-    voluptatum nobis, delectus eius itaque accusantium. Odio, maiores fugit.
-  </p>
-  <p>
-    <Code code={`const foo = 'bar';`} lang="js" inline />
-    will be rendered inline.
-  </p>
-  <button>press me</button>
-  <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>
-      I live in {identity.country} and I work as a {identity.occupation}.
-    </li>
-    {
-      identity.hobbies.length >= 2 && (
-        <li>
-          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
-        </li>
-      )
-    }
-  </ul>
-
-  <h3>My skills are:</h3>
-
-  <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-  </ul>
-
-  {happy && <p>I am happy to be learning Astro!</p>}
-
-  {finished && <p>I finished this tutorial!</p>}
-
-  {
-    goal === 3 ? (
-      <p>My goal is to finish in 3 days.</p>
-    ) : (
-      <p>My goal is not 3 days.</p>
-    )
-  }
+  <Box borderWidth="0" padding="0">
+    <Box invert><h2>facts about me</h2></Box>
+    <Stack>
+      <Box borderWidth="5px"
+        ><p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+          quam non eaque sapiente, inventore rem facere cum minima, tempora in
+          accusamus voluptatum nobis, delectus eius itaque accusantium. Odio,
+          maiores fugit.
+        </p>
+        <Box
+          ><em
+            >adipisicing elit. Doloribus quam non eaque sapiente, inventore rem
+            facere cum minima, tempora in accusamus voluptatum nobis, delectus
+            eius itaque accusantium. Odio, maiores fugit.
+          </em></Box
+        >
+      </Box>
+      <Box borderWidth="5px"
+        ><p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+          quam non eaque sapiente, inventore rem facere cum minima, tempora in
+          accusamus voluptatum nobis, delectus eius itaque accusantium. Odio,
+          maiores fugit.
+        </p>
+        <Box
+          ><em
+            >adipisicing elit. Doloribus quam non eaque sapiente, inventore rem
+            facere cum minima, tempora in accusamus voluptatum nobis, delectus
+            eius itaque accusantium. Odio, maiores fugit.
+          </em></Box
+        >
+      </Box>
+      <Box borderWidth="5px"
+        ><p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+          quam non eaque sapiente, inventore rem facere cum minima, tempora in
+          accusamus voluptatum nobis, delectus eius itaque accusantium. Odio,
+          maiores fugit.
+        </p>
+        <Box
+          ><em
+            >adipisicing elit. Doloribus quam non eaque sapiente, inventore rem
+            facere cum minima, tempora in accusamus voluptatum nobis, delectus
+            eius itaque accusantium. Odio, maiores fugit.
+          </em></Box
+        >
+      </Box>
+    </Stack>
+  </Box>
 </BaseLayout>
 
 <style>

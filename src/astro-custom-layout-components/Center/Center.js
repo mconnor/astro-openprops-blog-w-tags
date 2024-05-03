@@ -50,7 +50,7 @@ export default class Center extends HTMLElement {
   }
 
   set max(val) {
-     this.setAttribute('max', val)
+    this.setAttribute('max', val)
   }
 
   get andText() {
@@ -59,9 +59,9 @@ export default class Center extends HTMLElement {
 
   set andText(val) {
     if (val) {
-       this.setAttribute('andText', '')
+      this.setAttribute('andText', '')
     } else {
-       this.removeAttribute('andText')
+      this.removeAttribute('andText')
     }
   }
 
@@ -70,7 +70,7 @@ export default class Center extends HTMLElement {
   }
 
   set gutters(val) {
-     this.setAttribute('gutters', val)
+    this.setAttribute('gutters', val)
   }
 
   get intrinsic() {
@@ -79,9 +79,9 @@ export default class Center extends HTMLElement {
 
   set intrinsic(val) {
     if (val) {
-       this.setAttribute('intrinsic', '')
+      this.setAttribute('intrinsic', '')
     } else {
-       this.removeAttribute('intrinsic')
+      this.removeAttribute('intrinsic')
     }
   }
 

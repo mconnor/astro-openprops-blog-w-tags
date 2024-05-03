@@ -1,30 +1,31 @@
 ---
-import BaseHead from '@components/BaseHead.astro';
-import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
+import BaseHead from '@components/BaseHead.astro'
+import Header from '@components/Header.astro'
+import Footer from '@components/Footer.astro'
 
-import GlobalStyle from '@styles/GlobalStyle.astro';
-import { ViewTransitions } from 'astro:transitions';
+import GlobalStyle from '@styles/GlobalStyle.astro'
+import { ViewTransitions } from 'astro:transitions'
 
-import { Cover, Center } from '@cc/index.js';
+import { Cover, Box, Center } from '@cc/index.js'
 
 type Props = {
-  pageTitle: string;
-  description?: string;
-  image?: string;
-  surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4';
-};
+  pageTitle?: string
+  description?: string
+  image?: string
+  children: any
+  // surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
+}
 
 // const isProd = import.meta.env.PROD
 // const isDev = import.meta.env.DEV
 
 const {
-  pageTitle,
+  pageTitle = 'Mike Connor',
   description = 'my description',
   image = '/placeholder-social.jpg',
-} = Astro.props;
+} = Astro.props
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <html transition:animate="none">
@@ -33,7 +34,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonicalURL} />
 
     <GlobalStyle />
-    <ViewTransitions />
+    <!-- <ViewTransitions /> -->
     <script
       is:inline
       src="https://kit.fontawesome.com/fe2049e447.js"
@@ -46,18 +47,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     /> -->
   </head>
 
-  <body color-scheme="light">
-    <Cover centeredElement="center-l">
+  <body>
+    <Cover centeredElement="Center">
       <Header />
 
-      <Center><slot /></Center>
+      <Center>
+        <slot />
+      </Center>
 
       <Footer />
     </Cover>
+
     <style>
-      body {
-        color: var(--text-1);
-        background-color: var(--surface-4);
+      .stretch {
+        max-width: var(--measure);
       }
     </style>
   </body>

@@ -1,18 +1,18 @@
 ---
-import { Box, Icon, Cluster } from '@cc/index.js';
+import { Box, Icon, Cluster } from '@cc/index.js'
 interface Props {
-  tags: string[];
-  tagCounts?: Record<string, number>;
+  tags: string[]
+  tagCounts?: Record<string, number>
 }
-const { tags, tagCounts } = Astro.props;
+const { tags, tagCounts } = Astro.props
 ---
 
 <Cluster>
   {
     tags.map((tag) => (
-      <Box>
+      <Box padding="0" borderWidth="0">
         <a href={`/tags/${tag}`}>
-          <Box padding="var(--size-2)">
+          <Box padding="0" borderWidth="0">
             <Icon space="var(--size-3)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

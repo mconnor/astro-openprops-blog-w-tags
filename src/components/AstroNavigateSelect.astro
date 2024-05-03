@@ -12,7 +12,7 @@
 </astro-navigate-select>
 
 <script>
-  import { navigate } from 'astro:transitions/client';
+  import { navigate } from 'astro:transitions/client'
 
   // document.addEventListener('astro:page-load', () => {
   //   document
@@ -24,13 +24,13 @@
 
   class AstroNavigateSelect extends HTMLElement {
     constructor() {
-      super();
-      const select = this.querySelector('[data-navigate-select]');
+      super()
+      const select = this.querySelector('[data-navigate-select]')
       select &&
         select.addEventListener('change', (e) => {
-          navigate((e.target as HTMLSelectElement).value);
-        });
+          navigate((e.target as HTMLSelectElement).value)
+        })
     }
   }
-  customElements.define('astro-navigate-select', AstroNavigateSelect);
+  customElements.define('astro-navigate-select', AstroNavigateSelect)
 </script>

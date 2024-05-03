@@ -1,16 +1,16 @@
 ---
-import { Box } from '@cc/index.js';
+import { Box } from '@cc/index.js'
 
 type Props = {
-  href: string;
-  children: HTMLElement[];
-};
+  href: string
+  children: HTMLElement[]
+}
 
-const { href } = Astro.props;
+const { href } = Astro.props
 ---
 
 <a href={href}>
-  <div class="box invert card">
+  <div class="card">
     <Box>
       <slot name="top" />
       <slot name="middle" />
@@ -27,7 +27,8 @@ const { href } = Astro.props;
       0 0 0 1px rgb(0 0 0 / 0.1),
       0 2px 4px rgb(0 0 0 / 0.1);
     transition: box-shadow 0.2s ease;
-    background-color: var(--surface-1);
+    color: var(--text-1);
+    background-color: red;
     padding: var(--size-3);
   }
 </style>
