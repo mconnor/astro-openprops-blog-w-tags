@@ -1,11 +1,12 @@
 import { LitElement, html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
+
 @customElement('lit-heart-button')
 export class LitHeartButton extends LitElement {
   static styles = css`
     button {
-      background-color: #f3f4f6;
+
       border: none;
       border-radius: 4px;
       padding: 10px 20px;

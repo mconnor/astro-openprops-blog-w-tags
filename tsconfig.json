@@ -8,14 +8,30 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@cc/*": ["src/astro-custom-layout-components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@content/*": ["src/content/*"],
-      "@assets/*": ["src/assets/*"],
-      "@styles/*": ["src/styles/*"],
-      "@scripts/*": ["src/scripts/*"],
-      "@wc/*": ["src/web-components/*"]
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@cc/*": [
+        "src/astro-custom-layout-components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@scripts/*": [
+        "src/scripts/*"
+      ],
+      "@wc/*": [
+        "src/web-components/*"
+      ]
     }
   },
   "include": [
@@ -23,7 +39,10 @@
     "**/*.mjs",
     "**/*.ts",
     "**/*.js",
-    "src/**/*.astro"
+    "src/**/*.astro",
+    "postcss.config.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

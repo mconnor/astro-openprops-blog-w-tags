@@ -10,10 +10,10 @@ import tseslint from 'typescript-eslint'
 
 export default [
   js.configs.recommended,
-   ...tseslint.configs.recommendedTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
-...eslintPluginAstro.configs.recommended
-  
+    ...tseslint.configs.recommended,
+  //  ...tseslint.configs.recommendedTypeChecked,
+  // ...tseslint.configs.stylisticTypeChecked,
+...eslintPluginAstro.configs.recommended,
   
   {
     ignores: [
@@ -42,15 +42,19 @@ export default [
   
   {
     // disable type-aware linting on JS files
-    files: ['**/*.js'],
+     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
+  {
+        // 1. Add the plugin
+        plugins: {
+            markdown
+        }
+    },
 
   {
     files: ['src/**/*.md'],
-    plugins: {
-      markdown,
-    },
+
     processor: 'markdown/markdown',
     rules: {
       // ...

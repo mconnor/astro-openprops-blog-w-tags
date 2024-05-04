@@ -1,5 +1,5 @@
 ---
-import AstroNavigateSelect from '@components/AstroNavigateSelect.astro'
+// import AstroNavigateSelect from '@components/AstroNavigateSelect.astro'
 
 import BaseLayout from '@layouts/BaseLayout.astro'
 import { LitHeartButton } from '@wc/LitHeartButton'
@@ -8,42 +8,22 @@ import { Box, Stack } from '@cc/index'
 ---
 
 <BaseLayout pageTitle="home">
-  <div class="myLayoutColors">
-    <!-- <button onclick="throw new Error('This is a test error')">
-    Throw test error
-  </button> -->
-    <Box borderWidth="0" padding="0">
-      <Box invert><h1>home</h1></Box>
-      <Box
-        ><p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-          quam non eaque sapiente, inventore rem facere cum minima, tempora in
-          accusamus voluptatum nobis, delectus eius itaque accusantium. Odio,
-          maiores fugit.
-        </p>
-      </Box>
+  <Stack recursive>
+    <Box borderWidth="2px"><LitHeartButton client:only="lit" /></Box>
+    <Box borderWidth="2px"><MyElement client:only="lit" /></Box>
+    <Box borderWidth="2px" invert><MyElement client:only="lit" /></Box>
+    <!-- <Box><AstroNavigateSelect client:visible /></Box> -->
+  </Stack>
+  <style>
+    .myLayoutColor {
+      color: var(--color-dark);
+      background-color: var(--color-light);
+    }
 
-      <Box
-        ><Box invert borderWidth="2px">
-          <h2>inverted box</h2>
-        </Box></Box
-      >
-
-      <Box borderWidth="2px"> <LitHeartButton client:only="lit" /></Box>
-      <Box borderWidth="2px"> <MyElement client:only="lit" /></Box>
-      <Box invert borderWidth="2px"> <AstroNavigateSelect /></Box>
-    </Box>
-  </div>
+    .skill {
+      font-weight: var(--font-weight-7);
+      text-transform: var(--textCase);
+      /* color: var(--accent); */
+    }
+  </style>
 </BaseLayout>
-<style>
-  .myLayoutColor {
-    color: var(--color-dark);
-    background-color: var(--color-light);
-  }
-
-  .skill {
-    font-weight: var(--font-weight-7);
-    text-transform: var(--textCase);
-    /* color: var(--accent); */
-  }
-</style>
