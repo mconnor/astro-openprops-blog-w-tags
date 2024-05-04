@@ -12,7 +12,7 @@ type Props = {
   pageTitle?: string
   description?: string
   image?: string
-  children: any
+  children: unknown
   // surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
 }
 
@@ -47,12 +47,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     /> -->
   </head>
 
-  <body>
-    <Cover centeredElement="Center">
+  <body class="myLayoutColors">
+    <Cover centeredElement="center-l">
       <Header />
 
       <Center>
-        <slot />
+        <h1>hello</h1>
       </Center>
 
       <Footer />
