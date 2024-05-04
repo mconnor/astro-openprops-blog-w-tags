@@ -7,16 +7,6 @@ import './modular-scale.css'
 ---
 
 <style is:global>
-  :where(html) {
-    line-height: var(--font-lineheight-3);
-  }
-
-  /* span,
-    a,
-    p {
-        font-size: var(--font-size-1);
-    } */
-
   html {
     font-family: var(--font-sans);
     --brand: var(--brand-dark);
@@ -41,11 +31,12 @@ import './modular-scale.css'
     }
   }
   .myLayoutColors {
-    color: var(--color-dark) !important;
-    background-color: var(--color-light) !important;
+    background-color: green !important;
+    color: blue !important;
   }
-  /* .my-colors {
-    color: !var(--text-1);
-    background-color: !var(--surface-1);
-  } */
+  .gradient-text {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 </style>

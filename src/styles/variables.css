@@ -2,11 +2,11 @@
 
   color-scheme: light dark;
 
-  --brand-light: var(--orange-6);
+
 
   /* dark theme values */
-  --brand-dark: var(--orange-3);
-  --brand: var(--brand-light);
+
+
 
   --size-conditional-5: clamp(0px, calc(100vw - 100%) * 1e5, var(--size-5));
 
