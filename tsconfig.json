@@ -36,11 +36,12 @@
   },
   "include": [
     "src/**/*.d.ts",
-    "**/*.mjs",
     "**/*.ts",
+    "**/*.mts",
     "**/*.js",
+    "**/*.mjs",
     "src/**/*.astro",
-    "postcss.config.mts"
+    "postcss.config.mjs"
   ],
   "exclude": [
     "node_modules"
