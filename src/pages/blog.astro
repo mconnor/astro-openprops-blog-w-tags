@@ -1,16 +1,15 @@
 ---
-import Layout from '@layouts/BaseLayout.astro'
-import { getCollection } from 'astro:content'
-import type { CollectionEntry } from 'astro:content'
-import { Box } from '@cc/index.js'
-import DeckofCards from '@components/DeckofCards.astro'
-import { Stack } from '@cc/index.js'
+import Layout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
-const pageTitle = 'Blog'
-const publishsedPosts: CollectionEntry<'blog'>[] = await getCollection(
-  'blog',
-  ({ data }) => data.draft !== true,
-)
+import DeckofCards from "@components/DeckofCards.astro";
+
+const pageTitle = "Blog";
+const publishsedPosts: CollectionEntry<"blog">[] = await getCollection(
+  "blog",
+  ({ data }) => data.draft !== true
+);
 ---
 
 <Layout pageTitle={pageTitle}>

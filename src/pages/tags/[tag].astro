@@ -1,9 +1,9 @@
 ---
-import DeckofCards from '@components/DeckofCards.astro'
-import { Box, Stack } from '@cc/index.js'
-import Layout from '@layouts/BaseLayout.astro'
+import DeckofCards from '@components/DeckofCards.astro';
+import { Box } from '@cc/index.js';
+import Layout from '@layouts/BaseLayout.astro';
 
-import { getCollection, type CollectionEntry } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 // import type { CollectionEntry } from 'astro:content'
 
@@ -11,52 +11,52 @@ import { getCollection, type CollectionEntry } from 'astro:content'
 // (what to call each page route) and optionally any props (data that you want to pass to those pages).
 //  Earlier, you defined each tag name that you knew was used in your blog and passed the entire list
 //  of posts as props to each page.
-export const prerender = true
+export const prerender = true;
 
 interface Props {
-  filteredPosts: CollectionEntry<'blog'>[]
+	filteredPosts: CollectionEntry<'blog'>[];
 }
 
 export const getStaticPaths = async () => {
-  const allPosts = await getCollection('blog')
-  const uniqueTags = [
-    ...new Set(
-      allPosts
-        .map((__post: CollectionEntry<'blog'>) => __post.data.tags)
-        .flat(),
-    ),
-  ]
+	const allPosts = await getCollection('blog');
+	const uniqueTags = [
+		...new Set(
+			allPosts
+				.map((__post: CollectionEntry<'blog'>) => __post.data.tags)
+				.flat(),
+		),
+	];
 
-  return uniqueTags.map((uTag) => {
-    const filteredPosts = allPosts.filter(
-      (_post: CollectionEntry<'blog'>) =>
-        _post.data.draft !== true && _post.data.tags.includes(uTag),
-    )
-    return {
-      params: { tag: uTag },
-      props: {
-        filteredPosts,
-      },
-    }
-  })
-}
+	return uniqueTags.map((uTag) => {
+		const filteredPosts = allPosts.filter(
+			(_post: CollectionEntry<'blog'>) =>
+				_post.data.draft !== true && _post.data.tags.includes(uTag),
+		);
+		return {
+			params: { tag: uTag },
+			props: {
+				filteredPosts,
+			},
+		};
+	});
+};
 
-const { tag } = Astro.params
-const { filteredPosts } = Astro.props
+const { tag } = Astro.params;
+const { filteredPosts } = Astro.props;
 ---
 
 <Layout>
-  <Box borderWidth="0" padding="0">
-    <Box borderWidth="0">
-      <h1 class="gradient-text">{`#${tag}`}</h1>
-    </Box>
+	<Box borderWidth="0" padding="0">
+		<Box borderWidth="0">
+			<h1 class="gradient-text">{`#${tag}`}</h1>
+		</Box>
 
-    <DeckofCards posts={filteredPosts} /></Box
-  >
+		<DeckofCards posts={filteredPosts} /></Box
+	>
 </Layout>
 
 <style>
-  h1 {
-    font-style: italic;
-  }
+	h1 {
+		font-style: italic;
+	}
 </style>
