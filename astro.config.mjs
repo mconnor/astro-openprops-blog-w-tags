@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config'
-import mdx from '@astrojs/mdx'
-import sentry from '@sentry/astro'
-import lit from '@astrojs/lit'
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sentry from '@sentry/astro';
+import lit from '@astrojs/lit';
 // import myIntegration from './my-toolbar-app/my-integration.ts';
 
 // var token = loadEnv(process.env.SENTRY_AUTH_TOKEN, process.cwd(), ''),
@@ -42,4 +42,4 @@ export default defineConfig({
     },
   },
   cacheDir: './my-custom-cache-directory',
-})
+});

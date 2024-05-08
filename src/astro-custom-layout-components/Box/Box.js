@@ -8,13 +8,13 @@
  */
 export default class Box extends HTMLElement {
   constructor() {
-    super()
+    super();
     this.render = () => {
-      this.i = `Box-${[this.padding, this.borderWidth, this.invert].join('')}`
-      this.dataset.i = this.i
+      this.i = `Box-${[this.padding, this.borderWidth, this.invert].join('')}`;
+      this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        let styleEl = document.createElement('style')
-        styleEl.id = this.i
+        let styleEl = document.createElement('style');
+        styleEl.id = this.i;
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
             padding: ${this.padding};
@@ -27,54 +27,54 @@ export default class Box extends HTMLElement {
             background-color: inherit;
           }
         `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get padding() {
-    return this.getAttribute('padding') || 'var(--s1)'
+    return this.getAttribute('padding') || 'var(--s1)';
   }
 
   set padding(val) {
-    this.setAttribute('padding', val)
+    this.setAttribute('padding', val);
   }
 
   get borderWidth() {
-    return this.getAttribute('borderWidth') || 'var(--border-thin)'
+    return this.getAttribute('borderWidth') || 'var(--border-thin)';
   }
 
   set borderWidth(val) {
-    this.setAttribute('borderWidth', val)
+    this.setAttribute('borderWidth', val);
   }
 
   static get observedAttributes() {
-    return ['borderWidth', 'padding', 'invert']
+    return ['borderWidth', 'padding', 'invert'];
   }
 
   get invert() {
-    return this.hasAttribute('invert')
+    return this.hasAttribute('invert');
   }
 
   set invert(val) {
     if (val) {
-      this.setAttribute('invert', '')
+      this.setAttribute('invert', '');
     } else {
-      this.removeAttribute('invert')
+      this.removeAttribute('invert');
     }
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
   }
 
   attributeChangedCallback() {
-    this.render()
+    this.render();
   }
 }
 
 if ('customElements' in window) {
-  customElements.define('box-l', Box)
+  customElements.define('box-l', Box);
 }

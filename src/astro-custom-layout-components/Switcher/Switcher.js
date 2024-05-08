@@ -7,13 +7,13 @@
  */
 export default class Switcher extends HTMLElement {
   constructor() {
-    super()
+    super();
     this.render = () => {
-      this.i = `Switcher-${[this.threshold, this.space, this.limit].join('')}`
-      this.dataset.i = this.i
+      this.i = `Switcher-${[this.threshold, this.space, this.limit].join('')}`;
+      this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style')
-        styleEl.id = this.i
+        const styleEl = document.createElement('style');
+        styleEl.id = this.i;
         styleEl.innerHTML = `
             [data-i="${this.i}"] {
               gap: ${this.space};
@@ -28,49 +28,49 @@ export default class Switcher extends HTMLElement {
               flex-basis: 100%;
             }
           `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
       }
-    }
+    };
   }
   get threshold() {
-    return this.getAttribute('threshold') || 'var(--measure)'
+    return this.getAttribute('threshold') || 'var(--measure)';
   }
 
   set threshold(val) {
-    this.setAttribute('threshold', val)
+    this.setAttribute('threshold', val);
   }
 
   get space() {
-    return this.getAttribute('space') || 'var(--s1)'
+    return this.getAttribute('space') || 'var(--s1)';
   }
 
   set space(val) {
-    this.setAttribute('space', val)
+    this.setAttribute('space', val);
   }
 
   get limit() {
-    return this.getAttribute('limit') || '5'
+    return this.getAttribute('limit') || '5';
   }
 
   set limit(val) {
-    this.setAttribute('limit', val)
+    this.setAttribute('limit', val);
   }
 
   static get observedAttributes() {
-    return ['threshold', 'space', 'limit']
+    return ['threshold', 'space', 'limit'];
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
   }
 
   attributeChangedCallback() {
-    this.render()
+    this.render();
   }
 }
 
 if ('customElements' in window) {
-  customElements.define('switcher-l', Switcher)
+  customElements.define('switcher-l', Switcher);
 }

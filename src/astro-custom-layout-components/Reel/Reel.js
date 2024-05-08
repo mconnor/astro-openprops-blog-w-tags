@@ -9,13 +9,13 @@
  */
 export default class Reel extends HTMLElement {
   constructor() {
-    super()
+    super();
     this.render = () => {
-      this.i = `Reel-${[this.itemWidth, this.height, this.space, this.noBar].join('')}`
-      this.dataset.i = this.i
+      this.i = `Reel-${[this.itemWidth, this.height, this.space, this.noBar].join('')}`;
+      this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style')
-        styleEl.id = this.i
+        const styleEl = document.createElement('style');
+        styleEl.id = this.i;
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
             height: ${this.height};
@@ -53,77 +53,77 @@ export default class Reel extends HTMLElement {
               : ''
           }
         `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   toggleOverflowClass(elem) {
-    elem.classList.toggle('overflowing', this.scrollWidth > this.clientWidth)
+    elem.classList.toggle('overflowing', this.scrollWidth > this.clientWidth);
   }
 
   get itemWidth() {
-    return this.getAttribute('itemWidth') || 'auto'
+    return this.getAttribute('itemWidth') || 'auto';
   }
 
   set itemWidth(val) {
-    this.setAttribute('itemWidth', val)
+    this.setAttribute('itemWidth', val);
   }
 
   get height() {
-    return this.getAttribute('height') || 'auto'
+    return this.getAttribute('height') || 'auto';
   }
 
   set height(val) {
-    this.setAttribute('height', val)
+    this.setAttribute('height', val);
   }
 
   get space() {
-    return this.getAttribute('space') || 'var(--s0)'
+    return this.getAttribute('space') || 'var(--s0)';
   }
 
   set space(val) {
-    this.setAttribute('space', val)
+    this.setAttribute('space', val);
   }
 
   get noBar() {
-    return this.hasAttribute('noBar')
+    return this.hasAttribute('noBar');
   }
 
   set noBar(val) {
     if (val) {
-      this.setAttribute('noBar', '')
+      this.setAttribute('noBar', '');
     } else {
-      this.removeAttribute('noBar')
+      this.removeAttribute('noBar');
     }
   }
 
   static get observedAttributes() {
-    return ['itemWidth', 'height', 'space', 'noBar']
+    return ['itemWidth', 'height', 'space', 'noBar'];
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
     if ('ResizeObserver' in window) {
       new ResizeObserver((entries) => {
-        this.toggleOverflowClass(entries[0].target)
-      }).observe(this)
+        this.toggleOverflowClass(entries[0].target);
+      }).observe(this);
     }
 
     if ('MutationObserver' in window) {
       new MutationObserver((entries) => {
-        this.toggleOverflowClass(entries[0].target)
-      }).observe(this, { childList: true })
+        this.toggleOverflowClass(entries[0].target);
+      }).observe(this, { childList: true });
     }
   }
 
   attributeChangedCallback() {
-    this.render()
+    this.render();
   }
 }
 
 if ('customElements' in window) {
-  customElements.define('reel-l', Reel)
+  customElements.define('reel-l', Reel);
 }

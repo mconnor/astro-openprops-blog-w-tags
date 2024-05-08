@@ -22,11 +22,11 @@ type Props = {
     | '16:9'
     | '3:4'
     | '4:3'
-    | '9:16'
-  children: unknown
-}
+    | '9:16';
+  children: unknown;
+};
 
-const { ratio } = Astro.props
+const { ratio } = Astro.props;
 ---
 
 <frame-l ratio={ratio}>

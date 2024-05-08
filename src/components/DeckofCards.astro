@@ -1,28 +1,28 @@
 ---
-import { format } from 'date-fns'
-import type { CollectionEntry } from 'astro:content'
-import { getEntry } from 'astro:content'
-import { Switcher, Stack, Box, Frame } from '@cc/index.js'
+import { format } from 'date-fns';
+import type { CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
+import { Switcher, Stack, Box, Frame } from '@cc/index.js';
 
-import Card from '@components/Card.astro'
-import { Image } from 'astro:assets'
+import Card from '@components/Card.astro';
+import { Image } from 'astro:assets';
 // import { clearCachedFetchImplementation } from '@sentry/browser/types/transports/utils';
 
-type PostType = CollectionEntry<'blog'>
+type PostType = CollectionEntry<'blog'>;
 
 interface Props {
-  posts: PostType[]
+  posts: PostType[];
 }
 
-const { posts } = Astro.props
+const { posts } = Astro.props;
 
 interface PostWithAuthorInt {
-  title: string
-  authName: string
-  pubDate: Date
-  slug: string
-  cover: { url: string; alt: string }
-  desc: string
+  title: string;
+  authName: string;
+  pubDate: Date;
+  slug: string;
+  cover: { url: string; alt: string };
+  desc: string;
 }
 
 const getDecoratedPosts = async (
@@ -30,12 +30,12 @@ const getDecoratedPosts = async (
 ): Promise<PostWithAuthorInt[]> =>
   await Promise.all(
     _posts.map(async (p) => {
-      const { data, slug } = p
-      const { author, title, pubDate, cover, description } = data
-      const { id } = author
+      const { data, slug } = p;
+      const { author, title, pubDate, cover, description } = data;
+      const { id } = author;
 
-      const authorObj = await getEntry('authors', id)
-      const { name } = authorObj.data
+      const authorObj = await getEntry('authors', id);
+      const { name } = authorObj.data;
 
       return {
         title,
@@ -44,11 +44,11 @@ const getDecoratedPosts = async (
         slug,
         cover,
         desc: description,
-      }
+      };
     }),
-  )
+  );
 
-const decoratedPost = await getDecoratedPosts(posts)
+const decoratedPost = await getDecoratedPosts(posts);
 ---
 
 <Stack space="var(--size-6)" recursive>

@@ -10,18 +10,18 @@
  */
 export default class Sidebar extends HTMLElement {
   constructor() {
-    super()
+    super();
     this.render = () => {
       if (!this.contentMin.includes('%')) {
         console.warn(
           'The value for each <sidebar-l> `contentMin` property should be a percentage. Otherwise overflow is likely to occur',
-        )
+        );
       }
-      this.i = `Sidebar-${[this.side, this.sideWidth, this.contentMin, this.space].join('')}`
-      this.dataset.i = this.i
+      this.i = `Sidebar-${[this.side, this.sideWidth, this.contentMin, this.space].join('')}`;
+      this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style')
-        styleEl.id = this.i
+        const styleEl = document.createElement('style');
+        styleEl.id = this.i;
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
             gap: ${this.space};
@@ -38,72 +38,72 @@ export default class Sidebar extends HTMLElement {
             min-inline-size: ${this.contentMin};
           }
         `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get side() {
-    return this.getAttribute('side') || 'left'
+    return this.getAttribute('side') || 'left';
   }
 
   set side(val) {
-    this.setAttribute('side', val)
+    this.setAttribute('side', val);
   }
 
   get sideWidth() {
-    return this.getAttribute('sideWidth') || null
+    return this.getAttribute('sideWidth') || null;
   }
 
   set sideWidth(val) {
     val
       ? this.setAttribute('sideWidth', val)
-      : this.removeAttribute('sideWidth')
+      : this.removeAttribute('sideWidth');
   }
 
   get contentMin() {
-    return this.getAttribute('contentMin') || '50%'
+    return this.getAttribute('contentMin') || '50%';
   }
 
   set contentMin(val) {
-    this.setAttribute('contentMin', val)
+    this.setAttribute('contentMin', val);
   }
 
   get space() {
-    return this.getAttribute('space') || 'var(--s1)'
+    return this.getAttribute('space') || 'var(--s1)';
   }
 
   set space(val) {
-    val ? this.setAttribute('space', val) : this.removeAttribute('space')
+    val ? this.setAttribute('space', val) : this.removeAttribute('space');
   }
 
   get noStretch() {
-    return this.hasAttribute('noStretch')
+    return this.hasAttribute('noStretch');
   }
 
   set noStretch(val) {
     if (val) {
-      this.setAttribute('noStretch', '')
+      this.setAttribute('noStretch', '');
     } else {
-      this.removeAttribute('noStretch')
+      this.removeAttribute('noStretch');
     }
   }
 
   static get observedAttributes() {
-    return ['side', 'sideWidth', 'contentMin', 'space', 'noStretch']
+    return ['side', 'sideWidth', 'contentMin', 'space', 'noStretch'];
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
   }
 
   attributeChangedCallback() {
-    this.render()
+    this.render();
   }
 }
 
 if ('customElements' in window) {
-  customElements.define('sidebar-l', Sidebar)
+  customElements.define('sidebar-l', Sidebar);
 }

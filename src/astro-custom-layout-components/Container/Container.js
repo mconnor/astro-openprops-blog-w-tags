@@ -6,13 +6,13 @@
  */
 class Container extends HTMLElement {
   constructor() {
-    super()
+    super();
     this.render = () => {
-      this.i = `Container-${[this.name]}`
-      this.dataset.i = this.i
+      this.i = `Container-${[this.name]}`;
+      this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style')
-        styleEl.id = this.i
+        const styleEl = document.createElement('style');
+        styleEl.id = this.i;
         styleEl.innerHTML = `
             [data-i="${this.i}"] {
               display: block;
@@ -20,34 +20,34 @@ class Container extends HTMLElement {
               ${this.name ? `container-name: ${this.name};` : ''}
             }
           `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get name() {
-    return this.getAttribute('name') || null
+    return this.getAttribute('name') || null;
   }
 
   set name(val) {
-    val ? this.setAttribute('name', val) : this.removeAttribute('name')
+    val ? this.setAttribute('name', val) : this.removeAttribute('name');
   }
 
   static get observedAttributes() {
-    return ['name']
+    return ['name'];
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
   }
 
   attributeChangedCallback() {
-    this.render()
+    this.render();
   }
 }
 
 if ('customElements' in window) {
-  customElements.define('container-l', Container)
+  customElements.define('container-l', Container);
 }

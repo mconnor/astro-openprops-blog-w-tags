@@ -10,13 +10,13 @@
  */
 export default class Cover extends HTMLElement {
   constructor() {
-    super()
+    super();
     this.render = () => {
-      this.i = `Cover-${[this.centered, this.space, this.minHeight, this.noPad].join('')}`
-      this.dataset.i = this.i
+      this.i = `Cover-${[this.centered, this.space, this.minHeight, this.noPad].join('')}`;
+      this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style')
-        styleEl.id = this.i
+        const styleEl = document.createElement('style');
+        styleEl.id = this.i;
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
             min-height: ${this.minHeight};
@@ -39,62 +39,62 @@ export default class Cover extends HTMLElement {
             margin-block: auto;
           }
         `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get centered() {
-    return this.getAttribute('centered') || 'h1'
+    return this.getAttribute('centered') || 'h1';
   }
 
   set centered(val) {
-    this.setAttribute('centered', val)
+    this.setAttribute('centered', val);
   }
 
   get space() {
-    return this.getAttribute('space') || 'var(--s1)'
+    return this.getAttribute('space') || 'var(--s1)';
   }
 
   set space(val) {
-    this.setAttribute('space', val)
+    this.setAttribute('space', val);
   }
 
   get minHeight() {
-    return this.getAttribute('minHeight') || '100vh'
+    return this.getAttribute('minHeight') || '100vh';
   }
 
   set minHeight(val) {
-    this.setAttribute('minHeight', val)
+    this.setAttribute('minHeight', val);
   }
 
   get noPad() {
-    return this.hasAttribute('noPad')
+    return this.hasAttribute('noPad');
   }
 
   set noPad(val) {
     if (val) {
-      this.setAttribute('noPad', '')
+      this.setAttribute('noPad', '');
     } else {
-      this.removeAttribute('noPad')
+      this.removeAttribute('noPad');
     }
   }
 
   static get observedAttributes() {
-    return ['centered', 'space', 'minHeight', 'noPad']
+    return ['centered', 'space', 'minHeight', 'noPad'];
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
   }
 
   attributeChangedCallback() {
-    this.render()
+    this.render();
   }
 }
 
 if ('customElements' in window) {
-  customElements.define('cover-l', Cover)
+  customElements.define('cover-l', Cover);
 }

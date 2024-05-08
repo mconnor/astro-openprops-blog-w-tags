@@ -8,13 +8,13 @@
  */
 export default class Cluster extends HTMLElement {
   constructor() {
-    super()
+    super();
     this.render = () => {
-      this.i = `Cluster-${[this.justify, this.align, this.space].join('')}`
-      this.dataset.i = this.i
+      this.i = `Cluster-${[this.justify, this.align, this.space].join('')}`;
+      this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style')
-        styleEl.id = this.i
+        const styleEl = document.createElement('style');
+        styleEl.id = this.i;
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
             justify-content: ${this.justify};
@@ -22,50 +22,50 @@ export default class Cluster extends HTMLElement {
             gap: ${this.space};
           }
         `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get justify() {
-    return this.getAttribute('justify') || 'flex-start'
+    return this.getAttribute('justify') || 'flex-start';
   }
 
   set justify(val) {
-    this.setAttribute('justify', val)
+    this.setAttribute('justify', val);
   }
 
   get align() {
-    return this.getAttribute('align') || 'flex-start'
+    return this.getAttribute('align') || 'flex-start';
   }
 
   set align(val) {
-    this.setAttribute('align', val)
+    this.setAttribute('align', val);
   }
 
   get space() {
-    return this.getAttribute('space') || 'var(--s1)'
+    return this.getAttribute('space') || 'var(--s1)';
   }
 
   set space(val) {
-    this.setAttribute('space', val)
+    this.setAttribute('space', val);
   }
 
   static get observedAttributes() {
-    return ['justify', 'align', 'space']
+    return ['justify', 'align', 'space'];
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
   }
 
   attributeChangedCallback() {
-    this.render()
+    this.render();
   }
 }
 
 if ('customElements' in window) {
-  customElements.define('cluster-l', Cluster)
+  customElements.define('cluster-l', Cluster);
 }

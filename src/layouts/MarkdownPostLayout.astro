@@ -1,27 +1,27 @@
 ---
-import { format } from 'date-fns'
-import { getEntry } from 'astro:content'
-import BaseLayout from '@layouts/BaseLayout.astro'
+import { format } from 'date-fns';
+import { getEntry } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
 
-import { Box, Stack } from '@cc/index.js'
-import TagContainer from '@components/TagContainer.astro'
+import { Box, Stack } from '@cc/index.js';
+import TagContainer from '@components/TagContainer.astro';
 
 interface Props {
-  description: string
-  title: string
-  children: HTMLElement[]
-  authorId: string
-  pubDate: Date
-  tags: string[]
+  description: string;
+  title: string;
+  children: HTMLElement[];
+  authorId: string;
+  pubDate: Date;
+  tags: string[];
 }
 
-const props = Astro.props
+const props = Astro.props;
 
-const { title, description, authorId, pubDate, tags } = props
+const { title, description, authorId, pubDate, tags } = props;
 
 // const { title, description, pubDate, author } = entry.data
 
-const authorDataObj = await getEntry('authors', authorId)
+const authorDataObj = await getEntry('authors', authorId);
 ---
 
 <!-- TODO: fix the date format -->

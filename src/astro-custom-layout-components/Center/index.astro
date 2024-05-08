@@ -1,13 +1,13 @@
 ---
-import type { RmUnitType } from '../Types'
+import type { RmUnitType } from '../Types';
 
 type Props = {
-  max?: RmUnitType
-  andText?: boolean
-  gutters?: boolean
-  intrinsic?: boolean
-}
-const { max, ...rest } = Astro.props
+  max?: RmUnitType;
+  andText?: boolean;
+  gutters?: boolean;
+  intrinsic?: boolean;
+};
+const { max, ...rest } = Astro.props;
 ---
 
 <center-l max={max} {...rest}>

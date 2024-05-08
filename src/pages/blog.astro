@@ -1,14 +1,14 @@
 ---
-import Layout from "@layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
+import Layout from '@layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
-import DeckofCards from "@components/DeckofCards.astro";
+import DeckofCards from '@components/DeckofCards.astro';
 
-const pageTitle = "Blog";
-const publishsedPosts: CollectionEntry<"blog">[] = await getCollection(
-  "blog",
-  ({ data }) => data.draft !== true
+const pageTitle = 'Blog';
+const publishsedPosts: CollectionEntry<'blog'>[] = await getCollection(
+  'blog',
+  ({ data }) => data.draft !== true,
 );
 ---
 

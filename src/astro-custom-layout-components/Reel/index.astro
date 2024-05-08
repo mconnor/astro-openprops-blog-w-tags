@@ -1,15 +1,15 @@
 ---
-import type { RmUnitType } from '../Types'
+import type { RmUnitType } from '../Types';
 
 interface Props {
-  itemWidth?: 'auto' | RmUnitType //"250px"
-  space?: RmUnitType //"var(--s1)"
-  height?: 'auto' | RmUnitType //"var(--s1)"
-  noBar?: boolean
-  children: unknown
+  itemWidth?: 'auto' | RmUnitType; //"250px"
+  space?: RmUnitType; //"var(--s1)"
+  height?: 'auto' | RmUnitType; //"var(--s1)"
+  noBar?: boolean;
+  children: unknown;
 }
 
-const { itemWidth, space, height, noBar } = Astro.props
+const { itemWidth, space, height, noBar } = Astro.props;
 ---
 
 <reel-l itemWidth={itemWidth} space={space} height={height} noBar={noBar}>

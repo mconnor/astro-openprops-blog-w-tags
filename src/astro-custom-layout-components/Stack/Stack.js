@@ -9,13 +9,13 @@
  */
 export default class Stack extends HTMLElement {
   constructor() {
-    super()
+    super();
     this.render = () => {
-      this.i = `Stack-${[this.space, this.recursive, this.splitAfter].join('')}`
-      this.dataset.i = this.i
+      this.i = `Stack-${[this.space, this.recursive, this.splitAfter].join('')}`;
+      this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style')
-        styleEl.id = this.i
+        const styleEl = document.createElement('style');
+        styleEl.id = this.i;
         styleEl.innerHTML = `
             [data-i="${this.i}"]${this.recursive ? '' : ' >'} * + * {
               margin-block-start: ${this.space};
@@ -34,59 +34,59 @@ export default class Stack extends HTMLElement {
                 : ''
             }
           `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get space() {
-    return this.getAttribute('space') || 'var(--s1)'
+    return this.getAttribute('space') || 'var(--s1)';
   }
 
   set space(val) {
-    this.setAttribute('space', val)
+    this.setAttribute('space', val);
   }
 
   get recursive() {
-    return this.hasAttribute('recursive')
+    return this.hasAttribute('recursive');
   }
 
   set recursive(val) {
     if (val) {
-      this.setAttribute('recursive', '')
+      this.setAttribute('recursive', '');
     } else {
-      this.removeAttribute('recursive')
+      this.removeAttribute('recursive');
     }
   }
 
   get splitAfter() {
-    const value = this.getAttribute('splitAfter')
-    return value !== null ? value : ''
+    const value = this.getAttribute('splitAfter');
+    return value !== null ? value : '';
   }
 
   set splitAfter(val) {
     if (val) {
-      this.setAttribute('splitAfter', val)
+      this.setAttribute('splitAfter', val);
     } else {
-      this.removeAttribute('splitAfter')
+      this.removeAttribute('splitAfter');
     }
   }
 
   static get observedAttributes() {
-    return ['space', 'recursive', 'splitAfter']
+    return ['space', 'recursive', 'splitAfter'];
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
   }
 
   attributeChangedCallback() {
-    this.render()
+    this.render();
   }
 }
 
 if ('customElements' in window) {
-  customElements.define('stack-l', Stack)
+  customElements.define('stack-l', Stack);
 }
