@@ -1,22 +1,9 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro'
-import { Box, Stack } from '@cc/index.js'
-import { Code } from 'astro:components'
-export const prerender = true
-const pageTitle = 'About Page'
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Box, Stack } from "@cc/index.js";
 
-const identity = {
-  firstName: 'Mike',
-  country: 'US',
-  occupation: 'Developer',
-  hobbies: ['photography', 'birdwatching', 'baseball'],
-}
-
-const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs']
-
-const happy = true
-const finished = false
-const goal = 3
+export const prerender = true;
+const pageTitle = "About Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>

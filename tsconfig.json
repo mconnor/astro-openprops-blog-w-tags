@@ -33,17 +33,5 @@
         "src/web-components/*"
       ]
     }
-  },
-  "include": [
-    "src/**/*.d.ts",
-    "**/*.ts",
-    "**/*.mts",
-    "**/*.js",
-    "**/*.mjs",
-    "src/**/*.astro",
-    "postcss.config.mjs"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  }
 }
