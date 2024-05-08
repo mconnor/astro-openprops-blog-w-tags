@@ -1,5 +1,8 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "include": [
+    "src"
+  ],
   "compilerOptions": {
     "verbatimModuleSyntax": true,
     "experimentalDecorators": true,
