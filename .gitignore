@@ -27,3 +27,4 @@ pnpm-debug.log*
 /.env.development
 /.env.sentry-build-plugin
 /**/vendor/*.js
+/test.txt
