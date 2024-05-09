@@ -1,7 +1,7 @@
 ---
 import BaseHead from '@components/BaseHead.astro';
 
-import GlobalStyle from '@styles/GlobalStyle.css';
+import GlobalStyles from '@styles/GlobalStyle.css';
 import { ViewTransitions } from 'astro:transitions';
 
 import { Center } from '@cc/index.js';
@@ -29,7 +29,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <BaseHead title={pageTitle} description={description} image={image} />
     <link rel="canonical" href={canonicalURL} />
-    <GlobalStyle />
+    <GlobalStyles />
     <ViewTransitions />
     <!-- <link
       rel="alternate"
