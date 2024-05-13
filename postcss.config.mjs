@@ -4,6 +4,7 @@ import postcssNesting from 'postcss-nesting';
 import postcssPow from 'postcss-pow';
 import postcssImport from 'postcss-import';
 import OpenProps from 'open-props';
+
 // Use process.env.NODE_ENV to check if the environment is production
 // const isProd = import.meta.env.PROD
 // const isDev = import.meta.env.DEV
@@ -11,6 +12,7 @@ import OpenProps from 'open-props';
 export default {
   plugins: [
     postcssImport, //This plugin should probably be used as the first plugin of your list.
+    // postcssJitProps(OpenProps),
     postcssJitProps(OpenProps),
     autoprefixer,
     postcssNesting,

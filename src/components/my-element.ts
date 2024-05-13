@@ -6,7 +6,7 @@
 
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-
+import { classMap } from 'lit/directives/class-map.js';
 /**
  * An example element.
  *
@@ -14,6 +14,8 @@ import { customElement, property } from 'lit/decorators.js';
  * @slot - This element has a slot
  * @csspart button - The button
  */
+
+const mainColor = css`var(--text-1)`;
 @customElement('my-element')
 export class MyElement extends LitElement {
   static override styles = css`
@@ -22,13 +24,14 @@ export class MyElement extends LitElement {
       border: solid 1px gray;
       padding: 16px;
       max-width: 800px;
+      color: ${mainColor};
     }
   `;
 
   /**
    * The name to say "Hello" to.
    */
-  @property()
+  @property({ type: String })
   name = 'World';
 
   /**
@@ -37,9 +40,14 @@ export class MyElement extends LitElement {
   @property({ type: Number })
   count = 0;
 
-  override render() {
+  @property({ type: Boolean })
+  enabled = false;
+
+  render() {
+    const classes = { enabled: this.enabled, hidden: false };
     return html`
-      <h1>${this.sayHello(this.name)}!</h1>
+      <p>${this.sayHello(this.name)}!</p>
+      <div class=${classMap(classes)}>Classy text</div>
       <button @click=${this._onClick} part="button">
         Click Count: ${this.count}
       </button>

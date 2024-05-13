@@ -44,7 +44,7 @@ const authorDataObj = await getEntry('authors', authorId);
     </Box>
 
     <TagContainer tags={tags} />
-    <Box padding="0" borderWidth="0"><slot name="main" /> </Box>
+    <Box padding="var(--s2)" borderWidth="0"><slot name="main" /> </Box>
   </Stack>
 </BaseLayout>
 

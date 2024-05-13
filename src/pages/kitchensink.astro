@@ -682,6 +682,14 @@ import { Box, Stack } from '@cc/index.js';
     grid-auto-rows: var(--size);
     gap: var(--size-5);
     margin-block-start: var(--size-6);
+    > * {
+      border-radius: var(--radius-3);
+      display: grid;
+      place-content: center;
+      font-size: var(--font-size-3);
+      font-weight: var(--font-weight-2);
+      box-shadow: var(--shadow-6);
+    }
   }
 
   @media (width <= 480px) {
@@ -690,24 +698,14 @@ import { Box, Stack } from '@cc/index.js';
     }
   }
 
-  .surface-samples > * {
-    border-radius: var(--radius-3);
-    display: grid;
-    place-content: center;
-    font-size: var(--font-size-3);
-    font-weight: var(--font-weight-2);
-    box-shadow: var(--shadow-6);
-  }
-
   .text-samples {
     display: grid;
     gap: var(--size-3);
-  }
-
-  .text-samples > h5 {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--size-3);
+    > h5 {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--size-3);
+    }
   }
 
   .text1 {
@@ -735,12 +733,13 @@ import { Box, Stack } from '@cc/index.js';
     block-size: var(--size-8);
     border-radius: var(--radius-round);
     box-shadow: var(--shadow-4);
-  }
-  .swatch.text1 {
-    background-color: var(--text-1);
-  }
-  .swatch.text2 {
-    background-color: var(--text-2);
+    &.text1 {
+      background-color: var(--text-1);
+    }
+
+    &.text2 {
+      background-color: var(--text-2);
+    }
   }
 
   .buttons-list {

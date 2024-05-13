@@ -1,5 +1,6 @@
 ---
 import Social from './Social.astro';
+import AstroNavigateSelect from '@components/AstroNavigateSelect.astro';
 
 import { Box, Cluster } from '@cc/index.js';
 ---
@@ -9,6 +10,7 @@ import { Box, Cluster } from '@cc/index.js';
     <h3>footer</h3>
     <Cluster justify="space-around">
       <Social platform="twitter" />
+      <AstroNavigateSelect />
       <Social platform="github" />
       <Social platform="youtube" />
     </Cluster>

@@ -29,6 +29,7 @@ const compat = new FlatCompat({
 export default tseslint.config(
   js.configs.recommended,
   // ...tseslint.configs.recommended,
+  // ...tseslint.configs.strict,
   ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
   ...eslintPluginAstro.configs.recommended,
@@ -53,6 +54,7 @@ export default tseslint.config(
       },
       // parser: tseslint.parser,
       parserOptions: {
+        processor: eslintPluginAstro.processors.astro,
         project: true,
       },
     },

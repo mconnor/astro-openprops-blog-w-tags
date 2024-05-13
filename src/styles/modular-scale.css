@@ -1,7 +1,9 @@
 :root {
+
   --measure: 60ch;
   --ratio: 1.61803398875;
   --font-size-base: 1rem;
+
 
   --s0: var(--font-size-base);
   --s00: calc(var(--s0) * pow(var(--ratio), -3));

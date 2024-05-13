@@ -1,29 +1,38 @@
 ---
-// import AstroNavigateSelect from '@components/AstroNavigateSelect.astro'
+import AstroNavigateSelect from '@components/AstroNavigateSelect.astro';
 
-import BaseLayout from '@layouts/BaseLayout.astro';
+import Layout from '@layouts/BaseLayout.astro';
 import { LitHeartButton } from '@wc/LitHeartButton';
-import { MyElement } from '@components/my-element.js';
+import { MyElement } from '@components/my-element';
 import { Box, Stack } from '@cc/index';
+import AstroHeart from '@components/HeartBtn.astro';
 ---
 
-<BaseLayout pageTitle="home">
-  <Stack recursive>
-    <Box borderWidth="2px"><LitHeartButton client:only="lit" /></Box>
-    <Box borderWidth="2px"><MyElement client:only="lit" /></Box>
-    <Box borderWidth="2px" invert><MyElement client:only="lit" /></Box>
-    <!-- <Box><AstroNavigateSelect client:visible /></Box> -->
-  </Stack>
-  <style>
-    .myLayoutColor {
-      color: var(--color-dark);
-      background-color: var(--color-light);
-    }
+<Layout pageTitle="home">
+  <Box borderWidth="2px"
+    ><p>
+      Laborum culpa consequat tempor esse dolore proident pariatur excepteur
+      commodo tempor duis magna ut.
+    </p></Box
+  >
+  <Box borderWidth="2px">
+    <Box
+      >Web components with custom elements
+      <AstroHeart /></Box
+    >
 
-    .skill {
-      font-weight: var(--font-weight-7);
-      text-transform: var(--textCase);
-      /* color: var(--accent); */
-    }
-  </style>
-</BaseLayout>
+    <Box>
+      <LitHeartButton client:only="lit">Lit components</LitHeartButton></Box
+    >
+
+    <Box borderWidth="2px"><MyElement client:only="lit">xxx</MyElement> </Box>
+    <Box borderWidth="2px"><MyElement client:only="lit">JJJ</MyElement></Box>
+    <!-- <Box><AstroNavigateSelect client:visible /></Box> -->
+  </Box>
+
+  <!-- <style>
+  [class^='box'] {
+    max-inline-size: var(--size-content-3);
+  }
+</style> -->
+</Layout>

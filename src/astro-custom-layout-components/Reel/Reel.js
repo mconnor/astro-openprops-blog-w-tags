@@ -14,7 +14,7 @@ export default class Reel extends HTMLElement {
       this.i = `Reel-${[this.itemWidth, this.height, this.space, this.noBar].join('')}`;
       this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style');
+        let styleEl = document.createElement('style');
         styleEl.id = this.i;
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
@@ -36,12 +36,12 @@ export default class Reel extends HTMLElement {
           }
       
           [data-i="${this.i}"].overflowing {
-            ${!this.noBar ? `padding-bottom: ${this.space}` : ''}
+            ${!this.noBar ?
+            `padding-bottom: ${this.space}`
+            : ''}
           }
       
-          ${
-            this.noBar
-              ? `
+          ${this.noBar ? `
           [data-i="${this.i}"] {
             scrollbar-width: none;
           }
@@ -49,15 +49,11 @@ export default class Reel extends HTMLElement {
           [data-i="${this.i}"]::-webkit-scrollbar {
             display: none;
           }
-          `
-              : ''
-          }
-        `
-          .replace(/\s{2,}/g, ' ')
-          .trim();
+          ` : ''}
+        `.replace(/\s\s+/g, ' ').trim();
         document.head.appendChild(styleEl);
       }
-    };
+    }
   }
 
   toggleOverflowClass(elem) {
@@ -69,7 +65,7 @@ export default class Reel extends HTMLElement {
   }
 
   set itemWidth(val) {
-    this.setAttribute('itemWidth', val);
+    return this.setAttribute('itemWidth', val);
   }
 
   get height() {
@@ -77,7 +73,7 @@ export default class Reel extends HTMLElement {
   }
 
   set height(val) {
-    this.setAttribute('height', val);
+    return this.setAttribute('height', val);
   }
 
   get space() {
@@ -85,7 +81,7 @@ export default class Reel extends HTMLElement {
   }
 
   set space(val) {
-    this.setAttribute('space', val);
+    return this.setAttribute('space', val);
   }
 
   get noBar() {
@@ -107,13 +103,13 @@ export default class Reel extends HTMLElement {
   connectedCallback() {
     this.render();
     if ('ResizeObserver' in window) {
-      new ResizeObserver((entries) => {
+      new ResizeObserver(entries => {
         this.toggleOverflowClass(entries[0].target);
       }).observe(this);
     }
 
     if ('MutationObserver' in window) {
-      new MutationObserver((entries) => {
+      new MutationObserver(entries => {
         this.toggleOverflowClass(entries[0].target);
       }).observe(this, { childList: true });
     }

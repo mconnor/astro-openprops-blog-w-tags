@@ -1,8 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "compilerOptions": {
     "verbatimModuleSyntax": true,
     "experimentalDecorators": true,
@@ -11,30 +9,14 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@cc/*": [
-        "src/astro-custom-layout-components/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@content/*": [
-        "src/content/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@scripts/*": [
-        "src/scripts/*"
-      ],
-      "@wc/*": [
-        "src/web-components/*"
-      ]
+      "@components/*": ["src/components/*"],
+      "@cc/*": ["src/astro-custom-layout-components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@content/*": ["src/content/*"],
+      "@assets/*": ["src/assets/*"],
+      "@styles/*": ["src/styles/*"],
+      "@scripts/*": ["src/scripts/*"],
+      "@wc/*": ["src/web-components/*"]
     }
   }
 }

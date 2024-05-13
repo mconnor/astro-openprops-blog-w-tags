@@ -1,12 +1,11 @@
 :root {
-  color-scheme: light dark;
+
 
   /* dark theme values */
 
   --size-conditional-5: clamp(0px, calc(100vw - 100%) * 1e5, var(--size-5));
 
-  --color-light: hsl(0 0% 80%);
-  --color-dark: hsl(0 0% 20%);
+
 
   /* light */
   --brand-light: var(--orange-12);
