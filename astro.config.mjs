@@ -41,5 +41,5 @@ export default defineConfig({
       noExternal: ['date-fns', 'open-props'],
     },
   },
-  cacheDir: './my-custom-cache-directory',
+  // cacheDir: './my-custom-cache-directory',
 });

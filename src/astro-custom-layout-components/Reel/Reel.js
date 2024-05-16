@@ -65,7 +65,7 @@ export default class Reel extends HTMLElement {
   }
 
   set itemWidth(val) {
-    return this.setAttribute('itemWidth', val);
+     this.setAttribute('itemWidth', val);
   }
 
   get height() {
@@ -73,7 +73,7 @@ export default class Reel extends HTMLElement {
   }
 
   set height(val) {
-    return this.setAttribute('height', val);
+     this.setAttribute('height', val);
   }
 
   get space() {
@@ -81,7 +81,7 @@ export default class Reel extends HTMLElement {
   }
 
   set space(val) {
-    return this.setAttribute('space', val);
+     this.setAttribute('space', val);
   }
 
   get noBar() {

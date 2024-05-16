@@ -12,6 +12,7 @@ import markdown from 'eslint-plugin-markdown';
 import tseslint from 'typescript-eslint';
 import { FlatCompat } from '@eslint/eslintrc';
 import regexpEslint from 'eslint-plugin-regexp';
+// import wc from 'eslint-plugin-wc';
 // parsers
 
 // const typescriptEslint = tseslint.plugin;
@@ -29,10 +30,11 @@ const compat = new FlatCompat({
 export default tseslint.config(
   js.configs.recommended,
   // ...tseslint.configs.recommended,
-  // ...tseslint.configs.strict,
-  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.strict,
+  // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
   ...eslintPluginAstro.configs.recommended,
+  ...compat.extends('plugin:wc/recommended'),
   ...compat.extends('plugin:regexp/recommended'),
   {
     ignores: [
