@@ -15,6 +15,7 @@ export class LitHeartButton extends LitElement {
       justify-content: space-around;
       border-style: solid;
    
+   
      max-inline-size: var(--size-content-1);
 
   
@@ -23,8 +24,8 @@ export class LitHeartButton extends LitElement {
   @property({ type: Number, reflect: true })
   count: number = 0;
 
-  @property({ type: String })
-  borderW: string = '1px';
+  @property({ attribute: false })
+  borderW = "1px";
 
   click() {
     this.count++;

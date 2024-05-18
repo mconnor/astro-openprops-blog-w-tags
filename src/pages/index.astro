@@ -2,7 +2,7 @@
 // import AstroNavigateSelect from '@components/AstroNavigateSelect.astro';
 
 import Layout from '@layouts/BaseLayout.astro';
-import { LitHeartButton } from '@wc/LitHeartButton';
+// import { LitHeartButton } from '@wc/LitHeartButton';
 import { MyElement } from '@components/my-element';
 import { Box } from '@cc/index';
 import AstroHeart from '@components/HeartBtn.astro';
@@ -20,12 +20,12 @@ import AstroHeart from '@components/HeartBtn.astro';
       >Web components with custom elements
       <AstroHeart /></Box
     >
-
+<!-- 
     <Box>
       <LitHeartButton client:only="lit" borderW="6px"
         >Lit components</LitHeartButton
       ></Box
-    >
+    > -->
 
     <Box borderWidth="2px"><MyElement client:only="lit">xxx</MyElement> </Box>
     <Box borderWidth="2px"><MyElement client:only="lit">JJJ</MyElement></Box>
