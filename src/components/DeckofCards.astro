@@ -16,34 +16,30 @@ interface Props {
 
 const { posts } = Astro.props;
 
-interface PostWithAuthorInt {
-  title: string;
-  authName: string;
-  pubDate: Date;
-  slug: string;
-  cover: { url: string; alt: string };
-  desc: string;
-}
+// interface PostWithAuthorInt {
+//   title: string;
+//   authName: string;
+//   pubDate: Date;
+//   slug: string;
+//   cover: { url: string; alt: string };
+//   desc: string;
+// }
 
-const getDecoratedPosts = async (
-  _posts: typeof posts,
-): Promise<PostWithAuthorInt[]> =>
+const getDecoratedPosts = async (_posts: PostType[]): Promise<T[]> =>
   await Promise.all(
     _posts.map(async (p) => {
-      const { data, slug } = p;
-      const { author, title, pubDate, cover, description } = data;
-      const { id } = author;
+      const { data } = p;
+      const { author } = data;
 
-      const authorObj = await getEntry('authors', id);
-      const { name } = authorObj.data;
+      const authorObj = await getEntry('authors', author.id);
 
       return {
-        title,
-        authName: name,
-        pubDate,
-        slug,
-        cover,
-        desc: description,
+        title: data.title,
+        authName: authorObj.data.name,
+        pubDate: data.pubDate,
+        slug: p.slug,
+        cover: data.cover,
+        desc: data.description,
       };
     }),
   );

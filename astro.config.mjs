@@ -37,9 +37,9 @@ export default defineConfig({
     }),
   ],
   vite: {
-    optimizeDeps: {
-      include: ['linked-dep'],
-    },
+    // optimizeDeps: {
+    //   include: ['linked-dep'],
+    // },
     ssr: {
       noExternal: ['date-fns', 'open-props'],
     },
