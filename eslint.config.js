@@ -2,8 +2,6 @@
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-// import { builtinModules } from 'node:module';
-
 import eslintPluginAstro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
@@ -12,12 +10,7 @@ import markdown from 'eslint-plugin-markdown';
 import tseslint from 'typescript-eslint';
 import { FlatCompat } from '@eslint/eslintrc';
 import regexpEslint from 'eslint-plugin-regexp';
-// import wc from 'eslint-plugin-wc';
-// parsers
 
-// const typescriptEslint = tseslint.plugin;
-
-// import tsPlugin from '@typescript-eslint/eslint-plugin';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -33,8 +26,12 @@ export default tseslint.config(
   ...tseslint.configs.strict,
   // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
+
   ...eslintPluginAstro.configs.recommended,
+
+  ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
+
   ...compat.extends('plugin:regexp/recommended'),
   {
     ignores: [
@@ -54,10 +51,11 @@ export default tseslint.config(
       globals: {
         ...globals.browser,
       },
-      // parser: tseslint.parser,
+
       parserOptions: {
-        processor: eslintPluginAstro.processors.astro,
-        project: true,
+        // processor: eslintPluginAstro.processors.astro,
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: './',
       },
     },
     plugins: {
@@ -69,6 +67,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-duplicate-type-constituents': 'warn',
       '@typescript-eslint/unbound-method': 'warn',
+      'wc/no-constructor-attributes': 'off',
     },
   },
   {
@@ -106,13 +105,6 @@ export default tseslint.config(
     // disable type-aware linting on JS files
     files: ['**/*.js'],
     ...tseslint.configs.disableTypeChecked,
-  },
-  {
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
   },
   eslintConfigPrettier, // eslint-config-prettier last
 );
