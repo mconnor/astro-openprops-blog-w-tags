@@ -1,9 +1,5 @@
-
-
 :root {
-
-
-    /* light */
+  /* light */
   --brand-light: var(--orange-6);
   --text-1-light: var(--gray-8);
   --text-2-light: var(--gray-7);
@@ -36,4 +32,3 @@
   --surface-shadow: var(--surface-shadow-light);
   --shadow-strength: var(--shadow-strength-light); */
 }
-

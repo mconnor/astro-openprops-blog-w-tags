@@ -5,7 +5,7 @@
   "cssvar.files": [
     "./node_modules/open-props/open-props.min.css",
     ".src/styles/*.css",
-    ".src/styles/GlobalStyle.astro",
+    ".src/styles/GlobalStyle.astro"
     // if you have an alternative path to where your styles are located
     // you can add it in this array of files
     // "assets/styles/variables.css"
@@ -13,13 +13,7 @@
   // Do not ignore node_modules css files, which is ignored by default
   "cssvar.ignore": [],
   // add support for autocomplete in JS or JS like files
-  "cssvar.extensions": [
-    "css",
-    "postcss",
-    "jsx",
-    "tsx",
-    "astro"
-  ],
+  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
   // add support for autocomplete in JS or JS like files
   "[astro][javascript][typescript][markdown]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
@@ -40,11 +34,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "stylelint.validate": [
-    "html",
-    "vue",
-    "svelte",
-    "astro"
-  ],
+  "stylelint.validate": ["html", "vue", "svelte", "astro"],
   "typescript.inlayHints.parameterNames.enabled": "none"
 }

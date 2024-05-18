@@ -19,19 +19,19 @@ export default class Box extends HTMLElement {
           [data-i="${this.i}"] {
             padding: ${this.padding};
             border: ${this.borderWidth} solid;
-            ${this.invert ?
-            `filter: invert(100%);`
-            : ''}
+            ${this.invert ? `filter: invert(100%);` : ''}
           }
       
           [data-i="${this.i}"] {
             color: inherit;
             background-color: inherit;
           }
-        `.replace(/\s{2,}/g, ' ').trim();
+        `
+          .replace(/\s{2,}/g, ' ')
+          .trim();
         document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get padding() {

@@ -4,7 +4,6 @@ import { styleMap } from 'lit/directives/style-map.js';
 
 const mainColor = css`var(--brand)`;
 
-
 @customElement('lit-heart-button')
 export class LitHeartButton extends LitElement {
   static styles = css`
@@ -26,7 +25,6 @@ export class LitHeartButton extends LitElement {
 
   @property({ type: String })
   borderW: string = '1px';
-    
 
   click() {
     this.count++;
