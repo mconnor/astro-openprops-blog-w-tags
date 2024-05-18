@@ -50,7 +50,7 @@ export default class Reel extends HTMLElement {
             display: none;
           }
           ` : ''}
-        `.replace(/\s\s+/g, ' ').trim();
+        `.replace(/\s{2,}/g, ' ').trim();
         document.head.appendChild(styleEl);
       }
     }

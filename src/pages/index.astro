@@ -22,7 +22,9 @@ import AstroHeart from '@components/HeartBtn.astro';
     >
 
     <Box>
-      <LitHeartButton client:only="lit">Lit components</LitHeartButton></Box
+      <LitHeartButton client:only="lit" borderWidth="6px"
+        >Lit components</LitHeartButton
+      ></Box
     >
 
     <Box borderWidth="2px"><MyElement client:only="lit">xxx</MyElement> </Box>
