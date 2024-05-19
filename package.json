@@ -7,6 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "check": "astro check",
+    "sync": "astro sync",
     "host": "astro dev --host",
     "build": "astro check && astro build",
     "devbuild": "astro check && astro build development",
