@@ -1,7 +1,3 @@
-:root {
-  --color-light: var(--gray-1);
-  --color-dark: var(--gray-12);
-}
 
 .surface1 {
   color: var(--surface-1);

@@ -27,7 +27,7 @@ export default class Box extends HTMLElement {
             background-color: inherit;
           }
         `
-          .replace(/\s{2,}/g, ' ')
+          .replace(/\s\s+/g, ' ')
           .trim();
         document.head.appendChild(styleEl);
       }
@@ -39,7 +39,7 @@ export default class Box extends HTMLElement {
   }
 
   set padding(val) {
-    this.setAttribute('padding', val);
+    return this.setAttribute('padding', val);
   }
 
   get borderWidth() {
@@ -47,7 +47,7 @@ export default class Box extends HTMLElement {
   }
 
   set borderWidth(val) {
-    this.setAttribute('borderWidth', val);
+    return this.setAttribute('borderWidth', val);
   }
 
   static get observedAttributes() {
@@ -60,9 +60,9 @@ export default class Box extends HTMLElement {
 
   set invert(val) {
     if (val) {
-      this.setAttribute('invert', '');
+      return this.setAttribute('invert', '');
     } else {
-      this.removeAttribute('invert');
+      return this.removeAttribute('invert');
     }
   }
 

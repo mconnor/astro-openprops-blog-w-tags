@@ -11,16 +11,16 @@ import AstroHeart from '@components/HeartBtn.astro';
 <Layout pageTitle="home">
   <Box borderWidth="2px" invert
     ><p>
-      Laborum culpa consequat tempor esse dolore proident pariatur excepteur
+      Invert box consequat tempor esse dolore proident pariatur excepteur
       commodo tempor duis magna ut.
     </p></Box
   >
   <Box borderWidth="2px">
-    <Box
+    <Box invert
       >Web components with custom elements
       <AstroHeart /></Box
     >
-<!-- 
+    <!-- 
     <Box>
       <LitHeartButton client:only="lit" borderW="6px"
         >Lit components</LitHeartButton
@@ -32,9 +32,9 @@ import AstroHeart from '@components/HeartBtn.astro';
     <!-- <Box><AstroNavigateSelect client:visible /></Box> -->
   </Box>
 
-  <!-- <style>
-  [class^='box'] {
-    max-inline-size: var(--size-content-3);
-  }
-</style> -->
+  <style>
+    [class^='box'] {
+      max-inline-size: var(--size-content-3);
+    }
+  </style>
 </Layout>

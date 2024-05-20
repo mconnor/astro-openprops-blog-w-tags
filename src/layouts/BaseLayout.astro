@@ -2,14 +2,13 @@
 import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
-import { Cover, Center } from '@cc/index.js';
+import { Cover, Box, Center } from '@cc/index.js';
 
 type Props = {
   pageTitle?: string;
   description?: string;
   image?: string;
   children: unknown;
-  // surfaceClass?: 'surface-1' | 'surface-2' | 'surface-3' | 'surface-4'
 };
 
 // const isProd = import.meta.env.PROD
@@ -24,7 +23,7 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en" transition:animate="none" color-scheme="dark">
+<html lang="en" transition:animate="none">
   <head>
     <BaseHead title={pageTitle} description={description} image={image} />
     <link rel="canonical" href={canonicalURL} />

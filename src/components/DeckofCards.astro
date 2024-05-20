@@ -25,7 +25,7 @@ const { posts } = Astro.props;
 //   desc: string;
 // }
 
-const getDecoratedPosts = async (_posts: PostType[]): Promise<T[]> =>
+const getDecoratedPosts = async (_posts: PostType[]) =>
   await Promise.all(
     _posts.map(async (p) => {
       const { data } = p;

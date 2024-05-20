@@ -12,7 +12,7 @@ import OpenProps from 'open-props';
 export default {
   plugins: [
     postcssImport, //This plugin should probably be used as the first plugin of your list.
-    postcssJitProps(OpenProps),
+    postcssJitProps({ ...OpenProps, layer: 'design.system' }),
     autoprefixer,
     postcssNesting,
     postcssPow,
