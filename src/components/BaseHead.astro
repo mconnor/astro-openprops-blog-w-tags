@@ -43,8 +43,11 @@ const { title, description, image } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
-<!-- <script src="https://kit.fontawesome.com/fe2049e447.js" is:inline crossorigin="anonymous"
-></script> -->
+<script
+  src={process.env.FONT_AWESOME_SCRIPT_URL}
+  is:inline
+  crossorigin="anonymous"></script>
+
 <!-- <script is:inline>
   import * as Sentry from '@sentry/browser';
 

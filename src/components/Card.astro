@@ -3,29 +3,29 @@ type Props = {
   href: string;
   children: HTMLElement[];
 };
-
+import { Switcher, Stack, Box, Frame } from '@cc/index.js';
 const { href } = Astro.props;
 ---
 
-<a href={href} class:list={['card']}>
-  <slot name="top" />
-  <slot name="middle" />
-  <slot name="bottom" />
-</a>
+<div class:list={['card', 'surface3']}>
+  <a href={href}>
+    <slot />
+  </a>
+</div>
 
 <style>
   .card {
-    text-decoration: none;
-    color: var(--text-3) !important;
-    background-color: var(--surface-3) !important;
-
+    background-color: red;
     border-radius: var(--radius-4);
-    padding: var(--size-fluid-3);
+
     box-shadow: var(--shadow-2);
 
-    margin-top: var(--size-fluid-3);
     &:hover {
       box-shadow: var(--shadow-3);
+    }
+
+    @media (--motionOK) {
+      animation: var(--animation-fade-in);
     }
   }
 </style>
