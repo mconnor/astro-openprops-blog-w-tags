@@ -13,7 +13,7 @@
   @import url('open-props/postcss/normalize') layer(design.reset);
   @import url('./modular-scale.css') layer(myprops.modular);
   @import url('./utility-classes.css') layer(utilities);
-  /* @import url('./typography.css') layer(typography); */
+  @import url('./typography.css') layer(typography);
 
   /* --surface-2-dark: var(--gray-11); */
   @import url('./theme-props.css') layer(theme);
@@ -41,5 +41,5 @@
     -webkit-text-fill-color: transparent;
   }
 
-  @layer design ,myprops,  theme , utilities, typography;
+  @layer design ,myprops , typography;
 </style>
