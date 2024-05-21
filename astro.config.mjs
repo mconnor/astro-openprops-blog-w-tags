@@ -2,6 +2,9 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
+
+import * as dotenv from 'dotenv';
+dotenv.config();
 // import { visualizer } from 'rollup-plugin-visualizer';
 // import myIntegration from './my-toolbar-app/my-integration.ts';
 
