@@ -4,8 +4,9 @@
   "scss.validate": false,
   "cssvar.files": [
     "./node_modules/open-props/open-props.min.css",
-    ".src/styles/*.css",
-    ".src/styles/GlobalStyle.astro"
+    ".src/styles/modular-scale.css",
+    ".src/styles/GlobalStyle.astro",
+    ".src/astro-custom-layout-components/*.css"
     // if you have an alternative path to where your styles are located
     // you can add it in this array of files
     // "assets/styles/variables.css"

@@ -13,3 +13,8 @@ small,
 dd {
   color: var(--text-2);
 }
+
+    :where(html) {
+      font-family: var(--font-mono);
+
+    }

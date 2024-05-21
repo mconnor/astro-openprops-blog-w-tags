@@ -2,7 +2,7 @@
 // import 'open-props/postcss/style';
 // import 'open-props/postcss/buttons';
 // import 'open-props/postcss/normalize';
-// import './utilities.css';
+// import './utility-classes.css';
 // import './theme-props.css';
 // import './modular-scale.css';
 // import './EveryLayout.css';
@@ -11,17 +11,19 @@
 <style is:global>
   @import url('open-props/postcss/buttons') layer(design.extras);
   @import url('open-props/postcss/normalize') layer(design.reset);
-  @import url('./modular-scale.css') layer(myprops);
-  @import url('./utility-classes.css') layer(myprops);
+  @import url('./modular-scale.css') layer(myprops.modular);
+  @import url('./utility-classes.css') layer(utilities);
   /* @import url('./typography.css') layer(typography); */
 
   /* --surface-2-dark: var(--gray-11); */
   @import url('./theme-props.css') layer(theme);
 
-  @layer design ,myprops,  theme , utilities, typography;
-
   @layer design {
     @layer system, extras, reset;
+  }
+
+  @layer myprops {
+    @layer modular, utils;
   }
 
   /* .surface1 
@@ -33,29 +35,11 @@
     --color-dark: var(--gray-12);
   }
 
-  html {
-    font-family: var(--font-sans);
-
-    /* set defaults */
-    --brand: var(--brand-light);
-    --text-1: var(--text-1-light);
-    --text-2: var(--text-2-light);
-    --surface-1: var(--surface-1-light);
-    --surface-2: var(--surface-2-light);
-    --surface-3: var(--surface-3-light);
-    --surface-4: var(--surface-4-light);
-    --surface-shadow: var(--surface-shadow-light);
-    --shadow-strength: var(--shadow-strength-light);
-  }
-
-  /* body {
-    color: var(--color-light);
-    background-color: var(--color-dark);
-  } */
-
   .gradient-text {
     background: var(--gradient-1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  @layer design ,myprops,  theme , utilities, typography;
 </style>

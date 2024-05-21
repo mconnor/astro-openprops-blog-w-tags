@@ -7,6 +7,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { styleMap } from 'lit/directives/style-map.js';
 /**
  * An example element.
  *
@@ -43,15 +44,25 @@ export class MyElement extends LitElement {
   @property({ type: Boolean })
   enabled = false;
 
+  @property({ attribute: false })
+  borderW = '1px';
+
   render() {
+    const styles = {
+      borderWidth: this.borderW,
+      borderColor: 'black',
+      borderStyle: 'solid',
+    };
     const classes = { enabled: this.enabled, hidden: false };
     return html`
-      <p>${this.sayHello(this.name)}!</p>
-      <div class=${classMap(classes)}>Classy text</div>
-      <button @click=${this._onClick} part="button">
-        Click Count: ${this.count}
-      </button>
-      <slot></slot>
+      <div style=${styleMap(styles)}>
+        <p>${this.sayHello(this.name)}!</p>
+        <div>Classy text</div>
+        <button @click=${this._onClick} part="button">
+          Click Count: ${this.count}
+        </button>
+        <slot></slot>
+      </div>
     `;
   }
 

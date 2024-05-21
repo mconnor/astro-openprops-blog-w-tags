@@ -2,8 +2,8 @@
 // import AstroNavigateSelect from '@components/AstroNavigateSelect.astro';
 
 import Layout from '@layouts/BaseLayout.astro';
-// import { LitHeartButton } from '@wc/LitHeartButton';
-import { MyElement } from '@components/my-element';
+import { HeartButton } from '@wc/heart-button';
+import { MyElement } from '@wc/my-element';
 import { Box } from '@cc/index';
 import AstroHeart from '@components/HeartBtn.astro';
 ---
@@ -11,11 +11,12 @@ import AstroHeart from '@components/HeartBtn.astro';
 <Layout pageTitle="home">
   <Box borderWidth="2px" invert
     ><p>
-      Invert box consequat tempor esse dolore proident pariatur excepteur
-      commodo tempor duis magna ut.
+      Invert box stats tempor esse dolore proident pariatur excepteur commodo
+      tempor duis magna ut.
     </p></Box
   >
   <Box borderWidth="2px">
+    <AstroHeart />
     <Box invert
       >Web components with custom elements
       <AstroHeart /></Box
@@ -27,14 +28,14 @@ import AstroHeart from '@components/HeartBtn.astro';
       ></Box
     > -->
 
-    <Box borderWidth="2px"><MyElement client:only="lit">xxx</MyElement> </Box>
-    <Box borderWidth="2px"><MyElement client:only="lit">JJJ</MyElement></Box>
+    <Box borderWidth="2px">
+      <MyElement client:only="lit">my-element</MyElement>
+      <HeartButton client:only="lit">heart-btn</HeartButton>
+    </Box>
+    <Box borderWidth="2px" invert>
+      <MyElement client:only="lit">my-element</MyElement>
+      <HeartButton client:only="lit">heart-btn</HeartButton>
+    </Box>
     <!-- <Box><AstroNavigateSelect client:visible /></Box> -->
   </Box>
-
-  <style>
-    [class^='box'] {
-      max-inline-size: var(--size-content-3);
-    }
-  </style>
 </Layout>
