@@ -1,9 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { styleMap } from 'lit/directives/style-map.js';
-import { classMap } from 'lit/directives/class-map.js';
+// import { styleMap } from 'lit/directives/style-map.js';
+// import { classMap } from 'lit/directives/class-map.js';
 import { wcStyles } from './wc-styles.js';
-const mainColor = css`var(--brand)`;
 
 @customElement('heart-button')
 export class HeartButton extends LitElement {

@@ -14,13 +14,7 @@
   // Do not ignore node_modules css files, which is ignored by default
   "cssvar.ignore": [],
   // add support for autocomplete in JS or JS like files
-  "cssvar.extensions": [
-    "css",
-    "postcss",
-    "jsx",
-    "tsx",
-    "astro"
-  ],
+  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
   // add support for autocomplete in JS or JS like files
   "[astro][javascript][typescript][markdown]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
@@ -41,11 +35,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "stylelint.validate": [
-    "html",
-    "vue",
-    "svelte",
-    "astro"
-  ],
+  "stylelint.validate": ["html", "vue", "svelte", "astro"],
   "typescript.inlayHints.parameterNames.enabled": "none"
 }
