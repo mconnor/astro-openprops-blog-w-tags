@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
+// import { visualizer } from 'rollup-plugin-visualizer';
 // import myIntegration from './my-toolbar-app/my-integration.ts';
 
 // var token = loadEnv(process.env.SENTRY_AUTH_TOKEN, process.cwd(), ''),
@@ -12,6 +13,7 @@ export default defineConfig({
   // your configuration options here...
   // https://docs.astro.build/en/reference/configuration-reference/
   output: 'static',
+  cacheDir: './my-custom-cache-directory',
   site: 'http://localhost:4321',
   image: {
     domains: ['astro.build', 'picsum.photos'],
@@ -40,6 +42,7 @@ export default defineConfig({
     // optimizeDeps: {
     //   include: ['linked-dep'],
     // },
+    // plugins: [visualizer()],
     ssr: {
       noExternal: ['date-fns', 'open-props'],
     },

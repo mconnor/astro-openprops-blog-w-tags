@@ -28,3 +28,4 @@ pnpm-debug.log*
 /.env.sentry-build-plugin
 /**/vendor/*.js
 /test.txt
+/stats.html
