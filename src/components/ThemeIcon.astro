@@ -29,17 +29,35 @@
     constructor() {
       super();
       const btn = this.querySelector('button');
+      const htmlNode = document.documentElement;
 
       btn.addEventListener('click', () => {
         const state = btn.getAttribute('data-state');
         if (state === 'sun') {
-          document.documentElement.setAttribute('data-theme', 'dark');
+          htmlNode.setAttribute('data-theme', 'dark');
           btn.setAttribute('data-state', 'moon');
         } else {
-          document.documentElement.setAttribute('data-theme', 'light');
+          htmlNode.setAttribute('data-theme', 'light');
           btn.setAttribute('data-state', 'sun');
         }
       });
     }
   }
 </script>
+<style>
+  #themeToggle {
+    border: 0;
+.sun {
+  fill: black;
+}
+.moon {
+  fill: transparent;
+}
+
+:global(.dark) .sun {
+  fill: transparent;
+}
+:global(.dark) .moon {
+  fill: white;
+}
+</style>

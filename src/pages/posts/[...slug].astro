@@ -1,6 +1,8 @@
 ---
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+
+// import { blogCollection} from '@content/config.ts';
 import { Image } from 'astro:assets';
 
 import { Frame } from '@cc/index.js';
@@ -13,7 +15,7 @@ export const getStaticPaths = async () => {
   const _posts = await getCollection('blog');
   return _posts.map((blogPost) => ({
     params: { slug: blogPost.slug },
-    props: { blogPost },
+    props: {blogPost },
   }));
 };
 

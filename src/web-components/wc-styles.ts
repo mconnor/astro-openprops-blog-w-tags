@@ -10,6 +10,6 @@ export const wcStyles = css`
   }
   .surface1 {
     color: green;
-    background-color: blue;
+    background-color: var(--green-1);
   }
 `;

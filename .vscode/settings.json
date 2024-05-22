@@ -4,7 +4,7 @@
   "scss.validate": false,
   "cssvar.files": [
     "./node_modules/open-props/open-props.min.css",
-    ".src/styles/modular-scale.css",
+    ".src/styles/*.css",
     ".src/styles/GlobalStyle.astro",
     ".src/astro-custom-layout-components/*.css"
     // if you have an alternative path to where your styles are located
@@ -36,5 +36,6 @@
     "typescriptreact"
   ],
   "stylelint.validate": ["html", "vue", "svelte", "astro"],
-  "typescript.inlayHints.parameterNames.enabled": "none"
+  "typescript.inlayHints.parameterNames.enabled": "none",
+  "editor.inlayHints.enabled": "on"
 }

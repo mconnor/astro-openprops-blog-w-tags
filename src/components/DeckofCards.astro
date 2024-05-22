@@ -2,16 +2,14 @@
 import { format } from 'date-fns';
 import type { CollectionEntry } from 'astro:content';
 import { getEntry } from 'astro:content';
-import { Switcher, Stack, Box, Frame } from '@cc/index.js';
+import {  Stack,  Frame } from '@cc/index.js';
 
 import Card from '@components/Card.astro';
 import { Image } from 'astro:assets';
 // import { clearCachedFetchImplementation } from '@sentry/browser/types/transports/utils';
 
-type PostType = CollectionEntry<'blog'>;
-
 interface Props {
-  posts: PostType[];
+  posts: CollectionEntry<'blog'>[];
 }
 
 const { posts } = Astro.props;
@@ -25,7 +23,7 @@ const { posts } = Astro.props;
 //   desc: string;
 // }
 
-const getDecoratedPosts = async (_posts: PostType[]) =>
+const getDecoratedPosts = async (_posts: CollectionEntry<'blog'>[]) =>
   await Promise.all(
     _posts.map(async (p) => {
       const { data } = p;

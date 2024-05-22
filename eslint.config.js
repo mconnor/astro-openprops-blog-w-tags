@@ -35,6 +35,7 @@ export default tseslint.config(
   ...compat.extends('plugin:regexp/recommended'),
   {
     ignores: [
+      'src/astro-custom-layout-components/**',
       'pnpm-lock.yaml',
       '.astro/',
       'dist/',
@@ -66,8 +67,14 @@ export default tseslint.config(
       'regexp/use-ignore-case': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-duplicate-type-constituents': 'warn',
-      '@typescript-eslint/unbound-method': 'warn',
+    },
+  },
+
+  {
+    files: ['scr/web-components/*.ts'],
+    rules: {
       'wc/no-constructor-attributes': 'off',
+      '@typescript-eslint/unbound-method': 'off',
     },
   },
   {

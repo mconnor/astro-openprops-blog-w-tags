@@ -6,7 +6,7 @@
 
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-// import { classMap } from 'lit/directives/class-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
 /**
  * An example element.
@@ -55,9 +55,12 @@ export class MyElement extends LitElement {
     };
     const classes = { enabled: this.enabled, hidden: false };
     return html`
-      <div style=${styleMap(styles)}>
+      <div 
+      class=${classMap(classes)}
+      style=${styleMap(styles)}>
         <p>${this.sayHello(this.name)}!</p>
         <div>Classy text</div>
+      
         <button @click=${this._onClick} part="button">
           Click Count: ${this.count}
         </button>
