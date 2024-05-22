@@ -59,10 +59,10 @@ export default class Box extends HTMLElement {
   }
 
   set invert(val) {
-    if (val) {
-      return this.setAttribute('invert', '');
+    if (!!val) {
+      this.setAttribute('invert', '');
     } else {
-      return this.removeAttribute('invert');
+      this.removeAttribute('invert');
     }
   }
 

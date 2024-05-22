@@ -21,7 +21,7 @@
     "inspect": "eslint --inspect-config"
   },
   "dependencies": {
-    "@astrojs/check": "^0.6.0",
+    "@astrojs/check": "^0.7.0",
     "@astrojs/lit": "^4.0.1",
     "@astrojs/mdx": "^3.0.0",
     "@astrojs/rss": "^4.0.6",
@@ -45,9 +45,9 @@
     "eslint-plugin-astro": "^1.2.0",
     "eslint-plugin-lit": "^1.13.0",
     "eslint-plugin-markdown": "^5.0.0",
-    "eslint-plugin-regexp": "^2.5.0",
+    "eslint-plugin-regexp": "^2.6.0",
     "eslint-plugin-wc": "^2.1.0",
-    "globals": "^15.2.0",
+    "globals": "^15.3.0",
     "postcss-html": "^1.7.0",
     "postcss-import": "^16.1.0",
     "postcss-jit-props": "^1.0.14",
@@ -59,7 +59,7 @@
     "stylelint-config-html": "^1.1.0",
     "stylelint-prettier": "^5.0.0",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^7.9.0"
+    "typescript-eslint": "^7.10.0"
   },
   "engines": {
     "node": "^20.3.0",
