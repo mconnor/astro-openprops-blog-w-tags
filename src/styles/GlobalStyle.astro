@@ -15,6 +15,8 @@
   @import url('./utility-classes.css') layer(utilities);
   @import url('./theme-props.css') layer(theme);
 
+  @layer design ,myprops, theme, utilities;
+
   @layer design {
     @layer system, extras, reset;
   }
@@ -28,6 +30,4 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
-  @layer design ,myprops, theme, utilities;
 </style>
