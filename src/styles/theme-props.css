@@ -1,4 +1,4 @@
-:root {
+:where(html) {
   color-scheme: light dark;
   /* light */
   --brand-light: var(--orange-6);
@@ -36,10 +36,12 @@
   --surface-4: var(--surface-4-light);
   --surface-shadow: var(--surface-shadow-light);
   --shadow-strength: var(--shadow-strength-light);
+
+  
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :where(html) {
     --brand: var(--brand-dark);
 
     --text-1: var(--text-1-dark);
@@ -55,7 +57,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  :where(html) {
     --brand: var(--brand-light);
     --text-1: var(--text-1-light);
     --text-2: var(--text-2-light);
