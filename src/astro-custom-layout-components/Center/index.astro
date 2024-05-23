@@ -1,4 +1,5 @@
 ---
+import './Center.css';
 import type { RmUnitType } from '../Types';
 
 type Props = {
@@ -15,12 +16,3 @@ const { max, ...rest } = Astro.props;
 </center-l>
 
 <script src="./Center.js"></script>
-
-<style is:global>
-  center-l {
-    display: block;
-    box-sizing: content-box;
-    margin-inline: auto;
-    max-inline-size: var(--measure);
-  }
-</style>

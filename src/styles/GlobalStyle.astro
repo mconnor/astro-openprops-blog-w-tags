@@ -13,9 +13,6 @@
   @import url('open-props/postcss/normalize') layer(design.reset);
   @import url('./modular-scale.css') layer(myprops.modular);
   @import url('./utility-classes.css') layer(utilities);
-  /* @import url('./typography.css') layer(typography); */
-
-  /* --surface-2-dark: var(--gray-11); */
   @import url('./theme-props.css') layer(theme);
 
   @layer design {
@@ -25,15 +22,6 @@
   @layer myprops {
     @layer modular, utils;
   }
-
-  /* .surface1 
-  .test2 */
-  /* @import url('/utility-classes.css') layer(utilities); */
-
-  /* :root {
-    --color-light: var(--gray-3);
-    --color-dark: var(--gray-12);
-  } */
 
   .gradient-text {
     background: var(--gradient-1);

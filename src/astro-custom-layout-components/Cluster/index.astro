@@ -1,4 +1,5 @@
 ---
+import './Cluster.css';
 import type {
   RmUnitType,
   JustifyContentTypes,
@@ -23,14 +24,6 @@ const { justify, align, space } = Astro.props;
 
 <script src="./Cluster"></script>
 
-<style is:global>
-  cluster-l {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-</style>
 
 <!-- 
 side	string	"left"	Which element to treat as the sidebar (all values but "left" are considered "right")

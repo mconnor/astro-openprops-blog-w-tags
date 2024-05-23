@@ -34,7 +34,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <Header />
 
       <Center
-        ><Stack>
+        ><Stack space="0" recursive>
           <slot />
         </Stack>
       </Center>

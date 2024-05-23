@@ -1,4 +1,5 @@
 ---
+import './Cover.css'
 import type { RmUnitType } from '../Types';
 
 type Props = {
@@ -18,14 +19,6 @@ const { centeredElement: centered, ...rest } = Astro.props;
 
 <script src="./Cover.js"></script>
 
-<style is:global>
-  cover-l {
-    display: flex;
-    flex-direction: column;
-    min-block-size: 100vh;
-    padding: var(--s00);
-  }
-</style>
 
 <!-- 
 side	string	"left"	Which element to treat as the sidebar (all values but "left" are considered "right")

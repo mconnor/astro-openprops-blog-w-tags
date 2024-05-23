@@ -9,33 +9,24 @@ import AstroHeart from '@components/HeartBtn.astro';
 ---
 
 <Layout pageTitle="home">
-  <Box borderWidth="2px" invert
+  <Box invert
     ><p>
       Invert box stats tempor esse dolore proident pariatur excepteur commodo
       tempor duis magna ut.
     </p></Box
   >
-  <Box borderWidth="2px">
-    <AstroHeart />
-    <Box invert
-      >Web components with custom elements
-      <AstroHeart /></Box
-    >
-    <!-- 
-    <Box>
-      <LitHeartButton client:only="lit" borderW="6px"
-        >Lit components</LitHeartButton
-      ></Box
-    > -->
 
-    <Box borderWidth="2px">
-      <MyElement client:only="lit">my-element</MyElement>
-      <HeartButton client:only="lit">heart-btn</HeartButton>
-    </Box>
-    <Box borderWidth="2px" invert>
-      <MyElement client:only="lit">my-element</MyElement>
-      <HeartButton client:only="lit">heart-btn</HeartButton>
-    </Box>
-    <!-- <Box><AstroNavigateSelect client:visible /></Box> -->
+  <Box
+    >Web components with custom elements
+    <AstroHeart /></Box
+  >
+
+  <Box invert padding="0">
+    <Box><MyElement client:only="lit">my-element</MyElement></Box>
+    <Box invert><HeartButton client:only="lit">heart-btn</HeartButton></Box>
+  </Box>
+  <Box invert>
+    <MyElement client:only="lit">my-element</MyElement>
+    <HeartButton client:only="lit">heart-btn</HeartButton>
   </Box>
 </Layout>
