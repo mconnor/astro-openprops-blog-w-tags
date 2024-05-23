@@ -3,7 +3,8 @@ import DeckofCards from '@components/DeckofCards.astro';
 import { Box } from '@cc/index.js';
 import Layout from '@layouts/BaseLayout.astro';
 
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+// import type { BlogSchemaType } from '../../schemas.ts';
 
 // import type { CollectionEntry } from 'astro:content'
 
@@ -13,36 +14,32 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 //  of posts as props to each page.
 export const prerender = true;
 
-interface Props {
-  filteredPosts: CollectionEntry<'blog'>[];
-}
+// interface Props {
+//   publishedPostWithTags: CollectionEntry<'blog'>[];
+// }
 
 export const getStaticPaths = async () => {
   const allPosts = await getCollection('blog');
   const uniqueTags = [
-    ...new Set(
-      allPosts
-        .map((__post: CollectionEntry<'blog'>) => __post.data.tags)
-        .flat(),
-    ),
+    ...new Set(allPosts.map((__post) => __post.data.tags).flat()),
   ];
 
-  return uniqueTags.map((uTag) => {
-    const filteredPosts = allPosts.filter(
-      (_post: CollectionEntry<'blog'>) =>
-        _post.data.draft !== true && _post.data.tags.includes(uTag),
-    );
+  // parama is  uniqueTags
+  // and the post with that tag
+  return uniqueTags.map((tag) => {
     return {
-      params: { tag: uTag },
+      params: { tag },
       props: {
-        filteredPosts,
+        publishedPostWithTags: allPosts.filter(
+          ({ data }) => data.draft !== true && data.tags.includes(tag),
+        ),
       },
     };
   });
 };
 
 const { tag } = Astro.params;
-const { filteredPosts } = Astro.props;
+const { publishedPostWithTags } = Astro.props;
 ---
 
 <Layout>
@@ -50,9 +47,8 @@ const { filteredPosts } = Astro.props;
     <Box borderWidth="0">
       <h1 class="gradient-text">{`#${tag}`}</h1>
     </Box>
-
-    <DeckofCards posts={filteredPosts} /></Box
-  >
+    <DeckofCards publishsedPosts={publishedPostWithTags} />
+  </Box>
 </Layout>
 
 <style>

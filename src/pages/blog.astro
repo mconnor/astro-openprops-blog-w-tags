@@ -1,12 +1,12 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+// import type { CollectionEntry } from 'astro:content';
 
 import DeckofCards from '@components/DeckofCards.astro';
 
 const pageTitle = 'Blog';
-const publishsedPosts: CollectionEntry<'blog'>[] = await getCollection(
+const publishsedPosts = await getCollection(
   'blog',
   ({ data }) => data.draft !== true,
 );
@@ -20,5 +20,5 @@ const publishsedPosts: CollectionEntry<'blog'>[] = await getCollection(
       >. No CMS, not html, or CSS. Just a .md file basted off a template.
     </p>
   </Box> -->
-  <DeckofCards posts={publishsedPosts} />
+  <DeckofCards publishsedPosts={publishsedPosts} />
 </Layout>

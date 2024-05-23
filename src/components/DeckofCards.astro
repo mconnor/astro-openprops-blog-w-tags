@@ -9,10 +9,10 @@ import { Image } from 'astro:assets';
 // import { clearCachedFetchImplementation } from '@sentry/browser/types/transports/utils';
 
 interface Props {
-  posts: CollectionEntry<'blog'>[];
+  publishsedPosts: CollectionEntry<'blog'>[];
 }
 
-const { posts } = Astro.props;
+const { publishsedPosts } = Astro.props;
 
 // interface PostWithAuthorInt {
 //   title: string;
@@ -27,27 +27,37 @@ const getDecoratedPosts = async (_posts: CollectionEntry<'blog'>[]) =>
   await Promise.all(
     _posts.map(async (p) => {
       const { data } = p;
-      const { author } = data;
+      const { author, title, pubDate, cover, description } = data;
 
-      const authorObj = await getEntry('authors', author.id);
+      const name = await getEntry('authors', author.id)
+        .then((obj) => obj.data.name)
+        .catch((e) => {
+          console.error(e);
+          return 'unknown author';
+        });
 
       return {
-        title: data.title,
-        authName: authorObj.data.name,
-        pubDate: data.pubDate,
+        title,
+        authName: name,
+        pubDate,
         slug: p.slug,
-        cover: data.cover,
-        desc: data.description,
+        cover,
+        description,
       };
     }),
-  );
+  )
+    .then((res) => res)
+    .catch((e: Error) => {
+      console.error(e.message);
+      return [];
+    });
 
-const decoratedPost = await getDecoratedPosts(posts);
+const decoratedPost = await getDecoratedPosts(publishsedPosts);
 ---
 
 <Stack space="var(--s1)" recursive>
   {
-    decoratedPost.map(({ pubDate, slug, title, desc, cover }) => (
+    decoratedPost.map(({ pubDate, slug, title, description, cover }) => (
       <Card href={'/posts/' + slug}>
         <div>
           <p>{format(pubDate, 'MMMM dd, yyyy')}</p>
@@ -59,7 +69,7 @@ const decoratedPost = await getDecoratedPosts(posts);
 
         <div>
           <h3 class="title">{title}</h3>
-          <p class="truncate">{desc}</p>
+          <p class="truncate">{description}</p>
         </div>
       </Card>
     ))
