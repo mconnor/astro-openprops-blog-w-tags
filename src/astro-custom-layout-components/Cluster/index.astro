@@ -15,7 +15,11 @@ type Props = {
   // role?: typeof LIST
 };
 
-const { justify, align, space } = Astro.props;
+const {
+  justify = 'flex-start',
+  align = 'flex-start',
+  space = 'var(--s1)',
+} = Astro.props;
 ---
 
 <cluster-l justify={justify} align={align} space={space}>
@@ -23,7 +27,6 @@ const { justify, align, space } = Astro.props;
 </cluster-l>
 
 <script src="./Cluster"></script>
-
 
 <!-- 
 side	string	"left"	Which element to treat as the sidebar (all values but "left" are considered "right")

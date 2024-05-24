@@ -2,7 +2,7 @@
 import { format } from 'date-fns';
 import type { CollectionEntry } from 'astro:content';
 import { getEntry } from 'astro:content';
-import { Stack, Frame } from '@cc/index.js';
+import { Stack, Frame, Cluster, Box } from '@cc/index.js';
 
 import Card from '@components/Card.astro';
 import { Image } from 'astro:assets';
@@ -55,11 +55,11 @@ const getDecoratedPosts = async (_posts: CollectionEntry<'blog'>[]) =>
 const decoratedPost = await getDecoratedPosts(publishsedPosts);
 ---
 
-<Stack space="var(--s1)" recursive>
+<Stack space="var(--s1)">
   {
     decoratedPost.map(({ pubDate, slug, title, description, cover }) => (
       <Card href={'/posts/' + slug}>
-        <div>
+        <div class="title">
           <p>{format(pubDate, 'MMMM dd, yyyy')}</p>
         </div>
 
@@ -67,9 +67,15 @@ const decoratedPost = await getDecoratedPosts(publishsedPosts);
           <Image src={cover.url} alt={cover.alt} width="1500" height="643" />
         </Frame>
 
-        <div>
-          <h3 class="title">{title}</h3>
-          <p class="truncate">{description}</p>
+        <div class="title">
+          <Cluster justify="space-between" align="baseline">
+            <div>
+              <h3>{title}</h3>
+            </div>
+            <div>
+              <span>{description}</span>
+            </div>
+          </Cluster>
         </div>
       </Card>
     ))
@@ -77,17 +83,19 @@ const decoratedPost = await getDecoratedPosts(publishsedPosts);
 </Stack>
 
 <style>
+  .title {
+    padding: var(--s0) var(--s2);
+  }
+  .cardColor {
+    background-color: yellow;
+  }
   p {
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-2);
   }
   .truncate {
-    flex-grow: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  .title {
-    flex-grow: 1;
   }
 </style>

@@ -33,7 +33,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <Cover centeredElement="center-l" noPad={true} space="0">
       <Header />
 
-      <Center
+      <Center intrinsic
         ><Stack space="0" recursive>
           <slot />
         </Stack>

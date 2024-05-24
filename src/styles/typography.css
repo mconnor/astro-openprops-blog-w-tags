@@ -17,3 +17,13 @@ dd {
 :where(html) {
   font-family: var(--font-mono);
 }
+
+.font-size\:base {
+  font-size: var(--font-size-base) !important;
+}
+.font-size\:biggish {
+  font-size: var(--font-size-biggish) !important;
+}
+.font-size\:big {
+  font-size: var(--font-size-big) !important;
+}

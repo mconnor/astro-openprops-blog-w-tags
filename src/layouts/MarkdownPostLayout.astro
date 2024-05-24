@@ -22,26 +22,23 @@ const authorDataObj = await getEntry('authors', authorId);
 
 <!-- TODO: fix the date format -->
 <BaseLayout pageTitle={title} description={description}>
-  <Stack>
-    <Box padding="0" borderWidth="0">
-      <Box><h2>{description}</h2></Box>
-      <Box><slot name="banner" /></Box>
+  <Box padding="0" borderWidth="0">
+    <Box invert><h2>{title}</h2></Box>
+    <Box padding="0"><slot name="banner" /></Box>
 
-      {
-        authorDataObj?.data.name && (
-          <Box>
-            <p>
-              Written by: {authorDataObj.data.name},{' '}
-              {format(pubDate, 'd MMM, yyyy')}
-            </p>
-          </Box>
-        )
-      }
-    </Box>
-
-    <TagContainer tags={tags} />
-    <Box padding="var(--s2)" borderWidth="0"><slot name="main" /> </Box>
-  </Stack>
+    {
+      authorDataObj?.data.name && (
+        <Box>
+          <p>
+            Written by: {authorDataObj.data.name},{' '}
+            {format(pubDate, 'd MMM, yyyy')}
+          </p>
+        </Box>
+      )
+    }
+  </Box>
+  <Box><TagContainer tags={tags} /></Box>
+  <Box padding="var(--s2)"><slot name="main" /></Box>
 </BaseLayout>
 
 <style></style>
