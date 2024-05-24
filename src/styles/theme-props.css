@@ -36,8 +36,6 @@
   --surface-4: var(--surface-4-light);
   --surface-shadow: var(--surface-shadow-light);
   --shadow-strength: var(--shadow-strength-light);
-
-  
 }
 
 @media (prefers-color-scheme: dark) {

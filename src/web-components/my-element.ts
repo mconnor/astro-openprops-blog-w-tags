@@ -55,12 +55,10 @@ export class MyElement extends LitElement {
     };
     const classes = { enabled: this.enabled, hidden: false };
     return html`
-      <div 
-      class=${classMap(classes)}
-      style=${styleMap(styles)}>
+      <div class=${classMap(classes)} style=${styleMap(styles)}>
         <p>${this.sayHello(this.name)}!</p>
         <div>Classy text</div>
-      
+
         <button @click=${this._onClick} part="button">
           Click Count: ${this.count}
         </button>

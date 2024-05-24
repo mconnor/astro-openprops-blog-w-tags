@@ -31,7 +31,7 @@ export class HeartButton extends LitElement {
   render() {
     /* const styles = wcStyles; */
     return html`
-      <div  class="surface1">
+      <div class="surface1">
         <button class="btn" @click=${this.click} aria-label="Heart">💜</button>
         <slot></slot>
         <span>${this.count}</span>
