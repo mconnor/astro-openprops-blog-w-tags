@@ -29,3 +29,6 @@ pnpm-debug.log*
 /**/vendor/*.js
 /test.txt
 /stats.html
+
+# Sentry Config File
+.sentryclirc

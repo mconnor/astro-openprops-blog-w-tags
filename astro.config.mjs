@@ -2,8 +2,9 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
-
+import vercel from '@astrojs/vercel/static';
 import * as dotenv from 'dotenv';
+
 dotenv.config();
 // import { visualizer } from 'rollup-plugin-visualizer';
 // import myIntegration from './my-toolbar-app/my-integration.ts';
@@ -12,10 +13,13 @@ dotenv.config();
 // pnpm does not allow you to import modules that are not directly installed in your project. If you are using pnpm, you will need to install vite to use the loadEnv helper.
 
 // // https://astro.build/config
+
+// https://astro.build/config
 export default defineConfig({
   // your configuration options here...
   // https://docs.astro.build/en/reference/configuration-reference/
   output: 'static',
+  adapter: vercel(),
   cacheDir: './my-custom-cache-directory',
   site: 'http://localhost:4321',
   image: {
