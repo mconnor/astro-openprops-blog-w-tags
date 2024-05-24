@@ -119,13 +119,3 @@
   is the center of the positioning container */
   transform: translate(-50%, -50%);
 }
-
-.font-size\:base {
-  font-size: var(--font-size-base) !important;
-}
-.font-size\:biggish {
-  font-size: var(--font-size-biggish) !important;
-}
-.font-size\:big {
-  font-size: var(--font-size-big) !important;
-}
