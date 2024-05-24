@@ -1,49 +1,40 @@
 // ver 2.0.0
 
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import eslintPluginAstro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
 import tseslint from 'typescript-eslint';
-import { FlatCompat } from '@eslint/eslintrc';
-import regexpEslint from 'eslint-plugin-regexp';
 
+// import regexpEslint from 'eslint-plugin-regexp';
+import * as regexpPlugin from 'eslint-plugin-regexp';
+
+import { FlatCompat } from '@eslint/eslintrc';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ref: https://eslint.org/docs/latest/use/configure/migration-guide#using-eslintrc-configs-in-flat-config
-// mimic CommonJS variables -- not needed if using CommonJS
 const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
 export default tseslint.config(
-  js.configs.recommended,
+  js.configs.recommended, // Recommended config applied to all files
+  // Override the recommended config
+
   // ...tseslint.configs.recommended,
   ...tseslint.configs.strict,
   // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
 
+  regexpPlugin.configs['flat/recommended'],
   ...eslintPluginAstro.configs.recommended,
-
   ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
-
-  ...compat.extends('plugin:regexp/recommended'),
-  {
-    ignores: [
-      'src/astro-custom-layout-components/**',
-      'pnpm-lock.yaml',
-      '.astro/',
-      'dist/',
-      '**/test.ts',
-      'my-custom-cache-directory',
-      'src/env.d.ts',
-    ],
-  },
 
   {
     languageOptions: {
@@ -52,29 +43,25 @@ export default tseslint.config(
       globals: {
         ...globals.browser,
       },
-
       parserOptions: {
-        // processor: eslintPluginAstro.processors.astro,
         project: ['./tsconfig.json'],
         tsconfigRootDir: './',
       },
     },
-    plugins: {
-      regexp: regexpEslint,
-    },
+  },
+  {
+    files: ['src/astro-custom-layout-components/**/*.js'],
     rules: {
-      // In some cases, using explicit letter-casing is more performant than the `i` flag
-      'regexp/use-ignore-case': 'off',
-      '@typescript-eslint/no-unsafe-return': 'off',
-      '@typescript-eslint/no-duplicate-type-constituents': 'warn',
+      '@typescript-eslint/unbound-method': 'warn',
+      'wc/no-constructor-attributes': 'off',
     },
   },
 
   {
-    files: ['scr/web-components/*.ts'],
+    files: ['scr/web-components/**/*.js'],
     rules: {
-      'wc/no-constructor-attributes': 'off',
-      '@typescript-eslint/unbound-method': 'off',
+      '@typescript-eslint/unbound-method': 'warn',
+      'wc/no-constructor-attributes': 'warn',
     },
   },
   {
@@ -96,22 +83,29 @@ export default tseslint.config(
   },
 
   {
-    files: ['src/**/*.md'],
-
-    processor: 'markdown/markdown',
-    rules: {
-      // ...
-    },
-  },
-  {
     // 1. Target ```js code blocks in .md files.
     files: ['**/*.md/*.js'],
     ...tseslint.configs.disableTypeChecked,
   },
   {
-    // disable type-aware linting on JS files
-    files: ['**/*.js'],
-    ...tseslint.configs.disableTypeChecked,
+    files: ['tests/**'],
+    languageOptions: {
+      globals: {
+        ...globals.mocha,
+      },
+    },
+  },
+  {
+    ignores: [
+      '**/temp.js',
+      'config/*',
+      'pnpm-lock.yaml',
+      '.astro/',
+      'dist/',
+      '**/test.ts',
+      'my-custom-cache-directory',
+      'src/env.d.ts',
+    ],
   },
   eslintConfigPrettier, // eslint-config-prettier last
 );
