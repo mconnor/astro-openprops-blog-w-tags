@@ -4,7 +4,7 @@
   "scss.validate": false,
   "cssvar.files": [
     "./node_modules/open-props/open-props.min.css",
-    "./node_modules/open-props/src/extra/*.css"
+    // "./node_modules/open-props/src/extra/*.css"
     // "src/astro-custom-layout-components/**/*.css",
     // "src/styles/theme.props.css",
     // "src/styles/utility-classes.css",
@@ -14,7 +14,11 @@
   ],
   // Do not ignore node_modules css files, which is ignored by default
   "cssvar.ignore": [],
-  "cssvar.themes": ["dark", "light"],
+  "cssvar.themes": [
+    "dark",
+    "light"
+  ],
+  "cssvar.excludeThemedVariables": true,
   "cssvar.postcssPlugins": [
     "postcss-html",
     "postcss-import",
@@ -42,7 +46,11 @@
     "typescriptreact",
     "css"
   ],
-  "stylelint.validate": ["css", "html", "astro"],
+  "stylelint.validate": [
+    "css",
+    "html",
+    "astro"
+  ],
   "typescript.inlayHints.parameterNames.enabled": "all",
   "editor.inlayHints.enabled": "off"
 }
