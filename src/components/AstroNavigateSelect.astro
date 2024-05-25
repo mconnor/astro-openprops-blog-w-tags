@@ -14,22 +14,27 @@
 <script>
   import { navigate } from 'astro:transitions/client';
 
-  // document.addEventListener('astro:page-load', () => {
-  //   document
-  //     .querySelector('[data-navigate-select]')
-  //     ?.addEventListener('change', (e) => {
-  //       navigate((e.target as HTMLSelectElement).value);
-  //     });
-  // });
-
   class AstroNavigateSelect extends HTMLElement {
-    constructor() {
-      super();
-      const select = this.querySelector('[data-navigate-select]');
-      select &&
-        select.addEventListener('change', (e) => {
-          navigate((e.target as HTMLSelectElement).value);
-        });
+    connectedCallback() {
+      this.querySelector('[data-navigate-select]')?.addEventListener(
+        'change',
+        this._handleChange.bind(this),
+      );
+    }
+
+    disconnectedCallback() {
+      this.querySelector('[data-navigate-select]')?.removeEventListener(
+        'change',
+        this._handleChange.bind(this),
+      );
+    }
+
+    async _handleChange(e) {
+      const targetUrl = e.target.value;
+      console.log(`Navigating to: ${targetUrl}`); // This console log is for debugging purposes
+      // Using 'navigate' function from 'astro:transitions/client'
+
+      navigate(targetUrl);
     }
   }
   customElements.define('astro-navigate-select', AstroNavigateSelect);
