@@ -1,0 +1,58 @@
+---
+
+---
+
+<astro-theme-switcher>
+  <form id="theme" data-select-theme data-doc>
+    <label>
+      Auto
+      <input type="radio" name="theme" value="auto" checked />
+    </label>
+    <label>
+      Light
+      <input type="radio" name="theme" value="light" />
+    </label>
+    <label>
+      Dark
+      <input type="radio" name="theme" value="dark" />
+    </label>
+  </form>
+</astro-theme-switcher>
+
+<script>
+  class AstroThemeSwitcher extends HTMLElement {
+    connectedCallback() {
+      this._firstDocElement = document.firstElementChild;
+
+      this.querySelector('[data-select-theme]')?.addEventListener(
+        'input',
+        this._handleChange.bind(this),
+      );
+    }
+
+    disconnectedCallback() {
+      this.querySelector('[data-select-select]')?.removeEventListener(
+        'input',
+        this._handleChange.bind(this),
+      );
+    }
+
+    async _handleChange(e) {
+      const themeVal = e.target.value;
+      console.log(`set theme  to: ${themeVal}`); // This console log is for debugging purposes
+      // Using 'navigate' function from 'astro:transitions/client'
+      this._firstDocElement.setAttribute('data-theme', e.target.value);
+    }
+
+    set firstDocElement(element) {
+      this._firstDocElement = element;
+      console.log('First Document Element:', this._firstDocElement);
+    }
+
+    get firstDocElement() {
+      return this._firstDocElement;
+    }
+  }
+
+  customElements.define('astro-theme-switcher', AstroThemeSwitcher);
+</script>

@@ -12,6 +12,10 @@
   @import url('open-props/postcss/buttons') layer(design.extras);
   @import url('open-props/postcss/normalize') layer(design.reset);
 
+  @import url('open-props/src/extra/theme.light.switch.css')
+  layer(design.extras);
+  @import url('open-props/src/extra/theme.dark.switch.css') layer(design.extras);
+
   @layer design, modular, theme, utilities, layout;
 
   @layer design {
