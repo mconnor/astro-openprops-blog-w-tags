@@ -1,5 +1,8 @@
 ---
+// import type { HTMLAttributes }
+// interface Props extends HTMLAttributes<'div'> {}
 
+// const {htm }  = Astro.props;
 ---
 
 <astro-theme-switcher>
@@ -21,36 +24,33 @@
 
 <script>
   class AstroThemeSwitcher extends HTMLElement {
+    constructor() {
+      super();
+      // Bind the handleChange method to ensure the context is correct when called
+      this.handleChange = this.handleChange.bind(this);
+    }
+
     connectedCallback() {
-      this._firstDocElement = document.firstElementChild;
+      this._firstDocElement = window.document.firstElementChild;
 
       this.querySelector('[data-select-theme]')?.addEventListener(
         'input',
-        this._handleChange.bind(this),
+        this.handleChange,
       );
     }
 
     disconnectedCallback() {
       this.querySelector('[data-select-select]')?.removeEventListener(
         'input',
-        this._handleChange.bind(this),
+        this.handleChange,
       );
     }
 
-    async _handleChange(e) {
+    handleChange(e) {
       const themeVal = e.target.value;
       console.log(`set theme  to: ${themeVal}`); // This console log is for debugging purposes
       // Using 'navigate' function from 'astro:transitions/client'
       this._firstDocElement.setAttribute('data-theme', e.target.value);
-    }
-
-    set firstDocElement(element) {
-      this._firstDocElement = element;
-      console.log('First Document Element:', this._firstDocElement);
-    }
-
-    get firstDocElement() {
-      return this._firstDocElement;
     }
   }
 

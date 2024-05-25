@@ -1,5 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import { Box } from '@cc/index.js';
+
 type Props = HTMLAttributes<'a'>;
 
 const path = Astro.url.pathname;
@@ -7,5 +9,6 @@ const { href, ...props } = Astro.props;
 const isActive = href === path || href === path.replace(/\/$/, '');
 ---
 
-<a href={href} class:list={['btn', { active: isActive }]} {...props}><slot /></a
->
+<Box padding="0" borderWidth="0">
+  <a href={href} class:list={[{ active: isActive }]} {...props}><slot /></a>
+</Box>
