@@ -7,6 +7,8 @@ import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
 import tseslint from 'typescript-eslint';
 
+
+
 // import regexpEslint from 'eslint-plugin-regexp';
 import * as regexpPlugin from 'eslint-plugin-regexp';
 
@@ -28,11 +30,15 @@ export default tseslint.config(
 
   // ...tseslint.configs.recommended,
   ...tseslint.configs.strict,
+  ...eslintPluginAstro.configs.recommended,
+
   // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
 
   regexpPlugin.configs['flat/recommended'],
-  ...eslintPluginAstro.configs.recommended,
+
+
+  ...compat.extends('plugin:jsx-a11y/recommended'),
   ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
 
@@ -44,16 +50,21 @@ export default tseslint.config(
         ...globals.browser,
       },
       parserOptions: {
+        parser: tseslint.parser,
+        processor: eslintPluginAstro.processors.astro,
         project: ['./tsconfig.json'],
         tsconfigRootDir: './',
       },
     },
+   
   },
+
   {
     files: ['src/astro-custom-layout-components/**/*.js'],
     rules: {
       '@typescript-eslint/unbound-method': 'warn',
       'wc/no-constructor-attributes': 'off',
+     
     },
   },
 
@@ -105,6 +116,8 @@ export default tseslint.config(
       '**/test.ts',
       'my-custom-cache-directory',
       'src/env.d.ts',
+      'src/components/Hamburger.astro',
+     ' src/pages/kitchensink.astro'
     ],
   },
   eslintConfigPrettier, // eslint-config-prettier last
