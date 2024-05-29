@@ -4,8 +4,6 @@ import { getCollection } from 'astro:content';
 
 import { Image } from 'astro:assets';
 
-import { Frame } from '@cc/index.js';
-
 export const getStaticPaths = async () => {
   const _posts = await getCollection('blog');
   return _posts.map((blogPost) => ({
