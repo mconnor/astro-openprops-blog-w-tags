@@ -1,10 +1,12 @@
 ---
 import Link from '@components/Link.astro';
-
+import AstroThemeSwitcher from '@components/AstroThemeSwitcher.astro';
 import { Switcher, Box } from '@cc/index.js';
 ---
 
-<Box borderWidth="var(--s00)" padding="var(--s00)" invert>
+<Box borderWidth="var(--s00)" padding="var(--s000)" invert>
+  <Box padding="var(--s000)" invert><AstroThemeSwitcher /></Box>
+
   <Switcher>
     <Link href="/">Home</Link>
     <Link href="/about/">About</Link>
