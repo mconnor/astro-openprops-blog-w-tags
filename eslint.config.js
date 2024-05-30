@@ -7,8 +7,6 @@ import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
 import tseslint from 'typescript-eslint';
 
-
-
 // import regexpEslint from 'eslint-plugin-regexp';
 import * as regexpPlugin from 'eslint-plugin-regexp';
 
@@ -30,19 +28,18 @@ export default tseslint.config(
 
   // ...tseslint.configs.recommended,
   ...tseslint.configs.strict,
-  ...eslintPluginAstro.configs.recommended,
-  
   // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
+  ...eslintPluginAstro.configs.recommended,
 
   regexpPlugin.configs['flat/recommended'],
-
 
   ...compat.extends('plugin:jsx-a11y/recommended'),
   ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
 
   {
+    files: ['**/*.ts', '**/*.js', '**/*.mjs', '**/*.astro'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -56,40 +53,39 @@ export default tseslint.config(
         tsconfigRootDir: './',
       },
     },
-   
   },
 
   {
-    files: ['src/astro-custom-layout-components/**/*.js'],
+    plugins: {
+      markdown,
+    },
+  },
+  {
+    files: ['**/*.md'],
+    processor: "markdown/markdown",
+
+  },
+  {
+    files: ['**/*.md'],
     rules: {
-      '@typescript-eslint/unbound-method': 'warn',
-      'wc/no-constructor-attributes': 'off',
-     
+      ...markdown.configs.recommended.rules,
     },
   },
 
   {
-    files: ['scr/web-components/**/*.js'],
+    files: ['**/*.js', '**/*.mjs'],
+    ...tseslint.configs.disableTypeChecked,
+  },
+
+  {
+    files: ['scr/web-components/**/*.js', 'src/astro-custom-layout-components/**/*.js'],
     rules: {
-      '@typescript-eslint/unbound-method': 'warn',
-      'wc/no-constructor-attributes': 'warn',
+      'wc/no-constructor-attributes': 'off'
     },
   },
   {
     linterOptions: {
       reportUnusedDisableDirectives: 'warn',
-    },
-  },
-
-  {
-    // disable type-aware linting on JS files
-    files: ['**/*.js', '**/*.mjs'],
-    ...tseslint.configs.disableTypeChecked,
-  },
-  {
-    // 1. Add the plugin
-    plugins: {
-      markdown,
     },
   },
 
@@ -117,7 +113,9 @@ export default tseslint.config(
       'my-custom-cache-directory',
       'src/env.d.ts',
       'src/components/Hamburger.astro',
-     ' src/pages/kitchensink.astro'
+      'src/pages/kitchensink.astro',
+      'src/pages/splash.astro'
+
     ],
   },
   eslintConfigPrettier, // eslint-config-prettier last
