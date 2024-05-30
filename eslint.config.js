@@ -31,7 +31,7 @@ export default tseslint.config(
   // ...tseslint.configs.recommended,
   ...tseslint.configs.strict,
   ...eslintPluginAstro.configs.recommended,
-
+  
   // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
 

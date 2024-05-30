@@ -2,7 +2,6 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { Box } from '@cc/index.js';
 
-export const prerender = true;
 const pageTitle = 'About Page';
 ---
 
@@ -62,11 +61,3 @@ const pageTitle = 'About Page';
     >
   </Box>
 </BaseLayout>
-
-<style>
-  .skill {
-    font-weight: var(--font-weight-7);
-    text-transform: var(--textCase);
-    /* color: var(--accent); */
-  }
-</style>

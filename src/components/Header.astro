@@ -4,14 +4,17 @@ import AstroThemeSwitcher from '@components/AstroThemeSwitcher.astro';
 import { Switcher, Box } from '@cc/index.js';
 ---
 
-<Box borderWidth="var(--s00)" padding="var(--s000)" invert>
-  <Box padding="var(--s000)" invert><AstroThemeSwitcher /></Box>
+<header>
+  <Box borderWidth="var(--s00)" padding="var(--s00)">
+    <Box padding="var(--s000)"><AstroThemeSwitcher /></Box>
 
-  <Switcher>
-    <Link href="/">Home</Link>
-    <Link href="/about/">About</Link>
-    <Link href="/kitchensink/">Kitchen Sink</Link>
-    <Link href="/blog/">Blog</Link>
-    <Link href="/tags/">Tags</Link>
-  </Switcher>
-</Box>
+    <Switcher limit={6} space="var(--s1)">
+      <Link href="/">Home</Link>
+      <Link href="/about/">About</Link>
+      <Link href="/icons/">Icons</Link>
+      <Link href="/kitchensink/">Kitchen Sink</Link>
+      <Link href="/blog/">Blog</Link>
+      <Link href="/tags/">Tags</Link>
+    </Switcher>
+  </Box>
+</header>

@@ -20,7 +20,6 @@ export default defineConfig({
   // https://docs.astro.build/en/reference/configuration-reference/
   output: 'static',
   adapter: vercel(),
-  cacheDir: './my-custom-cache-directory',
   site: 'http://localhost:4321',
   image: {
     domains: ['astro.build', 'picsum.photos'],
@@ -51,7 +50,7 @@ export default defineConfig({
     // },
     // plugins: [visualizer()],
     ssr: {
-      noExternal: ['date-fns', 'open-props'],
+      noExternal: ['date-fns', 'open-props','open-props/postcss/normalize'],
     },
   },
   // cacheDir: './my-custom-cache-directory',
