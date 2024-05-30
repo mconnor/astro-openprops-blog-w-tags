@@ -1,20 +1,20 @@
 ---
-import Link from '@components/Link.astro';
-import { Box, Icon } from '@cc/index.js';
-type SocialType = 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
+// import Link from '@components/Link.astro';
+import { Box } from '@cc/index.js';
+// type SocialType = 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
 
 interface Props {
   username?: string;
-  platform: SocialType;
+  platform: 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
 }
 const { platform, username = 'mconnor' } = Astro.props;
 ---
 
 <Box borderWidth="0" padding="0">
-  <a href={`https://www.${platform}.com/${username}`}>platform
+  <a href={`https://www.${platform}.com/${username}`}
+    >platform
     <!-- <i class:list={['fa-brands', 'fa-xs', `fa-${platform}`]}></i> -->
-{platform}
-   
+    {platform}
   </a>
 </Box>
 

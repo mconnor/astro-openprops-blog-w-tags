@@ -4,15 +4,12 @@
   "scss.validate": false,
   "cssvar.files": [
     "./node_modules/open-props/open-props.min.css",
-     "src/**/*.css",
-     "src/**/*.astro"
+    "src/**/*.css",
+    "src/**/*.astro"
   ],
   // Do not ignore node_modules css files, which is ignored by default
-  "cssvar.themes": [
-    "dark",
-    "light"
-  ],
-    // Since we want to scan css files inside `node_modules as well
+  "cssvar.themes": ["dark", "light"],
+  // Since we want to scan css files inside `node_modules as well
   // we need to set cssvar.ignore property to empty array
   "cssvar.ignore": ["dist"],
   "cssvar.excludeThemedVariables": true,
@@ -43,11 +40,7 @@
     "typescriptreact",
     "css"
   ],
-  "stylelint.validate": [
-    "css",
-    "html",
-    "astro"
-  ],
+  "stylelint.validate": ["css", "html", "astro"],
   "typescript.inlayHints.parameterNames.enabled": "all",
   "editor.inlayHints.enabled": "off"
 }

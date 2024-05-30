@@ -50,7 +50,7 @@ export default defineConfig({
     // },
     // plugins: [visualizer()],
     ssr: {
-      noExternal: ['date-fns', 'open-props','open-props/postcss/normalize'],
+      noExternal: ['date-fns', 'open-props'],
     },
   },
   // cacheDir: './my-custom-cache-directory',
