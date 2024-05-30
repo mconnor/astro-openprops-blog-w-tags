@@ -29,6 +29,7 @@
     "@astrojs/mdx": "^3.0.1",
     "@astrojs/rss": "^4.0.6",
     "@astrojs/vercel": "^7.6.0",
+    "@fontsource/caveat-brush": "^5.0.13",
     "@sentry/astro": "^8.7.0",
     "@sentry/browser": "^8.7.0",
     "@sentry/cli": "^2.32.1",

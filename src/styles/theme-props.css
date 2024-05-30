@@ -38,7 +38,7 @@
   --shadow-strength: var(--shadow-strength-light);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (--OSdark) {
   :where(html) {
     --brand: var(--brand-dark);
 
@@ -54,7 +54,7 @@
   }
 }
 
-@media (prefers-color-scheme: light) {
+@media (--OSlight) {
   :where(html) {
     --brand: var(--brand-light);
     --text-1: var(--text-1-light);

@@ -11,15 +11,7 @@ const { platform, username = 'mconnor' } = Astro.props;
 ---
 
 <Box borderWidth="0" padding="0">
-  <a href={`https://www.${platform}.com/${username}`}
-    >platform
-    <!-- <i class:list={['fa-brands', 'fa-xs', `fa-${platform}`]}></i> -->
-    {platform}
+  <a href={`https://www.${platform}.com/${username}`}>
+    <i class:list={['fa-brands', 'fa-xs', `fa-${platform}`]}></i>
   </a>
 </Box>
-
-<style>
-  .xs {
-    font-size: 1rem;
-  }
-</style>

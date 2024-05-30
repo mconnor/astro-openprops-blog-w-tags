@@ -23,6 +23,9 @@ importers:
       '@astrojs/vercel':
         specifier: ^7.6.0
         version: 7.6.0(astro@4.9.2(@types/node@20.12.13)(typescript@5.4.5))
+      '@fontsource/caveat-brush':
+        specifier: ^5.0.13
+        version: 5.0.13
       '@sentry/astro':
         specifier: ^8.7.0
         version: 8.7.0(astro@4.9.2(@types/node@20.12.13)(typescript@5.4.5))
@@ -670,6 +673,9 @@ packages:
   '@eslint/js@9.3.0':
     resolution: {integrity: sha512-niBqk8iwv96+yuTwjM6bWg8ovzAPF9qkICsGtcoa5/dmqcEMfdwNAX7+/OHcJHc7wj7XqPxH98oAHytFYlw6Sw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@fontsource/caveat-brush@5.0.13':
+    resolution: {integrity: sha512-tonWwnCqxbZHUcJ5AntGC+T2627nUpyMD+70ULDFzIHGPHITseF+RarkmSDMJtSU3eHVKB7XR0IUa7vrykOKyQ==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -4908,6 +4914,8 @@ snapshots:
       - supports-color
 
   '@eslint/js@9.3.0': {}
+
+  '@fontsource/caveat-brush@5.0.13': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
