@@ -45,10 +45,10 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.3.0",
+    "@eslint/js": "^9.4.0",
     "@vercel/speed-insights": "^1.0.11",
     "autoprefixer": "^10.4.19",
-    "eslint": "^9.3.0",
+    "eslint": "^9.4.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
@@ -63,7 +63,7 @@
     "postcss-jit-props": "^1.0.14",
     "postcss-nesting": "^12.1.5",
     "postcss-pow": "^1.0.1",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.0",
     "prettier-plugin-astro": "^0.14.0",
     "stylelint": "^16.6.1",
     "stylelint-config-html": "^1.1.0",
@@ -75,5 +75,5 @@
     "node": "^20.3.0",
     "pnpm": ">=9.1.2"
   },
-  "packageManager": "pnpm@9.1.2"
+  "packageManager": "pnpm@9.1.4"
 }

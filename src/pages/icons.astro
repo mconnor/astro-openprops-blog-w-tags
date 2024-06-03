@@ -2,12 +2,34 @@
 // import AstroNavigateSelect from '@components/AstroNavigateSelect.astro';
 
 import Layout from '@layouts/BaseLayout.astro';
+// import { Github } from '../icons/index.ts';
+// import Twitter from '@components/icons/Twitter/index.astro';
 
-import { Box } from '@cc/index';
+import { Box, Stack } from '@cc/index';
 ---
 
 <Layout pageTitle="home">
-  <Box borderWidth="0">
-    <i class="fa-solid fa-camera fa-xs"></i>
-  </Box>
+  <Stack>
+    <i class="fa-solid fa-camera fa-1x"></i>
+    <i class="fa-solid fa-camera fa-2x"></i>
+    <i class="fa-solid fa-camera fa-3x"></i>
+    <i class="fa-solid fa-camera fa-4x"></i>
+    <i class="fa-solid fa-camera fa-5x"></i>
+    <i class="fa-solid fa-camera fa-6x"></i>
+    <i class="fa-solid fa-camera fa-7x"></i>
+    <i class="fa-solid fa-camera fa-8x"></i>
+    <i class="fa-solid fa-camera fa-9x"></i>
+    <i class="fa-solid fa-camera fa-10x"></i>
+
+    <!-- <Box borderWidth="10px">
+      <div style="font-size: 3rem;">
+        <i class="fa-solid fa-camera fa-xs"></i>
+  
+    </Box>
+    <Box borderWidth="10px">
+      <Github href="https://github.com/mconnor" width={64} height={64} />
+    </Box>
+    <Box borderWidth="10px">
+      <Twitter href="https://twitter.com/mconnor" width={64} height={64} /> -->
+  </Stack>
 </Layout>

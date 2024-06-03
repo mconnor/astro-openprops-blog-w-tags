@@ -19,20 +19,38 @@
       Dark
       <input type="radio" name="theme" value="dark" />
     </label>
+    <label>
+      Dim
+      <input type="radio" name="theme" value="dim" />
+    </label>
+    <label>
+      Grape
+      <input type="radio" name="theme" value="grape" />
+    </label>
+    <label>
+      Choco
+      <input type="radio" name="theme" value="choco" />
+    </label>
   </form>
 </astro-theme-switcher>
 
+<style>
+  form {
+    label {
+      padding-right: 1rem;
+    }
+  }
+</style>
 <script>
   class AstroThemeSwitcher extends HTMLElement {
     constructor() {
       super();
+      this._firstDocElement = window.document.firstElementChild;
       // Bind the handleChange method to ensure the context is correct when called
       this.handleChange = this.handleChange.bind(this);
     }
 
     connectedCallback() {
-      this._firstDocElement = window.document.firstElementChild;
-
       this.querySelector('[data-select-theme]')?.addEventListener(
         'input',
         this.handleChange,
@@ -47,8 +65,7 @@
     }
 
     handleChange(e) {
-      const themeVal = e.target.value;
-      console.log(`set theme  to: ${themeVal}`); // This console log is for debugging purposes
+      console.log(`set theme  to: ${e.target.value}`); // This console log is for debugging purposes
       // Using 'navigate' function from 'astro:transitions/client'
       this._firstDocElement.setAttribute('data-theme', e.target.value);
     }

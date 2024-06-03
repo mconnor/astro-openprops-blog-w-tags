@@ -1,0 +1,30 @@
+---
+import MySVG from './path-twitter.astro';
+
+interface Props {
+  href: string;
+  className?: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+}
+
+const { href, alt, width = 32, height = 32 } = Astro.props;
+---
+
+<a href={href} target="_blank">
+  <span class="sr-only">{alt}</span>
+  <MySVG width={width} height={height} fillColor="green" />
+</a>
+<style>
+  a {
+    padding: 1em 0.5em;
+    color: var(--black);
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+  }
+  a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+  }
+</style>

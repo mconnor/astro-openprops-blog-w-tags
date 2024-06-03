@@ -24,7 +24,7 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <BaseHead title={pageTitle} description={description} image={image} />
     <link rel="canonical" href={canonicalURL} />
