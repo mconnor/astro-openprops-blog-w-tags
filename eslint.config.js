@@ -62,8 +62,7 @@ export default tseslint.config(
   },
   {
     files: ['**/*.md'],
-    processor: "markdown/markdown",
-
+    processor: 'markdown/markdown',
   },
   {
     files: ['**/*.md'],
@@ -78,9 +77,12 @@ export default tseslint.config(
   },
 
   {
-    files: ['scr/web-components/**/*.js', 'src/astro-custom-layout-components/**/*.js'],
+    files: [
+      'scr/web-components/**/*.js',
+      'src/astro-custom-layout-components/**/*.js',
+    ],
     rules: {
-      'wc/no-constructor-attributes': 'off'
+      'wc/no-constructor-attributes': 'off',
     },
   },
   {
@@ -114,8 +116,7 @@ export default tseslint.config(
       'src/env.d.ts',
       'src/components/Hamburger.astro',
       'src/pages/kitchensink.astro',
-      'src/pages/splash.astro'
-
+      'src/pages/splash.astro',
     ],
   },
   eslintConfigPrettier, // eslint-config-prettier last
