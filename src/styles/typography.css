@@ -1,21 +1,8 @@
-h1,
-h2,
-h3,
-h4,
-p,
-dt {
-  color: var(--text-1);
-}
+:where(p, ul, ol, dl, h6) {
+  font-family: 'Caveat Brush', cursive;
 
-h5,
-h6,
-small,
-dd {
-  color: var(--text-2);
-}
-
-:where(html) {
-  font-family: var(--font-mono);
+  line-height: var(--s1);
+  font-size: var(--s0);
 }
 
 .font-size\:base {

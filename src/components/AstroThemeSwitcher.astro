@@ -1,7 +1,7 @@
 ---
 // import type { HTMLAttributes }
 // interface Props extends HTMLAttributes<'div'> {}
-
+import { cookies } from 'astro:transitions/client';
 // const {htm }  = Astro.props;
 ---
 
@@ -58,7 +58,7 @@
     }
 
     disconnectedCallback() {
-      this.querySelector('[data-select-select]')?.removeEventListener(
+      this.querySelector('[data-select-theme]')?.removeEventListener(
         'input',
         this.handleChange,
       );
@@ -68,6 +68,7 @@
       console.log(`set theme  to: ${e.target.value}`); // This console log is for debugging purposes
       // Using 'navigate' function from 'astro:transitions/client'
       this._firstDocElement.setAttribute('data-theme', e.target.value);
+      localStorage.setItem('theme', e.target.value);
     }
   }
 

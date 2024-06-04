@@ -9,7 +9,7 @@ import AstroHeart from '@components/HeartBtn.astro';
 ---
 
 <Layout pageTitle="home">
-  <Box invert borderWidth="0">
+  <Box borderWidth="0">
     <span style="font-size: 3rem;">
       <span style="color: Mediumslateblue;">
         <i class="fa-solid fa-camera"></i>
@@ -39,9 +39,3 @@ import AstroHeart from '@components/HeartBtn.astro';
     <HeartButton client:only="lit">heart-btn</HeartButton>
   </Box>
 </Layout>
-
-<style>
-  .xs {
-    font-size: 5rem;
-  }
-</style>
