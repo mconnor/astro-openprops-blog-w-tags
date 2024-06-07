@@ -1,0 +1,10 @@
+form {
+  display: flex;
+  gap: 1rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
