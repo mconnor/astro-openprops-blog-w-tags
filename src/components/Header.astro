@@ -1,6 +1,6 @@
 ---
 import Link from '@components/Link.astro';
-import AstroThemeSwitcher from '@components/AstroThemeSwitcher.astro';
+import AstroThemeSwitcher from '@components/AstroSwitcher/index.astro';
 import { Switcher, Box } from '@cc/index.js';
 ---
 
@@ -18,3 +18,17 @@ import { Switcher, Box } from '@cc/index.js';
     </Switcher>
   </Box>
 </header>
+
+<script is:inline>
+  // import { $currTheme } from '../store/currTheme.ts';
+
+  // on page, get the last theme from the cookie and set it
+  document.addEventListener('astro:page-load', () => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      document.documentElement.setAttribute('data-theme', storedTheme);
+      // $currTheme.set(storedTheme);
+    }
+    console.log('theme set to', storedTheme);
+  });
+</script>

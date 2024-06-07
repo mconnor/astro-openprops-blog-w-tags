@@ -38,11 +38,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       <Footer transition:persist />
     </Cover>
-    <script is:inline>
-      document.addEventListener('astro:page-load', () => {
-        const theme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', theme);
-      });
-    </script>
   </body>
 </html>
