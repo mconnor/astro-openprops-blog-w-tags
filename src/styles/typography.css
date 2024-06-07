@@ -1,8 +1,12 @@
-:where(p, ul, ol, dl, h6) {
-  font-family: 'Caveat Brush', cursive;
+:where(html) {
+  block-size: 100%;
+  font-family: var(--font-sans);
+  line-height: var(--font-lineheight-3);
+  -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
 
-  line-height: var(--s1);
-  font-size: var(--s0);
+  @media (--motionOK) {
+    scroll-behavior: smooth;
+  }
 }
 
 .font-size\:base {
@@ -13,4 +17,14 @@
 }
 .font-size\:big {
   font-size: var(--font-size-big) !important;
+}
+
+/* overwrite normalize */
+
+:where(h3, h4, h5, h6, dt) {
+  max-inline-size: var(--size-header-3);
+}
+
+:where(p, ul, ol, dl, h6) {
+  font-family: var(--font-sans);
 }
