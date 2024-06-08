@@ -59,20 +59,18 @@ const decoratedPost = await getDecoratedPosts(publishsedPosts);
   {
     decoratedPost.map(({ pubDate, slug, title, description, cover }) => (
       <Card href={'/posts/' + slug}>
-        <div class="title">
-          <p>{format(pubDate, 'MMMM dd, yyyy')}</p>
-        </div>
+        <div class="cardPadding">{format(pubDate, 'MMMM dd, yyyy')}</div>
 
         <Frame ratio="4:3">
           <Image src={cover.url} alt={cover.alt} width="1200" height="300" />
         </Frame>
 
-        <div class="title">
+        <div>
           <Cluster justify="space-between" align="baseline">
-            <div>
+            <div class="cardPadding box-no-border">
               <h3>{title}</h3>
             </div>
-            <div>
+            <div class="cardPadding box-no-border">
               <span>{description}</span>
             </div>
           </Cluster>
@@ -83,16 +81,11 @@ const decoratedPost = await getDecoratedPosts(publishsedPosts);
 </Stack>
 
 <style>
-  .title {
-    padding: var(--s0) var(--s2);
+  .cardPadding {
+    padding-inline: var(--s2);
+    font-weight: var(--font-weight-8);
   }
-  .cardColor {
-    background-color: yellow;
-  }
-  p {
-    font-size: var(--font-size-1);
-    font-weight: var(--font-weight-2);
-  }
+
   .truncate {
     white-space: nowrap;
     overflow: hidden;

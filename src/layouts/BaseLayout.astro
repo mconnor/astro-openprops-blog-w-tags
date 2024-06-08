@@ -34,7 +34,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <Cover centeredElement="center-l" noPad={true} space="0">
       <Header transition:persist />
 
-      <Center><Box borderWidth="var(--s0)"><slot /></Box> </Center>
+      <Center><Box><slot /></Box> </Center>
 
       <Footer transition:persist />
     </Cover>

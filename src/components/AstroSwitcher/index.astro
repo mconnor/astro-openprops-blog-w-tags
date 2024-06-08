@@ -1,6 +1,4 @@
 ---
-import './styles.css';
-
 // interface Props {
 //   storedTheme?: string;
 // }
@@ -9,28 +7,28 @@ import './styles.css';
 ---
 
 <astro-theme-switcher>
-  <form id="theme" data-select-theme>
-    <label>
+  <form id="theme" data-select-theme class="box-l">
+    <label class="box-no-border">
       Auto
       <input type="radio" name="theme" value="auto" />
     </label>
-    <label>
+    <label class="box-no-border">
       Light
       <input type="radio" name="theme" value="light" />
     </label>
-    <label>
+    <label class="box-no-border">
       Dark
       <input type="radio" name="theme" value="dark" />
     </label>
-    <label>
+    <label class="box-no-border">
       Dim
       <input type="radio" name="theme" value="dim" />
     </label>
-    <label>
+    <label class="box-no-border">
       Grape
       <input type="radio" name="theme" value="grape" />
     </label>
-    <label>
+    <label class="box-no-border">
       Choco
       <input type="radio" name="theme" value="choco" />
     </label>
@@ -38,3 +36,10 @@ import './styles.css';
 </astro-theme-switcher>
 
 <script src="./AstroSwitcher.js"></script>
+
+<style>
+  label {
+    display: inline-block;
+    padding-inline: var(--s0);
+  }
+</style>
