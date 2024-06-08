@@ -8,12 +8,12 @@ import type {
 
 // const LIST = 'list'
 
-type Props = {
+interface Props {
   justify?: JustifyContentTypes; //"flex-start"
   align?: AlignItemsTypes; // "flex-start"
   space?: RmUnitType;
   // role?: typeof LIST
-};
+}
 
 const {
   justify = 'flex-start',

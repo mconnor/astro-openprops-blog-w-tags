@@ -2,11 +2,11 @@
 import './Box.css';
 import type { RmUnitType } from '../Types';
 
-type Props = {
+interface Props {
   padding?: RmUnitType; //"var(--s1)"
   borderWidth?: RmUnitType; //"var(--border-thin)"
   invert?: boolean; // false
-};
+}
 const { padding, borderWidth, invert } = Astro.props;
 ---
 

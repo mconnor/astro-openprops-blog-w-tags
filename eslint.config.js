@@ -24,11 +24,10 @@ const compat = new FlatCompat({
 
 export default tseslint.config(
   js.configs.recommended, // Recommended config applied to all files
-  // Override the recommended config
-
-  // ...tseslint.configs.recommended,
-  ...tseslint.configs.strict,
+  ...tseslint.configs.recommended,
+  // ...tseslint.configs.strict,
   // ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.stylistic,
   // ...tseslint.configs.stylisticTypeChecked,
   ...eslintPluginAstro.configs.recommended,
 
@@ -38,8 +37,21 @@ export default tseslint.config(
   ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
 
+
+  // {
+  //   languageOptions: {
+  //     parserOptions: {
+  //       project: true,
+  //       tsconfigDirName: import.meta.dirname,
+  //     },
+  //   },
+  // },
+
+
+
+
   {
-    files: ['**/*.ts', '**/*.js', '**/*.mjs', '**/*.astro'],
+    // files: ['**/*.ts', '**/*.js', '**/*.mjs', '**/*.astro'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -49,8 +61,8 @@ export default tseslint.config(
       parserOptions: {
         parser: tseslint.parser,
         processor: eslintPluginAstro.processors.astro,
-        project: ['./tsconfig.json'],
-        tsconfigRootDir: './',
+        project: true,
+        tsconfigDirName: import.meta.dirname,
       },
     },
   },

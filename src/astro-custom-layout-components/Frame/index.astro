@@ -1,6 +1,6 @@
 ---
 import './Frame.css';
-type Props = {
+interface Props {
   ratio:
     | '16:9'
     | '4:3'
@@ -17,7 +17,7 @@ type Props = {
     | '4:1';
 
   children: unknown;
-};
+}
 
 const { ratio } = Astro.props;
 ---

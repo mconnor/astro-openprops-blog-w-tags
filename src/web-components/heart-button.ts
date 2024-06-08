@@ -19,7 +19,7 @@ export class HeartButton extends LitElement {
   ];
 
   @property({ type: Number, reflect: true })
-  count: number = 0;
+  count = 0;
 
   @property({ attribute: false })
   borderW = '1px';
