@@ -22,71 +22,58 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
+
+
 export default tseslint.config(
   js.configs.recommended, // Recommended config applied to all files
   ...tseslint.configs.recommended,
-  // ...tseslint.configs.strict,
-  // ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylistic,
-  // ...tseslint.configs.stylisticTypeChecked,
   ...eslintPluginAstro.configs.recommended,
 
-  regexpPlugin.configs['flat/recommended'],
+  regexpPlugin.configs["flat/recommended"],
+  ...markdown.configs.recommended,
 
   ...compat.extends('plugin:jsx-a11y/recommended'),
   ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
 
-
-  // {
-  //   languageOptions: {
-  //     parserOptions: {
-  //       project: true,
-  //       tsconfigDirName: import.meta.dirname,
-  //     },
-  //   },
-  // },
-
-
-
-
   {
-    // files: ['**/*.ts', '**/*.js', '**/*.mjs', '**/*.astro'],
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
+      // ecmaVersion: 'latest',
+      // sourceType: 'module',
       globals: {
         ...globals.browser,
       },
       parserOptions: {
-        parser: tseslint.parser,
-        processor: eslintPluginAstro.processors.astro,
+        // parser: tseslint.parser,
+        // processor: eslintPluginAstro.processors.astro,
         project: true,
         tsconfigDirName: import.meta.dirname,
       },
     },
   },
-
-  {
-    plugins: {
-      markdown,
-    },
-  },
-  {
-    files: ['**/*.md'],
-    processor: 'markdown/markdown',
-  },
-  {
-    files: ['**/*.md'],
-    rules: {
-      ...markdown.configs.recommended.rules,
-    },
-  },
-
   {
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
+
+  // {
+  //   plugins: {
+  //     markdown,
+  //   },
+  // },
+  // {
+  //   files: ['**/*.md'],
+  //   processor: 'markdown/markdown',
+  // },
+  // {
+  //   files: ['**/*.md'],
+  //   rules: {
+  //     ...markdown.configs.recommended.rules,
+  //   },
+  // },
+
+
 
   {
     files: [
@@ -97,23 +84,23 @@ export default tseslint.config(
       'wc/no-constructor-attributes': 'off',
     },
   },
-  {
-    linterOptions: {
-      reportUnusedDisableDirectives: 'warn',
-    },
-  },
 
   {
     // 1. Target ```js code blocks in .md files.
     files: ['**/*.md/*.js'],
     ...tseslint.configs.disableTypeChecked,
   },
+  // {
+  //   files: ['tests/**'],
+  //   languageOptions: {
+  //     globals: {
+  //       ...globals.mocha,
+  //     },
+  //   },
+  // },
   {
-    files: ['tests/**'],
-    languageOptions: {
-      globals: {
-        ...globals.mocha,
-      },
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error',
     },
   },
   {
