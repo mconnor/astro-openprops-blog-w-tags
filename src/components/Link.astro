@@ -10,7 +10,7 @@ interface Props {
 }
 
 const path = Astro.url.pathname;
-const { href, isMainNav = false, ...props } = Astro.props;
+const { href, isMainNav = false } = Astro.props;
 
 const isActive = href === path || href === path.replace(/\/$/, '');
 ---
@@ -22,8 +22,7 @@ const isActive = href === path || href === path.replace(/\/$/, '');
       { disabled: isActive },
       { navItem: !isMainNav },
       { mainNavItem: isMainNav },
-    ]}
-    {...props}><slot /></a
+    ]}><slot /></a
   >
 </Box>
 

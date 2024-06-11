@@ -1,4 +1,3 @@
-// import { isSigleDigitString } from '../test'
 /**
  * @module grid-l
  * @description
@@ -10,16 +9,10 @@ export default class Grid extends HTMLElement {
   constructor() {
     super();
     this.render = () => {
-      // this.space &&
-      //     isSigleDigitString(
-      //         this.space,
-      //         'AstroGrid space setting should be a number representing a point on the modular scale',
-      //     )
-
       this.i = `Grid-${[this.min, this.space].join('')}`;
       this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style');
+        let styleEl = document.createElement('style');
         styleEl.id = this.i;
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
@@ -31,12 +24,10 @@ export default class Grid extends HTMLElement {
               grid-template-columns: repeat(auto-fill, minmax(min(${this.min}, 100%), 1fr));
             }
           }
-        `
-          .replace(/\s{2,}/g, ' ')
-          .trim();
+        `.replace(/\s{2,}/g, ' ').trim();
         document.head.appendChild(styleEl);
       }
-    };
+    }
   }
 
   get min() {
@@ -44,7 +35,7 @@ export default class Grid extends HTMLElement {
   }
 
   set min(val) {
-    this.setAttribute('min', val);
+     this.setAttribute('min', val);
   }
 
   get space() {
@@ -52,7 +43,7 @@ export default class Grid extends HTMLElement {
   }
 
   set space(val) {
-    this.setAttribute('space', val);
+     this.setAttribute('space', val);
   }
 
   static get observedAttributes() {
