@@ -28,32 +28,6 @@
 
 /* end stack */
 
-[class^='box'] {
-  color: var(--text-1);
-  background-color: var(--surface-4);
-
-  /* outline: 0.125rem solid transparent;
-        outline-offset: -0.125rem; */
-
-  * {
-    color: inherit;
-    background-color: inherit;
-  }
-}
-
-[class^='box'].invert {
-  filter: invert(100%);
-}
-
-.box {
-  padding: var(--s0);
-  border-width: var(--border-size-1);
-  border-color: var(--border-color);
-}
-.box-no-border {
-  outline: var(--size-0) solid transparent;
-  outline-offset: (calc * var(--size-0));
-}
 .center {
   /* measurement of the content is critica */
   box-sizing: content-box;

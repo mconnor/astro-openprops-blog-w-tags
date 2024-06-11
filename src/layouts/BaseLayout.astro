@@ -34,9 +34,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <Cover centeredElement="center-l" noPad={true} space="0">
       <Header transition:persist />
 
-      <Center><Box><slot /></Box> </Center>
+      <Center><slot /></Center>
 
       <Footer transition:persist />
     </Cover>
+
+    <style>
+      :global(body) {
+        color: var(--tex-1);
+        background-color: var(--gradient-1) !important;
+
+        background-image: var(--gradient-6);
+      }
+    </style>
   </body>
 </html>

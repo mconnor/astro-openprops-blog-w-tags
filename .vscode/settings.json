@@ -1,5 +1,5 @@
 {
-  "cssvar.enable": true,
+  "editor.inlayHints.enabled": "off",
   // Do not ignore node_modules css files, which is ignored by default
   "cssvar.themes": [
     "dark",
@@ -7,6 +7,7 @@
     "dim",
     "choco"
   ],
+  "cssvar.enable": true,
   // Since we want to scan css files inside `node_modules as well
   // we need to set cssvar.ignore property to empty array
   "cssvar.ignore": [],
@@ -22,10 +23,18 @@
    * - "on": Inlay hints are enabled.
    */
   "cssvar.files": [
+    "**/*.astro",
+    "**/*.css",
     "./node_modules/open-props/open-props.min.css"
     // if you have an alternative path to where your styles are located
     // you can add it in this array of files
     // "assets/styles/variables.css"
   ],
-  "editor.inlayHints.enabled": "off"
+  "cssvar.extensions": [
+    "css",
+    "postcss",
+    "jsx",
+    "tsx",
+    "astro"
+  ],
 }

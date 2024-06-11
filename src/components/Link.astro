@@ -1,16 +1,52 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+// import type { HTMLAttributes } from 'astro/types';
+import '@fontsource/poppins';
 // import { Center, Icon } from '@cc/index.js';
+import { Switcher, Box } from '@cc/index.js';
+interface Props {
+  href: string;
 
-type Props = HTMLAttributes<'a'>;
+  isMainNav?: boolean;
+}
 
 const path = Astro.url.pathname;
-const { href, ...props } = Astro.props;
+const { href, isMainNav = false, ...props } = Astro.props;
+
 const isActive = href === path || href === path.replace(/\/$/, '');
 ---
 
-<a href={href} class:list={['btn', { disabled: isActive }]} {...props}
-  ><slot /></a
->
+<Box borderWidth="0" padding="0">
+  <a
+    href={href}
+    class:list={[
+      { disabled: isActive },
+      { navItem: !isMainNav },
+      { mainNavItem: isMainNav },
+    ]}
+    {...props}><slot /></a
+  >
+</Box>
 
 <!-- <a href={href} class:list={[{ current: isActive }]} {...props}><slot /></a> -->
+<style>
+  .navItem {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-8);
+    white-space: nowrap;
+  }
+
+  .mainNavItem {
+    font-family: 'Fugaz One', system-ui;
+    font-size: var(--font-size-4);
+  }
+
+  .box-l-nav {
+    borderwidth: 0;
+  }
+
+  .flex1 {
+    flex-basis: var(--size-px-11);
+    /* flex: 1 1 20em; */
+  }
+</style>

@@ -1,4 +1,4 @@
-// ver 2.0.0
+// @ts-check
 
 import eslintPluginAstro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
@@ -6,8 +6,9 @@ import globals from 'globals';
 import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
 import tseslint from 'typescript-eslint';
+ 
 
-// import regexpEslint from 'eslint-plugin-regexp';
+
 import * as regexpPlugin from 'eslint-plugin-regexp';
 
 import { FlatCompat } from '@eslint/eslintrc';
@@ -25,13 +26,17 @@ const compat = new FlatCompat({
 
 
 export default tseslint.config(
-  js.configs.recommended, // Recommended config applied to all files
+  js.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
 
+
   regexpPlugin.configs["flat/recommended"],
+  
+  // @ts-ignore
   ...markdown.configs.recommended,
+
 
   ...compat.extends('plugin:jsx-a11y/recommended'),
   ...compat.extends('plugin:lit/recommended'),
@@ -39,42 +44,38 @@ export default tseslint.config(
 
   {
     languageOptions: {
-      // ecmaVersion: 'latest',
-      // sourceType: 'module',
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: {
-        ...globals.browser,
+        ...globals.browser
+
+        // window: "readonly",
+        // customElements: "readonly", 
+        // document: "readonly",
+        // HTMLElement: "readonly",
+        // ResizeObserver: "readonly",
+        // MutationObserver: "readonly",
+        
       },
       parserOptions: {
-        // parser: tseslint.parser,
-        // processor: eslintPluginAstro.processors.astro,
+        parser: '@typescript-eslint/parser',
+        processor: eslintPluginAstro.processors.astro,
         project: true,
         tsconfigDirName: import.meta.dirname,
       },
     },
   },
   {
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+    }
+  },
+  {
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
 
-  // {
-  //   plugins: {
-  //     markdown,
-  //   },
-  // },
-  // {
-  //   files: ['**/*.md'],
-  //   processor: 'markdown/markdown',
-  // },
-  // {
-  //   files: ['**/*.md'],
-  //   rules: {
-  //     ...markdown.configs.recommended.rules,
-  //   },
-  // },
-
-
-
+ 
   {
     files: [
       'scr/web-components/**/*.js',
@@ -90,17 +91,10 @@ export default tseslint.config(
     files: ['**/*.md/*.js'],
     ...tseslint.configs.disableTypeChecked,
   },
-  // {
-  //   files: ['tests/**'],
-  //   languageOptions: {
-  //     globals: {
-  //       ...globals.mocha,
-  //     },
-  //   },
-  // },
+
   {
     linterOptions: {
-      reportUnusedDisableDirectives: 'error',
+      reportUnusedDisableDirectives: 'warn',
     },
   },
   {

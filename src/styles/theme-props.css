@@ -2,6 +2,7 @@
   color-scheme: light dark dim grape choco;
   /* light */
   --brand-light: var(--orange-6);
+  --link-visited-light: var(--orange-10);
 
   --text-1-light: var(--gray-12);
   --text-2-light: var(--gray-11);
@@ -39,6 +40,7 @@
 
   /* grape */
   --brand-grape: var(--purple-5);
+  --link-visited-grape: var(--purple-12);
   --text-1-grape: var(--purple-9);
   --text-2-grape: var(--purple-7);
   --surface-1-grape: var(--purple-0);
@@ -75,7 +77,7 @@
   color-scheme: dim;
 
   --link: var(--indigo-3);
-  --link-visited: var(--purple-3);
+  --link-visited: var(--link-visited-dim);
 
   --text-1: var(--text-1-dim);
   --text-2: var(--text-2-dim);
@@ -94,7 +96,7 @@
   color-scheme: grape;
 
   --link: var(--indigo-3);
-  --link-visited: var(--purple-3);
+  --link-visited: var(--link-visited-grape);
 
   --text-1: var(--text-1-grape);
   --text-2: var(--text-2-grape);
@@ -112,7 +114,7 @@
   color-scheme: choco;
 
   --link: var(--indigo-3);
-  --link-visited: var(--purple-3);
+  --link-visited: var(--link-visited-choco);
 
   --text-1: var(--text-1-choco);
   --text-2: var(--text-2-choco);
@@ -130,7 +132,7 @@
   color-scheme: dark;
 
   --link: var(--indigo-3);
-  --link-visited: var(--purple-3);
+  --link-visited: var(--orange-10-hsl);
 
   --text-1: var(--text-1-dark);
   --text-2: var(--text-2-dark);
@@ -149,7 +151,7 @@
   color-scheme: light;
 
   --link: var(--indigo-3);
-  --link-visited: var(--purple-3);
+  --link-visited: var(--link-visited-light);
 
   --text-1: var(--text-1-light);
   --text-2: var(--text-2-light);
