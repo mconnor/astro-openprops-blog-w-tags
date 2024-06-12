@@ -13,4 +13,6 @@
   --surface-4: var(--surface-4-grape);
 
   --scrollthumb-color: var(--purple-6);
+  --brand: var(--brand-grape);
+  --border-color: var(--brand-grape);
 }

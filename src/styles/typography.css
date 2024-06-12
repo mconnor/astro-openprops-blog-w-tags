@@ -26,5 +26,5 @@
 }
 
 :where(p, ul, ol, dl, h6) {
-  font-family: var(--font-sans);
+  font-family: var(--font-fun);
 }

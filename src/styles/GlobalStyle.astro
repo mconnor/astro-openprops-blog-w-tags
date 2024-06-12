@@ -1,15 +1,25 @@
 ---
 import '@fontsource/caveat-brush';
+import '@fontsource-variable/playpen-sans';
 ---
 
 <style is:global>
-  @import url('open-props/postcss/buttons');
-  @import url('open-props/postcss/normalize');
+  @import 'open-props/postcss/buttons';
 
-  @import url('./modular-scale.css');
-  @import url('./theme-props.css');
-  @import url('./layoutStyles/box.css');
-  @import url('./EveryLayout.css');
-  @import url('./utility-classes.css');
-  @import url('./typography.css');
+  @import 'open-props/postcss/normalize';
+
+  @import './modular-scale.css';
+
+  @import './extra/theme.css';
+
+  @import './layoutStyles/box.css';
+  @import './EveryLayout.css';
+  @import './utility-classes.css';
+
+  @import './typography.css';
+
+  :where(html) {
+    font-family: 'Playpen Sans Variable', cursive;
+    color-scheme: light;
+  }
 </style>
