@@ -1,3 +1,8 @@
+@import '@fontsource/caveat-brush';
+@import '@fontsource-variable/playpen-sans';
+@import '@fontsource/poppins';
+@import '@fontsource/fugaz-one';
+
 :where(html) {
   block-size: 100%;
   font-family: var(--font-sans);
