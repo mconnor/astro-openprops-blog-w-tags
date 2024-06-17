@@ -6,38 +6,27 @@ import globals from 'globals';
 import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
 import tseslint from 'typescript-eslint';
- 
-
-
 import * as regexpPlugin from 'eslint-plugin-regexp';
-
 import { FlatCompat } from '@eslint/eslintrc';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-
+      baseDirectory: __dirname,
+      resolvePluginsRelativeTo: __dirname,
+    });
 
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
+  regexpPlugin.configs['flat/recommended'],
 
-
-  regexpPlugin.configs["flat/recommended"],
-  
-  // @ts-ignore
   ...markdown.configs.recommended,
-
-
   ...compat.extends('plugin:jsx-a11y/recommended'),
   ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
@@ -47,15 +36,8 @@ export default tseslint.config(
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        ...globals.browser
-
-        // window: "readonly",
-        // customElements: "readonly", 
-        // document: "readonly",
-        // HTMLElement: "readonly",
-        // ResizeObserver: "readonly",
-        // MutationObserver: "readonly",
-        
+        ...globals.serviceworker,
+        ...globals.browser,
       },
       parserOptions: {
         parser: '@typescript-eslint/parser',
@@ -64,18 +46,15 @@ export default tseslint.config(
         tsconfigDirName: import.meta.dirname,
       },
     },
-  },
-  {
     rules: {
-      '@typescript-eslint/no-unused-vars': 'off',
-    }
+      '@typescript-eslint/no-unused-vars': 'warn',
+      'indent': 'error', // this should not be flagged because of eslintConfigPrettier
+    },
   },
   {
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
-
- 
   {
     files: [
       'scr/web-components/**/*.js',
@@ -85,18 +64,17 @@ export default tseslint.config(
       'wc/no-constructor-attributes': 'off',
     },
   },
-
   {
     // 1. Target ```js code blocks in .md files.
     files: ['**/*.md/*.js'],
     ...tseslint.configs.disableTypeChecked,
   },
-
   {
     linterOptions: {
       reportUnusedDisableDirectives: 'warn',
     },
   },
+
   {
     ignores: [
       '**/temp.js',
