@@ -10,8 +10,10 @@ interface Props {
 const { platform, username = 'mconnor' } = Astro.props;
 ---
 
-<Box borderWidth="0" padding="0">
+<Box borderWidth="0" padding="var(--s0)">
   <a href={`https://www.${platform}.com/${username}`}>
-    <i class:list={['fa-brands', 'fa-xs', `fa-${platform}`]}></i>
+    <i class:list={['fa-brands', 'fa-2x', `fa-${platform}`]}></i>
   </a>
 </Box>
+
+<style></style>

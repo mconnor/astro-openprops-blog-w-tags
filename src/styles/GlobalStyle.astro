@@ -1,24 +1,15 @@
 ---
+import '@fontsource/patrick-hand';
+import '@fontsource/patrick-hand-sc';
 
+import 'open-props/postcss/buttons';
+import 'open-props/postcss/normalize';
+
+import './modular-scale.css';
+
+import './layoutStyles/box.css';
+// import './EveryLayout.css';
+import './utility-classes.css';
+import './extra/theme.css';
+import './typography.css';
 ---
-
-<style is:global>
-  @import 'open-props/postcss/buttons';
-
-  @import 'open-props/postcss/normalize';
-
-  @import './modular-scale.css';
-
-  @import './extra/theme.css';
-
-  @import './layoutStyles/box.css';
-  @import './EveryLayout.css';
-  @import './utility-classes.css';
-
-  @import './typography.css';
-
-  :where(html) {
-    font-family: 'Playpen Sans Variable', cursive;
-    color-scheme: light;
-  }
-</style>

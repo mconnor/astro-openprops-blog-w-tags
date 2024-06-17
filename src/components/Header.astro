@@ -4,7 +4,7 @@ import AstroThemeSwitcher from '@components/AstroSwitcher/index.astro';
 import { Switcher, Stack, Box, Cluster, Grid, Sidebar } from '@cc/index.js';
 ---
 
-<header>
+<header class="surface4">
   <!-- <AstroThemeSwitcher /> -->
   <Box invert borderWidth="0" padding="var(--s0)">
     <Box borderWidth="0" padding="var(--s00)">
@@ -15,13 +15,15 @@ import { Switcher, Stack, Box, Cluster, Grid, Sidebar } from '@cc/index.js';
         <Link isMainNav href="/">Mike Connor</Link>
 
         <Box borderWidth="0" padding="0">
-          <Cluster align="baseline" justify="flex-end" space="var(--s0)">
-            <Link href="/about/">About</Link>
-            <Link href="/icons/">Icons</Link>
-            <Link href="/kitchensink/">Kitchen Sink</Link>
-            <Link href="/blog/">Blog</Link>
-            <Link href="/tags/">Tags</Link>
-          </Cluster>
+          <nav>
+            <Cluster align="baseline" justify="flex-end" space="var(--s0)">
+              <Link href="/about/">About</Link>
+              <Link href="/icons/">Icons</Link>
+              <Link href="/kitchensink/">Kitchen Sink</Link>
+              <Link href="/blog/">Blog</Link>
+              <Link href="/tags/">Tags</Link>
+            </Cluster>
+          </nav>
         </Box>
       </Cluster>
     </Box>
@@ -37,7 +39,16 @@ import { Switcher, Stack, Box, Cluster, Grid, Sidebar } from '@cc/index.js';
     if (storedTheme) {
       document.documentElement.setAttribute('data-theme', storedTheme);
       // $currTheme.set(storedTheme);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
     }
     // console.log('theme set to', storedTheme);
   });
 </script>
+
+<style>
+  header {
+    background-color: var(--surface-4);
+    color: var(--text-1);
+  }
+</style>

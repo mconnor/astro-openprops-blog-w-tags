@@ -1,15 +1,24 @@
 ---
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro';
 import { getCollection } from 'astro:content';
-
+import { blogSchema } from '../../schemas.ts';
 import { Image } from 'astro:assets';
 
 export const getStaticPaths = async () => {
   const _posts = await getCollection('blog');
-  return _posts.map((blogPost) => ({
-    params: { slug: blogPost.slug },
-    props: { blogPost },
-  }));
+
+  const arr = _posts.map((blogPost) => {
+    const result = blogSchema.safeParse(_posts);
+    if (!result.success) {
+      // handle error then return
+      result.error;
+    }
+    return {
+      params: { slug: blogPost.slug },
+      props: { blogPost },
+    };
+  });
+  return arr;
 };
 
 const { blogPost } = Astro.props;

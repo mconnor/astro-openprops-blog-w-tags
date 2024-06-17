@@ -7,7 +7,7 @@ interface Props {
 const { href } = Astro.props;
 ---
 
-<div class:list={['card', 'surface3']} transition:animate="slide">
+<div class:list={['card', 'box']}>
   <a href={href}>
     <slot />
   </a>
@@ -15,9 +15,10 @@ const { href } = Astro.props;
 
 <style>
   .card {
-    background-color: var(--surface-3);
-    border-radius: var(--radius-4);
-    padding: var(--s0) 0;
+    border-radius: var(--radius-drawn-3);
+    border: var(--border-size-4) solid var(--text-2);
+    padding: var(--s1);
+
     box-shadow: var(--shadow-2);
 
     &:hover {

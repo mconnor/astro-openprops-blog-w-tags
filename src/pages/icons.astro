@@ -2,15 +2,14 @@
 // import AstroNavigateSelect from '@components/AstroNavigateSelect.astro';
 
 import Layout from '@layouts/BaseLayout.astro';
-// import { Github } from '../icons/index.ts';
-// import Twitter from '@components/icons/Twitter/index.astro';
 
-import { Box, Grid } from '@cc/index';
+import { Box, Grid, Cluster } from '@cc/index';
 ---
 
 <Layout pageTitle="home">
-  <Grid>
+  <Cluster>
     <Box><i class="fa-solid fa-camera fa-1x"></i></Box>
+
     <Box><i class="fa-solid fa-camera fa-2x"></i></Box>
     <Box><i class="fa-solid fa-camera fa-3x"></i></Box>
     <Box><i class="fa-solid fa-camera fa-4x"></i></Box>
@@ -20,8 +19,9 @@ import { Box, Grid } from '@cc/index';
     <Box><i class="fa-solid fa-camera fa-8x"></i></Box>
     <Box><i class="fa-solid fa-camera fa-9x"></i></Box>
     <Box><i class="fa-solid fa-camera fa-10x"></i></Box>
+  </Cluster>
 
-    <!-- <Box borderWidth="10px">
+  <!-- <Box borderWidth="10px">
       <div style="font-size: 3rem;">
         <Box><i class="fa-solid fa-camera fa-xs"></i></Box>
   
@@ -31,5 +31,4 @@ import { Box, Grid } from '@cc/index';
     </Box>
     <Box borderWidth="10px">
       <Twitter href="https://twitter.com/mconnor" width={64} height={64} /> -->
-  </Grid>
 </Layout>

@@ -16,11 +16,11 @@ class AstroThemeSwitcher extends HTMLElement {
     form?.removeEventListener('input', this.handleChange);
   }
 
-  handleChange(e) {
-    const _firstDocElement = window.document.firstElementChild;
+  handleChange(e: Event) {
+    const doc = document.firstElementChild;
 
-    _firstDocElement?.setAttribute('data-theme', e.target.value);
-    localStorage.setItem('theme', e.target.value);
+    doc?.setAttribute('data-theme', (e.target as HTMLInputElement).value);
+    localStorage.setItem('theme', (e.target as HTMLInputElement).value);
   }
 }
 

@@ -3,6 +3,7 @@ import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import { Cover, Center, Box } from '@cc/index.js';
+import Card from '@components/CardDelux.astro';
 // import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
@@ -24,28 +25,19 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en" transition:animate="none">
+<html lang="en" transition:animate="none" data-theme="dark">
   <head>
     <BaseHead title={pageTitle} description={description} image={image} />
     <link rel="canonical" href={canonicalURL} />
   </head>
 
   <body>
-    <Cover centeredElement="center-l" noPad={true} space="0">
+    <Cover centeredElement="center-l" space="var(--s1)">
       <Header transition:persist />
 
       <Center><slot /></Center>
 
       <Footer transition:persist />
     </Cover>
-
-    <style>
-      :global(body) {
-        color: var(--tex-1);
-        background-color: var(--gradient-1) !important;
-
-        background-image: var(--gradient-6);
-      }
-    </style>
   </body>
 </html>

@@ -16,36 +16,46 @@ const isActive = href === path || href === path.replace(/\/$/, '');
 ---
 
 <Box borderWidth="0" padding="0">
-  <a
-    href={href}
-    class:list={[
-      { disabled: isActive },
-      { navItem: !isMainNav },
-      { mainNavItem: isMainNav },
-    ]}><slot /></a
-  >
+  <div class="navItem">
+    <a
+      href={href}
+      class:list={[
+        { disabled: isActive },
+        { navItem: !isMainNav },
+        { mainNavItem: isMainNav },
+      ]}><slot /></a
+    >
+  </div>
 </Box>
 
 <!-- <a href={href} class:list={[{ current: isActive }]} {...props}><slot /></a> -->
 <style>
   .navItem {
-    font-family: 'Poppins', sans-serif;
-    font-size: var(--font-size-1);
-    font-weight: var(--font-weight-8);
-    white-space: nowrap;
-  }
-
-  .mainNavItem {
-    font-family: 'Fugaz One', system-ui;
+    font-weight: var(--font-weight-3);
     font-size: var(--font-size-4);
-  }
+    a {
+      /* font-family: var(--font-sans); */
+      &:link {
+        color: var(--brand);
+        text-decoration: wavy;
+      }
+      &:hover {
+        color: var(--brand);
+      }
+      &:visited {
+        color: var(--brand);
+        text-decoration: wavy;
+      }
+      .navItem {
+        font-size: var(--font-size-1);
+        font-weight: var(--font-weight-8);
+        white-space: nowrap;
+      }
+    }
 
-  .box-l-nav {
-    borderwidth: 0;
-  }
-
-  .flex1 {
-    flex-basis: var(--size-px-11);
-    /* flex: 1 1 20em; */
+    .mainNavItem {
+      font-weight: var(--font-weight-3);
+      font-size: var(--font-size-4);
+    }
   }
 </style>
