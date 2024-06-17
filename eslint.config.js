@@ -15,9 +15,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
-      baseDirectory: __dirname,
-      resolvePluginsRelativeTo: __dirname,
-    });
+  baseDirectory: __dirname,
+  resolvePluginsRelativeTo: __dirname,
+});
 
 export default tseslint.config(
   js.configs.recommended,
@@ -48,7 +48,7 @@ export default tseslint.config(
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
-      'indent': 'error', // this should not be flagged because of eslintConfigPrettier
+      indent: 'error', // this should not be flagged because of eslintConfigPrettier
     },
   },
   {

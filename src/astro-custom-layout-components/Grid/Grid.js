@@ -24,10 +24,12 @@ export default class Grid extends HTMLElement {
               grid-template-columns: repeat(auto-fill, minmax(min(${this.min}, 100%), 1fr));
             }
           }
-        `.replace(/\s{2,}/g, ' ').trim();
+        `
+          .replace(/\s{2,}/g, ' ')
+          .trim();
         document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get min() {
@@ -35,7 +37,7 @@ export default class Grid extends HTMLElement {
   }
 
   set min(val) {
-     this.setAttribute('min', val);
+    this.setAttribute('min', val);
   }
 
   get space() {
@@ -43,7 +45,7 @@ export default class Grid extends HTMLElement {
   }
 
   set space(val) {
-     this.setAttribute('space', val);
+    this.setAttribute('space', val);
   }
 
   static get observedAttributes() {
