@@ -3,7 +3,7 @@ import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import { Cover, Center, Box } from '@cc/index.js';
-import Card from '@components/CardDelux.astro';
+
 // import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
@@ -32,7 +32,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
 
   <body>
-    <Cover centeredElement="center-l" space="var(--s1)">
+    <Cover centeredElement="center-l" space="0">
       <Header transition:persist />
 
       <Center><slot /></Center>

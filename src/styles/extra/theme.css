@@ -6,14 +6,14 @@
 @import './theme.dark.props.css';
 @import './theme.dark.switch.css';
 
-/* @import './theme.grape.props.css';
+@import './theme.grape.props.css';
 @import './theme.grape.switch.css';
 
 @import './theme.dim.props.css';
 @import './theme.dim.switch.css';
 
 @import './theme.choco.props.css';
-@import './theme.choco.switch.css'; */
+@import './theme.choco.switch.css';
 
 :root {
   color-scheme: light dark;

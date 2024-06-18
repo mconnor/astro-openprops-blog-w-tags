@@ -1,15 +1,9 @@
 box-l {
   display: block;
   padding: var(--s1);
-  border-width: var(--border-thin);
-
-  /* background-color: var(--surface-2) !important;
-  color: var(--text-2) !important; */
-
-  /* color: light-dark(black, white) !important;
-  background-color: light-dark(white, black) !important; */
+  border-width: var(--border-size-1);
 
   /* ↓ For high contrast mode */
-  outline: 0.125rem solid transparent;
-  outline-offset: -0.125rem;
+  outline: var(--s1) solid transparent;
+  outline-offset: calc(-1 * var(--s1));
 }

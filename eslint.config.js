@@ -86,7 +86,6 @@ export default tseslint.config(
       'pnpm-lock.yaml',
       '.astro/',
       'dist/',
-      '**/test.ts',
       'my-custom-cache-directory',
       'src/env.d.ts',
       'src/components/Hamburger.astro',

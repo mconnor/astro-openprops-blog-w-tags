@@ -2,23 +2,22 @@
 // import AstroNavigateSelect from '@components/AstroNavigateSelect.astro';
 
 import Layout from '@layouts/BaseLayout.astro';
-import { HeartButton } from '@wc/heart-button';
-import { MyElement } from '@wc/my-element';
+// import { HeartButton } from '@wc/heart-button';
+// import { MyElement } from '@wc/my-element';
 import { Box } from '@cc/index';
+
+// import AstroHeart from '@components/HeartBtn.astro';
 import Card from '@components/CardDelux.astro';
-import AstroHeart from '@components/HeartBtn.astro';
 ---
 
 <Layout pageTitle="home">
   <Card>
     <h2 slot="headline">Mike Connor - Dev</h2>
-    <div slot="body">
-      <button>Example button</button>
-      <h3>Ideas on tech, culture,</h3>
-      <p>
-        Now available in beautiful Westport, KCMO... by way of | New Orleans |
-        Porland, OR | Brooklyn, NY | DC | Chicago | KCMO
-      </p>
-    </div>
+
+    <h3 slot="sub">Ideas on tech, culture,</h3>
+    <p slot="body">
+      Now available in beautiful Westport, KCMO... by way of | New Orleans |
+      Porland, OR | Brooklyn, NY | DC | Chicago | KCMO
+    </p>
   </Card>
 </Layout>

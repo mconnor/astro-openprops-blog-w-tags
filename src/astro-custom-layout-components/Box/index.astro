@@ -8,10 +8,14 @@ interface Props {
 
   invert?: boolean; // false
 }
-const props = Astro.props;
+const {
+  padding = 'var(--s1)',
+  borderWidth = 'var(--border-size-1)',
+  invert = false,
+} = Astro.props;
 ---
 
-<box-l {...props}>
+<box-l padding={padding} borderWidth={borderWidth} invert={invert}>
   <slot />
 </box-l>
 <script src="./Box.js"></script>

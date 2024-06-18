@@ -9,34 +9,25 @@ interface Props {
 // const { href } = Astro.props;
 ---
 
-<div class="card">
-  <Box>
-    <h2><slot name="headline" /></h2>
-  </Box>
-  <Box borderWidth="0">
-    <p><slot name="body" /></p>
-  </Box>
-</div>
+<article class="card surface4">
+  <Stack>
+    <div class="box-no-border invert surface4">
+      <slot name="headline" />
+    </div>
+    <Box borderWidth="0">
+      <slot name="sub" />
+    </Box>
+    <Box borderWidth="0">
+      <slot name="body" />
+    </Box>
+  </Stack>
+</article>
 
 <style>
-  .headlineClass {
-    border-radius: var(--radius-drawn-6);
-    border: var(--border-size-2) solid var(--text-2);
-    padding: var(--s1);
-  }
-  .card {
-    border-radius: var(--radius-drawn-3);
-    border: var(--border-size-4) solid var(--text-2);
-    padding: var(--s1);
-
-    /* box-shadow: var(--shadow-2); */
-
-    /* &:hover {
-      box-shadow: var(--shadow-3);
+  article {
+    &.card {
+      border-radius: var(--radius-drawn-3);
+      border: var(--border-size-4) solid var(--text-2);
     }
-
-    @media (--motionOK) {
-      animation: var(--animation-fade-in);
-    } */
   }
 </style>
