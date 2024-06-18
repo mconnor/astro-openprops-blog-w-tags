@@ -22,7 +22,7 @@
 }
 .box-no-border {
   padding: var(--s0);
-  border-width: var(--border-size-1);
+  border: 0 solid;
   outline: var(--size-0) solid transparent;
   outline-offset: (calc * var(--size-0));
 }

@@ -9,11 +9,11 @@ interface Props {
 // const { href } = Astro.props;
 ---
 
-<div class="box card">
-  <div class="headlineClass invert box">
+<div class="card">
+  <Box>
     <h2><slot name="headline" /></h2>
-  </div>
-  <Box borderWidth="0" padding="var(--s1)">
+  </Box>
+  <Box borderWidth="0">
     <p><slot name="body" /></p>
   </Box>
 </div>

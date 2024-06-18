@@ -1,32 +1,53 @@
 ---
+import { Stack, Frame, Cluster } from '@cc/index.js';
 interface Props {
   href: string;
-  children: HTMLElement[];
+  children: unknown;
 }
+
 // import { Switcher, Stack, Box, Frame } from '@cc/index.js';
 const { href } = Astro.props;
 ---
 
-<div class:list={['card', 'box']}>
-  <a href={href}>
-    <slot />
-  </a>
-</div>
+<a href={href} class="card">
+  <div class="my-box-no-border">
+    <slot name="headline" />
+  </div>
+
+  <div class="myMask">
+    <slot name="pic" />
+  </div>
+  <div class="box-no-border"><slot name="bottom" /></div>
+</a>
 
 <style>
-  .card {
-    border-radius: var(--radius-drawn-3);
-    border: var(--border-size-4) solid var(--text-2);
-    padding: var(--s1);
+  a {
+    &.card {
+      border-radius: var(--radius-drawn-3);
+      border: var(--border-size-4) solid var(--text-2);
+      padding: 0;
 
-    box-shadow: var(--shadow-2);
+      &:hover {
+        text-decoration: green double underline;
+        animation: var(--animation-shake-z);
+      }
 
-    &:hover {
-      box-shadow: var(--shadow-3);
+      /* box-shadow: var(--shadow-2); */
+
+      @media (--motionOK) {
+        animation: var(--animation-fade-in);
+      }
     }
+  }
 
-    @media (--motionOK) {
-      animation: var(--animation-fade-in);
-    }
+  .myMask {
+    -webkit-mask: var(--mask-edge-zig-zag-vertical);
+  }
+
+  .my-box-no-border {
+    padding: var(--s0) var(--s2);
+    border: 0 solid;
+    outline: var(--size-0) solid transparent;
+    outline-offset: (calc * var(--size-0));
   }
 </style>

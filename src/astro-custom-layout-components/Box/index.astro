@@ -5,12 +5,13 @@ import type { RmUnitType } from '../Types';
 interface Props {
   padding?: RmUnitType; //"var(--s1)"
   borderWidth?: RmUnitType; //"var(--border-thin)"
+
   invert?: boolean; // false
 }
-const { padding, borderWidth, invert } = Astro.props;
+const props = Astro.props;
 ---
 
-<box-l padding={padding} borderWidth={borderWidth} invert={invert}>
+<box-l {...props}>
   <slot />
 </box-l>
 <script src="./Box.js"></script>
