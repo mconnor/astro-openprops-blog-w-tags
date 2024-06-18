@@ -11,18 +11,23 @@ import { FlatCompat } from '@eslint/eslintrc';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  resolvePluginsRelativeTo: __dirname,
+  baseDirectory: __dirname,                  // optional; default: process.cwd()
+  resolvePluginsRelativeTo: __dirname,       // optional
+  recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
+  allConfig: js.configs.all,                 // optional unless you're using "eslint:all"
 });
+
+
 
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  ...tseslint.configs.stylistic,
+  // ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
   regexpPlugin.configs['flat/recommended'],
 
@@ -36,20 +41,18 @@ export default tseslint.config(
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        ...globals.serviceworker,
         ...globals.browser,
       },
       parserOptions: {
         parser: '@typescript-eslint/parser',
         processor: eslintPluginAstro.processors.astro,
-        project: true,
-        tsconfigDirName: import.meta.dirname,
+        project: ['./tsconfig.json'],
+        // tsconfigDirName: import.meta.dirname,
       },
     },
     rules: {
-      '@typescript-eslint/no-unused-vars': 'warn',
-      indent: 'error', // this should not be flagged because of eslintConfigPrettier
-    },
+      '@typescript-eslint/no-unused-vars': 'warn'
+     },
   },
   {
     files: ['**/*.js', '**/*.mjs'],
@@ -60,6 +63,7 @@ export default tseslint.config(
       'scr/web-components/**/*.js',
       'src/astro-custom-layout-components/**/*.js',
     ],
+    ...tseslint.configs.disableTypeChecked,
     rules: {
       'wc/no-constructor-attributes': 'off',
     },
@@ -89,6 +93,5 @@ export default tseslint.config(
       'src/pages/kitchensink.astro',
       'src/pages/splash.astro',
     ],
-  },
-  eslintConfigPrettier, // eslint-config-prettier last
+  }
 );
