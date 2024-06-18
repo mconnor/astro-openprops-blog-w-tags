@@ -1,9 +1,9 @@
-import postcssJitProps from 'postcss-jit-props';
+// import postcssJitProps from 'postcss-jit-props';
 import autoprefixer from 'autoprefixer';
 import postcssNesting from 'postcss-nesting';
 import postcssPow from 'postcss-pow';
 import postcssImport from 'postcss-import';
-import OpenProps from 'open-props';
+// import OpenProps from 'open-props';
 import postcssCustomMedia from 'postcss-custom-media';
 
 // Use process.env.NODE_ENV to check if the environment is production
@@ -13,7 +13,7 @@ import postcssCustomMedia from 'postcss-custom-media';
 export default {
   plugins: [
     postcssImport, //This plugin should probably be used as the first plugin of your list.
-    postcssJitProps(OpenProps),
+    // postcssJitProps(OpenProps),
     autoprefixer,
     postcssNesting,
     postcssPow,
