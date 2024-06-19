@@ -1,7 +1,6 @@
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { expect, test } from 'vitest';
 import Card from '../src/components/Card.astro';
-import GlobalStyle from '../src/styles/GlobalStyle.astro';
 
 test('Card with slots', async () => {
   const container = await AstroContainer.create();

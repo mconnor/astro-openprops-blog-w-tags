@@ -1,22 +1,27 @@
 ---
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro';
-import { type CollectionEntry, getCollection } from 'astro:content';
-import { type BlogSchemaType, blogSchema } from '../../schemas.ts';
-import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+// import type {
+//   InferGetStaticParamsType,
+//   InferGetStaticPropsType,
+//   GetStaticPaths,
+// } from 'astro';
 
-interface Props {
-  blogPost: CollectionEntry<'blog'>;
-}
+import { type BlogSchemaType, blogSchema } from '../../schemas.ts';
+
+import { Image } from 'astro:assets';
 
 export const getStaticPaths = async () => {
   const _posts = await getCollection('blog');
 
-  const arr = _posts.map((blogPost: CollectionEntry<'blog'>) => {
-    const result = blogSchema.safeParse(_posts);
-    if (!result.success) {
-      // handle error then return
-      result.error;
-    }
+  // const result = blogSchema.safeParse(_posts);
+  // if (!result.success) {
+  //   // handle error then return
+  //   result.error;
+  // }
+
+  const arr = _posts.map((blogPost) => {
     return {
       params: { slug: blogPost.slug },
       props: { blogPost },
@@ -25,7 +30,14 @@ export const getStaticPaths = async () => {
   return arr;
 };
 
-const { blogPost } = Astro.props;
+interface Props {
+  blogPost: CollectionEntry<'blog'>;
+}
+// type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+// type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { slug } = Astro.params;
+const { blogPost } = Astro.props as Props;
 const { data } = blogPost;
 
 const { description, title, author, cover, tags, pubDate } = data;

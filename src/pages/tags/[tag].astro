@@ -2,20 +2,22 @@
 import Layout from '@layouts/BaseLayout.astro';
 import DeckofCards from '@components/DeckofCards.astro';
 import { Box } from '@cc/index.js';
+// import { type BlogSchemaType, blogSchema } from '../../schemas.ts';
 
 import { getCollection } from 'astro:content';
+
 // import type { BlogSchemaType } from '../../schemas.ts';
 
-// import type { CollectionEntry } from 'astro:content'
+import type { CollectionEntry } from 'astro:content';
 
-// A getStaticPaths function should always return a list of objects containing params
-// (what to call each page route) and optionally any props (data that you want to pass to those pages).
-//  Earlier, you defined each tag name that you knew was used in your blog and passed the entire list
-//  of posts as props to each page.
+interface Props {
+  posts: CollectionEntry<'blog'>;
+}
 export const prerender = true;
 
 export const getStaticPaths = async () => {
   const allPosts = await getCollection('blog');
+
   const uniqueTags = [
     ...new Set(allPosts.map((__post) => __post.data.tags).flat()),
   ];
@@ -33,7 +35,7 @@ export const getStaticPaths = async () => {
 };
 
 const { tag } = Astro.params;
-const { posts: publishedPostWithTags } = Astro.props;
+const { posts } = Astro.props;
 ---
 
 <Layout>
@@ -41,6 +43,6 @@ const { posts: publishedPostWithTags } = Astro.props;
     <Box borderWidth="0">
       <h1 class="gradient-text">{`#${tag}`}</h1>
     </Box>
-    <DeckofCards publishsedPosts={publishedPostWithTags} />
+    <DeckofCards publishsedPosts={posts} />
   </Box>
 </Layout>

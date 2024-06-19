@@ -1,9 +1,12 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
+import type { ComponentProps } from 'astro/types';
 import { getCollection } from 'astro:content';
-// import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 import DeckofCards from '@components/DeckofCards.astro';
+
+type DeckofCardsProps = ComponentProps<typeof DeckofCards>;
 
 const pageTitle = 'Blog';
 const publishsedPosts = await getCollection(
