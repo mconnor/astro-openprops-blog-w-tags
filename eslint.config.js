@@ -16,13 +16,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,                  // optional; default: process.cwd()
-  resolvePluginsRelativeTo: __dirname,       // optional
+  baseDirectory: __dirname, // optional; default: process.cwd()
+  resolvePluginsRelativeTo: __dirname, // optional
   recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
-  allConfig: js.configs.all,                 // optional unless you're using "eslint:all"
+  allConfig: js.configs.all, // optional unless you're using "eslint:all"
 });
-
-
 
 export default tseslint.config(
   js.configs.recommended,
@@ -47,12 +45,12 @@ export default tseslint.config(
         parser: '@typescript-eslint/parser',
         processor: eslintPluginAstro.processors.astro,
         project: ['./tsconfig.json'],
-        // tsconfigDirName: import.meta.dirname,
+        tsconfigDirName: import.meta.dirname,
       },
     },
     rules: {
-      '@typescript-eslint/no-unused-vars': 'warn'
-     },
+      '@typescript-eslint/no-unused-vars': 'warn',
+    },
   },
   {
     files: ['**/*.js', '**/*.mjs'],
@@ -92,5 +90,5 @@ export default tseslint.config(
       'src/pages/kitchensink.astro',
       'src/pages/splash.astro',
     ],
-  }
+  },
 );

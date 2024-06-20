@@ -2,10 +2,9 @@
 title: Markdown Kitchen Sink
 pubDate: 2022-07-09
 author: mike-connor
-draft: false
 description: "After learning some Astro, I couldn't stop!"
 cover:
-  url: 'https://picsum.photos/1200/300?random=2'
+  src: 'https://picsum.photos/1200/300?random=2'
   alt: 'A photograph of a sunset behind a mountain range.'
 tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 ---

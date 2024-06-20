@@ -22,7 +22,7 @@ export default defineConfig({
   adapter: vercel(),
   site: 'http://localhost:4321',
   image: {
-    domains: ['astro.build', 'picsum.photos'],
+    domains: ['astro.build', 'picsum.photos', 'https://doodleipsum.com'],
   },
   markdown: {
     drafts: true,

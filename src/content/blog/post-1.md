@@ -2,10 +2,9 @@
 title: In aliqua exercitation ullamco id
 pubDate: 2022-09-01
 author: mike-connor
-description: Morlochs and Eloi
-draft: false
+description: 'Morlochs and Eloi'
 cover:
-  url: 'https://picsum.photos/1200/300?random=1'
+  src: 'https://picsum.photos/1200/300?random=1'
   alt: 'A photograph of a sunset behind a mountain range.'
 tags: ['astro', 'blogging', 'learning-in-public']
 ---

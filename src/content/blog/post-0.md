@@ -2,10 +2,9 @@
 title: Draft Post
 pubDate: 2024-01-13
 author: mike-connor
-draft: true
-description: Draft Post
+description: 'A graphic representation of data abstracted from the banks of every computer in the coffin for Armitage’s call.'
 cover:
-  url: 'https://picsum.photos/1200/300?random=0'
+  src: 'https://picsum.photos/1200/300?random=0'
   alt: 'A photograph of a sunset behind a mountain range.'
 tags: ['rafting', 'dogs']
 ---

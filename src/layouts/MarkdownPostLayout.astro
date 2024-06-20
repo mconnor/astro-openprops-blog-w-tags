@@ -1,46 +1,53 @@
 ---
+import { Debug } from 'astro:components';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
+import type { BlogSchemaType } from '../schemas.ts';
+import { Image } from 'astro:assets';
 
-// import { authorSchema, BlogSchemaType } from '../schemas';
 import { Box, Cluster } from '@cc/index.js';
 import TagContainer from '@components/TagContainer.astro';
 
-interface Props {
-  description: string;
-  title: string;
-  authorId: string;
-  pubDate: Date;
-  tags: string[];
+type Props = BlogSchemaType & {
   children: unknown;
-}
+};
 
-const { title, description, authorId, pubDate, tags } = Astro.props;
+const { title, description, pubDate, cover, author, tags } = Astro.props;
 
-const authorDataObj = await getEntry('authors', authorId);
+const { data } = await getEntry('authors', author.id);
 ---
 
 <!-- TODO: fix the date format -->
 <BaseLayout pageTitle={title} description={description}>
   <article>
+    <Debug {author} />
     <Box borderWidth="0" padding="0">
+      <Image
+        src={cover.src}
+        width="1200"
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
+        height="300"
+        alt={cover.alt}
+      />
       <Cluster justify="space-between" align="baseline"
         ><Box borderWidth="0"><h2>{title}</h2></Box>
 
-        {
-          authorDataObj?.data.name && (
-            <Box borderWidth="0">
-              Written by: {authorDataObj.data.name},{' '}
-              {format(pubDate, 'd MMM, yyyy')}
-            </Box>
-          )
-        }
+        <Box borderWidth="0">
+          Written by: {data.name},{' '}
+          {format(pubDate, 'd MMM, yyyy')}
+        </Box>
       </Cluster>
       <Box padding="0"><slot name="banner" /></Box>
     </Box>
 
-    <Box borderWidth="0"><TagContainer tags={tags} /></Box>
+    {
+      tags && (
+        <Box borderWidth="0">
+          <TagContainer tags={tags} />
+        </Box>
+      )
+    }
     <Box padding="var(--s2)"><slot name="main" /></Box>
   </article>
 </BaseLayout>

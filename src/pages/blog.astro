@@ -1,18 +1,16 @@
 ---
+import { Debug } from 'astro:components';
 import Layout from '@layouts/BaseLayout.astro';
-import type { ComponentProps } from 'astro/types';
+import { Box, Stack, Frame, Cluster } from '@cc/index.js';
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import Card from '@components/Card.astro';
 
-import DeckofCards from '@components/DeckofCards.astro';
-
-type DeckofCardsProps = ComponentProps<typeof DeckofCards>;
+// import type { CollectionEntry } from 'astro:content';
 
 const pageTitle = 'Blog';
-const publishsedPosts = await getCollection(
-  'blog',
-  ({ data }) => data.draft !== true,
-);
+const publishsedPosts = await getCollection('blog');
+
+// list of all blog post
 ---
 
 <Layout pageTitle={pageTitle}>
@@ -23,5 +21,8 @@ const publishsedPosts = await getCollection(
       >. No CMS, not html, or CSS. Just a .md file basted off a template.
     </p>
   </Box> -->
-  <DeckofCards publishsedPosts={publishsedPosts} />
+
+  <Stack space="var(--s1)">
+    {publishsedPosts.map((post) => <Card slug={post.slug} />)}
+  </Stack>
 </Layout>

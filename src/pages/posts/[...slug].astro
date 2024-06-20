@@ -1,87 +1,24 @@
 ---
-import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro';
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-// import type {
-//   InferGetStaticParamsType,
-//   InferGetStaticPropsType,
-//   GetStaticPaths,
-// } from 'astro';
+import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro';
 
-import { type BlogSchemaType, blogSchema } from '../../schemas.ts';
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
 
-import { Image } from 'astro:assets';
-
-export const getStaticPaths = async () => {
-  const _posts = await getCollection('blog');
-
-  // const result = blogSchema.safeParse(_posts);
-  // if (!result.success) {
-  //   // handle error then return
-  //   result.error;
-  // }
-
-  const arr = _posts.map((blogPost) => {
-    return {
-      params: { slug: blogPost.slug },
-      props: { blogPost },
-    };
-  });
-  return arr;
-};
-
-interface Props {
-  blogPost: CollectionEntry<'blog'>;
+  return posts.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
-// type Params = InferGetStaticParamsType<typeof getStaticPaths>;
-// type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { slug } = Astro.params;
-const { blogPost } = Astro.props as Props;
-const { data } = blogPost;
+// const { slug } = Astro.params;
+const { entry } = Astro.props;
 
-const { description, title, author, cover, tags, pubDate } = data;
+const { data } = entry;
 
-const { Content } = await blogPost.render();
-
-// const getRatio = () => (screen.width > 768 ? '16:9' : '1:4');
+const { Content } = await entry.render();
 ---
 
-<MarkdownPostLayout
-  title={title}
-  description={description}
-  authorId={author.id}
-  tags={tags}
-  pubDate={pubDate}
->
-  <div class="frame" slot="banner">
-    <Image src={cover.url} alt={cover.alt} width="1500" height="300" />
-  </div>
-
+<MarkdownPostLayout {...data}>
   <Content slot="main" />
 </MarkdownPostLayout>
-
-<style>
-  @custom-media --md-n-below (max-width: 768px);
-
-  .frame {
-    --n: 16;
-    --d: 9;
-    aspect-ratio: var(--n) / var(--d);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media (--md-n-below) {
-      --n: 1;
-      --d: 4;
-    }
-  }
-
-  .frame > img,
-  .frame > video {
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-  }
-</style>

@@ -10,32 +10,31 @@ import { getCollection } from 'astro:content';
 
 import type { CollectionEntry } from 'astro:content';
 
-interface Props {
-  posts: CollectionEntry<'blog'>;
-}
+// interface Props {
+//   posts: CollectionEntry<'blog'>;
+// }
 export const prerender = true;
 
 export const getStaticPaths = async () => {
   const allPosts = await getCollection('blog');
 
   const uniqueTags = [
-    ...new Set(allPosts.map((__post) => __post.data.tags).flat()),
+    ...new Set(allPosts.flatMap((__post) => __post.data.tags)),
   ];
 
+  const publishsedPosts = allPosts.filter(
+    ({ data }) => data.draft !== true && data.tags.includes(tag),
+  );
   // parama is  uniqueTags
   // and the post with that tag
   return uniqueTags.map((tag) => ({
     params: { tag },
-    props: {
-      posts: allPosts.filter(
-        ({ data }) => data.draft !== true && data.tags.includes(tag),
-      ),
-    },
+    props: publishsedPosts,
   }));
 };
 
 const { tag } = Astro.params;
-const { posts } = Astro.props;
+const publishsedPosts = Astro.props;
 ---
 
 <Layout>
@@ -43,6 +42,6 @@ const { posts } = Astro.props;
     <Box borderWidth="0">
       <h1 class="gradient-text">{`#${tag}`}</h1>
     </Box>
-    <DeckofCards publishsedPosts={posts} />
+    <DeckofCards publishsedPosts={publishsedPosts} />
   </Box>
 </Layout>

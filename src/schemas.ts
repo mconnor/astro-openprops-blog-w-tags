@@ -1,29 +1,36 @@
 import { z, reference } from 'astro:content';
 
+const urlSchema = z.string().url();
+const urlSchemaOptional = urlSchema.optional();
+const strSC = z.string();
+const strSCOptional = strSC.optional();
+const emailSchema = z.string().email();
+const emailSchemaOptional = emailSchema.optional();
+
+const imageSrcSchema = z.object({ src: urlSchema, alt: strSC });
+
+const myDateSchema = z.date({
+  required_error: 'Please select a date and time',
+  invalid_type_error: "That's not a date!",
+});
+
 export const blogSchema = z.object({
-  title: z.string(),
-  pubDate: z.date({
-    required_error: 'Please select a date and time',
-    invalid_type_error: "That's not a date!",
-  }),
-  description: z.string(),
-
-  // Reference a single author from the `authors` collection by `id`
+  title: strSC,
+  pubDate: myDateSchema,
+  description: strSC,
   author: reference('authors'),
-  // Reference an array of related posts from the `blog` collection by `slug`
-  relatedPosts: z.array(reference('blog')).optional(),
-  draft: z.boolean(),
-  tags: z.array(z.string()),
-
-  cover: z.object({ url: z.string(), alt: z.string() }),
+  // relatedPosts: z.array(reference('blog')).optional(),
+  draft: z.boolean().optional(),
+  tags: z.array(strSC).optional(),
+  cover: imageSrcSchema,
 });
 
 export const authorSchema = z.object({
-  id: z.string(),
-  name: z.string().default('Anonymous'),
-  email: z.string().email().optional(),
-  portfolio: z.string().url().optional(),
-  bio: z.string().optional(),
+  id: strSC,
+  name: strSC.default('Anonymous'),
+  email: emailSchemaOptional,
+  portfolio: urlSchemaOptional,
+  bio: strSCOptional,
 });
 
 export type AurthorSchemaType = z.infer<typeof authorSchema>;
