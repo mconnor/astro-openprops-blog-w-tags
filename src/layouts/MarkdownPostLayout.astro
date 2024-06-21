@@ -1,13 +1,13 @@
 ---
 // import { Debug } from 'astro:components';
-import BaseLayout from '@layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
 import type { BlogSchemaType } from '@schemas/index.ts';
 import { Image } from 'astro:assets';
 
 import { Box, Cluster } from '@cc/index.js';
-import TagContainer from '@components/TagContainer.astro';
+import TagContainer from '@/components/TagContainer.astro';
 
 type Props = BlogSchemaType & {
   children: unknown;

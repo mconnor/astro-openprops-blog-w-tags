@@ -7,29 +7,11 @@
     "useDefineForClassFields": false,
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
+      "@/*": [
+        "src/*"
       ],
       "@cc/*": [
         "src/astro-custom-layout-components/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@content/*": [
-        "src/content/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@scripts/*": [
-        "src/scripts/*"
-      ],
-      "@schemas/*": [
-        "src/schemas/*"
       ],
       "@wc/*": [
         "src/web-components/*"
