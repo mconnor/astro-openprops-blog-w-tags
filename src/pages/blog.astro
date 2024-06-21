@@ -16,6 +16,14 @@ const publishsedPosts = await getCollection('blog');
 <Layout pageTitle={pageTitle}>
   <Stack space="var(--s1)">
     <Box><h2>{pageTitle}</h2></Box>
-    {publishsedPosts.map((post) => <Card slug={post.slug} />)}
+    {
+      publishsedPosts.map((post) => (
+        <Card
+          foregroundColor="var(--surface-4)"
+          backgroundColor="var(--text-2)"
+          slug={post.slug}
+        />
+      ))
+    }
   </Stack>
 </Layout>

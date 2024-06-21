@@ -27,6 +27,8 @@ export default defineConfig({
   markdown: {
     drafts: true,
   },
+  scopedStyleStrategy: 'attribute',
+
   integrations: [
     // myIntegration,
     lit(),
@@ -44,6 +46,9 @@ export default defineConfig({
       },
     }),
   ],
+  experimental: {
+    contentCollectionJsonSchema: true,
+  },
   vite: {
     // optimizeDeps: {
     //   include: ['linked-dep'],

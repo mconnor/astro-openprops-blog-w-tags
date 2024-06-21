@@ -1,0 +1,42 @@
+---
+import { Box } from '@cc/index.js';
+
+interface Props {
+  foregroundColor?: string;
+  backgroundColor?: string;
+}
+
+const {
+  foregroundColor = 'var(--text-2)',
+  backgroundColor = 'var(--surface-4)',
+} = Astro.props;
+---
+
+<header>
+  <!-- <AstroThemeSwitcher /> -->
+  <Box borderWidth="0" padding="var(--s0)">
+    <slot />
+  </Box>
+</header>
+
+<script is:inline>
+  // import { $currTheme } from '../store/currTheme.ts';
+
+  // on page, get the last theme from the cookie and set it
+  document.addEventListener('astro:page-load', () => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      document.documentElement.setAttribute('data-theme', storedTheme);
+      // $currTheme.set(storedTheme);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    // console.log('theme set to', storedTheme);
+  });
+</script>
+<style define:vars={{ foregroundColor, backgroundColor }}>
+  header {
+    background-color: var(--backgroundColor);
+    color: var(--foregroundColor);
+  }
+</style>

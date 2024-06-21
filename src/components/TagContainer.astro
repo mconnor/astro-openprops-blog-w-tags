@@ -3,6 +3,7 @@ import { Box, Icon, Cluster } from '@cc/index.js';
 interface Props {
   tags: string[];
   tagCounts?: Record<string, number>;
+  children: never;
 }
 const { tags, tagCounts } = Astro.props;
 ---

@@ -1,8 +1,11 @@
 ---
 import BaseHead from '@components/BaseHead.astro';
-import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
-import { Cover, Center } from '@cc/index.js';
+import Social from '@components/Social.astro';
+import HeaderFooterWrapper from '@components/header-footer.astro';
+
+import { Cover, Center, Box, Cluster } from '@cc/index.js';
+import AstroThemeSwitcher from '@components/AstroSwitcher/index.astro';
+import Link from '@components/Link.astro';
 
 // import SpeedInsights from '@vercel/speed-insights/astro';
 
@@ -25,7 +28,7 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en" transition:animate="none" data-theme="dark">
+<html lang="en" transition:animate="none" data-theme="light">
   <head>
     <BaseHead title={pageTitle} description={description} image={image} />
     <link rel="canonical" href={canonicalURL} />
@@ -33,11 +36,48 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <body>
     <Cover centeredElement="center-l" space="0">
-      <Header transition:persist />
+      <HeaderFooterWrapper
+        backgroundColor="var(--text-2)"
+        foregroundColor="var(--surface-4)"
+        transition:persist
+      >
+        <Box borderWidth="0" padding="var(--s00)">
+          <AstroThemeSwitcher />
+        </Box>
+        <Box borderWidth="0" padding="0">
+          <Cluster align="baseline" justify="space-between" space="0">
+            <Link isMainNav href="/">Mike Connor</Link>
 
+            <Box borderWidth="0" padding="0">
+              <nav>
+                <Cluster align="baseline" justify="flex-end" space="var(--s0)">
+                  <Link href="/about/">About</Link>
+                  <Link href="/icons/">Icons</Link>
+                  <Link href="/kitchensink/">Kitchen Sink</Link>
+                  <Link href="/blog/">Blog</Link>
+                  <Link href="/tags/">Tags</Link>
+                </Cluster>
+              </nav>
+            </Box>
+          </Cluster>
+        </Box></HeaderFooterWrapper
+      >
+      foregroundColor
       <Center><slot /></Center>
 
-      <Footer transition:persist />
+      <HeaderFooterWrapper
+        backgroundColor="var(--text-2)"
+        foregroundColor="var(--surface-4)"
+        transition:persist
+      >
+        <Cluster justify="space-around">
+          <Social platform="twitter" username="mikeconnor504" />
+
+          <Social platform="github" />
+          <Social platform="linkedin" username="in/michaelgconnor" />
+          <Social platform="youtube" username="michaelconnor" />
+        </Cluster></HeaderFooterWrapper
+      >
     </Cover>
   </body>
 </html>

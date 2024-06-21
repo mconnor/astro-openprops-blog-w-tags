@@ -1,14 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro';
+import { blogSchema } from '@schemas/index.ts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
 
-  return posts.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  return posts.map((entry) => {
+    // try {
+    //   blogSchema.parse(entry.data);
+    //   console.log('Blog data is valid');
+    // } catch (e) {
+    //   throw new Error('Validation error:', e);
+    // }
+    return {
+      params: { slug: entry.slug },
+      props: { entry },
+    };
+  });
 }
 
 // const { slug } = Astro.params;

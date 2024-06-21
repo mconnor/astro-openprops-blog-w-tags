@@ -2,10 +2,10 @@
 title: 3d Food
 pubDate: 2024-01-02
 author: mike-connor
+description: The Future of Dynamic Web Content
 cover:
   src: 'https://picsum.photos/1200/300?random=3'
   alt: 'lorem'
-description: The Future of Dynamic Web Content
 tags: ['coding', 'successes', 'learning-in-public']
 ---
 

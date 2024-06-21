@@ -6,7 +6,7 @@ import { Frame, Stack } from '@cc/index.js';
 // import type { CollectionEntry } from 'astro:content';
 import { format } from 'date-fns';
 import { Image } from 'astro:assets';
-import type { BlogSchemaType } from '../../schemas.ts';
+import type { BlogSchemaType } from '@schemas/index.ts';
 import CardTop from './top-bottom.astro';
 
 // interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
@@ -15,11 +15,15 @@ import CardTop from './top-bottom.astro';
 
 interface Props {
   slug: string;
+  foregroundColor?: string;
+  backgroundColor?: string;
 }
 
-// import { Switcher, Stack, Box, Frame } from '@cc/index.js';
-const { slug } = Astro.props;
-
+const {
+  slug,
+  foregroundColor = 'var(--text-2)',
+  backgroundColor = 'var(--surface-4)',
+} = Astro.props;
 const blogdata = await getEntry('blog', slug);
 
 const { title, pubDate, description, author, cover }: BlogSchemaType =
@@ -28,7 +32,7 @@ const { title, pubDate, description, author, cover }: BlogSchemaType =
 const authObj = await getEntry('authors', author.id);
 ---
 
-<article class="card surface4">
+<article class="card">
   <Stack>
     <code>`const blogdata = await getEntry("blog", {slug})`</code>
     <CardTop>
@@ -53,7 +57,11 @@ const authObj = await getEntry('authors', author.id);
   </Stack>
 </article>
 
-<style>
+<style define:vars={{ foregroundColor, backgroundColor }}>
+  article {
+    background-color: var(--backgroundColor);
+    color: var(--foregroundColor);
+  }
   .card {
     border-radius: var(--radius-drawn-3);
     border: var(--border-size-4) solid var(--text-2);
@@ -67,6 +75,17 @@ const authObj = await getEntry('authors', author.id);
 
     @media (--motionOK) {
       animation: var(--animation-fade-in);
+    }
+  }
+
+  a {
+    color: var(--brand);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline double;
+    }
+    &:visited {
+      color: var(--link-visited);
     }
   }
   .myMask {
