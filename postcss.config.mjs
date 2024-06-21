@@ -12,7 +12,7 @@ import postcssCustomMedia from 'postcss-custom-media';
 
 export default {
   plugins: [
-    postcssImport, //This plugin should probably be used as the first plugin of your list.
+    postcssImport,
     // postcssJitProps(OpenProps),
     autoprefixer,
     postcssNesting,

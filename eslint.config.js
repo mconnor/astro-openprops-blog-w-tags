@@ -1,7 +1,7 @@
 // @ts-check
 
 import eslintPluginAstro from 'eslint-plugin-astro';
-import eslintConfigPrettier from 'eslint-config-prettier';
+// import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
@@ -25,7 +25,7 @@ const compat = new FlatCompat({
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  // ...tseslint.configs.stylistic,
+  ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
   regexpPlugin.configs['flat/recommended'],
 
@@ -44,12 +44,13 @@ export default tseslint.config(
       parserOptions: {
         parser: '@typescript-eslint/parser',
         processor: eslintPluginAstro.processors.astro,
-        project: ['./tsconfig.json'],
+        project: true,
         tsconfigDirName: import.meta.dirname,
       },
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
+      'jsx-a11y/label-has-associated-control': 'off',
     },
   },
   {
@@ -87,8 +88,6 @@ export default tseslint.config(
       'my-custom-cache-directory',
       'src/env.d.ts',
       'src/components/Hamburger.astro',
-      'src/pages/kitchensink.astro',
-      'src/pages/splash.astro',
     ],
   },
 );

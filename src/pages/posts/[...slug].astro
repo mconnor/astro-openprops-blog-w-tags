@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro';
-import { blogSchema } from '@schemas/index.ts';
+// import { blogSchema } from '@schemas/index.ts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
