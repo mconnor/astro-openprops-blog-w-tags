@@ -14,15 +14,8 @@ const publishsedPosts = await getCollection('blog');
 ---
 
 <Layout pageTitle={pageTitle}>
-  <!-- <Box borderWidth="0"
-    ><p>
-      Below are static lorem-ipsum blog post created in <a
-        href="https://www.markdownguide.org">Markdown</a
-      >. No CMS, not html, or CSS. Just a .md file basted off a template.
-    </p>
-  </Box> -->
-
   <Stack space="var(--s1)">
+    <Box><h2>{pageTitle}</h2></Box>
     {publishsedPosts.map((post) => <Card slug={post.slug} />)}
   </Stack>
 </Layout>

@@ -1,47 +1,43 @@
 ---
+// import { Debug } from 'astro:components';
 import Layout from '@layouts/BaseLayout.astro';
-import DeckofCards from '@components/DeckofCards.astro';
-import { Box } from '@cc/index.js';
-// import { type BlogSchemaType, blogSchema } from '../../schemas.ts';
-
+import { Box, Stack, Frame, Cluster } from '@cc/index.js';
 import { getCollection } from 'astro:content';
+import Card from '@components/Card.astro';
 
-// import type { BlogSchemaType } from '../../schemas.ts';
+// import type { CollectionEntry } from 'astro:content'
 
-import type { CollectionEntry } from 'astro:content';
-
-// interface Props {
-//   posts: CollectionEntry<'blog'>;
-// }
 export const prerender = true;
 
 export const getStaticPaths = async () => {
   const allPosts = await getCollection('blog');
-
   const uniqueTags = [
-    ...new Set(allPosts.flatMap((__post) => __post.data.tags)),
+    ...new Set(allPosts.map((post) => post.data?.tags || []).flat()),
   ];
 
-  const publishsedPosts = allPosts.filter(
-    ({ data }) => data.draft !== true && data.tags.includes(tag),
-  );
-  // parama is  uniqueTags
-  // and the post with that tag
-  return uniqueTags.map((tag) => ({
-    params: { tag },
-    props: publishsedPosts,
-  }));
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter(
+      ({ data }) => data.draft !== true && data?.tags?.includes(tag),
+    );
+    return {
+      params: { tag },
+      props: {
+        posts: filteredPosts,
+      },
+    };
+  });
 };
 
 const { tag } = Astro.params;
-const publishsedPosts = Astro.props;
+const { posts } = Astro.props;
 ---
 
-<Layout>
-  <Box borderWidth="0" padding="0">
-    <Box borderWidth="0">
-      <h1 class="gradient-text">{`#${tag}`}</h1>
-    </Box>
-    <DeckofCards publishsedPosts={publishsedPosts} />
-  </Box>
+<Layout pageTitle={tag}>
+  <!-- <Debug {tag} />
+  <Debug {posts} /> -->
+  <Stack space="var(--s1)">
+    <Box><h2>#{tag}</h2></Box>
+    {posts.map((post) => <Card slug={post.slug} />)}
+  </Stack>
+  <!-- <TitleDate posts={posts} /> -->
 </Layout>

@@ -28,7 +28,6 @@ const { title, pubDate, description, author, cover, tags }: BlogSchemaType =
 const authObj = await getEntry('authors', author.id);
 ---
 
-<!-- <Debug {authObj} /> --><!-- <Debug {authObj} /> -->
 <div class="card">
   <CardTop>
     <a slot="left" href={`/posts/${slug}`}><h3 class="truncate">{title}</h3></a>

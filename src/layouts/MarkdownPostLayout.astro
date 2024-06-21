@@ -1,5 +1,5 @@
 ---
-import { Debug } from 'astro:components';
+// import { Debug } from 'astro:components';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
@@ -21,7 +21,7 @@ const { data } = await getEntry('authors', author.id);
 <!-- TODO: fix the date format -->
 <BaseLayout pageTitle={title} description={description}>
   <article>
-    <Debug {author} />
+    <!-- <Debug {author} /> -->
     <Box borderWidth="0" padding="0">
       <Image
         src={cover.src}
