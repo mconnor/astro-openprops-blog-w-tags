@@ -1,17 +1,15 @@
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { expect, test } from 'vitest';
-import Card from '../src/components/Card.astro';
+import Card from '@components/Card/index.astro';
 
 test('Card with slots', async () => {
   const container = await AstroContainer.create();
+
   const result = await container.renderToString(Card, {
-    slots: {
-      default: 'Card content',
-    },
+    props: { name: 'post-0' },
   });
 
-  expect(result).toContain('This is a card');
-  expect(result).toContain('Card content');
+  expect(result).toContain('const blogdata = await getEntry("blog", post-0)');
 });
 
 // import { assert, describe, expect, it } from 'vitest'

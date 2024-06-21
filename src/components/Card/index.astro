@@ -1,9 +1,9 @@
 ---
 import { getEntry } from 'astro:content';
-import { Box, Stack, Frame, Cluster } from '@cc/index.js';
+import { Frame, Stack } from '@cc/index.js';
 // import { Debug } from 'astro:components';
 // import type { HTMLAttributes } from 'astro/types';
-import type { CollectionEntry } from 'astro:content';
+// import type { CollectionEntry } from 'astro:content';
 import { format } from 'date-fns';
 import { Image } from 'astro:assets';
 import type { BlogSchemaType } from '../../schemas.ts';
@@ -11,7 +11,7 @@ import CardTop from './top-bottom.astro';
 
 // interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
 
-type EntryType = CollectionEntry<'blog'>;
+// type EntryType = CollectionEntry<'blog'>;
 
 interface Props {
   slug: string;
@@ -22,31 +22,36 @@ const { slug } = Astro.props;
 
 const blogdata = await getEntry('blog', slug);
 
-const { title, pubDate, description, author, cover, tags }: BlogSchemaType =
+const { title, pubDate, description, author, cover }: BlogSchemaType =
   blogdata.data;
 
 const authObj = await getEntry('authors', author.id);
 ---
 
-<div class="card">
-  <CardTop>
-    <a slot="left" href={`/posts/${slug}`}><h3 class="truncate">{title}</h3></a>
-    <a slot="right" href={`/writer/${authObj.id}`}>{authObj.data.name}</a>
-  </CardTop>
+<article class="card surface4">
+  <Stack>
+    <code>`const blogdata = await getEntry("blog", {slug})`</code>
+    <CardTop>
+      <a slot="left" href={`/posts/${slug}`}
+        ><h3 class="truncate">{title}</h3></a
+      >
+      <a slot="right" href={`/writer/${authObj.id}`}>{authObj.data.name}</a>
+    </CardTop>
 
-  <div class="myMask">
-    <Frame ratio="4:3">
-      <Image src={cover.src} alt={cover.alt} width="1200" height="300" />
-    </Frame>
-  </div>
+    <div class="myMask">
+      <Frame ratio="4:3">
+        <Image src={cover.src} alt={cover.alt} width="1200" height="300" />
+      </Frame>
+    </div>
 
-  <CardTop>
-    <p slot="left">
-      {description}
-    </p>
-    <p slot="right">{format(pubDate, 'MMMM dd, yyyy')}</p>
-  </CardTop>
-</div>
+    <CardTop>
+      <p slot="left">
+        {description}
+      </p>
+      <p slot="right">{format(pubDate, 'MMMM dd, yyyy')}</p>
+    </CardTop>
+  </Stack>
+</article>
 
 <style>
   .card {

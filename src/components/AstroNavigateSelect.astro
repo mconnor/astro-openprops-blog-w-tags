@@ -29,11 +29,11 @@
       );
     }
 
-    async _handleChange(e) {
-      const targetUrl = e.target.value;
-      console.log(`Navigating to: ${targetUrl}`); // This console log is for debugging purposes
+    async _handleChange(e: Event) {
+      const targetUrl = (e.target as HTMLSelectElement)?.value;
+      // console.log(`Navigating to: ${targetUrl}`); // This console log is for debugging purposes
       // Using 'navigate' function from 'astro:transitions/client'
-
+      if (!targetUrl) throw new Error('No target URL provided');
       navigate(targetUrl);
     }
   }

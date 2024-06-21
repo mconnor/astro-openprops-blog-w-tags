@@ -1,14 +1,14 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
 import { Box, Stack } from '@cc/index.js';
-import Card from '@components/CardDelux.astro';
+import CardDelux from '@components/CardDelux.astro';
 
 const pageTitle = 'About Page';
 ---
 
 <Layout pageTitle={pageTitle}>
   <Stack>
-    <Card>
+    <CardDelux>
       <div slot="headline">Lorem ipsum dolor sit amet</div>
 
       <div slot="sub">
@@ -21,8 +21,8 @@ const pageTitle = 'About Page';
         inventore rem facere cum minima, tempora in accusamus voluptatum nobis,
         delectus eius itaque accusantium. Odio, maiores fugit.
       </div>
-    </Card>
-    <Card>
+    </CardDelux>
+    <CardDelux>
       <div slot="headline">Lorem ipsum dolor sit amet</div>
 
       <div slot="body">
@@ -30,8 +30,8 @@ const pageTitle = 'About Page';
         inventore rem facere cum minima, tempora in accusamus voluptatum nobis,
         delectus eius itaque accusantium. Odio, maiores fugit.
       </div>
-    </Card>
-    <Card>
+    </CardDelux>
+    <CardDelux>
       <div slot="headline">Lorem ipsum dolor sit amet</div>
 
       <div slot="body">
@@ -39,7 +39,7 @@ const pageTitle = 'About Page';
         inventore rem facere cum minima, tempora in accusamus voluptatum nobis,
         delectus eius itaque accusantium. Odio, maiores fugit.
       </div>
-    </Card>
+    </CardDelux>
 
     <Box invert
       ><em
