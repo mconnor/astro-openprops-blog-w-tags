@@ -3,7 +3,7 @@
 import Layout from '@/layouts/BaseLayout.astro';
 import { Box, Stack } from '@cc/index.js';
 import { getCollection } from 'astro:content';
-import Card from '@/components/Card/index.astro';
+import BlogCard from '@/components/BlogCard/index.astro';
 
 // import type { CollectionEntry } from 'astro:content';
 
@@ -13,14 +13,14 @@ const publishsedPosts = await getCollection('blog');
 // list of all blog post
 ---
 
-<Layout pageTitle={pageTitle}>
+<Layout title={pageTitle}>
   <Stack space="var(--s1)">
     <Box><h2>{pageTitle}</h2></Box>
     {
       publishsedPosts.map((post) => (
-        <Card
-          foregroundColor="var(--surface-4)"
-          backgroundColor="var(--text-2)"
+        <BlogCard
+          backgroundColor="var(--surface-4)"
+          foregroundColor="var(--text-2)"
           slug={post.slug}
         />
       ))

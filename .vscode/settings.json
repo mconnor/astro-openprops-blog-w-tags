@@ -23,8 +23,7 @@
    * - "on": Inlay hints are enabled.
    */
   "cssvar.files": [
-    "**/*.astro",
-    "**/*.css",
+    "./src/styles/**/*css",
     "./node_modules/open-props/open-props.min.css"
     // if you have an alternative path to where your styles are located
     // you can add it in this array of files

@@ -9,15 +9,13 @@ const emailSchemaOptional = emailSchema.optional();
 
 const imageSrcSchema = z.object({ src: urlSchema, alt: strSC });
 
-const refSchema = z.string(reference(['authors']));
+// const refSchema = z.string(reference(['authors']));
 
-const myDateSchema = z.date({
-  required_error: 'Please select a date and time',
-  invalid_type_error: "That's not a date!",
-});
+const datelike = z.union([z.number(), z.string(), z.date()]);
+const datelikeToDate = datelike.pipe(z.coerce.date());
 
 export const authorSchema = z.object({
-  id: strSC,
+  id: z.string(),
   name: strSC.default('Anonymous'),
   email: emailSchemaOptional,
   portfolio: urlSchemaOptional,
@@ -26,11 +24,11 @@ export const authorSchema = z.object({
 
 export const blogSchema = z.object({
   title: strSC,
-  pubDate: myDateSchema,
+  pubDate: datelikeToDate,
   description: strSC,
-  author: reference(['authors']),
-  draft: z.boolean().optional(),
-  tags: z.array(strSC).optional(),
+  author: reference('authors'),
+  draft: z.boolean().default(false),
+  tags: z.array(strSCOptional),
   cover: imageSrcSchema,
 });
 
@@ -38,3 +36,5 @@ export const blogSchema = z.object({
 
 export type AurthorSchemaType = z.infer<typeof authorSchema>;
 export type BlogSchemaType = z.infer<typeof blogSchema>;
+
+export const zTags = z.array(strSC).nonempty();

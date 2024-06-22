@@ -1,25 +1,29 @@
 ---
 // import { Debug } from 'astro:components';
-import BaseLayout from '@/layouts/BaseLayout.astro';
+import { z, reference } from 'astro:content';
+import Layout from '@/layouts/BaseLayout.astro';
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
-import type { BlogSchemaType } from '@schemas/index.ts';
+import type { BlogSchemaType, zTags } from '@/schemas/index.ts';
 import { Image } from 'astro:assets';
 
 import { Box, Cluster } from '@cc/index.js';
 import TagContainer from '@/components/TagContainer.astro';
+import type { AstroComponentFactory } from 'astro/runtime/server/render/astro/index.js';
 
 type Props = BlogSchemaType & {
-  children: unknown;
+  children: AstroComponentFactory;
 };
 
 const { title, description, pubDate, cover, author, tags } = Astro.props;
 
-const { data } = await getEntry('authors', author.id);
+const results = await getEntry('authors', author.id);
+
+const { name } = results.data;
 ---
 
 <!-- TODO: fix the date format -->
-<BaseLayout pageTitle={title} description={description}>
+<Layout title={title} description={description}>
   <article>
     <!-- <Debug {author} /> -->
     <Box borderWidth="0" padding="0">
@@ -34,23 +38,23 @@ const { data } = await getEntry('authors', author.id);
         ><Box borderWidth="0"><h2>{title}</h2></Box>
 
         <Box borderWidth="0">
-          Written by: {data.name},{' '}
+          Written by: {name},
           {format(pubDate, 'd MMM, yyyy')}
         </Box>
       </Cluster>
       <Box padding="0"><slot name="banner" /></Box>
     </Box>
-
+    <!-- 
     {
       tags && (
         <Box borderWidth="0">
           <TagContainer tags={tags} />
         </Box>
       )
-    }
-    <Box padding="var(--s2)"><slot name="main" /></Box>
+    } -->
+    <Box padding="var(--s2)"><slot name="entry-content" /></Box>
   </article>
-</BaseLayout>
+</Layout>
 
 <style>
   article {

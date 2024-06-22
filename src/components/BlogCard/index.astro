@@ -3,15 +3,16 @@ import { getEntry } from 'astro:content';
 import { Frame, Stack } from '@cc/index.js';
 // import { Debug } from 'astro:components';
 // import type { HTMLAttributes } from 'astro/types';
-// import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import { format } from 'date-fns';
 import { Image } from 'astro:assets';
-import type { BlogSchemaType } from '@schemas/index.ts';
+// import type { BlogSchemaType , } from '@/schemas/index.ts';
 import CardTop from './top-bottom.astro';
+import { blogSchema, authorSchema } from '@/schemas/index.ts';
 
 // interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
 
-// type EntryType = CollectionEntry<'blog'>;
+type ResultType = CollectionEntry<'blog'>;
 
 interface Props {
   slug: string;
@@ -24,17 +25,53 @@ const {
   foregroundColor = 'var(--text-2)',
   backgroundColor = 'var(--surface-4)',
 } = Astro.props;
-const blogdata = await getEntry('blog', slug);
 
-const { title, pubDate, description, author, cover }: BlogSchemaType =
-  blogdata.data;
+// find post with this unique slug
+
+const entry = await getEntry('blog', slug);
+if (entry === undefined) {
+  throw new Error(`No blog entry found for slug: ${slug}`);
+}
+
+const parsedBlog = blogSchema.safeParse(entry.data);
+
+const { title, pubDate, description, cover, author } = entry.data;
+
+// try {
+
+//   const { id } = author;
+
+//   const parsedAuth = authorSchema.safeParse(parsed?.data?.author);
+// } catch (error) {
+//   throw new Error(`No blog post found for slug: ${slug}`);
+// }
+
+// try {
+
+//   const { id } = author;
+// } catch (error) {
+//   throw new Error(`No blog post found for slug: ${slug}`);
+// }
+
+// if (blogSchema.safeParse(entry?.data).success) {
+//   const { title, pubDate, description, author, cover } = entry?.data;
+
+// } else {
+//   throw new Error(`No blog post found for slug: ${slug}`);
+// }
 
 const authObj = await getEntry('authors', author.id);
+// const parsed = blogSchema.safeParse(entry?.data);
+
+// if (authorSchema.safeParse(authObj.data).success) {
+//   const { name } = authObj.data;
+// } else {
+//   throw new Error(`No author found for id: ${author.id}`);
+// }
 ---
 
-<article class="card">
+<article class="borderClass">
   <Stack>
-    <code>`const blogdata = await getEntry("blog", {slug})`</code>
     <CardTop>
       <a slot="left" href={`/posts/${slug}`}
         ><h3 class="truncate">{title}</h3></a
@@ -62,9 +99,9 @@ const authObj = await getEntry('authors', author.id);
     background-color: var(--backgroundColor);
     color: var(--foregroundColor);
   }
-  .card {
+  .borderClass {
     border-radius: var(--radius-drawn-3);
-    border: var(--border-size-4) solid var(--text-2);
+    border: var(--border-size-4) solid var(--foregroundColor);
     padding: 0;
 
     /* &:hover {

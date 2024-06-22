@@ -19,7 +19,6 @@ export default defineConfig({
   // your configuration options here...
   // https://docs.astro.build/en/reference/configuration-reference/
   output: 'static',
-  adapter: vercel(),
   site: 'http://localhost:4321',
   image: {
     domains: ['astro.build', 'picsum.photos', 'https://doodleipsum.com'],
@@ -50,10 +49,6 @@ export default defineConfig({
     contentCollectionJsonSchema: true,
   },
   vite: {
-    // optimizeDeps: {
-    //   include: ['linked-dep'],
-    // },
-    // plugins: [visualizer()],
     ssr: {
       noExternal: ['date-fns', 'open-props'],
     },

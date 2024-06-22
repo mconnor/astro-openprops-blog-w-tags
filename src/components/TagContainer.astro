@@ -1,4 +1,5 @@
 ---
+import { Debug } from 'astro:components';
 import { Box, Icon, Cluster } from '@cc/index.js';
 interface Props {
   tags: string[];
@@ -6,8 +7,11 @@ interface Props {
   // children: never;
 }
 const { tags, tagCounts } = Astro.props;
+
+// const keys = Object.keys(tagCounts);
 ---
 
+<Debug {tagCounts} />
 <Cluster>
   {
     tags.map((tag) => (
@@ -32,6 +36,7 @@ const { tags, tagCounts } = Astro.props;
     ))
   }
 </Cluster>
+
 <style>
   /* display: grid;
         grid-template-columns: 1fr 1fr 1fr;

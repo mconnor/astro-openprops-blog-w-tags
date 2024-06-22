@@ -10,7 +10,7 @@ import Link from '@/components/Link.astro';
 // import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
-  pageTitle?: string;
+  title?: string;
   description?: string;
   image?: string;
   children: unknown;
@@ -20,7 +20,7 @@ interface Props {
 // const isDev = import.meta.env.DEV
 
 const {
-  pageTitle = 'Mike Connor',
+  title = 'Mike Connor',
   description = 'my description',
   image = '/placeholder-social.jpg',
 } = Astro.props;
@@ -30,7 +30,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <html lang="en" transition:animate="none" data-theme="light">
   <head>
-    <BaseHead title={pageTitle} description={description} image={image} />
+    <BaseHead title={title} description={description} image={image} />
     <link rel="canonical" href={canonicalURL} />
   </head>
 
@@ -62,7 +62,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </Cluster>
         </Box></HeaderFooterWrapper
       >
-      foregroundColor
+
       <Center><slot /></Center>
 
       <HeaderFooterWrapper
