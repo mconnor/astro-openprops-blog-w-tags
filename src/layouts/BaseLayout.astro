@@ -35,7 +35,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
 
   <body>
-    <Cover centeredElement="center-l" space="0">
+    <Cover centeredElement="div" space="0">
       <HeaderFooterWrapper
         backgroundColor="var(--text-2)"
         foregroundColor="var(--surface-4)"
@@ -63,7 +63,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </Box></HeaderFooterWrapper
       >
 
-      <Center><slot /></Center>
+      <div class="box-no-border">
+        <Center><slot /></Center>
+      </div>
 
       <HeaderFooterWrapper
         backgroundColor="var(--text-2)"

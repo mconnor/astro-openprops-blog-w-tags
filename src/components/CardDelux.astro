@@ -3,31 +3,35 @@ import { Box, Stack } from '@cc/index.js';
 
 interface Props {
   // href?: string;
+  num?: number;
   children: HTMLElement[];
 }
+const { num = 4 } = Astro.props as Props;
+const className = `surface${num}`;
 // import { Switcher, Stack, Box, Frame } from '@cc/index.js';
 // const { href } = Astro.props;
 ---
 
-<article class="card surface4">
+<article class={className}>
   <Stack>
-    <div class="box-no-border invert surface4">
-      <slot name="headline" />
-    </div>
-    <Box borderWidth="0">
-      <slot name="sub" />
+    <Box borderWidth="0" invert>
+      <h2><slot name="headline" /></h2>
     </Box>
     <Box borderWidth="0">
-      <slot name="body" />
+      <h3><slot name="sub" /></h3>
+    </Box>
+    <Box borderWidth="0">
+      <p><slot name="body" /></p>
     </Box>
   </Stack>
 </article>
 
 <style>
   article {
-    &.card {
-      border-radius: var(--radius-drawn-3);
-      border: var(--border-size-4) solid var(--text-2);
-    }
+    border-radius: var(--radius-drawn-3);
+    border: var(--border-size-4) solid var(--text-2);
   }
 </style>
+
+<!-- 
+class="box-no-border invert surface4" -->

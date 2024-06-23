@@ -14,13 +14,15 @@ const imageSrcSchema = z.object({ src: urlSchema, alt: strSC });
 const datelike = z.union([z.number(), z.string(), z.date()]);
 const datelikeToDate = datelike.pipe(z.coerce.date());
 
-export const authorSchema = z.object({
-  id: z.string(),
-  name: strSC.default('Anonymous'),
-  email: emailSchemaOptional,
-  portfolio: urlSchemaOptional,
-  bio: strSCOptional,
-});
+export const authorSchema = z
+  .object({
+    id: z.string(),
+    name: strSC.default('Anonymous'),
+    email: emailSchemaOptional,
+    portfolio: urlSchemaOptional,
+    bio: strSCOptional,
+  })
+  .readonly();
 
 export const blogSchema = z.object({
   title: strSC,
@@ -38,3 +40,7 @@ export type AurthorSchemaType = z.infer<typeof authorSchema>;
 export type BlogSchemaType = z.infer<typeof blogSchema>;
 
 export const zTags = z.array(strSC).nonempty();
+
+// Record<string, number>;
+
+export const tagCountTypeSchema = z.record(z.number());

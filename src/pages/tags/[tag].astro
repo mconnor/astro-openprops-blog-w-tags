@@ -10,19 +10,20 @@ import { getCollection } from 'astro:content';
 export const prerender = true;
 
 export const getStaticPaths = async () => {
-  const allPosts = await getCollection('blog');
+  const publishsedPosts = await getCollection(
+    'blog',
+    ({ data }) => data.draft !== true,
+  );
+
   const uniqueTags = [
-    ...new Set(allPosts.map(({ data }) => data?.tags || []).flat()),
+    ...new Set(publishsedPosts.map(({ data }) => data?.tags || []).flat()),
   ];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter(
-      ({ data }) => data.draft !== true && data?.tags?.includes(tag),
-    );
     return {
       params: { tag },
       props: {
-        posts: filteredPosts,
+        posts: publishsedPosts.filter(({ data }) => data.tags.includes(tag)),
       },
     };
   });

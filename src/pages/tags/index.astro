@@ -1,13 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { blogSchema, zTags } from '@/schemas/index.ts';
-import { z, reference } from 'astro:content';
+import { zTags, tagCountTypeSchema } from '@/schemas/index.ts';
+import { z } from 'astro:content';
 
 import TagContainer from '@/components/TagContainer.astro';
-
-type TagCountType = Record<string, number>;
-const tagCountsSchema = z.record(z.number());
 
 const allBlogPost = await getCollection('blog');
 
@@ -32,9 +29,6 @@ const slugTags = allBlogDataObjs
 // }
 
 const zString = z.string();
-const zNum = z.number();
-
-const zTagCountObj = z.custom<TagCountType>;
 
 const tagCountsObject = slugTags.reduce(
   (tagCountAcc, post) => {
@@ -58,7 +52,7 @@ const uniqueTagArray = [...new Set(slugTags.map((post) => post.tags).flat())];
 const zUniqueTagArray = zTags.safeParse(uniqueTagArray);
 
 const { success: tagCountSuccess, data: tagCountData } =
-  tagCountsSchema.safeParse(tagCountsObject);
+  tagCountTypeSchema.safeParse(tagCountsObject);
 ---
 
 <BaseLayout title="Tag Index">

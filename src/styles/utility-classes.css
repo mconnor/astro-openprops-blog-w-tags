@@ -14,7 +14,7 @@
 }
 
 .surface4 {
-  background-color: orange;
+  background-color: var(--surface-4);
   color: var(--text-4);
 }
 

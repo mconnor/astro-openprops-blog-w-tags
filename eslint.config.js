@@ -30,7 +30,7 @@ export default tseslint.config(
   regexpPlugin.configs['flat/recommended'],
 
   ...markdown.configs.recommended,
-  ...compat.extends('plugin:jsx-a11y/recommended'),
+  // ...compat.extends('plugin:jsx-a11y/recommended'),
   ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
 
@@ -50,7 +50,7 @@ export default tseslint.config(
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
-      'jsx-a11y/label-has-associated-control': 'off',
+      // 'jsx-a11y/label-has-associated-control': 'off',
     },
   },
   {

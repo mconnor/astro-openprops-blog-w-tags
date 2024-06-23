@@ -5,12 +5,9 @@ import { Box, Stack } from '@cc/index.js';
 import { getCollection } from 'astro:content';
 import BlogCard from '@/components/BlogCard/index.astro';
 
-// import type { CollectionEntry } from 'astro:content';
-
 const pageTitle = 'Blog';
-const publishsedPosts = await getCollection('blog');
 
-// list of all blog post
+const publishsedPosts = await getCollection('blog');
 ---
 
 <Layout title={pageTitle}>
