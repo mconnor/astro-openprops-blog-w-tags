@@ -11,7 +11,7 @@ export default class Box extends HTMLElement {
   constructor() {
     super();
     this.render = () => {
-      this.i = `Box-${[this.padding, this.borderWidth,this.invert].join('')}`;
+      this.i = `Box-${[this.padding, this.borderWidth, this.invert].join('')}`;
       this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
         const styleEl = document.createElement('style');
@@ -52,8 +52,6 @@ export default class Box extends HTMLElement {
     this.setAttribute('borderWidth', val);
   }
 
-
-
   static get observedAttributes() {
     return ['borderWidth', 'padding', 'invert'];
   }
@@ -82,5 +80,3 @@ export default class Box extends HTMLElement {
 if ('customElements' in window) {
   customElements.define('box-l', Box);
 }
-
-

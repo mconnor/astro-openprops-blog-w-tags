@@ -1,0 +1,41 @@
+---
+// import { Debug } from 'astro:components';
+// import AuthorCard from '@/components/AuthorCard.astro';
+import Layout from '@/layouts/BaseLayout.astro';
+import { authorSchema } from '@/schemas/index.ts';
+
+import { Box, Stack } from '@cc/index.js';
+import { getCollection } from 'astro:content';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const authors = await getCollection('authors');
+
+  return authors.map((auth) => ({
+    params: {
+      slug: auth.id,
+    },
+    props: {
+      author: auth,
+    },
+  }));
+}
+
+const { slug } = Astro.params;
+const { author } = Astro.props;
+
+// const { error, data: zData } = authorSchema.parse(author.data);
+
+// if (error) {
+//   throw new Error('Invalid author data' + error);
+// }
+
+const { name } = authorSchema.parse(author.data);
+---
+
+<Layout title={name}>
+  <Box>
+    <h2>{name}</h2>
+  </Box>
+</Layout>

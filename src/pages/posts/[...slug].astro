@@ -1,8 +1,7 @@
 ---
 // import { type CollectionEntry, getCollection } from 'astro:content';
 import MarkdownPostLayout from '@/layouts/MarkdownPostLayout.astro';
-// import { blogSchema } from '@/schemas/index.ts';
-// import { Debug } from 'astro:components';
+
 import { getCollection } from 'astro:content';
 
 export const prerender = true;
@@ -10,29 +9,24 @@ export const prerender = true;
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
 
-  return posts.map((entry) => {
-    return {
-      params: { slug: entry.slug },
-      props: { entry },
-    };
-  });
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
 }
 
-// const { slug } = Astro.params;
-const { entry } = Astro.props;
+const { post } = Astro.props;
 
-const { data } = entry;
+const { Content } = await post.render();
 
-const { Content } = await entry.render();
+// const { success, error, data: parsedData } = blogSchema.safeParse(entry.data);
 
-// const { success, error, data: parsedData } = blogSchema.safeParse(data);
-
-// if (!success) {
+// if (error) {
 //   // handle error then return
 //   throw new Error('Validation error:', error);
 // }
 ---
 
-<MarkdownPostLayout blogData={data}>
+<MarkdownPostLayout blogData={post.data}>
   <Content slot="entry-content" />
 </MarkdownPostLayout>

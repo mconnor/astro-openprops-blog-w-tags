@@ -7,23 +7,12 @@
     "useDefineForClassFields": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@cc/*": [
-        "src/astro-custom-layout-components/*"
-      ],
-      "@wc/*": [
-        "src/web-components/*"
-      ]
+      "@/*": ["src/*"],
+      "@cc/*": ["src/astro-custom-layout-components/*"],
+      "@wc/*": ["src/web-components/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": [
-    "src/**/*.astro",
-    "src/**/*.js",
-    "src/**/*.ts",
-    "test/*.ts"
-  ],
+  "include": ["src/**/*.astro", "src/**/*.js", "src/**/*.ts", "test/*.ts"]
 }

@@ -14,15 +14,13 @@ const imageSrcSchema = z.object({ src: urlSchema, alt: strSC });
 const datelike = z.union([z.number(), z.string(), z.date()]);
 const datelikeToDate = datelike.pipe(z.coerce.date());
 
-export const authorSchema = z
-  .object({
-    id: z.string(),
-    name: strSC.default('Anonymous'),
-    email: emailSchemaOptional,
-    portfolio: urlSchemaOptional,
-    bio: strSCOptional,
-  })
-  .readonly();
+export const authorSchema = z.object({
+  id: z.string(),
+  name: strSC.default('Anonymous'),
+  email: emailSchemaOptional,
+  portfolio: urlSchemaOptional,
+  bio: strSCOptional,
+});
 
 export const blogSchema = z.object({
   title: strSC,
