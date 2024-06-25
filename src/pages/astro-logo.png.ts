@@ -1,6 +1,9 @@
-export async function GET({ params, request }) {
-  const response = await fetch(
-    'https://docs.astro.build/assets/full-logo-light.png',
-  );
+export async function fetchImage(url: string) {
+  const response = await fetch(url);
   return new Response(await response.arrayBuffer());
+}
+
+export async function GET({ params, request }: { params: any; request: any }) {
+  const imageUrl = 'https://docs.astro.build/assets/full-logo-light.png';
+  return fetchImage(imageUrl);
 }
