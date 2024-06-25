@@ -30,3 +30,5 @@ my-custom-cache-directory
 # Files
 pnpm-lock.yaml
 
+node_modules/
+
