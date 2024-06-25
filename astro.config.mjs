@@ -19,7 +19,7 @@ export default defineConfig({
   // your configuration options here...
   // https://docs.astro.build/en/reference/configuration-reference/
   output: 'static',
-  site: 'http://localhost:4321',
+  site: 'https://astro-openprops-blog-w-tags-git-staging-mike-connors-projects.vercel.app',
   image: {
     domains: ['astro.build', 'picsum.photos', 'https://doodleipsum.com'],
   },
