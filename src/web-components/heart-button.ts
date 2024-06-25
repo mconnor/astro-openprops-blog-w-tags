@@ -8,14 +8,16 @@ import { wcStyles } from './wc-styles.js';
 export class HeartButton extends LitElement {
   static styles = [
     wcStyles,
-    css`div  {
-      display: flex;
-      flex-direction: row;
-      /* align-items: space-between; */
-      justify-content: space-around;
-      border-style: solid;
-     max-inline-size: var(--size-content-1);
-  `,
+    css`
+      div {
+        display: flex;
+        flex-direction: row;
+        /* align-items: space-between; */
+        justify-content: space-around;
+        border-style: solid;
+        max-inline-size: var(--size-content-1);
+      }
+    `,
   ];
 
   @property({ type: Number, reflect: true })
