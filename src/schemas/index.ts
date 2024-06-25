@@ -28,7 +28,7 @@ export const blogSchema = z.object({
   description: strSC,
   author: reference('authors'),
   draft: z.boolean().default(false),
-  tags: z.array(strSCOptional),
+  tags: z.array(strSC),
   cover: imageSrcSchema,
 });
 

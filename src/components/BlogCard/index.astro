@@ -3,37 +3,30 @@ import { type CollectionEntry, getEntry } from 'astro:content';
 import { Frame, Stack } from '@cc/index.js';
 
 // import { Debug } from 'astro:components';
-// import type { HTMLAttributes } from 'astro/types';
-import { blogSchema, authorSchema } from '@/schemas/index.ts';
+
 import { format } from 'date-fns';
 import { Image } from 'astro:assets';
-// import type { BlogSchemaType , } from '@/schemas/index.ts';
+
 import CardTop from './top-bottom.astro';
 
 // interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
 
 interface Props {
-  slug: string;
   foregroundColor?: string;
   backgroundColor?: string;
-  title: string;
-  cover: { src: string; alt: string };
-  description: string;
-  pubDate: Date;
+  post: CollectionEntry<'blog'>;
 }
 
 const {
-  slug,
   foregroundColor = 'var(--text-2)',
   backgroundColor = 'var(--surface-4)',
-  title,
-  cover,
-  description,
-  pubDate,
+  post,
 } = Astro.props;
 
-// const { data } = post;
-// const { title, pubDate, description, cover, author } = data;
+const { slug, data } = post;
+const { title, pubDate, description, cover, author } = data;
+const authObj = await getEntry('authors', author.id);
+const { name, id } = authObj.data;
 ---
 
 <article class="borderClass">
@@ -42,7 +35,7 @@ const {
       <a slot="left" href={`/posts/${slug}`}
         ><h3 class="truncate">{title}</h3></a
       >
-      <!-- <a slot="right" href={`/authors/${id}`}>{name}</a> -->
+      <a slot="right" href={`/authors/${id}`}>{name}</a>
     </CardTop>
 
     <div class="myMask">

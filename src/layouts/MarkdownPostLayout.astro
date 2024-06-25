@@ -1,11 +1,12 @@
 ---
-// import { Debug } from 'astro:components';
+import { Debug } from 'astro:components';
 
 import Layout from '@/layouts/BaseLayout.astro';
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
 import type { BlogSchemaType } from '@/schemas/index.ts';
 import { Image } from 'astro:assets';
+import TagContainer from '@/components/TagContainer.astro';
 
 import { Box, Cluster } from '@cc/index.js';
 
@@ -29,6 +30,7 @@ const { name } = results.data;
 <Layout title={title} description={description}>
   <article>
     <!-- <Debug {author} /> -->
+
     <Box borderWidth="0" padding="0">
       <Image
         src={cover.src}
@@ -47,14 +49,14 @@ const { name } = results.data;
       </Cluster>
       <Box padding="0"><slot name="banner" /></Box>
     </Box>
-    <!-- 
+
     {
       tags && (
         <Box borderWidth="0">
-          <TagContainer tags={tags} />
+          <TagContainer tags={tags as string[]} />
         </Box>
       )
-    } -->
+    }
     <Box padding="var(--s2)"><slot name="entry-content" /></Box>
   </article>
 </Layout>

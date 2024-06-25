@@ -2,12 +2,25 @@
 import Layout from '@/layouts/BaseLayout.astro';
 import { Box, Stack } from '@cc/index.js';
 import CardDelux from '@/components/CardDelux.astro';
-
+import { Code } from 'astro:components';
 const pageTitle = 'About Page';
 ---
 
 <Layout title={pageTitle}>
   <Stack>
+    <Box>
+      <!-- Syntax highlight some JavaScript code. -->
+      <Code code={`const foo = 'bar';`} lang="js" />
+      <!-- Optional: Customize your theme. -->
+      <Code code={`const foo = 'bar';`} lang="js" theme="dark-plus" />
+      <!-- Optional: Enable word wrapping. -->
+      <Code code={`const foo = 'bar';`} lang="js" wrap />
+      <!-- Optional: Output inline code. -->
+      <p>
+        <Code code={`const foo = 'bar';`} lang="js" inline />
+        will be rendered inline.
+      </p>
+    </Box>
     <CardDelux num={1}>
       <div slot="headline">Lorem ipsum dolor sit amet</div>
       <div slot="sub">Delectus eius itaque accusantium.</div>

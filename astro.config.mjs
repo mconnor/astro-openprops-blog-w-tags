@@ -4,7 +4,7 @@ import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
 import vercel from '@astrojs/vercel/static';
 import * as dotenv from 'dotenv';
-
+// import vercel from "@astrojs/vercel/serverless";
 dotenv.config();
 // import { visualizer } from 'rollup-plugin-visualizer';
 // import myIntegration from './my-toolbar-app/my-integration.ts';
@@ -27,7 +27,6 @@ export default defineConfig({
     drafts: true,
   },
   scopedStyleStrategy: 'attribute',
-
   integrations: [
     // myIntegration,
     lit(),
@@ -54,4 +53,5 @@ export default defineConfig({
     },
   },
   // cacheDir: './my-custom-cache-directory',
+  adapter: vercel(),
 });

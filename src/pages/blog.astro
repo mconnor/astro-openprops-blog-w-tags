@@ -1,13 +1,15 @@
 ---
-// import { Debug } from 'astro:components';
+import { Debug } from 'astro:components';
 import Layout from '@/layouts/BaseLayout.astro';
 import { Box, Stack } from '@cc/index.js';
 import { getCollection } from 'astro:content';
 import BlogCard from '@/components/BlogCard/index.astro';
-// import { blogSchema } from '@/schemas/index.ts';
+import { blogSchema } from '@/schemas/index.ts';
 const pageTitle = 'Blog';
 
-const publishsedPosts = await getCollection('blog');
+const publishsedPosts = await getCollection('blog', ({ data }) =>
+  import.meta.env.PROD ? data.draft !== true : true,
+);
 ---
 
 <Layout title={pageTitle}>
@@ -24,12 +26,14 @@ const publishsedPosts = await getCollection('blog');
         // }
 
         return (
-          <BlogCard
-            backgroundColor="var(--surface-4)"
-            foregroundColor="var(--text-2)"
-            slug={post.slug}
-            {...post.data}
-          />
+          <>
+            {/* <Debug data={post.data} /> */}
+            <BlogCard
+              backgroundColor="var(--surface-4)"
+              foregroundColor="var(--text-2)"
+              post={post}
+            />
+          </>
         );
       })
     }

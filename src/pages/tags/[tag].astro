@@ -5,8 +5,6 @@ import BlogCard from '@/components/BlogCard/index.astro';
 import { Box, Stack } from '@cc/index.js';
 import { getCollection } from 'astro:content';
 
-// import type { CollectionEntry } from 'astro:content'
-
 export const prerender = true;
 
 export const getStaticPaths = async () => {
@@ -19,18 +17,18 @@ export const getStaticPaths = async () => {
     ...new Set(publishsedPosts.map(({ data }) => data?.tags || []).flat()),
   ];
 
-  return uniqueTags.map((tag) => {
-    return {
-      params: { tag },
-      props: {
-        posts: publishsedPosts.filter(({ data }) => data.tags.includes(tag)),
-      },
-    };
-  });
+  return uniqueTags.map((tag) => ({
+    params: { tag },
+    props: {
+      postsWithThisTag: publishsedPosts.filter(({ data }) =>
+        data.tags.includes(tag),
+      ),
+    },
+  }));
 };
 
 const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { postsWithThisTag } = Astro.props;
 ---
 
 <Layout title={tag as string}>
@@ -38,7 +36,14 @@ const { posts } = Astro.props;
   <Debug {posts} /> -->
   <Stack space="var(--s1)">
     <Box><h2>#{tag}</h2></Box>
-    {posts.map(({ slug }) => <BlogCard slug={slug} />)}
+    {
+      postsWithThisTag.map((post) => (
+        <BlogCard
+          backgroundColor="var(--surface-4)"
+          foregroundColor="var(--text-2)"
+          post={post}
+        />
+      ))
+    }
   </Stack>
-  <!-- <TitleDate posts={posts} /> -->
 </Layout>
