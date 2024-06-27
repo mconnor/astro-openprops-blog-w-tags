@@ -14,14 +14,14 @@ const className = `surface${num}`;
 
 <article class={className}>
   <Stack>
-    <Box borderWidth="0" invert>
+    <Box borderWidth="0" invert padding="var(--s0)">
       <h2><slot name="headline" /></h2>
     </Box>
-    <Box borderWidth="0">
+    <Box borderWidth="0" padding="var(--s0)">
       <h3><slot name="sub" /></h3>
     </Box>
-    <Box borderWidth="0">
-      <p><slot name="body" /></p>
+    <Box borderWidth="0" padding="var(--s0)">
+      <p class="main-copy"><slot name="body" /></p>
     </Box>
   </Stack>
 </article>
@@ -30,6 +30,15 @@ const className = `surface${num}`;
   article {
     border-radius: var(--radius-drawn-3);
     border: var(--border-size-4) solid var(--text-2);
+  }
+  p {
+    font-size: var(--font-size-4) !important;
+  }
+
+  p.main-copy::first-letter {
+    font-size: var(--font-size-8) !important;
+    line-height: var(--line-height-8) !important;
+    font-style: italic;
   }
 </style>
 
