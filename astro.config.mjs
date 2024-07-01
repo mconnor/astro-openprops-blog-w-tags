@@ -4,6 +4,7 @@ import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
 import vercel from '@astrojs/vercel/static';
 import * as dotenv from 'dotenv';
+import { process } from 'node';
 // import vercel from "@astrojs/vercel/serverless";
 dotenv.config();
 // import { visualizer } from 'rollup-plugin-visualizer';
@@ -26,7 +27,12 @@ export default defineConfig({
   output: 'static',
   site: 'https://astro-openprops-blog-w-tags-git-staging-mike-connors-projects.vercel.app',
   image: {
-    domains: ['astro.build', 'picsum.photos', 'https://doodleipsum.com'],
+    domains: [
+      'kit.fontawesome.com',
+      'astro.build',
+      'picsum.photos',
+      'https://doodleipsum.com',
+    ],
   },
   markdown: {
     drafts: true,
@@ -41,11 +47,11 @@ export default defineConfig({
     sentry({
       dsn: 'https://b620d87b24b1fda6b0064305d7ca46e2@o4506328206802944.ingest.us.sentry.io/4506770210291712',
       release: '1.0.0',
-      environment: import.meta.env.MODE,
+      environment: process.env.MODE,
       sourceMapsUploadOptions: {
         org: 'mike-connor',
         project: 'astro-openprops-blog-w-tags',
-        authToken: import.meta.env.SENTRY_AUTH_TOKEN,
+        authToken: process.env.SENTRY_AUTH_TOKEN,
       },
     }),
   ],
