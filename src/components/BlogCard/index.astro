@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getEntry } from 'astro:content';
-import { Frame, Stack } from '@cc/index.js';
+import { Frame, Stack } from '@cc/index.ts';
 
 // import { Debug } from 'astro:components';
 
@@ -35,7 +35,8 @@ const { name, id } = authObj.data;
       <a slot="left" href={`/posts/${slug}`}
         ><h3 class="truncate">{title}</h3></a
       >
-      <a slot="right" href={`/authors/${id}`}>{name}</a>
+
+      <Fragment slot="right">{name}</Fragment>
     </CardTop>
 
     <div class="myMask">

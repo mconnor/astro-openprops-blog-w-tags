@@ -1,9 +1,11 @@
 ---
+// import { z } from 'astro:content';
 import BaseHead from '@/components/BaseHead.astro';
 import Social from '@/components/Social.astro';
 import HeaderFooterWrapper from '@/components/header-footer.astro';
 
-import { Cover, Center, Box, Cluster } from '@cc/index.js';
+import { Cover, Center, Box, Cluster } from '@cc/index.ts';
+import type { RmUnitType } from '@cc/Types.ts';
 import AstroThemeSwitcher from '@/components/AstroSwitcher/index.astro';
 import Link from '@/components/Link.astro';
 
@@ -13,6 +15,7 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  maxH?: RmUnitType;
   children: unknown;
 }
 
@@ -23,6 +26,7 @@ const {
   title = 'Mike Connor',
   description = 'my description',
   image = '/placeholder-social.jpg',
+  maxH = 'var(--measure)',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -35,12 +39,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
 
   <body>
-    <Cover centeredElement="div" space="0">
-      <HeaderFooterWrapper
-        backgroundColor="var(--text-2)"
-        foregroundColor="var(--surface-4)"
-        transition:persist
-      >
+    <Cover centeredElement="center-l" space="0">
+      <HeaderFooterWrapper transition:persist>
         <Box borderWidth="0" padding="var(--s00)">
           <AstroThemeSwitcher />
         </Box>
@@ -61,26 +61,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               </nav>
             </Box>
           </Cluster>
-        </Box></HeaderFooterWrapper
-      >
+        </Box>
+      </HeaderFooterWrapper>
 
-      <div class="box-no-border">
-        <Center><slot /></Center>
-      </div>
+      <Center max={maxH}><slot /></Center>
 
-      <HeaderFooterWrapper
-        backgroundColor="var(--text-2)"
-        foregroundColor="var(--surface-4)"
-        transition:persist
-      >
+      <HeaderFooterWrapper transition:persist>
         <Cluster justify="space-around">
           <Social platform="twitter" username="mikeconnor504" />
 
           <Social platform="github" />
           <Social platform="linkedin" username="in/michaelgconnor" />
           <Social platform="youtube" username="michaelconnor" />
-        </Cluster></HeaderFooterWrapper
-      >
-    </Cover>
+        </Cluster>
+      </HeaderFooterWrapper></Cover
+    >
+    <style>
+      body {
+        background-color: var(--surface-1);
+      }
+      /* .wrap-center {
+        background-color: var(--g-bg-color);
+        color: var(--g-fg-color);
+      } */
+    </style>
   </body>
 </html>

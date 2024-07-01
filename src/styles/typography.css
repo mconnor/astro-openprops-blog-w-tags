@@ -2,3 +2,7 @@
   --font-sans: 'Patrick Hand', cursive;
   --font-headlines: 'Patrick Hand SC', cursive;
 }
+
+/* :where(p, ul, ol, dl, h6) {
+  font-size: var(--font-size-3);
+} */

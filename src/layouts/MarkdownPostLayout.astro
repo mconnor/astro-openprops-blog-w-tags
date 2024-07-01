@@ -1,6 +1,6 @@
 ---
 // import { Debug } from 'astro:components';
-
+import '../styles/markdown-style.css';
 import Layout from '@/layouts/BaseLayout.astro';
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
@@ -8,7 +8,9 @@ import type { BlogSchemaType } from '@/schemas/index.ts';
 import { Image } from 'astro:assets';
 import TagContainer from '@/components/TagContainer.astro';
 
-import { Box, Cluster } from '@cc/index.js';
+import { Box, Stack } from '@cc/index.ts';
+// { Percentage, RmUnitType, JustifyContentTypes, AlignItemsTypes }
+// import type { RmUnitType } from '@cc/index.ts';
 
 import type { AstroComponentFactory } from 'astro/runtime/server/render/astro/index.js';
 
@@ -28,42 +30,29 @@ const { name } = results.data;
 
 <!-- TODO: fix the date format -->
 <Layout title={title} description={description}>
-  <article>
-    <!-- <Debug {author} /> -->
+  <!-- <Debug {author} /> -->
 
-    <Box borderWidth="0" padding="0">
-      <Image
-        src={cover.src}
-        width="1200"
-        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
-        height="300"
-        alt={cover.alt}
-      />
-      <Cluster justify="space-between" align="baseline"
-        ><Box borderWidth="0"><h2>{title}</h2></Box>
+  <Stack>
+    <Box borderWidth="1px" padding="0">
+      <Image width="1200" height="200" src={cover.src} alt={cover.alt} />
+    </Box>
 
-        <Box borderWidth="0">
-          Written by: {name},
-          {format(pubDate, 'd MMM, yyyy')}
-        </Box>
-      </Cluster>
-      <Box padding="0"><slot name="banner" /></Box>
+    <Box borderWidth="1px"><h1>{title}</h1></Box>
+
+    <Box borderWidth="1px">
+      Written by: {name},
+      {format(pubDate, 'd MMM, yyyy')}
     </Box>
 
     {
       tags && (
-        <Box borderWidth="0">
+        <Box borderWidth="1px">
           <TagContainer tags={tags as string[]} />
         </Box>
       )
     }
-    <Box padding="var(--s2)"><slot name="entry-content" /></Box>
-  </article>
+    <Box padding="var(--s00)" borderWidth="1px">
+      <slot />
+    </Box>
+  </Stack>
 </Layout>
-
-<style>
-  article {
-    background-color: var(--surface-1);
-    color: var(--text-1);
-  }
-</style>

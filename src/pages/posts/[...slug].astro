@@ -1,6 +1,6 @@
 ---
 // import { type CollectionEntry, getCollection } from 'astro:content';
-import MarkdownPostLayout from '@/layouts/MarkdownPostLayout.astro';
+import Layout from '@/layouts/MarkdownPostLayout.astro';
 // import { blogSchema } from '@/schemas/index.ts';
 
 import { getCollection } from 'astro:content';
@@ -28,6 +28,6 @@ const { Content } = await post.render();
 // }
 ---
 
-<MarkdownPostLayout blogData={post.data}>
-  <Content slot="entry-content" />
-</MarkdownPostLayout>
+<Layout blogData={post.data}>
+  <Content />
+</Layout>

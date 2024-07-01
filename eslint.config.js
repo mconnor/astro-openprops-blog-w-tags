@@ -1,7 +1,7 @@
 // @ts-check
 
 import eslintPluginAstro from 'eslint-plugin-astro';
-// import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
@@ -28,7 +28,6 @@ export default tseslint.config(
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
   regexpPlugin.configs['flat/recommended'],
-
   ...markdown.configs.recommended,
   // ...compat.extends('plugin:jsx-a11y/recommended'),
   ...compat.extends('plugin:lit/recommended'),
@@ -90,4 +89,5 @@ export default tseslint.config(
       'src/components/Hamburger.astro',
     ],
   },
+  eslintConfigPrettier,
 );

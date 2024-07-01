@@ -1,19 +1,52 @@
 ---
 // import AstroNavigateSelect from '@/components/AstroNavigateSelect.astro';
-
+import { Image } from 'astro:assets';
+import Andy from '@/assets/andyBushes.jpg';
 import Layout from '@/layouts/BaseLayout.astro';
-
-import Card from '@/components/CardDelux.astro';
+import { Box, Frame, Switcher } from '@cc/index.ts';
 ---
 
-<Layout title="home">
-  <Card>
-    <h2 slot="headline">Mike Connor - Dev</h2>
+<Layout title="home" maxH="var(--size-md)">
+  <Box><h2>Mike Connor - Dev</h2></Box>
 
-    <h3 slot="sub">Ideas on tech, culture,</h3>
-    <p slot="body">
-      Now available in beautiful Westport, KCMO... by way of | New Orleans |
-      Porland, OR | Brooklyn, NY | DC | Chicago | KCMO
-    </p>
-  </Card>
+  <Box><h3>Ideas on tech, culture,</h3></Box>
+
+  <Box>
+    <Switcher>
+      <!-- <div class="circle-mask"> -->
+      <Frame ratio="1:1">
+        <Image
+          src={Andy}
+          width={Andy.width / 2}
+          densities={[1.5, 2]}
+          alt="me"
+        />
+      </Frame>
+      <!-- </div> -->
+
+      <Box padding="0">
+        <p>
+          Now available in beautiful Westport, KCMO... by way of | New Orleans |
+          Porland, OR | Brooklyn, NY | DC | Chicago | KCMO
+        </p>
+      </Box>
+    </Switcher>
+  </Box>
 </Layout>
+
+<style>
+  p {
+    font-size: var(--font-size-5);
+  }
+  .circle-mask {
+    /* width: 140px;
+    height: 140px; 
+    border-radius: 50%;
+    overflow: hidden; */
+  }
+  */ img {
+    /* width: 100%;
+    height: 100%; */
+    object-fit: none;
+  }
+</style>

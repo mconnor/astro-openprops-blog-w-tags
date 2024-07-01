@@ -1,15 +1,15 @@
 ---
-import { Box } from '@cc/index.js';
+import { Box } from '@cc/index.ts';
 
-interface Props {
-  foregroundColor?: string;
-  backgroundColor?: string;
-}
+// interface Props {
+//   foregroundColor?: string;
+//   backgroundColor?: string;
+// }
 
-const {
-  foregroundColor = 'var(--text-2)',
-  backgroundColor = 'var(--surface-4)',
-} = Astro.props;
+// const {
+//   backgroundColor = 'var(--g-bg-color',
+//   foregroundColor = 'var(--g-fg-color)',
+// } = Astro.props;
 ---
 
 <header>
@@ -34,9 +34,9 @@ const {
     // console.log('theme set to', storedTheme);
   });
 </script>
-<style define:vars={{ foregroundColor, backgroundColor }}>
+<style>
   header {
-    color: var(--foregroundColor);
-    background-color: var(--backgroundColor);
+    color: var(--g-bg-color);
+    background-color: var(--g-fg-color);
   }
 </style>

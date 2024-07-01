@@ -1,20 +1,20 @@
 ---
-import { Box, Stack } from '@cc/index.js';
+import { Box, Stack } from '@cc/index.ts';
 
 interface Props {
   // href?: string;
   num?: number;
   children: HTMLElement[];
 }
-const { num = 4 } = Astro.props as Props;
-const className = `surface${num}`;
+// const { num = 4 } = Astro.props as Props;
+// const className = `surface${num}`;
 // import { Switcher, Stack, Box, Frame } from '@cc/index.js';
 // const { href } = Astro.props;
 ---
 
-<article class={className}>
+<article class="app-colors card">
   <Stack>
-    <Box borderWidth="0" invert padding="var(--s0)">
+    <Box invert borderWidth="0" padding="var(--s0)">
       <h2><slot name="headline" /></h2>
     </Box>
     <Box borderWidth="0" padding="var(--s0)">
@@ -27,9 +27,19 @@ const className = `surface${num}`;
 </article>
 
 <style>
-  article {
-    border-radius: var(--radius-drawn-3);
-    border: var(--border-size-4) solid var(--text-2);
+  .card {
+    border-width: var(--border-size-1);
+    border-radius: var(--radius-conditional-2);
+    padding: var(--size-fluid-3);
+    box-shadow: var(--shadow-2);
+
+    &:hover {
+      box-shadow: var(--shadow-3);
+    }
+
+    @media (--motionOK) {
+      animation: var(--animation-fade-in);
+    }
   }
   p {
     font-size: var(--font-size-4) !important;
@@ -39,6 +49,12 @@ const className = `surface${num}`;
     font-size: var(--font-size-8) !important;
     line-height: var(--line-height-8) !important;
     font-style: italic;
+  }
+  .boxx {
+    padding: var(--s0);
+  }
+  .br3 {
+    border-radius: var(--radius-3);
   }
 </style>
 

@@ -16,11 +16,16 @@ import './layoutStyles/box.css';
 import './utility-classes.css';
 import './extra/theme.css';
 import './typography.css';
+// import './syntax-hilite.css';
 ---
 
 <style is:global>
   :root {
-    --g-bg-color: var(--text-2);
-    --g-fg-color: var(--surface-4);
+    --g-bg-color: var(--surface-4);
+    --g-fg-color: var(--text-2);
+  }
+  .app-colors {
+    color: var(--g-fg-color);
+    background-color: var(--g-bg-color);
   }
 </style>

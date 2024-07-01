@@ -51,12 +51,15 @@ doloremque laudantium.
 
 ###### h6
 
-this is a paragraph. dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+This is a paragraph. dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+doloremque laudantium.
+
+Consectetur adipiscing elit. Vivamus lacinia odio. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 doloremque laudantium.
 
 ## Images
 
-![Sample Image](https://via.placeholder.com/150)
+![Sample Image](https://picsum.photos/150/150?random=2)
 
 ## Lists
 

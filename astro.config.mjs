@@ -15,7 +15,12 @@ dotenv.config();
 // // https://astro.build/config
 
 // https://astro.build/config
+
 export default defineConfig({
+  redirects: {
+    '/index': '/about',
+  },
+
   // your configuration options here...
   // https://docs.astro.build/en/reference/configuration-reference/
   output: 'static',
@@ -34,7 +39,7 @@ export default defineConfig({
       drafts: true,
     }),
     sentry({
-      dsn: import.meta.env.SENTRY_DSN,
+      dsn: 'https://b620d87b24b1fda6b0064305d7ca46e2@o4506328206802944.ingest.us.sentry.io/4506770210291712',
       release: '1.0.0',
       environment: import.meta.env.MODE,
       sourceMapsUploadOptions: {
