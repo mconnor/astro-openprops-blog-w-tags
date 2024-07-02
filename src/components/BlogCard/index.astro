@@ -33,25 +33,33 @@ const { name } = authObj.data;
 <div class="box article">
   <!-- <Stack space="var(--s00)" splitAfter={4}> -->
   <!-- <Cluster></Cluster> -->
-  <Box padding="var(--s00)" borderWidth="0"><h3>{title}</h3></Box>
 
-  <Cluster justify="space-between" align="baseline">
-    <Box padding="var(--s00)" borderWidth="0">{name}</Box>
-    <Box padding="var(--s00)" borderWidth="0">
-      <p>{format(pubDate, 'MMMM dd, yyyy')}</p></Box
+  <a slot="left" href={`/posts/${slug}`}>
+    <Box padding="var(--s00)" borderWidth="0"><h3>{title}</h3></Box>
+
+    <Cluster justify="space-between" align="baseline">
+      <Box padding="var(--s00)" borderWidth="0">{name}</Box>
+      <Box padding="var(--s00)" borderWidth="0">
+        <p>{format(pubDate, 'MMMM dd, yyyy')}</p></Box
+      >
+    </Cluster>
+
+    <!-- <div class="myMask"> -->
+
+    <!-- <a slot="left" href={`/posts/${slug}`}
+  ><h3 class="truncate">{title}</h3></a
+> -->
+
+    <!-- <Frame ratio="4:3"> -->
+    <Box padding="0" borderWidth="0" padding="0">
+      <Image src={cover.src} alt={cover.alt} width="600" height="300" /></Box
     >
-  </Cluster>
+    <!-- </Frame> -->
+    <!-- </div> -->
 
-  <!-- <div class="myMask"> -->
-  <!-- <Frame ratio="4:3"> -->
-  <Box padding="0" borderWidth="0" padding="0">
-    <Image src={cover.src} alt={cover.alt} width="600" height="300" /></Box
-  >
-  <!-- </Frame> -->
-  <!-- </div> -->
-
-  <Box padding="var(--s00)" borderWidth="0">{description}</Box>
-  <!-- </Stack> -->
+    <Box padding="var(--s00)" borderWidth="0">{description}</Box>
+    <!-- </Stack> -->
+  </a>
 </div>
 
 <style define:vars={{ foregroundColor, backgroundColor }}>
