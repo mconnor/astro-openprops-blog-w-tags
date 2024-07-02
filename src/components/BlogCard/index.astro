@@ -26,7 +26,7 @@ const {
 const { slug, data } = post;
 const { title, pubDate, description, cover, author } = data;
 const authObj = await getEntry('authors', author.id);
-const { name, id } = authObj.data;
+const { name } = authObj.data;
 ---
 
 <article class="borderClass">

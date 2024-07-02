@@ -3,6 +3,7 @@ import Layout from '@/layouts/BaseLayout.astro';
 import { Box, Stack } from '@cc/index.ts';
 import CardDelux from '@/components/CardDelux.astro';
 import { Code } from 'astro:components';
+import HeartBtn from '@/components/HeartBtn.astro';
 const pageTitle = 'About Page';
 ---
 
@@ -21,6 +22,7 @@ const pageTitle = 'About Page';
         will be rendered inline.
       </p>
     </Box>
+    <Box><HeartBtn /></Box>
     <CardDelux num={1}>
       <div slot="headline">Lorem ipsum dolor sit amet</div>
       <div slot="sub">Delectus eius itaque accusantium.</div>
