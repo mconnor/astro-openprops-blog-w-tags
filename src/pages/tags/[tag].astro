@@ -34,16 +34,16 @@ const { postsWithThisTag } = Astro.props;
 <Layout title={tag as string}>
   <!-- <Debug {tag} />
   <Debug {posts} /> -->
-  <Stack space="var(--s1)">
-    <Box><h2>#{tag}</h2></Box>
-    {
-      postsWithThisTag.map((post) => (
-        <BlogCard
-          backgroundColor="var(--surface-4)"
-          foregroundColor="var(--text-2)"
-          post={post}
-        />
-      ))
-    }
-  </Stack>
+  <!-- <Stack space="var(--s1)"> -->
+  <!-- <Box borderWidth="0"><h2>#{tag}</h2></Box> -->
+  {
+    postsWithThisTag.map((post) => (
+      <BlogCard
+        backgroundColor="var(--surface-4)"
+        foregroundColor="var(--text-2)"
+        post={post}
+      />
+    ))
+  }
+  <!-- </Stack> -->
 </Layout>

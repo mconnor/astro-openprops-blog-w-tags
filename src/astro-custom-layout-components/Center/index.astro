@@ -8,7 +8,7 @@ interface Props {
   gutters?: boolean;
   intrinsic?: boolean;
 }
-const { max, ...rest } = Astro.props;
+const { max = '60ch', ...rest } = Astro.props;
 ---
 
 <center-l max={max} {...rest}>

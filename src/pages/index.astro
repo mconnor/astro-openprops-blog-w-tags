@@ -1,52 +1,74 @@
 ---
 // import AstroNavigateSelect from '@/components/AstroNavigateSelect.astro';
+
+// interface ImageMetadata {
+//   src: string;
+//   width: number;
+//   height: number;
+//   format: string;
+// }
 import { Image } from 'astro:assets';
-import Andy from '@/assets/andyBushes.jpg';
+// import Andy from '@/assets/andyBushes.jpg';
+import AndyMud from '@/assets/andy_mud_color.webp';
 import Layout from '@/layouts/BaseLayout.astro';
-import { Box, Frame, Switcher } from '@cc/index.ts';
+import { Stack, Box, Frame } from '@cc/index.ts';
 ---
 
-<Layout title="home" maxH="var(--size-md)">
-  <Box><h2>Mike Connor - Dev</h2></Box>
+<Layout title="home" maxW="100ch">
+  <Stack space="var(--s0)">
+    <div class="box-no-border title">Mike Connor - Web Developer</div>
 
-  <Box><h3>Ideas on tech, culture,</h3></Box>
-
-  <Box>
-    <Switcher>
-      <!-- <div class="circle-mask"> -->
-      <Frame ratio="1:1">
+    <Box padding="0">
+      <Frame ratio="16:9">
         <Image
-          src={Andy}
-          width={Andy.width / 2}
-          densities={[1.5, 2]}
-          alt="me"
+          src={AndyMud}
+          widths={[240, 540, 720, AndyMud.width]}
+          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${AndyMud.width}px`}
+          alt="A description of my image."
         />
-      </Frame>
-      <!-- </div> -->
+      </Frame></Box
+    >
 
-      <Box padding="0">
-        <p>
-          Now available in beautiful Westport, KCMO... by way of | New Orleans |
-          Porland, OR | Brooklyn, NY | DC | Chicago | KCMO
-        </p>
-      </Box>
-    </Switcher>
-  </Box>
+    <div class="box-no-border sub">
+      & Andy! Mutt from the shelter in New Orleans
+    </div>
+
+    <div class="box-no-border copy">
+      <div>Currently residing in Old Westport, KCMO</div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        illo nesciunt reprehenderit iste fugit temporibus hic totam quaerat
+        error eaque suscipit, officiis neque ipsam nulla corporis molestiae odit
+        laborum et?
+      </div>
+    </div>
+  </Stack>
 </Layout>
 
 <style>
-  p {
-    font-size: var(--font-size-5);
+  .title {
+    font-size: var(--font-size-4);
+    padding: '0';
   }
-  .circle-mask {
-    /* width: 140px;
-    height: 140px; 
+  .sub {
+    padding: '0';
+    font-size: var(--font-size-3);
+  }
+  .copy {
+    padding: '0';
+    font-size: var(--font-size-0);
+  }
+
+  /* .circle-mask {
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    overflow: hidden; */
-  }
-  */ img {
-    /* width: 100%;
-    height: 100%; */
+    overflow: hidden;
+  } 
+
+
+img {
+
     object-fit: none;
-  }
+  }*/
 </style>

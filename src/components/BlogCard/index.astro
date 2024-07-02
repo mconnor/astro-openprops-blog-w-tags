@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getEntry } from 'astro:content';
-import { Frame, Stack } from '@cc/index.ts';
+import { Box, Stack, Cluster } from '@cc/index.ts';
 
 // import { Debug } from 'astro:components';
 
@@ -29,33 +29,33 @@ const authObj = await getEntry('authors', author.id);
 const { name } = authObj.data;
 ---
 
-<article class="borderClass">
-  <Stack>
-    <CardTop>
-      <a slot="left" href={`/posts/${slug}`}
-        ><h3 class="truncate">{title}</h3></a
-      >
+<!-- <Box padding='var(--s1)' borderWidth="0"><h3 class="truncate">{title}</h3></Box> -->
+<div class="box article">
+  <!-- <Stack space="var(--s00)" splitAfter={4}> -->
+  <!-- <Cluster></Cluster> -->
+  <Box padding="var(--s00)" borderWidth="0"><h3>{title}</h3></Box>
 
-      <Fragment slot="right">{name}</Fragment>
-    </CardTop>
+  <Cluster justify="space-between" align="baseline">
+    <Box padding="var(--s00)" borderWidth="0">{name}</Box>
+    <Box padding="var(--s00)" borderWidth="0">
+      <p>{format(pubDate, 'MMMM dd, yyyy')}</p></Box
+    >
+  </Cluster>
 
-    <div class="myMask">
-      <Frame ratio="4:3">
-        <Image src={cover.src} alt={cover.alt} width="1200" height="300" />
-      </Frame>
-    </div>
+  <!-- <div class="myMask"> -->
+  <!-- <Frame ratio="4:3"> -->
+  <Box padding="0" borderWidth="0" padding="0">
+    <Image src={cover.src} alt={cover.alt} width="600" height="300" /></Box
+  >
+  <!-- </Frame> -->
+  <!-- </div> -->
 
-    <CardTop>
-      <p slot="left">
-        {description}
-      </p>
-      <p slot="right">{format(pubDate, 'MMMM dd, yyyy')}</p>
-    </CardTop>
-  </Stack>
-</article>
+  <Box padding="var(--s00)" borderWidth="0">{description}</Box>
+  <!-- </Stack> -->
+</div>
 
 <style define:vars={{ foregroundColor, backgroundColor }}>
-  article {
+  .article {
     background-color: var(--backgroundColor);
     color: var(--foregroundColor);
   }

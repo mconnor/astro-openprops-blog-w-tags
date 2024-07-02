@@ -3,26 +3,26 @@
 
 import Layout from '@/layouts/BaseLayout.astro';
 
-import { Cluster } from '@cc/index.ts';
+import { Cluster, Stack } from '@cc/index.ts';
 ---
 
 <Layout title="home">
-  <Cluster>
-    <div class="card"><i class="fa-solid fa-camera fa-1x"></i></div>
+  <Stack splitAfter={1}>
+    <div class="box"><i class="fa-solid fa-camera fa-1x"></i></div>
 
-    <div class="card">
+    <div class="box">
       <i class="fa-solid fa-camera fa-2x"></i>
     </div>
 
-    <div class="card invert"><i class="fa-solid fa-camera fa-3x"></i></div>
-    <div class="card"><i class="fa-solid fa-camera fa-4x"></i></div>
-    <div class="card"><i class="fa-solid fa-camera fa-5x"></i></div>
-    <div class="card"><i class="fa-solid fa-camera fa-6x"></i></div>
-    <div class="card"><i class="fa-solid fa-camera fa-7x"></i></div>
-    <div class="card"><i class="fa-solid fa-camera fa-8x"></i></div>
-    <div class="card"><i class="fa-solid fa-camera fa-9x"></i></div>
-    <div class="card"><i class="fa-solid fa-camera fa-10x"></i></div>
-  </Cluster>
+    <div class="box invert"><i class="fa-solid fa-camera fa-3x"></i></div>
+    <!-- <div class="card"><i class="fa-solid fa-camera fa-4x"></i></div>
+  <div class="card"><i class="fa-solid fa-camera fa-5x"></i></div>
+  <div class="card"><i class="fa-solid fa-camera fa-6x"></i></div>
+  <div class="card"><i class="fa-solid fa-camera fa-7x"></i></div>
+  <div class="card"><i class="fa-solid fa-camera fa-8x"></i></div>
+  <div class="card"><i class="fa-solid fa-camera fa-9x"></i></div>
+  <div class="card"><i class="fa-solid fa-camera fa-10x"></i></div> -->
+  </Stack>
 </Layout>
 
 <!-- <Box borderWidth="10px">

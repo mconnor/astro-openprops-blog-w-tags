@@ -7,21 +7,21 @@ import HeartBtn from '@/components/HeartBtn.astro';
 const pageTitle = 'About Page';
 ---
 
-<Layout title={pageTitle}>
+<Layout title={pageTitle} maxW="60ch">
+  <!-- <div class="app-colors"> -->
   <Stack>
-    <Box borderWidth="0">
-      <!-- Syntax highlight some JavaScript code. -->
+    <!-- <Box borderWidth="0">
       <Code code={`const foo = 'bar';`} lang="js" />
-      <!-- Optional: Customize your theme. -->
+
       <Code code={`const foo = 'bar';`} lang="js" theme="dark-plus" />
-      <!-- Optional: Enable word wrapping. -->
+
       <Code code={`const foo = 'bar';`} lang="js" wrap />
-      <!-- Optional: Output inline code. -->
+
       <p>
         <Code code={`const foo = 'bar';`} lang="js" inline />
         will be rendered inline.
       </p>
-    </Box>
+    </Box> -->
     <Box><HeartBtn /></Box>
     <CardDelux num={1}>
       <div slot="headline">Lorem ipsum dolor sit amet</div>
@@ -123,5 +123,6 @@ const pageTitle = 'About Page';
         </CardDelux>
       </CardDelux></CardDelux
     ></Stack
-  ></Layout
->
+  >
+  <!-- </div> -->
+</Layout>

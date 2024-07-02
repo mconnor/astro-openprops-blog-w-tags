@@ -1,21 +1,19 @@
 ---
 // import { z } from 'astro:content';
 import BaseHead from '@/components/BaseHead.astro';
-import Social from '@/components/Social.astro';
-import HeaderFooterWrapper from '@/components/header-footer.astro';
 
 import { Cover, Center, Box, Cluster } from '@cc/index.ts';
 import type { RmUnitType } from '@cc/Types.ts';
-import AstroThemeSwitcher from '@/components/AstroSwitcher/index.astro';
-import Link from '@/components/Link.astro';
 
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
 // import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
-  maxH?: RmUnitType;
+  maxW?: RmUnitType;
   children: unknown;
 }
 
@@ -26,7 +24,7 @@ const {
   title = 'Mike Connor',
   description = 'my description',
   image = '/placeholder-social.jpg',
-  maxH = 'var(--measure)',
+  maxW = 'var(--measure)',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -40,43 +38,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <body>
     <Cover centeredElement="center-l" space="0">
-      <HeaderFooterWrapper transition:persist>
-        <Box borderWidth="0" padding="var(--s00)">
-          <AstroThemeSwitcher />
-        </Box>
-        <Box borderWidth="0" padding="0">
-          <Cluster align="baseline" justify="space-between" space="0">
-            <Link isMainNav href="/">Mike Connor</Link>
-            <button id="oops"> OOOPS</button>
+      <Header transition:persist />
 
-            <Box borderWidth="0" padding="0">
-              <nav>
-                <Cluster align="baseline" justify="flex-end" space="var(--s0)">
-                  <Link href="/authors/">authors</Link>
-                  <Link href="/about/">About</Link>
-                  <Link href="/icons/">Icons</Link>
-                  <Link href="/kitchensink/">Kitchen Sink</Link>
-                  <Link href="/blog/">Blog</Link>
-                  <Link href="/tags/">Tags</Link>
-                </Cluster>
-              </nav>
-            </Box>
-          </Cluster>
-        </Box>
-      </HeaderFooterWrapper>
-
-      <Center max={maxH}><slot /></Center>
-
-      <HeaderFooterWrapper transition:persist>
-        <Cluster justify="space-around">
-          <Social platform="twitter" username="mikeconnor504" />
-
-          <Social platform="github" />
-          <Social platform="linkedin" username="in/michaelgconnor" />
-          <Social platform="youtube" username="michaelconnor" />
-        </Cluster>
-      </HeaderFooterWrapper></Cover
-    >
+      <Center max={maxW}><slot /></Center>
+      <Footer />
+    </Cover>
     <style>
       body {
         background-color: var(--surface-1);

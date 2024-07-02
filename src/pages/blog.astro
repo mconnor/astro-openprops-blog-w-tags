@@ -13,18 +13,11 @@ const publishsedPosts = await getCollection('blog', ({ data }) =>
 ---
 
 <Layout title={pageTitle}>
+  <!-- The space (margin) between successive sibling elements -->
   <Stack space="var(--s1)">
-    <Box><h2>{pageTitle}</h2></Box>
+    <!-- <Box borderWidth="0"><h2>{pageTitle}</h2></Box> -->
     {
       publishsedPosts.map((post) => {
-        // const zPost = blogSchema.safeParse(post.data);
-
-        // const { success, error } = zPost;
-
-        // if (error) {
-        //   throw new Error(`Error parsing blog post: ${error}`);
-        // }
-
         return (
           <>
             {/* <Debug data={post.data} /> */}
