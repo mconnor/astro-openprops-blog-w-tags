@@ -56,7 +56,7 @@ export default defineConfig({
   },
   vite: {
     ssr: {
-      noExternal: ['date-fns', 'open-props', 'kit.fontawesome.com'],
+      noExternal: ['date-fns', 'open-props'],
     },
   },
   // cacheDir: './my-custom-cache-directory',

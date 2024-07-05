@@ -53,12 +53,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       } */
     </style>
 
-    <script>
-      // Find all buttons with the `alert` class on the page.
-      const button = document.getElementById('oops');
+    <script is:inline>
+      // import { $currTheme } from '../store/currTheme.ts';
 
-      button?.addEventListener('click', () => {
-        throw new Error('oops');
+      // on page, get the last theme from the cookie and set it
+      document.addEventListener('astro:page-load', () => {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+          document.documentElement.setAttribute('data-theme', storedTheme);
+          // $currTheme.set(storedTheme);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+        lucide.createIcons();
+        // console.log('theme set to', storedTheme);
       });
     </script>
   </body>

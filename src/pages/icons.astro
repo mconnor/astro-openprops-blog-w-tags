@@ -7,22 +7,16 @@ import { Cluster, Stack } from '@cc/index.ts';
 ---
 
 <Layout title="home">
-  <Stack splitAfter={1}>
-    <div class="box"><i class="fa-solid fa-camera fa-1x"></i></div>
+  <!-- <Stack splitAfter={1}> -->
 
-    <div class="box">
-      <i class="fa-solid fa-camera fa-2x"></i>
-    </div>
-
-    <div class="box invert"><i class="fa-solid fa-camera fa-3x"></i></div>
-    <!-- <div class="card"><i class="fa-solid fa-camera fa-4x"></i></div>
-  <div class="card"><i class="fa-solid fa-camera fa-5x"></i></div>
-  <div class="card"><i class="fa-solid fa-camera fa-6x"></i></div>
-  <div class="card"><i class="fa-solid fa-camera fa-7x"></i></div>
-  <div class="card"><i class="fa-solid fa-camera fa-8x"></i></div>
-  <div class="card"><i class="fa-solid fa-camera fa-9x"></i></div>
-  <div class="card"><i class="fa-solid fa-camera fa-10x"></i></div> -->
-  </Stack>
+  <main class="demo-frame" style="font-size: 2rem;">
+    <section class="demo-example">
+      <i data-lucide="volume-2" class="my-class"></i>
+      <i data-lucide="x"></i>
+      <i data-lucide="menu"></i>
+      <i data-lucide="github"></i>
+    </section>
+  </main>
 </Layout>
 
 <!-- <Box borderWidth="10px">
@@ -41,5 +35,126 @@ import { Cluster, Stack } from '@cc/index.ts';
     border-radius: var(--radius-drawn-3);
     border: var(--border-size-2) solid var(--text-2);
     padding: var(--s1);
+  }
+
+  /* CSS pseudo-element styling */
+
+  /* general reset/setup styling for icons - needed on all */
+  .icon::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* defining the right font-family/font-face and inherited weight for each style */
+  .icon-solid::before {
+    font: var(--fa-font-solid);
+  }
+
+  .icon-regular::before {
+    font: var(--fa-font-regular);
+  }
+
+  .icon-light::before {
+    font: var(--fa-font-light);
+  }
+
+  .icon-thin::before {
+    font: var(--fa-font-thin);
+  }
+
+  .icon-brand::before {
+    font: var(--fa-font-brands);
+  }
+
+  /* defining the right unicode values for each icon */
+  .icon-award::before {
+    content: '\f559';
+  }
+
+  .icon-amazon::before {
+    content: '\f270';
+  }
+
+  /* duotone icons follow a similar setup, but require use of the ::after pseudo-element and more styling setup */
+  .icon-duotone {
+    position: relative;
+    padding-left: 1.25em; /* make space for the width of the absolutely positioned icon */
+  }
+
+  .icon-duotone::before,
+  .icon-duotone::after {
+    font: var(--fa-font-duotone);
+
+    /* position both layers of the icon to the left, set our fixed-width width, horizontally center layers, and then vertically align them so they flex with different line heights */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.25em;
+    text-align: center;
+  }
+
+  .icon-duotone::before {
+    color: var(--fa-primary-color, inherit);
+    opacity: 1;
+    opacity: var(--fa-primary-opacity, 1);
+  }
+
+  .icon-duotone::after {
+    color: var(--fa-secondary-color, inherit);
+    opacity: var(--fa-secondary-opacity, 0.4);
+  }
+
+  /* we need to define the two layers of a duotone icon */
+  .icon-duotone.icon-award::after {
+    content: '\10f559';
+  }
+
+  .icon-duotone.icon-award::before {
+    content: '\f559';
+  }
+
+  /* demo styling */
+  * {
+    /* resetting the box model for all elements */
+    box-sizing: border-box;
+  }
+
+  .demo-frame {
+    /* making a nice frame/layout for examples */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -1rem;
+    padding: 3rem;
+    min-height: 100vh;
+    color: rgb(52, 58, 64);
+  }
+
+  .demo-example {
+    /* individual demo example styling */
+    margin-bottom: 1rem;
+  }
+
+  .demo-icon-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .demo-icon {
+    margin: 0;
+    padding: 1.5rem 1rem;
+  }
+
+  .icon::before {
+    margin-right: 0.5rem;
   }
 </style>
