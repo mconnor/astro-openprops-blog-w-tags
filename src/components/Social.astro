@@ -12,7 +12,6 @@ const { platform, username = 'mconnor' } = Astro.props;
 
 <Box borderWidth="0" padding="var(--s0)">
   <a href={`https://www.${platform}.com/${username}`}>
-    <!-- <i class:list={['fa-brands', 'fa-2x', `fa-${platform}`]}></i> -->
     <i data-lucide={platform}></i>
   </a>
 </Box>
