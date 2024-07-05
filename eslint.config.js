@@ -35,17 +35,18 @@ export default tseslint.config(
 
   {
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
+      // ecmaVersion: 'latest',
+      // sourceType: 'module',
       globals: {
         ...globals.browser,
+        ...globals.node,
       },
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-        processor: eslintPluginAstro.processors.astro,
-        project: true,
-        tsconfigDirName: import.meta.dirname,
-      },
+      // parserOptions: {
+      //   parser: '@typescript-eslint/parser',
+      //   processor: eslintPluginAstro.processors.astro,
+      //   project: true,
+      //   tsconfigDirName: import.meta.dirname,
+      // },
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
@@ -86,7 +87,6 @@ export default tseslint.config(
       'dist/',
       'my-custom-cache-directory',
       'src/env.d.ts',
-      'src/components/Hamburger.astro',
     ],
   },
   eslintConfigPrettier,
