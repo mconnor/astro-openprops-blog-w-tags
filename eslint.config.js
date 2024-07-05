@@ -41,12 +41,12 @@ export default tseslint.config(
         ...globals.browser,
         ...globals.node,
       },
-      // parserOptions: {
-      //   parser: '@typescript-eslint/parser',
-      //   processor: eslintPluginAstro.processors.astro,
-      //   project: true,
-      //   tsconfigDirName: import.meta.dirname,
-      // },
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        processor: eslintPluginAstro.processors.astro,
+        project: true,
+        tsconfigDirName: import.meta.dirname,
+      },
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
