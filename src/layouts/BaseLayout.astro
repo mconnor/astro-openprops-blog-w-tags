@@ -1,12 +1,14 @@
 ---
 // import { z } from 'astro:content';
 import BaseHead from '@/components/BaseHead.astro';
+import { createIcons, icons } from 'lucide';
 
 import { Cover, Center } from '@cc/index.ts';
 import type { RmUnitType } from '@cc/Types.ts';
 
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+
 // import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
@@ -43,15 +45,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <Center max={maxW}><slot /></Center>
       <Footer />
     </Cover>
-    <style>
-      body {
-        background-color: var(--surface-1);
-      }
-      /* .wrap-center {
-        background-color: var(--g-bg-color);
-        color: var(--g-fg-color);
-      } */
-    </style>
 
     <script is:inline>
       // import { $currTheme } from '../store/currTheme.ts';
@@ -65,7 +58,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         } else {
           document.documentElement.setAttribute('data-theme', 'light');
         }
-        lucide.createIcons();
+
+        createIcons({ icons });
+        // 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
         // console.log('theme set to', storedTheme);
       });
     </script>
