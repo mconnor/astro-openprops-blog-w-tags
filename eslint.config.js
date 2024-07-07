@@ -1,11 +1,12 @@
 // @ts-check
-
+import astroEslintParser from 'astro-eslint-parser';
 import eslintPluginAstro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
 import tseslint from 'typescript-eslint';
+// import typescriptParser from '@typescript-eslint/parser';
 import * as regexpPlugin from 'eslint-plugin-regexp';
 import { FlatCompat } from '@eslint/eslintrc';
 import path from 'path';
@@ -28,29 +29,59 @@ export default tseslint.config(
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
   regexpPlugin.configs['flat/recommended'],
+  // @ts-expect-error
   ...markdown.configs.recommended,
   // ...compat.extends('plugin:jsx-a11y/recommended'),
   ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
-
   {
     languageOptions: {
-      // ecmaVersion: 'latest',
-      // sourceType: 'module',
       globals: {
         ...globals.browser,
         ...globals.node,
       },
+    },
+  },
+
+  {
+    files: ['**/*.astro'],
+    languageOptions: {
+      parser: astroEslintParser,
       parserOptions: {
-        parser: '@typescript-eslint/parser',
-        processor: eslintPluginAstro.processors.astro,
-        project: true,
-        tsconfigDirName: import.meta.dirname,
+        parser: tseslint.parser,
+        extraFileExtensions: ['.astro'],
       },
     },
     rules: {
-      '@typescript-eslint/no-unused-vars': 'warn',
-      // 'jsx-a11y/label-has-associated-control': 'off',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
+  {
+    // Define the configuration for `<script>` tag.
+    // Script in `<script>` is assigned a virtual file name with the `.js` extension.
+    files: ['**/*.{ts,tsx}', '**/*.astro/*.js'],
+    languageOptions: {
+      parser: tseslint.parser,
+    },
+    rules: {
+      // Note: you must disable the base rule as it can report incorrect errors
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+        },
+      ],
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      'lit/no-invalid-html': 'warn',
     },
   },
   {
@@ -80,9 +111,11 @@ export default tseslint.config(
 
   {
     ignores: [
+      '**/_*.astro',
       '**/temp.js',
       'config/*',
       'pnpm-lock.yaml',
+      'types.generated.d.ts',
       '.astro/',
       'dist/',
       'my-custom-cache-directory',
