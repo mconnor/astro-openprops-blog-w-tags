@@ -42,16 +42,7 @@ export default tseslint.config(
       },
     },
   },
-
   {
-    files: ['**/*.astro'],
-    languageOptions: {
-      parser: astroEslintParser,
-      parserOptions: {
-        parser: tseslint.parser,
-        extraFileExtensions: ['.astro'],
-      },
-    },
     rules: {
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
@@ -61,29 +52,10 @@ export default tseslint.config(
           destructuredArrayIgnorePattern: '^_',
         },
       ],
-    },
-  },
-  {
-    // Define the configuration for `<script>` tag.
-    // Script in `<script>` is assigned a virtual file name with the `.js` extension.
-    files: ['**/*.{ts,tsx}', '**/*.astro/*.js'],
-    languageOptions: {
-      parser: tseslint.parser,
-    },
-    rules: {
-      // Note: you must disable the base rule as it can report incorrect errors
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        {
-          argsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
-        },
-      ],
-      '@typescript-eslint/no-non-null-assertion': 'off',
       'lit/no-invalid-html': 'warn',
     },
   },
+
   {
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
