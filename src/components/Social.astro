@@ -1,17 +1,29 @@
 ---
-// import Link from '@/components/Link.astro';
-import { Box } from '@cc/index.ts';
-// type SocialType = 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
+import { Box } from '@/lit-layout-components/index.ts';
+import MyIcon from '@/components/MyIcon.astro';
 
 interface Props {
   username?: string;
-  platform: 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
+
+  /** The name-path of svg in src/icons */
+  name: string;
+
+  domain: string;
+
+  /** Shorthand for including a <title>{props.title}</title> element in the SVG */
+  title?: string;
+  /** Shorthand for setting width and height */
+  size?: number;
+  width?: number;
+  height?: number;
+
+  // 'logos/twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
 }
-const { platform, username = 'mconnor' } = Astro.props;
+const { name, username = 'mconnor', domain, ...rest } = Astro.props;
 ---
 
 <Box borderWidth="0" padding="var(--s0)">
-  <a href={`https://www.${platform}.com/${username}`}>
-    <i data-lucide={platform}></i>
+  <a href={`https://www.${domain}/${username}`}>
+    <MyIcon name={name} {...rest} />
   </a>
 </Box>

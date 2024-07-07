@@ -1,25 +1,16 @@
 ---
-// import Social from '@/components/Social.astro';
 import { Cluster } from '@cc/index.ts';
-// import { Box } from '@/lit-layout-components/index.ts';
-import HeaderFooterWrapper from '@/components/header-footer.astro';
 
-import Camera from '@/icons/Camera.tsx';
+import HeaderFooterWrapper from '@/components/header-footer.astro';
+import Social from '@/components/Social.astro';
+
+const ICONSIZE = 50;
 ---
 
 <HeaderFooterWrapper transition:persist>
   <Cluster justify="space-around">
-    <!-- <Social platform="twitter" username="mikeconnor504" /> -->
-
-    <!-- <Social platform="github" />
-    <Social platform="linkedin" username="in/michaelgconnor" />
-    <Social platform="youtube" username="michaelconnor" /> -->
-
-    <!-- <Box borderWidth="0" padding="var(--s0)"> -->
-    <Camera />
-    <!-- <a href={`https://www.github.com/mconnor`}>
-        <i data-lucide="github"></i>
-      </a> -->
-    <!-- </Box> -->
+    <Social name="logos/twitter" domain="twitter.com" size={ICONSIZE} />
+    <Social name="logos/linkedin" domain="linkedin.com" size={ICONSIZE} />
+    <Social name="logos/github" domain="github.com" size={ICONSIZE} />
   </Cluster>
 </HeaderFooterWrapper>

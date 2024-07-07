@@ -41,6 +41,9 @@ importers:
       '@fontsource/patrick-hand-sc':
         specifier: ^5.0.20
         version: 5.0.20
+      '@iconify-json/mdi':
+        specifier: ^1.1.67
+        version: 1.1.67
       '@sentry/astro':
         specifier: ^8.15.0
         version: 8.15.0(astro@4.11.5(@types/node@20.14.10)(typescript@5.5.3))
@@ -71,9 +74,6 @@ importers:
       lit:
         specifier: ^3.1.4
         version: 3.1.4
-      lucide-preact:
-        specifier: ^0.400.0
-        version: 0.400.0(preact@10.22.1)
       open-props:
         specifier: ^1.7.5
         version: 1.7.5
@@ -624,6 +624,9 @@ packages:
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
+
+  '@iconify-json/mdi@1.1.67':
+    resolution: {integrity: sha512-00nllHES8hyACwIfgySlQgAE6MKgpr2wsKfpifMiZWZ9aXC5l4Jb0lR3lJSWwXgOW6kzAOdzC3T+2VOfBBZ13A==}
 
   '@iconify/tools@3.0.7':
     resolution: {integrity: sha512-DxfhFLMnooS34dHelpGUnnYrxLZHs0czC1CgrBhAbuL8ddVzBb2VEQm8kh9qGh7A34qeXAB5iSHH3A72rAaFrg==}
@@ -2991,11 +2994,6 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-preact@0.400.0:
-    resolution: {integrity: sha512-MkwatDqcbUKUniCEE7SpjuW5M+meMR9jT38AeB96rmmUyQmpL5RnGjPPY7Sw8wpRGa8r5xh/Mu2WTQ+gEghKEg==}
-    peerDependencies:
-      preact: ^10.5.13
-
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
 
@@ -5043,6 +5041,10 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/object-schema@2.0.3': {}
+
+  '@iconify-json/mdi@1.1.67':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/tools@3.0.7':
     dependencies:
@@ -7964,10 +7966,6 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
-
-  lucide-preact@0.400.0(preact@10.22.1):
-    dependencies:
-      preact: 10.22.1
 
   magic-string@0.30.10:
     dependencies:
