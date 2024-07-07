@@ -44,8 +44,11 @@ const { title, description, image } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <meta name="color-scheme" content="dark light dim grape choco" />
 
-<script is:inline src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
-></script>
+<!-- <script src="https://unpkg.com/lucide@latest"></script> -->
+
+<!-- <script>
+  lucide.createIcons();
+</script> -->
 
 <!-- <script is:inline>
   import * as Sentry from '@sentry/browser';

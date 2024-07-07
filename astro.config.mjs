@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx';
 import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
 import vercel from '@astrojs/vercel/static';
+import { dev } from 'astro';
 // import * as dotenv from 'dotenv';
 // import { loadEnv } from 'vite';
 
@@ -16,13 +17,13 @@ import vercel from '@astrojs/vercel/static';
 
 // // https://astro.build/config
 
-// https://astro.build/config
+import preact from '@astrojs/preact';
 
+// https://astro.build/config
 export default defineConfig({
   redirects: {
     '/index': '/about',
   },
-
   // your configuration options here...
   // https://docs.astro.build/en/reference/configuration-reference/
   output: 'static',
@@ -50,13 +51,21 @@ export default defineConfig({
         authToken: import.meta.env.SENTRY_AUTH_TOKEN,
       },
     }),
+    preact({
+      include: ['**/preact/*'],
+    }),
   ],
   experimental: {
     contentCollectionJsonSchema: true,
   },
   vite: {
     ssr: {
-      noExternal: ['date-fns', 'open-props'],
+      noExternal: ['date-fns', 'open-props', 'lucide-preact'],
+    },
+    lit: {
+      // Enable the `lit-analyzer` plugin to provide diagnostics in the editor.
+      litAnalyzer: true,
+      dev,
     },
   },
   // cacheDir: './my-custom-cache-directory',

@@ -24,6 +24,15 @@ import './typography.css';
     --my-bg-color: var(--surface-4);
     --my-color: var(--text-2);
   }
+
+  body {
+    font-family: var(--font-sans);
+    * {
+      color: var(--my-color);
+      background-color: var(--my-bg-color);
+    }
+  }
+
   .app-colors {
     color: var(--my-color);
     background-color: var(--my-bg-color);
@@ -32,9 +41,7 @@ import './typography.css';
     background-color: var(--my-color);
     color: var(--my-bg-color);
   }
-  body {
-    font-family: var(--font-sans);
-  }
+
   .lucide {
     /* Change this! */
     color: var(--brand);

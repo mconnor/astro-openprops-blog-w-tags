@@ -1,6 +1,6 @@
 ---
 // import './Box.css';
-import type { RmUnitType } from "../Types";
+import type { RmUnitType } from '../Types';
 
 interface Props {
   padding?: RmUnitType; //"var(--s1)"
@@ -15,3 +15,9 @@ const { padding, borderWidth, invert } = Astro.props;
 </box-l>
 <script src="./Box.ts"></script>
 
+<style>
+  box-l {
+    --box-color: var(--my-color);
+    --box-background: var(--my-bg-color);
+  }
+</style>

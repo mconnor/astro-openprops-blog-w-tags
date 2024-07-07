@@ -1,7 +1,7 @@
-import { html, css, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
-import { styleMap } from "lit/directives/style-map.js";
+import { styleMap } from 'lit/directives/style-map.js';
 
 // const invertValue = css`invert(100%)`;
 // const defaultFilterValue = css`defaultFilterValue`;
@@ -9,7 +9,7 @@ import { styleMap } from "lit/directives/style-map.js";
 // const kolor = css`--text-3`;
 // const myBG = css`--surface-3`;
 
-@customElement("box-l")
+@customElement('box-l')
 export class Box extends LitElement {
   static styles = [
     css`
@@ -18,13 +18,6 @@ export class Box extends LitElement {
 
         outline: 0.125rem solid transparent;
         outline-offset: -0.125rem;
-
-        color: inherit;
-        background-color: inherit;
-        ::slotted(*) {
-          color: inherit;
-          background-color: inherit;
-        }
       }
     `,
   ];
@@ -33,10 +26,10 @@ export class Box extends LitElement {
   // padding = "10px";
 
   @property()
-  padding = "var(--s1)";
+  padding = 'var(--s1)';
 
   @property()
-  borderWidth = "var(--border-thin)";
+  borderWidth = 'var(--border-thin)';
 
   @property()
   invert = false;
@@ -45,10 +38,9 @@ export class Box extends LitElement {
     const styles = {
       border: `${this.borderWidth} solid`,
       padding: this.padding,
-      color: ` var(--text-3)`,
-      backgroundColor: `var(--surface-3)`,
-
-      filter: this.invert ? "invert(100%)" : "",
+      filter: this.invert ? 'invert(100%)' : '',
+      color: `var(--box-color, green)`,
+      backgroundColor: `var(--box-background, yellow)`,
     };
 
     return html`<div style=${styleMap(styles)}><slot /></div>`;

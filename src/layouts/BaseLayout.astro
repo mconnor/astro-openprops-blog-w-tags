@@ -1,7 +1,6 @@
 ---
 // import { z } from 'astro:content';
 import BaseHead from '@/components/BaseHead.astro';
-import { createIcons, icons } from 'lucide';
 
 import { Cover, Center } from '@cc/index.ts';
 import type { RmUnitType } from '@cc/Types.ts';
@@ -59,7 +58,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           document.documentElement.setAttribute('data-theme', 'light');
         }
 
-        createIcons({ icons });
         // 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
         // console.log('theme set to', storedTheme);
       });

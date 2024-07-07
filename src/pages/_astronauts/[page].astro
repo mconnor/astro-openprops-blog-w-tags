@@ -22,7 +22,7 @@ export async function getStaticPaths({
     },
   ];
   // Generate pages from our array of astronauts, with 2 to a page
-  return await paginate(astronautPages, { pageSize: 2 });
+  return paginate(astronautPages, { pageSize: 2 });
 }
 
 // All paginated data is passed on the "page" prop
