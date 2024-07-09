@@ -19,53 +19,58 @@ import { dev } from 'astro';
 
 import preact from '@astrojs/preact';
 
-import icon from "astro-icon";
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
   redirects: {
-    '/index': '/about'
+    '/index': '/about',
   },
   // your configuration options here...
   // https://docs.astro.build/en/reference/configuration-reference/
   output: 'static',
   site: 'https://astro-openprops-blog-w-tags-git-staging-mike-connors-projects.vercel.app',
   image: {
-    domains: ['astro.build', 'picsum.photos', 'https://doodleipsum.com']
+    domains: ['astro.build', 'picsum.photos', 'https://doodleipsum.com'],
   },
   markdown: {
-    drafts: true
+    drafts: true,
   },
   scopedStyleStrategy: 'attribute',
   integrations: [
-  // myIntegration,
-  lit(), mdx({
-    drafts: true
-  }), sentry({
-    dsn: 'https://b620d87b24b1fda6b0064305d7ca46e2@o4506328206802944.ingest.us.sentry.io/4506770210291712',
-    release: '1.0.0',
-    environment: import.meta.env.MODE,
-    sourceMapsUploadOptions: {
-      org: 'mike-connor',
-      project: 'astro-openprops-blog-w-tags',
-      authToken: import.meta.env.SENTRY_AUTH_TOKEN
-    }
-  }), preact({
-    include: ['**/preact/*']
-  }), icon()],
+    // myIntegration,
+    lit(),
+    mdx({
+      drafts: true,
+    }),
+    // sentry({
+    //   dsn: 'https://b620d87b24b1fda6b0064305d7ca46e2@o4506328206802944.ingest.us.sentry.io/4506770210291712',
+    //   release: '1.0.0',
+    //   environment: import.meta.env.MODE,
+    //   sourceMapsUploadOptions: {
+    //     org: 'mike-connor',
+    //     project: 'astro-openprops-blog-w-tags',
+    //     authToken: import.meta.env.SENTRY_AUTH_TOKEN,
+    //   },
+    // }),
+    preact({
+      include: ['**/preact/*'],
+    }),
+    icon(),
+  ],
   experimental: {
-    contentCollectionJsonSchema: true
+    contentCollectionJsonSchema: true,
   },
   vite: {
     ssr: {
-      noExternal: ['date-fns', 'open-props', 'lucide-preact']
+      noExternal: ['date-fns', 'open-props'],
     },
     lit: {
       // Enable the `lit-analyzer` plugin to provide diagnostics in the editor.
       litAnalyzer: true,
-      dev
-    }
+      dev,
+    },
   },
   // cacheDir: './my-custom-cache-directory',
-  adapter: vercel()
+  adapter: vercel(),
 });

@@ -8,7 +8,7 @@ interface Props {
   /** The name-path of svg in src/icons */
   name: string;
 
-  domain: string;
+  href: string;
 
   /** Shorthand for including a <title>{props.title}</title> element in the SVG */
   title?: string;
@@ -19,11 +19,11 @@ interface Props {
 
   // 'logos/twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
 }
-const { name, username = 'mconnor', domain, ...rest } = Astro.props;
+const { name, href, ...rest } = Astro.props;
 ---
 
 <Box borderWidth="0" padding="var(--s0)">
-  <a href={`https://www.${domain}/${username}`}>
+  <a href={href}>
     <MyIcon name={name} {...rest} />
   </a>
 </Box>

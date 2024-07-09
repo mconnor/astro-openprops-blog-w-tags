@@ -1,41 +1,51 @@
 // @ts-check
-import astroEslintParser from 'astro-eslint-parser';
+// import astroEslintParser from 'astro-eslint-parser';
+import { fixupConfigRules } from '@eslint/compat';
 import eslintPluginAstro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
+import regex from 'eslint-plugin-regexp';
 import tseslint from 'typescript-eslint';
-// import typescriptParser from '@typescript-eslint/parser';
-import * as regexpPlugin from 'eslint-plugin-regexp';
-import { FlatCompat } from '@eslint/eslintrc';
-import path from 'path';
-import { fileURLToPath } from 'url';
+
+// import { FlatCompat } from '@eslint/eslintrc';
+// import path from 'path';
+// import { fileURLToPath } from 'url';
+// import { configs as litConfig } from 'eslint-plugin-lit';
+import wc from 'eslint-plugin-wc';
+import lit from 'eslint-plugin-lit';
 
 // mimic CommonJS variables -- not needed if using CommonJS
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname, // optional; default: process.cwd()
-  resolvePluginsRelativeTo: __dirname, // optional
-  recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
-  allConfig: js.configs.all, // optional unless you're using "eslint:all"
-});
+// const compat = new FlatCompat({
+//   baseDirectory: __dirname, // optional; default: process.cwd()
+//   resolvePluginsRelativeTo: __dirname, // optional
+//   recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
+//   allConfig: js.configs.all, // optional unless you're using "eslint:all"
+// });
 
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
-  regexpPlugin.configs['flat/recommended'],
-  // @ts-expect-error
-  ...markdown.configs.recommended,
-  // ...compat.extends('plugin:jsx-a11y/recommended'),
-  ...compat.extends('plugin:lit/recommended'),
-  ...compat.extends('plugin:wc/recommended'),
+
+  ...fixupConfigRules(markdown.configs.recommended),
+  ...fixupConfigRules(regex.configs['flat/recommended']),
+
+  ...fixupConfigRules(wc.configs['flat/recommended']),
+  ...fixupConfigRules(lit.configs['flat/recommended']),
+  {
+    ignores: ['src/**/_*.*', 'dist/'],
+  },
+
   {
     languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: {
         ...globals.browser,
         ...globals.node,
@@ -83,7 +93,7 @@ export default tseslint.config(
 
   {
     ignores: [
-      '**/_*.astro',
+      '**/_*.*',
       '**/temp.js',
       'config/*',
       'pnpm-lock.yaml',

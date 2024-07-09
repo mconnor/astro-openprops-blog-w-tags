@@ -26,7 +26,7 @@
     "sentry:sourcemaps": "sentry-cli sourcemaps inject --org mike-connor --project astro-openprops-blog-w-tags ./dist && sentry-cli sourcemaps upload --org mike-connor --project astro-openprops-blog-w-tags ./dist"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
+    "@astrojs/check": "^0.8.0",
     "@astrojs/lit": "^4.3.0",
     "@astrojs/mdx": "^3.1.2",
     "@astrojs/preact": "^3.5.0",
@@ -38,8 +38,8 @@
     "@fontsource/patrick-hand": "^5.0.20",
     "@fontsource/patrick-hand-sc": "^5.0.20",
     "@iconify-json/mdi": "^1.1.67",
-    "@sentry/astro": "^8.15.0",
-    "@sentry/browser": "^8.15.0",
+    "@sentry/astro": "^8.16.0",
+    "@sentry/browser": "^8.16.0",
     "@sentry/cli": "^2.32.1",
     "@sentry/vite-plugin": "^2.20.1",
     "@webcomponents/template-shadowroot": "^0.2.1",
@@ -55,16 +55,14 @@
     "vitest": "^1.6.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/compat": "^1.1.0",
     "@eslint/js": "^9.6.0",
-    "@types/eslint": "^8.56.10",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@vercel/speed-insights": "^1.0.12",
     "astro-eslint-parser": "^1.0.2",
     "autoprefixer": "^10.4.19",
-    "eslint": "8.57.0",
+    "eslint": "9.6.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-astro": "^1.2.2",
+    "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-lit": "^1.14.0",
     "eslint-plugin-markdown": "^5.0.0",
@@ -83,7 +81,7 @@
     "stylelint-config-html": "^1.1.0",
     "stylelint-prettier": "^5.0.0",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^7.15.0",
+    "typescript-eslint": "^7.16.0",
     "vite": "^5.3.3"
   },
   "engines": {
