@@ -11,7 +11,7 @@ const { href, isMainNav = false } = Astro.props;
 
 const isActive = href === path || href === path.replace(/\/$/, '');
 ---
-<Box>
+<Box invert>
 <div class="navItem">
   <a
     href={href}

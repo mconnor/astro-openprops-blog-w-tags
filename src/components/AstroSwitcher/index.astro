@@ -7,7 +7,8 @@
 ---
 
 <astro-theme-switcher>
-  <form id="theme" data-select-theme>
+
+  <form id="theme" data-select-theme class="appColors">
     <label>
       Auto
       <input type="radio" name="theme" value="auto" />
@@ -33,6 +34,7 @@
       <input type="radio" name="theme" value="choco" />
     </label>
   </form>
+ 
 </astro-theme-switcher>
 
 <script src="./AstroSwitcher.ts"></script>
@@ -46,5 +48,6 @@
   }
   label {
     padding-right: var(--s1);
+    color:
   }
 </style>

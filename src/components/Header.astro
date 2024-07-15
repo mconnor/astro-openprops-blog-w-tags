@@ -5,15 +5,14 @@ import AstroThemeSwitcher from '@/components/AstroSwitcher/index.astro';
 import AstroNavigateSelect from '@/components/AstroNavigateSelect.astro';
 // import HeaderFooterWrapper from '@/components/header-footer.astro';
 import Link from '@/components/Link.astro';
+
 ---
 
-<Box invert transition:persist>
-  <Box borderWidth="0" padding="var(--s00)">
-    <AstroThemeSwitcher />
-  </Box>
-
+<Box   transition:persist>
+ 
+  <AstroThemeSwitcher />
   <Cluster align="baseline" justify="space-between" space="0">
-    <Box borderWidth="0" padding="0">
+    <Box  borderWidth="0" padding="0">
       <Link isMainNav href="/">Mike Connor</Link>
     </Box>
 
@@ -23,12 +22,9 @@ import Link from '@/components/Link.astro';
 
     <Box borderWidth="0" padding="0">
       <Cluster align="baseline" justify="flex-end" space="var(--s0)">
-        <!-- <Link href="/authors/">Authors</Link> -->
+     
         <Link href="/about/">About</Link>
-        <!-- <Link href="/icons/">icons</Link> -->
-        <!-- <Link href="/cv/">CV</Link> -->
-
-        <!-- <Link href="/icons/">Icons</Link> -->
+      
         <Link href="/blog/">Blog</Link>
         <Link href="/tags/">Tags</Link>
         <Link href="/authors/">Authors</Link>
