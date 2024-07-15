@@ -19,13 +19,6 @@
   color-scheme: light dark;
 }
 
-body {
-  * {
-    color: 'var(--text-2)';
-    background-color: 'var(--surface-4)';
-  }
-}
-
 /* prefers dark scheme */
 @media (--OSdark) {
   :where(html) {

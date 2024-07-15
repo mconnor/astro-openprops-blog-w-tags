@@ -1,47 +1,39 @@
 // @ts-check
 // import astroEslintParser from 'astro-eslint-parser';
-import { fixupConfigRules } from '@eslint/compat';
-import eslintPluginAstro from 'eslint-plugin-astro';
+
+import astro from 'eslint-plugin-astro';
+import markdown from 'eslint-plugin-markdown';
+import regexp from 'eslint-plugin-regexp';
+import wc from 'eslint-plugin-wc';
+import lit from 'eslint-plugin-lit';
+// import jsxA11y from 'eslint-plugin-jsx-a11y';
+
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
-import markdown from 'eslint-plugin-markdown';
-import regex from 'eslint-plugin-regexp';
 import tseslint from 'typescript-eslint';
-
-// import { FlatCompat } from '@eslint/eslintrc';
-// import path from 'path';
-// import { fileURLToPath } from 'url';
-// import { configs as litConfig } from 'eslint-plugin-lit';
-import wc from 'eslint-plugin-wc';
-import lit from 'eslint-plugin-lit';
-
-// mimic CommonJS variables -- not needed if using CommonJS
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
-// const compat = new FlatCompat({
-//   baseDirectory: __dirname, // optional; default: process.cwd()
-//   resolvePluginsRelativeTo: __dirname, // optional
-//   recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
-//   allConfig: js.configs.all, // optional unless you're using "eslint:all"
-// });
 
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
-  ...eslintPluginAstro.configs.recommended,
+  ...astro.configs.recommended,
+  // jsxA11y.flatConfigs.recommended,
   // ...markdown.configs.recommended,
-  ...fixupConfigRules(regex.configs['flat/recommended']),
 
-  ...fixupConfigRules(wc.configs['flat/recommended']),
-  ...fixupConfigRules(lit.configs['flat/recommended']),
+  regexp.configs['flat/recommended'],
+  wc.configs['flat/recommended'],
+  lit.configs['flat/recommended'],
 
   {
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
       globals: {
         ...globals.browser,
         ...globals.node,
@@ -80,12 +72,13 @@ export default tseslint.config(
   {
     plugins: {
       markdown,
+      // jsxA11y,
     },
   },
-  {
-    files: ['**/*.md'],
-    processor: 'markdown/markdown',
-  },
+  // {
+  //   files: ['**/*.md'],
+  //   processor: 'markdown/markdown',
+  // },
   {
     files: ['**/*.md/*.js'],
     ...tseslint.configs.disableTypeChecked,

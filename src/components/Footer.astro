@@ -2,13 +2,13 @@
 import { Cluster } from '@cc/index.ts';
 import MyIcon from '@/components/MyIcon.astro';
 
-import HeaderFooterWrapper from '@/components/header-footer.astro';
-import { Icon } from 'astro-icon/components';
+// import HeaderFooterWrapper from '@/components/header-footer.astro';
+// import { Icon } from 'astro-icon/components';
 import { Box } from '@/lit-layout-components/index.ts';
 const ICONSIZE = 24;
 ---
 
-<HeaderFooterWrapper transition:persist>
+<Box invert transition:persist>
   <Cluster justify="space-around">
     <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.linkedin.com/michaelgconnor">
@@ -34,4 +34,4 @@ const ICONSIZE = 24;
     <!-- <Icon name="mdi:account" /> -->
     <!-- <Social name="mdi:account" href="./" size={ICONSIZE} /> -->
   </Cluster>
-</HeaderFooterWrapper>
+</Box>

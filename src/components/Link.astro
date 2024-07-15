@@ -1,11 +1,8 @@
 ---
-// import type { HTMLAttributes } from 'astro/types';
-
-// import { Center, Icon } from '@cc/index.js';
 import { Box } from '@/lit-layout-components/index.ts';
+
 interface Props {
   href: string;
-
   isMainNav?: boolean;
 }
 
@@ -14,7 +11,7 @@ const { href, isMainNav = false } = Astro.props;
 
 const isActive = href === path || href === path.replace(/\/$/, '');
 ---
-
+<Box>
 <div class="navItem">
   <a
     href={href}
@@ -25,8 +22,8 @@ const isActive = href === path || href === path.replace(/\/$/, '');
     ]}><slot /></a
   >
 </div>
+</Box>
 
-<!-- <a href={href} class:list={[{ current: isActive }]} {...props}><slot /></a> -->
 <style>
   .navItem {
     font-weight: var(--font-weight-3);

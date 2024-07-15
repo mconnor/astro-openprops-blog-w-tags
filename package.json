@@ -55,7 +55,6 @@
     "vitest": "^1.6.0"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.1.1",
     "@eslint/js": "^9.7.0",
     "@vercel/speed-insights": "^1.0.12",
     "astro-eslint-parser": "^1.0.2",
@@ -63,7 +62,6 @@
     "eslint": "9.7.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^1.2.3",
-    "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-lit": "^1.14.0",
     "eslint-plugin-markdown": "^5.1.0",
     "eslint-plugin-regexp": "^2.6.0",
@@ -76,7 +74,6 @@
     "postcss-nesting": "^12.1.5",
     "postcss-pow": "^1.0.1",
     "prettier": "^3.3.3",
-    "prettier-plugin-astro": "^0.14.0",
     "stylelint": "^16.7.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-prettier": "^5.0.1",
