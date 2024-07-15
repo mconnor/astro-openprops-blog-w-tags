@@ -32,15 +32,11 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
-
-  ...fixupConfigRules(markdown.configs.recommended),
+  // ...markdown.configs.recommended,
   ...fixupConfigRules(regex.configs['flat/recommended']),
 
   ...fixupConfigRules(wc.configs['flat/recommended']),
   ...fixupConfigRules(lit.configs['flat/recommended']),
-  {
-    ignores: ['src/**/_*.*', 'dist/'],
-  },
 
   {
     languageOptions: {
@@ -80,11 +76,26 @@ export default tseslint.config(
       'wc/no-constructor-attributes': 'off',
     },
   },
+
   {
-    // 1. Target ```js code blocks in .md files.
+    plugins: {
+      markdown,
+    },
+  },
+  {
+    files: ['**/*.md'],
+    processor: 'markdown/markdown',
+  },
+  {
     files: ['**/*.md/*.js'],
     ...tseslint.configs.disableTypeChecked,
+    // ...
+    rules: {
+      'no-console': 'off',
+      'import/no-unresolved': 'off',
+    },
   },
+
   {
     linterOptions: {
       reportUnusedDisableDirectives: 'warn',
@@ -95,13 +106,12 @@ export default tseslint.config(
     ignores: [
       '**/_*.*',
       '**/temp.js',
-      'config/*',
-      'pnpm-lock.yaml',
-      'types.generated.d.ts',
+      '*lock.yaml',
       '.astro/',
       'dist/',
       'my-custom-cache-directory',
       'src/env.d.ts',
+      '.vercel/',
     ],
   },
   eslintConfigPrettier,
