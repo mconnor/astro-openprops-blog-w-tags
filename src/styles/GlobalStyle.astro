@@ -1,6 +1,6 @@
 ---
-import '@fontsource/patrick-hand';
-import '@fontsource/patrick-hand-sc';
+// import '@fontsource/patrick-hand';
+// import '@fontsource/patrick-hand-sc';
 
 import 'open-props/postcss/style';
 import 'open-props/postcss/buttons';
@@ -10,6 +10,8 @@ import 'open-props/masks/edges';
 import 'open-props/animations';
 
 import './modular-scale.css';
+
+import './layoutStyles/box.css';
 
 import './layoutStyles/box.css';
 // import './EveryLayout.css';
@@ -26,27 +28,18 @@ import './typography.css';
   }
 
   body {
-    font-family: var(--font-sans);
     * {
       color: var(--my-color);
       background-color: var(--my-bg-color);
     }
   }
 
-  .app-colors {
+  /* .app-colors {
     color: var(--my-color);
     background-color: var(--my-bg-color);
   }
   .app-colors-invert {
     background-color: var(--my-color);
     color: var(--my-bg-color);
-  }
-
-  .lucide {
-    /* Change this! */
-    color: var(--brand);
-    width: 56px;
-    height: 56px;
-    stroke-width: var(--border-size-2);
-  }
+  } */
 </style>

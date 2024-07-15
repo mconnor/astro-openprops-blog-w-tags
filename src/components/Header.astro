@@ -7,29 +7,28 @@ import Link from '@/components/Link.astro';
 ---
 
 <HeaderFooterWrapper transition:persist>
-  <Box borderWidth="0" padding="var(--s00)">
+  <!-- <Box borderWidth="0" padding="var(--s00)">
     <AstroThemeSwitcher />
-  </Box>
-  <Box borderWidth="0" padding="0">
-    <Cluster align="baseline" justify="space-between" space="0">
+  </Box> -->
+
+  <Cluster align="baseline" justify="space-between" space="0">
+    <Box borderWidth="0" padding="0">
       <Link isMainNav href="/">Mike Connor</Link>
-      <!-- <button id="oops"> OOOPS</button> -->
+    </Box>
+    <!-- <button id="oops"> OOOPS</button> -->
 
-      <Box borderWidth="0" padding="0">
-        <nav>
-          <Cluster align="baseline" justify="flex-end" space="var(--s0)">
-            <!-- <Link href="/authors/">Authors</Link> -->
-            <Link href="/about/">About</Link>
-            <Link href="/icons/">icons</Link>
-            <Link href="/cv/">CV</Link>
+    <Box borderWidth="0" padding="0">
+      <Cluster align="baseline" justify="flex-end" space="var(--s0)">
+        <!-- <Link href="/authors/">Authors</Link> -->
+        <Link href="/about/">About</Link>
+        <Link href="/icons/">icons</Link>
+        <Link href="/cv/">CV</Link>
 
-            <!-- <Link href="/icons/">Icons</Link> -->
-            <Link href="/blog/">Blog</Link>
-            <Link href="/tags/">Tags</Link>
-            <Link href="/authors/">Authors</Link>
-          </Cluster>
-        </nav>
-      </Box>
-    </Cluster>
-  </Box>
+        <!-- <Link href="/icons/">Icons</Link> -->
+        <Link href="/blog/">Blog</Link>
+        <Link href="/tags/">Tags</Link>
+        <Link href="/authors/">Authors</Link>
+      </Cluster>
+    </Box>
+  </Cluster>
 </HeaderFooterWrapper>

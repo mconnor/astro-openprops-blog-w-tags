@@ -3,8 +3,9 @@ import Layout from '@/layouts/BaseLayout.astro';
 import { Stack } from '@cc/index.ts';
 import { Box } from '@/lit-layout-components/index.ts';
 import CardDelux from '@/components/CardDelux.astro';
+import { Icon } from 'astro-icon/components';
 // import { Code } from 'astro:components';
-import HeartBtn from '@/components/HeartBtn.astro';
+import HeartBtn from '@/astro-web-component/HeartBtn.astro';
 const pageTitle = 'About Page';
 ---
 
@@ -23,15 +24,34 @@ const pageTitle = 'About Page';
         will be rendered inline.
       </p>
     </Box> -->
-    <Box><HeartBtn /></Box>
+    <HeartBtn />
+    <Box
+      >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eius
+      cupiditate architecto illo laudantium deleniti iure nemo. Doloribus,
+      maiores ea mollitia nulla aperiam sapiente maxime sint suscipit quae nam?
+      Culpa.q</Box
+    >
     <CardDelux num={1}>
-      <div slot="headline">Lorem ipsum dolor sit amet</div>
-      <div slot="sub">Delectus eius itaque accusantium.</div>
-      <div slot="body">
-        Consectetur adipisicing elit. Doloribus quam non eaque sapiente,
-        inventore rem facere cum minima, tempora in accusamus voluptatum nobis,
-        delectus eius itaque accusantium. Odio, maiores fugit.
-      </div>
+      <span slot="headline">Lorem ipsum dolor sit amet</span>
+      <span slot="sub">Delectus eius itaque accusantium.</span>
+      <span slot="body">
+        <Icon name="mdi:check-all" size={60} />
+        <p>
+          Consectetur adipisicing elit. Doloribus quam non eaque sapiente,
+          inventore rem facere cum minima, tempora in accusamus voluptatum
+          nobis, delectus eius itaque accusantium. Odio, maiores fugit.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos
+          molestiae illo vitae sint modi perspiciatis enim ipsa consectetur
+          sapiente voluptas, ut excepturi! Fuga enim animi ab dolor iusto nam?
+        </p>
+        <p>
+          Consectetur adipisicing elit. Doloribus quam non eaque sapiente,
+          inventore rem facere cum minima, tempora in accusamus voluptatum
+          nobis, delectus eius itaque accusantium. Odio, maiores fugit.
+        </p>
+      </span>
     </CardDelux>
     <CardDelux num={2}>
       <div slot="headline">Lorem ipsum dolor sit amet</div>

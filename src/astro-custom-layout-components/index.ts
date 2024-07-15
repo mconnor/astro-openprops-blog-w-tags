@@ -1,4 +1,4 @@
-import Box from './Box/index.astro';
+// import Box from './Box/index.astro';
 import Center from './Center/index.astro';
 import Frame from './Frame/index.astro';
 import Sidebar from './Sidebar/index.astro';
@@ -13,7 +13,7 @@ import Icon from './Icon/index.astro';
 import Cover from './Cover/index.astro';
 
 export {
-  Box,
+  //   Box,
   Center,
   Frame,
   Sidebar,

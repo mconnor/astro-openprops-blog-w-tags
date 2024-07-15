@@ -1,29 +1,37 @@
 ---
 import { Cluster } from '@cc/index.ts';
+import MyIcon from '@/components/MyIcon.astro';
 
 import HeaderFooterWrapper from '@/components/header-footer.astro';
-import Social from '@/components/Social.astro';
-
-const ICONSIZE = 50;
+import { Icon } from 'astro-icon/components';
+import { Box } from '@/lit-layout-components/index.ts';
+const ICONSIZE = 24;
 ---
 
 <HeaderFooterWrapper transition:persist>
   <Cluster justify="space-around">
-    <Social
-      name="logos/twitter"
-      href="https://www.twitter.com/mikeconnor504"
-      size={ICONSIZE}
-    />
-    <Social
-      name="logos/linkedin"
-      href="https://www.linkedin.com/michaelgconnor"
-      size={ICONSIZE}
-    />
-    <Social
-      name="logos/github"
-      href="https://www.github.com/mconnor"
-      size={ICONSIZE}
-    />
-    <Social name="mdi:account" href="./" size={ICONSIZE} />
+    <Box borderWidth="0" padding="var(--s0)">
+      <a href="https://www.linkedin.com/michaelgconnor">
+        <MyIcon name="logos/linkedin" size={ICONSIZE} />
+      </a>
+    </Box>
+
+    <Box borderWidth="0" padding="var(--s0)">
+      <a href="https://www.github.com/mconnor">
+        <MyIcon name="logos/github" size={ICONSIZE} />
+      </a>
+    </Box>
+    <Box borderWidth="0" padding="var(--s0)">
+      <a href="https://www.twitter.com/mikeconnor504">
+        <MyIcon name="logos/x" size={ICONSIZE} />
+      </a>
+    </Box>
+    <Box borderWidth="0" padding="var(--s0)">
+      <a href="https://www.twitter.com/mikeconnor504">
+        <MyIcon name="mdi:account" size={ICONSIZE} />
+      </a>
+    </Box>
+    <!-- <Icon name="mdi:account" /> -->
+    <!-- <Social name="mdi:account" href="./" size={ICONSIZE} /> -->
   </Cluster>
 </HeaderFooterWrapper>

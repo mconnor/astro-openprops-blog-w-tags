@@ -7,14 +7,19 @@ import { Box } from '@/lit-layout-components/index.ts';
 // }
 
 // const {
-//   backgroundColor = 'var(--my-bg-color',
-//   foregroundColor = 'var(--my-color)',
+//   backgroundColor = 'var(--my-color)',
+//   foregroundColor = 'var(--my-bg-color)',
 // } = Astro.props;
 ---
 
-<header>
-  <!-- <AstroThemeSwitcher /> -->
-  <Box invert borderWidth="0" padding="var(--s0)">
-    <slot />
-  </Box>
-</header>
+<Box invert borderWidth="0">
+  <slot />
+</Box>
+
+<!-- <style define:vars={{ foregroundColor, backgroundColor }}>
+  header {
+    display: block;
+    background-color: var(--backgroundColor);
+    color: var(--foregroundColor);
+  }
+</style> -->

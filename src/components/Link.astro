@@ -15,18 +15,16 @@ const { href, isMainNav = false } = Astro.props;
 const isActive = href === path || href === path.replace(/\/$/, '');
 ---
 
-<Box borderWidth="0" padding="0">
-  <div class="navItem">
-    <a
-      href={href}
-      class:list={[
-        { disabled: isActive },
-        { navItem: !isMainNav },
-        { mainNavItem: isMainNav },
-      ]}><slot /></a
-    >
-  </div>
-</Box>
+<div class="navItem">
+  <a
+    href={href}
+    class:list={[
+      { disabled: isActive },
+      { navItem: !isMainNav },
+      { mainNavItem: isMainNav },
+    ]}><slot /></a
+  >
+</div>
 
 <!-- <a href={href} class:list={[{ current: isActive }]} {...props}><slot /></a> -->
 <style>

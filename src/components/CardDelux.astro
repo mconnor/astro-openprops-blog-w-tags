@@ -1,5 +1,6 @@
 ---
-import { Box, Stack } from '@cc/index.ts';
+import { Stack } from '@cc/index.ts';
+import { Box } from '@/lit-layout-components/index.ts';
 
 interface Props {
   // href?: string;
@@ -12,14 +13,13 @@ interface Props {
 // const { href } = Astro.props;
 ---
 
-<article class="app-colors card">
+<article class="app-colors">
   <Stack splitAfter={2}>
-    <div class="box-no-border headline app-colors-invert">
-      <Box borderWidth="0" padding="0">
-        <h2><slot name="headline" /></h2>
-      </Box>
-    </div>
-    <Box borderWidth="0" padding="0">
+    <Box invert>
+      <h2><slot name="headline" /></h2>
+    </Box>
+
+    <Box padding="0">
       <Box borderWidth="0" padding="var(--size-fluid-3)">
         <h3><slot name="sub" /></h3>
       </Box>
