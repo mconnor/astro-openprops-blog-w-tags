@@ -13,6 +13,9 @@ import globals from 'globals';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
+const { browser } = globals;
+// const { HTMLElement, customElements } = browser;
+
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -35,8 +38,8 @@ export default tseslint.config(
         },
       },
       globals: {
-        ...globals.browser,
-        ...globals.node,
+        ...browser,
+        // ...globals.node,
       },
     },
   },
