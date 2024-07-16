@@ -19,18 +19,23 @@ import { Box } from '@/lit-layout-components/index.ts';
 ---
 
 <Layout title="home">
- 
+  <!-- <div class="underCopy box">JavaScript | CSS | Astro | Monorepos | Burning Man Stuff | Rafting | Travel | Dogs | Radical Pragmatism</div> -->
   <Stack space="0">
     
     <Box borderWidth="0" padding="var(--s0)" >
-      <h1>Mike Connor, developer</h1>
-      <p>Welcome to my long overdue public shingle.</p>
+      
+
+
+  
+  
+      <h1>Welcome to my long overdue public-professoinal-personal shingle.</h1>
+      <p>This is a WIP. Standby for sizzling oringnal and nurtious content.</p>
  
     
     </Box>
 
     <Box invert borderWidth="1px" padding="var(--s0)">
-      <p>This my dog Andy. He's purebred mutt from the shelter in New Orleans.</p>
+      <p>This is Andy. He's purebred mutt from the shelter in New Orleans.</p>
       <Frame ratio="16:9">
         <Image
           src={AndyMud}
@@ -51,14 +56,24 @@ import { Box } from '@/lit-layout-components/index.ts';
 </Layout>
 
 <style>
+
+  .underCopy {
+    position: absolute;
+    z-index: 2;
+    font-size: var(--font-size-8);
+    top: 30vh;
+  left: 0;
+    max-width: 50vw;
+    opacity: 10%;
+  }
   h1{
-    font-size: var(--font-size-fluid-2);
+    font-size: var(--font-size-fluid-1);
 
     /* @media (--motionOK) {
     animation: var(--animation-fade-in); */
   }
   p{
-    font-size: var(--font-size-fluid-1);
+    font-size: var(--font-size-1);
     font-weight: var(--font-weight-5);
 
   }
