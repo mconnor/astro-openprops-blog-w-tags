@@ -37,8 +37,8 @@
     "@fontsource/patrick-hand": "^5.0.20",
     "@fontsource/patrick-hand-sc": "^5.0.20",
     "@iconify-json/mdi": "^1.1.67",
-    "@sentry/astro": "^8.17.0",
-    "@sentry/browser": "^8.17.0",
+    "@sentry/astro": "^8.18.0",
+    "@sentry/browser": "^8.18.0",
     "@sentry/cli": "^2.32.2",
     "@sentry/vite-plugin": "^2.21.1",
     "@webcomponents/template-shadowroot": "^0.2.1",
@@ -78,7 +78,7 @@
     "stylelint-prettier": "^5.0.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.1",
-    "vite": "^5.3.3"
+    "vite": "^5.3.4"
   },
   "engines": {
     "node": "^20.3.0",
