@@ -2,7 +2,6 @@ import { html, css, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import { styleMap } from 'lit/directives/style-map.js';
-// import {classMap} from 'lit/directives/class-map.js';
 
 @customElement('box-l')
 export class Box extends LitElement {
