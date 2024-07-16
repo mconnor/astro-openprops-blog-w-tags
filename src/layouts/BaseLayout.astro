@@ -2,8 +2,8 @@
 // import { z } from 'astro:content';
 import BaseHead from '@/components/BaseHead.astro';
 
-import { Cover, Center } from '@cc/index.ts';
-import type { RmUnitType } from '@cc/Types.ts';
+import { Cover, Center } from '@cc/index.js';
+import type { RmUnitType } from '@cc/Types.js';
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
 
@@ -51,7 +51,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </Cover>
 
     <script is:inline>
-      // import { $currTheme } from '../store/currTheme.ts';
+      // import { $currTheme } from '../store/currTheme.js';
 
       // on page, get the last theme from the cookie and set it
       document.addEventListener('astro:page-load', () => {

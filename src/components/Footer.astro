@@ -1,15 +1,15 @@
 ---
-import { Cluster } from '@cc/index.ts';
+import { Cluster } from '@cc/index.js';
 import MyIcon from '@/components/MyIcon.astro';
 
 // import HeaderFooterWrapper from '@/components/header-footer.astro';
 // import { Icon } from 'astro-icon/components';
-import { Box } from '@/lit-layout-components/index.ts';
+import { Box } from '@/lit-layout-components/index.js';
 const ICONSIZE = 24;
 ---
 
 <Box invert transition:persist>
-  <Cluster justify="space-around">
+  <Cluster justify="space-around" align="flex-start">
     <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.linkedin.com/michaelgconnor">
         <MyIcon name="logos/linkedin" size={ICONSIZE} />

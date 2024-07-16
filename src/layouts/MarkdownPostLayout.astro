@@ -4,13 +4,13 @@ import '../styles/markdown-style.css';
 import Layout from '@/layouts/BaseLayout.astro';
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
-import type { BlogSchemaType } from '@/schemas/index.ts';
+import type { BlogSchemaType } from '@/schemas/index.js';
 import { Image } from 'astro:assets';
 import TagContainer from '@/components/TagContainer.astro';
-import { Box } from '@/lit-layout-components/index.ts';
-import { Stack } from '@cc/index.ts';
+import { Box } from '@/lit-layout-components/index.js';
+import { Stack } from '@cc/index.js';
 // { Percentage, RmUnitType, JustifyContentTypes, AlignItemsTypes }
-// import type { RmUnitType } from '@cc/index.ts';
+// import type { RmUnitType } from '@cc/index.js';
 
 import type { AstroComponentFactory } from 'astro/runtime/server/render/astro/index.js';
 
