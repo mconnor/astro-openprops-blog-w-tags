@@ -6,6 +6,12 @@ import { styleMap } from 'lit/directives/style-map.js';
 
 @customElement('box-l')
 export class Box extends LitElement {
+  connectedCallback() {
+    // Check if this component was server-side rendered
+    // const isSSR = this.getAttribute('is:ssr') === 'true';
+    // console.log(`Is SSR: ${isSSR}`);
+  }
+
   static styles = [
     css`
       :host {
@@ -24,6 +30,9 @@ export class Box extends LitElement {
 
   @property({ type: Boolean })
   invert = false;
+
+  @property({ type: Boolean })
+  is = false;
 
   render() {
     const styles = {
