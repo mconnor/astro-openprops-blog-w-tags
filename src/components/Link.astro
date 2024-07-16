@@ -11,8 +11,8 @@ const { href, isMainNav = false } = Astro.props;
 
 const isActive = href === path || href === path.replace(/\/$/, '');
 ---
-<Box invert>
-<div class="navItem">
+<Box padding="var(--s01)" borderWidth="0">
+
   <a
     href={href}
     class:list={[
@@ -21,15 +21,16 @@ const isActive = href === path || href === path.replace(/\/$/, '');
       { mainNavItem: isMainNav },
     ]}><slot /></a
   >
-</div>
+
 </Box>
 
 <style>
-  .navItem {
-    font-weight: var(--font-weight-3);
-    font-size: var(--font-size-2);
+
+
     a {
       /* font-family: var(--font-sans); */
+      font-weight: var(--font-weight-6);
+      font-size: var(--font-size-2);
       &:link {
         color: var(--brand);
         text-decoration: wavy;
@@ -41,12 +42,8 @@ const isActive = href === path || href === path.replace(/\/$/, '');
         color: var(--brand);
         text-decoration: wavy;
       }
-      .navItem {
-        font-size: var(--font-size-1);
-        font-weight: var(--font-weight-8);
-        white-space: nowrap;
-      }
-    }
+
+    
 
     .mainNavItem {
       font-weight: var(--font-weight-3);

@@ -4,9 +4,9 @@ import BaseHead from '@/components/BaseHead.astro';
 
 import { Cover, Center } from '@cc/index.ts';
 import type { RmUnitType } from '@cc/Types.ts';
-
-import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+
 
 // import SpeedInsights from '@vercel/speed-insights/astro';
 
@@ -29,20 +29,25 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+
+
+
+
 ---
 
-<html lang="en" transition:animate="none" data-theme="light">
+<html lang="en" data-theme="toucan">
   <head>
     <BaseHead title={title} description={description} image={image} />
     <link rel="canonical" href={canonicalURL} />
   </head>
 
   <body>
-    <Cover centeredElement="center-l" space="0">
+    <Cover centeredElement="center-l" space="0" minHeight="100svh" > 
       <Header transition:persist />
-
-      <Center max={maxW}><slot /></Center>
-      <Footer />
+   
+      <Center max={maxW} transition:animate="slide"><slot /></Center>
+      <Footer transition:persist/>
     </Cover>
 
     <script is:inline>

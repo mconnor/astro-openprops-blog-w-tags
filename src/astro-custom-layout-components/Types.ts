@@ -4,7 +4,7 @@ type CustomPropType = `var(--${string})`;
 type RmUnitType =
   | CustomPropType
   | '0'
-  | `${number}${'px' | 'rem' | 'ch' | 'em' | 'vh' | 'vw' | 'vmin' | 'vmax' | '%'}`;
+  | `${number}${'px' | 'rem' | 'ch' | 'em' | 'vh' | 'vw' | 'vmin' | 'vmax' | '%' | 'svh' | 'lvh' | 'dvh'}`;
 
 type JustifyContentTypes =
   | 'flex-start'

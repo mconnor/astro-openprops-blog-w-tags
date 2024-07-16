@@ -1,6 +1,6 @@
 ---
 // import AstroNavigateSelect from '@/components/AstroNavigateSelect.astro';
-
+// import { fade } from 'astro:transitions';
 // interface ImageMetadata {
 //   src: string;
 //   width: number;
@@ -13,15 +13,24 @@ import AndyMud from '@/assets/andy_mud_color.webp';
 import Layout from '@/layouts/BaseLayout.astro';
 import { Stack, Frame } from '@cc/index.ts';
 import { Box } from '@/lit-layout-components/index.ts';
+
+
+
 ---
 
-<Layout title="home" maxW="100ch">
-  <Box borderWidth="0" padding="0">this is a box</Box>
-  <Stack space="var(--s0)">
+<Layout title="home">
+ 
+  <Stack space="0">
     
-    <Box borderWidth="0" padding="0"> <h1 class="box-no-border title">Mike Connor - Developer -</h1></Box>
+    <Box borderWidth="0" padding="var(--s0)" >
+      <h1>Mike Connor, developer</h1>
+      <p>Welcome to my long overdue public shingle.</p>
+ 
+    
+    </Box>
 
-    <Box padding="0">
+    <Box invert borderWidth="1px" padding="var(--s0)">
+      <p>This my dog Andy. He's purebred mutt from the shelter in New Orleans.</p>
       <Frame ratio="16:9">
         <Image
           src={AndyMud}
@@ -29,38 +38,41 @@ import { Box } from '@/lit-layout-components/index.ts';
           sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${AndyMud.width}px`}
           alt="A description of my image."
         />
-      </Frame></Box
+      
+      </Frame>
+     </Box
     >
 
-    <div class="box-no-border sub">
-      Andy! Mutt from the shelter in New Orleans
-    </div>
+       <Box borderWidth="0" padding="var(--s0)"><p>We currently reside in Old Westport, KCMO</p></Box>
 
-    <div class="box-no-border copy">
-      <div>Currently residing in Old Westport, KCMO</div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-        illo nesciunt reprehenderit iste fugit temporibus hic totam quaerat
-        error eaque suscipit, officiis neque ipsam nulla corporis molestiae odit
-        laborum et?
-      </div>
-    </div>
+  
+
   </Stack>
 </Layout>
 
 <style>
-  .title {
-    /* font-size: var(--font-size-4); */
+  h1{
+    font-size: var(--font-size-fluid-2);
 
-    padding: '0';
+    /* @media (--motionOK) {
+    animation: var(--animation-fade-in); */
   }
-  .sub {
-    padding: '0';
+  p{
+    font-size: var(--font-size-fluid-1);
+    font-weight: var(--font-weight-5);
+
+  }
+  caption {
+ 
     font-size: var(--font-size-3);
   }
+  /* h3 {
+ 
+ font-size: var(--font-size-2);
+} */
   .copy {
-    padding: '0';
-    font-size: var(--font-size-0);
+   
+    font-size: var(--font-size-2);
   }
 
   /* .circle-mask {

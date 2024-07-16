@@ -1,27 +1,27 @@
 ---
 import { Cluster } from '@cc/index.ts';
 import { Box } from '@/lit-layout-components/index.ts';
-import AstroThemeSwitcher from '@/components/AstroSwitcher/index.astro';
+// import AstroThemeSwitcher from '@/components/AstroSwitcher/index.astro';
 import AstroNavigateSelect from '@/components/AstroNavigateSelect.astro';
-// import HeaderFooterWrapper from '@/components/header-footer.astro';
+
 import Link from '@/components/Link.astro';
 
 ---
 
-<Box   transition:persist>
+<Box invert >
  
-  <AstroThemeSwitcher />
+  <!-- <AstroThemeSwitcher /> -->
   <Cluster align="baseline" justify="space-between" space="0">
-    <Box  borderWidth="0" padding="0">
+ 
       <Link isMainNav href="/">Mike Connor</Link>
-    </Box>
+   
 
     
     <AstroNavigateSelect />
 
 
     <Box borderWidth="0" padding="0">
-      <Cluster align="baseline" justify="flex-end" space="var(--s0)">
+      <Cluster align="baseline" justify="flex-end" space="var(--s1)">
      
         <Link href="/about/">About</Link>
       
