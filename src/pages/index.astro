@@ -12,26 +12,15 @@ import { Image } from 'astro:assets';
 import AndyMud from '@/assets/andy_mud_color.webp';
 import Layout from '@/layouts/BaseLayout.astro';
 import { Stack, Frame } from '@cc/index.js';
-import LitBox from '@/lit-layout-components/Box/index.astro'
-
-
-
+import LitBox from '@/lit-layout-components/Box/index.astro';
 ---
 
 <Layout title="home">
   <!-- <div class="underCopy box">JavaScript | CSS | Astro | Monorepos | Burning Man Stuff | Rafting | Travel | Dogs | Radical Pragmatism</div> -->
   <Stack space="0">
-    
-    <LitBox borderWidth="0" padding="var(--s0)" >
-      
-
-
-  
-  
+    <LitBox borderWidth="0" padding="var(--s0)">
       <h1>Welcome to my long overdue public-professoinal-personal shingle.</h1>
       <p>This is a WIP. Standby for sizzling oringnal and nurtious content.</p>
- 
-    
     </LitBox>
 
     <LitBox invert borderWidth="1px" padding="var(--s0)">
@@ -43,41 +32,36 @@ import LitBox from '@/lit-layout-components/Box/index.astro'
           sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${AndyMud.width}px`}
           alt="A description of my image."
         />
-      
       </Frame>
-     </LitBox>
+    </LitBox>
 
-       <LitBox borderWidth="0" padding="var(--s0)"><p>We currently reside in Old Westport, KCMO</p></LitBox>
-
-  
-
+    <LitBox borderWidth="0" padding="var(--s0)"
+      ><p>We currently reside in Old Westport, KCMO</p></LitBox
+    >
   </Stack>
 </Layout>
 
 <style>
-
   .underCopy {
     position: absolute;
     z-index: 2;
     font-size: var(--font-size-8);
     top: 30vh;
-  left: 0;
+    left: 0;
     max-width: 50vw;
     opacity: 10%;
   }
-  h1{
+  h1 {
     font-size: var(--font-size-fluid-1);
 
     /* @media (--motionOK) {
     animation: var(--animation-fade-in); */
   }
-  p{
+  p {
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-5);
-
   }
   caption {
- 
     font-size: var(--font-size-3);
   }
   /* h3 {
@@ -85,7 +69,6 @@ import LitBox from '@/lit-layout-components/Box/index.astro'
  font-size: var(--font-size-2);
 } */
   .copy {
-   
     font-size: var(--font-size-2);
   }
 

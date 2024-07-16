@@ -8,16 +8,10 @@
     "declarationMap": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@cc/*": [
-        "src/astro-custom-layout-components/*"
-      ],
-      "@wc/*": [
-        "src/web-components/*"
-      ]
-    },
+      "@/*": ["src/*"],
+      "@cc/*": ["src/astro-custom-layout-components/*"],
+      "@wc/*": ["src/web-components/*"]
+    }
   },
   "include": [
     "src/**/*.astro",

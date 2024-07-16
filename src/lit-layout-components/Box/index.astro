@@ -1,5 +1,5 @@
 ---
-import { Box }   from './Box'
+import { Box } from './Box';
 import type { RmUnitType } from '../Types';
 
 interface Props {
@@ -8,12 +8,8 @@ interface Props {
   invert?: boolean; // false
 }
 const props = Astro.props;
-
 ---
 
-<Box
- {...props} client:visible>
+<Box {...props} client:visible>
   <slot />
 </Box>
-
-

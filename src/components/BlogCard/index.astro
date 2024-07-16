@@ -2,7 +2,7 @@
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { Cluster } from '@cc/index.js';
-import LitBox from '@/lit-layout-components/Box/index.astro'
+import LitBox from '@/lit-layout-components/Box/index.astro';
 // import { Debug } from 'astro:components';
 
 import { format } from 'date-fns';
@@ -41,8 +41,8 @@ const { name } = authObj.data;
     <Cluster justify="space-between" align="baseline">
       <LitBox padding="var(--s00)" borderWidth="0">{name}</LitBox>
       <LitBox padding="var(--s00)" borderWidth="0">
-        <p>{format(pubDate, 'MMMM dd, yyyy')}</p></LitBox>
-      
+        <p>{format(pubDate, 'MMMM dd, yyyy')}</p></LitBox
+      >
     </Cluster>
 
     <!-- <div class="myMask"> -->
@@ -53,7 +53,8 @@ const { name } = authObj.data;
 
     <!-- <Frame ratio="4:3"> -->
     <LitBox padding="0" borderWidth="0" padding="0">
-      <Image src={cover.src} alt={cover.alt} width="600" height="300" /></LitBox>
+      <Image src={cover.src} alt={cover.alt} width="600" height="300" /></LitBox
+    >
     <!-- </Frame> -->
     <!-- </div> -->
 

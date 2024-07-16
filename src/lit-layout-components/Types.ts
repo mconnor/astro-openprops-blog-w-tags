@@ -1,10 +1,10 @@
-type Percentage = `${number}%`
-type CustomPropType = `var(--${string})`
+type Percentage = `${number}%`;
+type CustomPropType = `var(--${string})`;
 
 type RmUnitType =
   | CustomPropType
   | '0'
-  | `${number}${'px' | 'rem' | 'ch' | 'em' | 'vh' | 'vw' | 'vmin' | 'vmax' | '%'}`
+  | `${number}${'px' | 'rem' | 'ch' | 'em' | 'vh' | 'vw' | 'vmin' | 'vmax' | '%'}`;
 
 type JustifyContentTypes =
   | 'flex-start'
@@ -14,12 +14,12 @@ type JustifyContentTypes =
   | 'space-around'
   | 'space-evenly'
   | 'stretch'
-  | 'baseline'
+  | 'baseline';
 type AlignItemsTypes =
   | 'flex-start'
   | 'flex-end'
   | 'center'
   | 'baseline'
-  | 'stretch'
+  | 'stretch';
 
-export type { Percentage, RmUnitType, JustifyContentTypes, AlignItemsTypes }
+export type { Percentage, RmUnitType, JustifyContentTypes, AlignItemsTypes };

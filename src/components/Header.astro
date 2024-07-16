@@ -1,25 +1,19 @@
 ---
 import { Cluster } from '@cc/index.js';
-import LitBox from '@/lit-layout-components/Box/index.astro'
-// import AstroThemeSwitcher from '@/components/AstroSwitcher/index.astro';
+import LitBox from '@/lit-layout-components/Box/index.astro';
+import AstroThemeSwitcher from '@/components/AstroSwitcher/index.astro';
 import AstroNavigateSelect from '@/components/AstroNavigateSelect.astro';
 
 import Link from '@/components/Link.astro';
 import MainNav from './MainNav.astro';
-
 ---
 
-<LitBox invert >
- 
-  <!-- <AstroThemeSwitcher /> -->
+<LitBox invert>
+  <AstroThemeSwitcher />
   <Cluster align="baseline" justify="space-between" space="0">
- 
-      <Link isMainNav href="/">Mike Connor</Link>
-   
+    <Link isMainNav href="/">Mike Connor</Link>
 
-    
     <AstroNavigateSelect />
-
 
     <LitBox borderWidth="0" padding="0">
       <MainNav />

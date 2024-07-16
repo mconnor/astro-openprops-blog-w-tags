@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 // import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
 import vercel from '@astrojs/vercel/static';
-import { dev } from 'astro';
+// import { dev } from 'astro';
 // import * as dotenv from 'dotenv';
 // import { loadEnv } from 'vite';
 
