@@ -15,7 +15,7 @@ const publishsedPosts = await getCollection('blog', ({ data }) =>
 <Layout title={pageTitle}>
   <!-- The space (margin) between successive sibling elements -->
   <Stack space="var(--s1)">
-    <!-- <Box borderWidth="0"><h2>{pageTitle}</h2></Box> -->
+    <!-- <LitBox borderWidth="0"><h2>{pageTitle}</h2></LitBox> -->
     {
       publishsedPosts.map((post) => {
         return (

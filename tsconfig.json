@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "verbatimModuleSyntax": true,
     "experimentalDecorators": true, // default is false for TypeScript 5.0 and up

@@ -12,7 +12,7 @@ import { Image } from 'astro:assets';
 import AndyMud from '@/assets/andy_mud_color.webp';
 import Layout from '@/layouts/BaseLayout.astro';
 import { Stack, Frame } from '@cc/index.js';
-import { Box } from '@/lit-layout-components/index.js';
+import LitBox from '@/lit-layout-components/Box/index.astro'
 
 
 
@@ -22,7 +22,7 @@ import { Box } from '@/lit-layout-components/index.js';
   <!-- <div class="underCopy box">JavaScript | CSS | Astro | Monorepos | Burning Man Stuff | Rafting | Travel | Dogs | Radical Pragmatism</div> -->
   <Stack space="0">
     
-    <Box borderWidth="0" padding="var(--s0)" >
+    <LitBox borderWidth="0" padding="var(--s0)" >
       
 
 
@@ -32,9 +32,9 @@ import { Box } from '@/lit-layout-components/index.js';
       <p>This is a WIP. Standby for sizzling oringnal and nurtious content.</p>
  
     
-    </Box>
+    </LitBox>
 
-    <Box invert borderWidth="1px" padding="var(--s0)">
+    <LitBox invert borderWidth="1px" padding="var(--s0)">
       <p>This is Andy. He's purebred mutt from the shelter in New Orleans.</p>
       <Frame ratio="16:9">
         <Image
@@ -45,10 +45,9 @@ import { Box } from '@/lit-layout-components/index.js';
         />
       
       </Frame>
-     </Box
-    >
+     </LitBox>
 
-       <Box borderWidth="0" padding="var(--s0)"><p>We currently reside in Old Westport, KCMO</p></Box>
+       <LitBox borderWidth="0" padding="var(--s0)"><p>We currently reside in Old Westport, KCMO</p></LitBox>
 
   
 

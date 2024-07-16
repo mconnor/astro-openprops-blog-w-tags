@@ -13,9 +13,6 @@ import globals from 'globals';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
-const { browser } = globals;
-// const { HTMLElement, customElements } = browser;
-
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -32,13 +29,15 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
+
       parserOptions: {
+        project: './tsconfig.json',
         ecmaFeatures: {
           jsx: true,
         },
       },
       globals: {
-        ...browser,
+        ...globals.browser,
         // ...globals.node,
       },
     },

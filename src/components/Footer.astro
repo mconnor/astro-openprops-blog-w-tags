@@ -3,38 +3,38 @@ import { Cluster } from '@cc/index.js';
 import MyIcon from '@/components/MyIcon.astro';
 
 // import HeaderFooterWrapper from '@/components/header-footer.astro';
-// import { Icon } from 'astro-icon/components';
-import { Box } from '@/lit-layout-components/index.js';
+
+import LitBox from '@/lit-layout-components/Box/index.astro'
 const ICONSIZE = 24;
 ---
 
-<Box invert transition:persist>
+<LitBox invert transition:persist>
   <Cluster justify="space-around" align="flex-start">
-    <Box borderWidth="0" padding="var(--s0)">
+    <LitBox borderWidth="0" padding="var(--s0)">
       <a href="https://www.linkedin.com/michaelgconnor">
         <MyIcon name="logos/linkedin" size={ICONSIZE} />
       </a>
-    </Box>
+    </LitBox>
 
-    <Box borderWidth="0" padding="var(--s0)">
+    <LitBox borderWidth="0" padding="var(--s0)">
       <a href="https://www.github.com/mconnor">
         <MyIcon name="logos/github" size={ICONSIZE} />
       </a>
-    </Box>
-    <Box borderWidth="0" padding="var(--s0)">
+    </LitBox>
+    <LitBox borderWidth="0" padding="var(--s0)">
       <a href="https://www.twitter.com/mikeconnor504">
         <MyIcon name="logos/x" size={ICONSIZE} />
       </a>
-    </Box>
-    <Box borderWidth="0" padding="var(--s0)">
+    </LitBox>
+    <LitBox borderWidth="0" padding="var(--s0)">
       <a href="https://www.twitter.com/mikeconnor504">
         <MyIcon name="mdi:account" size={ICONSIZE} />
       </a>
-    </Box>
+    </LitBox>
     <!-- <Icon name="mdi:account" /> -->
     <!-- <Social name="mdi:account" href="./" size={ICONSIZE} /> -->
   </Cluster>
-</Box>
+</LitBox>
 
 
 <style>

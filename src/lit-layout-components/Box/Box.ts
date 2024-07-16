@@ -34,7 +34,7 @@ export class Box extends LitElement {
   @property({ type: Boolean })
   is = false;
 
-  render() {
+  override render() {
     const styles = {
       border: `${this.borderWidth} solid`,
       padding: this.padding,
@@ -46,8 +46,8 @@ export class Box extends LitElement {
   }
 }
 
-// declare global {
-//   interface HTMLElementTagNameMap {
-//     "box-l": Box;
-//   }
-// }
+declare global {
+  interface HTMLElementTagNameMap {
+    'box-l': Box;
+  }
+}

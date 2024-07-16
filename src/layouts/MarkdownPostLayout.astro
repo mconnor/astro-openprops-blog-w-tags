@@ -7,7 +7,7 @@ import { getEntry } from 'astro:content';
 import type { BlogSchemaType } from '@/schemas/index.js';
 import { Image } from 'astro:assets';
 import TagContainer from '@/components/TagContainer.astro';
-import { Box } from '@/lit-layout-components/index.js';
+import LitBox from '@/lit-layout-components/Box/index.astro'
 import { Stack } from '@cc/index.js';
 // { Percentage, RmUnitType, JustifyContentTypes, AlignItemsTypes }
 // import type { RmUnitType } from '@cc/index.js';
@@ -33,26 +33,26 @@ const { name } = results.data;
   <!-- <Debug {author} /> -->
 
   <Stack space="var(--s0)">
-    <Box borderWidth="1px" padding="0">
+    <LitBox borderWidth="1px" padding="0">
       <Image width="600" height="300" src={cover.src} alt={cover.alt} />
-    </Box>
+    </LitBox>
 
-    <Box borderWidth="1px"><h1>{title}</h1></Box>
+    <LitBox borderWidth="1px"><h1>{title}</h1></LitBox>
 
-    <Box borderWidth="1px">
+    <LitBox borderWidth="1px">
       Written by: {name},
       {format(pubDate, 'd MMM, yyyy')}
-    </Box>
+    </LitBox>
 
     {
       tags && (
-        <Box borderWidth="1px">
+        <LitBox borderWidth="1px">
           <TagContainer tags={tags as string[]} />
-        </Box>
+        </LitBox>
       )
     }
-    <Box padding="var(--s00)" borderWidth="1px">
+    <LitBox padding="var(--s00)" borderWidth="1px">
       <slot />
-    </Box>
+    </LitBox>
   </Stack>
 </Layout>

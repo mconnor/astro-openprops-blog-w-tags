@@ -1,7 +1,6 @@
 ---
-// import './Box.css';
-import type { RmUnitType } from '../Types';
 import { Box }   from './Box'
+import type { RmUnitType } from '../Types';
 
 interface Props {
   padding?: RmUnitType; //"var(--s1)"
@@ -13,8 +12,8 @@ const props = Astro.props;
 ---
 
 <Box
- {...props}>
+ {...props} client:visible>
   <slot />
 </Box>
-<script src="./Box"></script>
+
 

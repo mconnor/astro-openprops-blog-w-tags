@@ -19,7 +19,8 @@ class AstroThemeSwitcher extends HTMLElement {
   handleChange(e: Event) {
     const htmlTag = document.firstElementChild;
 
-    htmlTag.setAttribute('data-theme', (e.target as HTMLInputElement).value);
+    htmlTag &&
+      htmlTag.setAttribute('data-theme', (e.target as HTMLInputElement).value);
     localStorage.setItem('theme', (e.target as HTMLInputElement).value);
   }
 }

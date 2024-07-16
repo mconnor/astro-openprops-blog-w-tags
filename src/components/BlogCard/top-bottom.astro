@@ -1,9 +1,9 @@
 ---
 import { Cluster } from '@cc/index.js';
-import { Box } from '@/lit-layout-components/index.js';
+import LitBox from '@/lit-layout-components/Box/index.astro'
 ---
 
-<Box borderWidth="0" padding="var(--s0)">
+<LitBox borderWidth="0" padding="var(--s0)">
   <Cluster justify="space-between" align="baseline">
     <div class="truncate fb3">
       <slot name="left" />
@@ -11,7 +11,7 @@ import { Box } from '@/lit-layout-components/index.js';
     <div class="fb1">
       <slot name="right" />
     </div>
-  </Cluster></Box
+  </Cluster></LitBox
 >
 
 <style>

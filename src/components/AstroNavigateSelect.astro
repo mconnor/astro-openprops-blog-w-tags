@@ -1,5 +1,6 @@
 ---
 
+// const { dog } = Astro.params;
 ---
 
 <astro-navigate-select>
@@ -12,7 +13,7 @@
 </astro-navigate-select>
 
 <script>
-  import { navigate } from 'astro:transitions/client';
+  
 
   class AstroNavigateSelect extends HTMLElement {
     connectedCallback() {
@@ -34,7 +35,8 @@
       // console.log(`Navigating to: ${targetUrl}`); // This console log is for debugging purposes
       // Using 'navigate' function from 'astro:transitions/client'
       if (!targetUrl) throw new Error('No target URL provided');
-      navigate(targetUrl);
+      // navigate(targetUrl);
+      Astro.redirect(targetUrl);
     }
   }
   customElements.define('astro-navigate-select', AstroNavigateSelect);
