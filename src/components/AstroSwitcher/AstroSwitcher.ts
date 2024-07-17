@@ -1,14 +1,25 @@
-class AstroThemeSwitcher extends HTMLElement {
-  constructor() {
-    super();
+import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
-    // Bind the handleChange method to ensure the context is correct when called
-    this.handleChange = this.handleChange.bind(this);
-  }
+@customElement('astro-theme-switcher')
+class AstroThemeSwitcher extends LitElement {
+  static styles = [
+    css`
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s0);
+        font-size: var(--font-size-0);
+      }
+    `,
+  ];
+
+  @property({ type: Boolean })
+  isVisible = false;
 
   connectedCallback() {
-    const form = this.querySelector('[data-select-theme]');
-    form?.addEventListener('input', this.handleChange);
+    const form = this.querySelector('[data-select-theme]') as HTMLFormElement;
+    form?.addEventListener('input', this.handleChange.bind(this));
   }
 
   disconnectedCallback() {
@@ -23,6 +34,14 @@ class AstroThemeSwitcher extends HTMLElement {
       htmlTag.setAttribute('data-theme', (e.target as HTMLInputElement).value);
     localStorage.setItem('theme', (e.target as HTMLInputElement).value);
   }
+
+  override render() {
+    return html` <slot></slot> `;
+  }
 }
 
-customElements.define('astro-theme-switcher', AstroThemeSwitcher);
+declare global {
+  interface HTMLElementTagNameMap {
+    'astro-theme-switcher': AstroThemeSwitcher;
+  }
+}
