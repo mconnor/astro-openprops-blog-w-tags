@@ -1,6 +1,8 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+
+
 @customElement('astro-theme-switcher')
 class AstroThemeSwitcher extends LitElement {
   static styles = [
