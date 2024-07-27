@@ -9,7 +9,7 @@
 
 :where(html) {
   block-size: 100%;
-  font-family: var(--font-neo-grotesque);
+  font-family: var(--font-handwritten);
   line-height: var(--font-lineheight-3);
   -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
 

@@ -1,0 +1,14 @@
+---
+import AstroThemeSwitcher from '@/components/lit/AstroSwitcher/index.astro';
+import { Center } from '@cc/index.js';
+import LitBox from '@/lit-layout-components/Box/index.astro';
+import Layout from '@/layouts/SimpleLayout.astro';
+---
+
+<Layout title="home">
+  <Center max="100vw">
+    <LitBox>
+      <AstroThemeSwitcher />
+    </LitBox>
+  </Center>
+</Layout>

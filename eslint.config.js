@@ -17,6 +17,11 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
+  //If your project enables typed linting, we suggest enabling the recommended-type-checked
+  // and stylistic-type-checked configurations to start:
+  // ...tseslint.configs.recommendedTypeChecked,
+  // ...tseslint.configs.stylisticTypeChecked,
+
   ...astro.configs.recommended,
   // jsxA11y.flatConfigs.recommended,
   // ...markdown.configs.recommended,
@@ -31,7 +36,11 @@ export default tseslint.config(
       sourceType: 'module',
 
       parserOptions: {
-        project: './tsconfig.json',
+        project: true,
+
+        // For example, if you use a specific tsconfig.eslint.json for linting, you'd specify:
+        // tsconfigRootDir: import.meta.dirname,
+
         ecmaFeatures: {
           jsx: true,
         },

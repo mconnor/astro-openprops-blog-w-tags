@@ -16,6 +16,7 @@
    * Possible values:
    * - "off": Inlay hints are disabled.
    * - "on": Inlay hints are enabled.
+   * - "off": Inlay hints are disabled.
    */
   "cssvar.files": [
     "./src/styles/**/*css",
@@ -24,5 +25,8 @@
     // you can add it in this array of files
     // "assets/styles/variables.css"
   ],
-  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"]
+  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

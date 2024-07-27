@@ -1,3 +1,5 @@
+/* Each utility class has an !important suffix to max out its specificity. Utility classes are for final adjustments, and should not be overridden by anything that comes before them. */
+
 .surface1 {
   background-color: var(--surface-1);
   color: var(--text-2);
@@ -54,4 +56,16 @@
   position: absolute;
   width: 1px;
   white-space: nowrap;
+}
+
+.font-size\:base {
+  font-size: var(--font-size-base) !important;
+}
+
+.font-size\:biggish {
+  font-size: var(--font-size-biggish) !important;
+}
+
+.font-size\:big {
+  font-size: var(--font-size-big) !important;
 }
