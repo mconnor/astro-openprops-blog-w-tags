@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 // import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/static';
 // import { dev } from 'astro';
 // import * as dotenv from 'dotenv';
 // import { loadEnv } from 'vite';
@@ -28,7 +28,7 @@ export default defineConfig({
   },
   // your configuration options here...
   // https://docs.astro.build/en/reference/configuration-reference/
-  output: 'server',
+  output: 'static',
   site: 'https://astro-openprops-blog-w-tags-git-staging-mike-connors-projects.vercel.app',
   image: {
     domains: ['astro.build', 'picsum.photos', 'https://doodleipsum.com'],
