@@ -1,28 +1,11 @@
-// import Box from './Box/index.astro';
-import Center from './Center/index.astro';
-import Frame from './Frame/index.astro';
-import Sidebar from './Sidebar/index.astro';
-import Stack from './Stack/index.astro';
-import Switcher from './Switcher/index.astro';
-import Cluster from './Cluster/index.astro';
-import Reel from './Reel/index.astro';
-import Grid from './Grid/index.astro';
-import Imposter from './Imposter/index.astro';
-import Icon from './Icon/index.astro';
-
-import Cover from './Cover/index.astro';
-
-export {
-  //   Box,
-  Center,
-  Frame,
-  Sidebar,
-  Stack,
-  Switcher,
-  Cluster,
-  Reel,
-  Grid,
-  Imposter,
-  Icon,
-  Cover,
-};
+export { default as Center } from './Center/index.astro';
+export { default as Reel } from './Reel/index.astro';
+export { default as Frame } from './Frame/index.astro';
+export { default as Sidebar } from './Sidebar/index.astro';
+export { default as Stack } from './Stack/index.astro';
+export { default as Switcher } from './Switcher/index.astro';
+export { default as Cluster } from './Cluster/index.astro';
+export { default as Grid } from './Grid/index.astro';
+export { default as Imposter } from './Imposter/index.astro';
+export { default as Icon } from './Icon/index.astro';
+export { default as Cover } from './Cover/index.astro';

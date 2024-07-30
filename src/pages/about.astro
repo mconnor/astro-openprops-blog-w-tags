@@ -1,12 +1,12 @@
 ---
 import Layout from '@/layouts/BaseLayout.astro';
-import { Stack } from '@cc/index.js';
+import { Stack } from '@/astro-custom-layout-components';
 import LitBox from '@/lit-layout-components/Box/index.astro';
 import CardDelux from '@/components/CardDelux.astro';
 import { Icon } from 'astro-icon/components';
 // import { Code } from 'astro:components';
-import HeartBtn from '@/astro-web-component/HeartBtn.astro';
-const pageTitle = 'About Page';
+
+const pageTitle = 'About';
 ---
 
 <Layout title={pageTitle} maxW="60ch">
@@ -46,7 +46,8 @@ const pageTitle = 'About Page';
           inventore rem facere cum minima, tempora in accusamus voluptatum
           nobis, delectus eius itaque accusantium. Odio, maiores fugit.
         </p>
-        <HeartBtn />
+        <!-- do not put a directive on astro web-components -->
+
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos
           molestiae illo vitae sint modi perspiciatis enim ipsa consectetur

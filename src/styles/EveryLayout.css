@@ -6,6 +6,7 @@
   justify-content: flex-start;
   /* top and bottom margins in horizontal-tb writing mode */
   margin-block: 0;
+  gap: var(--size-10);
 }
 
 .stack {
@@ -16,10 +17,6 @@
   /* > :nth-child(2) {
         margin-block-end: auto;
     } */
-}
-
-.stack-large > * + * {
-  margin-block-start: var(--size-10);
 }
 
 .stack-small > * + * {

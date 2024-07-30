@@ -1,7 +1,8 @@
 ---
 // import { Debug } from 'astro:components';
 import Layout from '@/layouts/BaseLayout.astro';
-import { Stack } from '@cc/index.js';
+import { Stack } from '@/astro-custom-layout-components';
+
 import { getCollection } from 'astro:content';
 import BlogCard from '@/components/BlogCard/index.astro';
 // import { blogSchema } from '@/schemas/index.js';
@@ -15,20 +16,16 @@ const publishsedPosts = await getCollection('blog', ({ data }) =>
 <Layout title={pageTitle}>
   <!-- The space (margin) between successive sibling elements -->
   <Stack space="var(--s1)">
-    <!-- <LitBox borderWidth="0"><h2>{pageTitle}</h2></LitBox> -->
+    <!-- <Box borderWidth="0"><h2>{pageTitle}</h2></Box> -->
     {
-      publishsedPosts.map((post) => {
-        return (
-          <>
-            {/* <Debug data={post.data} /> */}
-            <BlogCard
-              backgroundColor="var(--surface-4)"
-              foregroundColor="var(--text-2)"
-              post={post}
-            />
-          </>
-        );
-      })
+      publishsedPosts.map((post) => (
+        // <Box invert borderWidth="4px">{data.title}</Box>
+        <BlogCard
+          backgroundColor="var(--surface-4)"
+          foregroundColor="var(--text-2)"
+          post={post}
+        />
+      ))
     }
   </Stack>
 </Layout>

@@ -1,14 +1,12 @@
 ---
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import { Cluster } from '@cc/index.js';
-import LitBox from '@/lit-layout-components/Box/index.astro';
+
+import { Box } from '@/lit-layout-components';
 // import { Debug } from 'astro:components';
 
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 import { Image } from 'astro:assets';
-
-// import CardTop from './top-bottom.astro';
 
 // interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
 
@@ -30,83 +28,37 @@ const authObj = await getEntry('authors', author.id);
 const { name } = authObj.data;
 ---
 
-<!-- <LitBox padding='var(--s1)' borderWidth="0"><h3 class="truncate">{title}</h3></LitBox> -->
-<div class="box article">
-  <!-- <Stack space="var(--s00)" splitAfter={4}> -->
-  <!-- <Cluster></Cluster> -->
+<a slot="left" href={`/posts/${slug}`}>
+  <Box padding="0" borderWidth="0">
+    <!-- <Box padding='4px'> -->
 
-  <a slot="left" href={`/posts/${slug}`}>
-    <LitBox padding="var(--s00)" borderWidth="0"><h3>{title}</h3></LitBox>
+    <!-- <Stack space="var(--s00)" splitAfter={4}> -->
+    <!-- <Cluster></Cluster> -->
 
-    <Cluster justify="space-between" align="baseline">
-      <LitBox padding="var(--s00)" borderWidth="0">{name}</LitBox>
-      <LitBox padding="var(--s00)" borderWidth="0">
-        <p>{format(pubDate, 'MMMM dd, yyyy')}</p></LitBox
+    <Box invert padding="var(--s0)" borderWidth="0"><h3>{title}</h3></Box>
+
+    <!-- <Cluster justify="space-between" align="baseline">
+      <Box padding="var(--s00)" borderWidth="0">{name}</Box>
+      <Box padding="var(--s00)" borderWidth="0">
+        <p>{format(pubDate, 'MMMM dd, yyyy')}</p></Box
       >
-    </Cluster>
+    </Cluster> -->
 
-    <!-- <div class="myMask"> -->
-
-    <!-- <a slot="left" href={`/posts/${slug}`}
-  ><h3 class="truncate">{title}</h3></a
-> -->
-
-    <!-- <Frame ratio="4:3"> -->
-    <LitBox padding="0" borderWidth="0" padding="0">
-      <Image src={cover.src} alt={cover.alt} width="600" height="300" /></LitBox
+    <Box padding="0" borderWidth="0">
+      <Image src={cover.src} alt={cover.alt} width="600" height="300" /></Box
     >
-    <!-- </Frame> -->
-    <!-- </div> -->
 
-    <LitBox padding="var(--s00)" borderWidth="0">{description}</LitBox>
-    <!-- </Stack> -->
-  </a>
-</div>
+    <Box padding="var(--s0)" borderWidth="0" invert
+      >description{description}</Box
+    >
 
+    <!-- </Box> -->
+  </Box>
+</a>
 <style define:vars={{ foregroundColor, backgroundColor }}>
-  .article {
-    background-color: var(--backgroundColor);
+  .colors {
     color: var(--foregroundColor);
+    background-color: var(--backgroundColor);
+    border-width: var(--border-thin);
   }
-  .borderClass {
-    border-radius: var(--radius-drawn-3);
-    border: var(--border-size-4) solid var(--foregroundColor);
-    padding: 0;
-
-    /* &:hover {
-      animation: var(--animation-shake-z);
-    } */
-
-    /* box-shadow: var(--shadow-2); */
-
-    @media (--motionOK) {
-      animation: var(--animation-fade-in);
-    }
-  }
-
-  a {
-    color: var(--brand);
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline double;
-    }
-    &:visited {
-      color: var(--link-visited);
-    }
-  }
-  .myMask {
-    -webkit-mask: var(--mask-edge-zig-zag-vertical);
-  }
-
-  /* .my-box-no-border {
-    padding: var(--s0) var(--s2);
-    border: 0 solid;
-    outline: var(--size-0) solid transparent;
-    outline-offset: (calc * var(--size-0));
-  } */
-
-  /* .cardPadding {
-    padding-inline: var(--s2);
-    font-weight: var(--font-weight-8);
-  } */
 </style>

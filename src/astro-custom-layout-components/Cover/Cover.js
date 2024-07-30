@@ -22,19 +22,19 @@ export default class Cover extends HTMLElement {
             min-height: ${this.minHeight};
             padding: ${!this.noPad ? this.space : '0'};
           }
-      
+
           [data-i="${this.i}"] > * {
             margin-block: ${this.space};
           }
-      
+
           [data-i="${this.i}"] > :first-child:not(${this.centered}) {
             margin-block-start: 0;
           }
-      
+
           [data-i="${this.i}"] > :last-child:not(${this.centered}) {
             margin-block-end: 0;
           }
-      
+
           [data-i="${this.i}"] > ${this.centered} {
             margin-block: auto;
           }

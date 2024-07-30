@@ -54,6 +54,7 @@ export default tseslint.config(
   {
     rules: {
       'no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
@@ -71,7 +72,7 @@ export default tseslint.config(
   },
   {
     files: [
-      'scr/web-components/**/*.js',
+      'scr/lit-web-components/**/*.js',
       'src/astro-custom-layout-components/**/*.js',
     ],
     ...tseslint.configs.disableTypeChecked,

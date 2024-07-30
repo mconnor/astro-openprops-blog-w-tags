@@ -1,11 +1,10 @@
 ---
+export const prerender = true;
 // import { Debug } from 'astro:components';
 import Layout from '@/layouts/BaseLayout.astro';
 import BlogCard from '@/components/BlogCard/index.astro';
 
 import { getCollection } from 'astro:content';
-
-export const prerender = true;
 
 export const getStaticPaths = async () => {
   const publishsedPosts = await getCollection(
@@ -32,10 +31,6 @@ const { postsWithThisTag } = Astro.props;
 ---
 
 <Layout title={tag as string}>
-  <!-- <Debug {tag} />
-  <Debug {posts} /> -->
-  <!-- <Stack space="var(--s1)"> -->
-  <!-- <LitBox borderWidth="0"><h2>#{tag}</h2></LitBox> -->
   {
     postsWithThisTag.map((post) => (
       <BlogCard

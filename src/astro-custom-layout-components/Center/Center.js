@@ -1,13 +1,3 @@
-/**
- * @module center-l
- * @description
- * A custom element for centering a block-level element horizontally,
- * with a max-width value representing the typographic measure
- * @property {string} max=var(--measure) A CSS `max-width` value
- * @property {boolean} andText=false Center align the text too (`text-align: center`)
- * @property {boolean} gutters=0 The minimum space on either side of the content
- * @property {boolean} intrinsic=false Center child elements based on their content width
- */
 export default class Center extends HTMLElement {
   constructor() {
     super();

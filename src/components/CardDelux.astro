@@ -1,7 +1,7 @@
 ---
-import { Stack } from '@cc/index.js';
+import { Stack } from '@/astro-custom-layout-components';
 
-import LitBox from '@/lit-layout-components/Box/index.astro';
+import { Box } from '@/lit-layout-components';
 
 interface Props {
   // href?: string;
@@ -10,24 +10,24 @@ interface Props {
 }
 // const { num = 4 } = Astro.props as Props;
 // const className = `surface${num}`;
-// import { Switcher, Stack, Box, Frame } from '@cc/index.js';
+// import { Switcher, Stack, Box, Frame } from '@/astro-custom-layout-components';
 // const { href } = Astro.props;
 ---
 
 <article class="app-colors">
   <Stack splitAfter={2}>
-    <LitBox invert>
+    <Box invert>
       <h2><slot name="headline" /></h2>
-    </LitBox>
+    </Box>
 
-    <LitBox padding="0">
-      <LitBox borderWidth="0" padding="var(--size-fluid-3)">
+    <Box padding="0">
+      <Box borderWidth="0" padding="var(--size-fluid-3)">
         <h3><slot name="sub" /></h3>
-      </LitBox>
-      <LitBox borderWidth="0" padding="var(--size-fluid-3)">
+      </Box>
+      <Box borderWidth="0" padding="var(--size-fluid-3)">
         <p class="main-copy"><slot name="body" /></p>
-      </LitBox>
-    </LitBox>
+      </Box>
+    </Box>
   </Stack>
 </article>
 
@@ -66,5 +66,5 @@ interface Props {
   }
 </style>
 
-<!-- 
+<!--
 class="box-no-border invert surface4" -->

@@ -2,8 +2,8 @@
 // import { z } from 'astro:content';
 import BaseHead from '@/components/BaseHead.astro';
 
-import { Cover, Center } from '@cc/index.js';
-import type { RmUnitType } from '@cc/Types.js';
+import { Cover, Center } from '@/astro-custom-layout-components';
+import type { RmUnitType } from '@/astro-custom-layout-components/Types.js';
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
 
@@ -37,7 +37,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
 
   <body>
-    <Cover centeredElement="center-l" space="0" minHeight="100svh">
+    <Cover centeredElement="center-l" space="0">
       <Header transition:persist />
 
       <Center max={maxW} transition:animate="slide"><slot /></Center>
@@ -56,9 +56,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         } else {
           document.documentElement.setAttribute('data-theme', 'light');
         }
-
-        // 'twitter' | 'instagram' | 'github' | 'linkedin' | 'youtube';
-        // console.log('theme set to', storedTheme);
       });
     </script>
   </body>

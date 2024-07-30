@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 // import { styleMap } from 'lit/directives/style-map.js';
 // import { classMap } from 'lit/directives/class-map.js';
-import { wcStyles } from './wc-styles.js';
+import { wcStyles } from '../wcStyles/wc-styles.js';
 
 @customElement('heart-button')
 export class HeartButton extends LitElement {
@@ -42,8 +42,8 @@ export class HeartButton extends LitElement {
   }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'heart-button': HeartButton;
-  }
-}
+// declare global {
+//   interface HTMLElementTagNameMap {
+//     'heart-button': HeartButton;
+//   }
+// }

@@ -81,8 +81,8 @@ export class MyElement extends LitElement {
   }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'my-element': MyElement;
-  }
-}
+// declare global {
+//   interface HTMLElementTagNameMap {
+//     'my-element': MyElement;
+//   }
+// }

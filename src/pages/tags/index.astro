@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
+import Layout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { zTags, tagCountTypeSchema } from '@/schemas/index.js';
 import { z } from 'astro:content';
@@ -55,7 +55,7 @@ const { success: tagCountSuccess, data: tagCountData } =
   tagCountTypeSchema.safeParse(tagCountsObject);
 ---
 
-<BaseLayout title="Tag Index">
+<Layout title="Tag Index">
   {
     zUniqueTagArray.success && tagCountSuccess ? (
       <TagContainer tags={zUniqueTagArray.data} tagCounts={tagCountData} />
@@ -63,4 +63,4 @@ const { success: tagCountSuccess, data: tagCountData } =
       <p>No tags</p>
     )
   }
-</BaseLayout>
+</Layout>

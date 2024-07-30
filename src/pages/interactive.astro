@@ -1,0 +1,28 @@
+---
+// import AstroNavigateSelect from '@/components/AstroNavigateSelect.astro';
+
+import Layout from '@/layouts/BaseLayout.astro';
+import { Box } from '@/lit-layout-components';
+import HeartButton from '@/lit-web-components/HeartButton/index.astro';
+import MyElement from '@/lit-web-components/MyElement/index.astro';
+---
+
+<Layout title="home">
+  <Box borderWidth="0">
+    <p>
+      Astro Web components built with Lit. For updates, follow @buildWithLit on
+      Twitter
+    </p>
+  </Box>
+
+  <HeartButton>click me</HeartButton>
+
+  <MyElement> this is my-element</MyElement>
+
+  <!-- <HeartButton>heart-btn</HeartButton> -->
+
+  <!-- <Box borderWidth="0" invert>
+    <MyElement client:only="lit">my-element</MyElement>
+    <HeartButton client:only="lit">heart-btn</HeartButton>
+  </Box> -->
+</Layout>
