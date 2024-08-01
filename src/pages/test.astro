@@ -1,0 +1,98 @@
+---
+import Layout from '@/layouts/BaseLayout.astro';
+
+import { Stack, Frame } from '@/astro-custom-layout-components';
+import { Box as LitBox } from '@/lit-layout-components';
+---
+
+<Layout>
+  <Stack recursive space="var(--s00)" splitAfter={4}>
+    <LitBox>
+      <p class="copy">Lorem ipsum dolor, sit amet consec</p>
+    </LitBox>
+    <LitBox>
+      <p class="copy">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam sed
+        non, fugit excepturi nihil illum similique culpa suscipit temporibus
+        quasi accusantium, odio minima provident voluptas dolorum esse error!
+        Expedita, molestiae!
+      </p>
+    </LitBox>
+    <LitBox>
+      <p class="copy">
+        ectetur adipisicing elit. Veniam sed non, fugit excepturi nihil illum
+        similique culpa suscipit temporibus quasi accusantium, odio minima
+        provident voluptas dolorum esse error! Expedita, molestiae!
+      </p>
+    </LitBox>
+    <LitBox>
+      <LitBox invert>
+        <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
+      </LitBox>
+      <LitBox invert>
+        <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
+      </LitBox>
+      <LitBox invert>
+        <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
+      </LitBox>
+      <LitBox invert>
+        <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
+      </LitBox>
+    </LitBox>
+    <LitBox>
+      <p class="copy">Lorem ipsum dolor, sit amet consec</p>
+    </LitBox>
+    <LitBox>
+      <p class="copy">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam sed
+        non, fugit excepturi nihil illum similique culpa suscipit temporibus
+        quasi accusantium, odio minima provident voluptas dolorum esse error!
+        Expedita, molestiae!
+      </p>
+    </LitBox>
+
+    <LitBox>
+      <p class="copy">
+        ectetur adipisicing elit. Veniam sed non, fugit excepturi nihil illum
+        similique culpa suscipit temporibus quasi accusantium, odio minima
+        provident voluptas dolorum esse error! Expedita, molestiae!
+      </p>
+    </LitBox>
+    <LitBox>
+      <p class="copy">Lorem ipsum dolor, sit amet consec</p>
+    </LitBox>
+    <LitBox>
+      <p class="copy">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam sed
+        non, fugit excepturi nihil illum similique culpa suscipit temporibus
+        quasi accusantium, odio minima provident voluptas dolorum esse error!
+        Expedita, molestiae!
+      </p>
+    </LitBox>
+    <LitBox>
+      <LitBox>
+        <LitBox invert>
+          <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
+        </LitBox>
+        <LitBox invert>
+          <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
+        </LitBox>
+        <LitBox invert>
+          <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
+        </LitBox>
+        <LitBox invert>
+          <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
+        </LitBox>
+      </LitBox>
+      <LitBox>
+        <p class="copy">Lorem ipsum dolor, sit amet consec</p>
+      </LitBox>
+    </LitBox>
+  </Stack>
+</Layout>
+
+<style>
+  p.copy {
+    font-size: var(--font-size-0);
+  }
+</style>

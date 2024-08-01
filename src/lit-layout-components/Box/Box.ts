@@ -7,8 +7,8 @@ import { styleMap } from 'lit/directives/style-map.js';
 export class Box extends LitElement {
   connectedCallback() {
     // Check if this component was server-side rendered
-    // const isSSR = this.getAttribute('is:ssr') === 'true';
-    // console.log(`Is SSR: ${isSSR}`);
+    const isSSR = this.getAttribute('is:ssr') === 'true';
+    console.log(`Is SSR: ${isSSR}`);
   }
 
   static styles = [
