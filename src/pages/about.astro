@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/BaseLayout.astro';
 import { Stack } from '@/astro-custom-layout-components';
-import { Box as LitBox } from '@/lit-layout-components';
+import Box from '@/lit-layout-components/Box/index.astro';
 import CardDelux from '@/components/CardDelux.astro';
 import { Icon } from 'astro-icon/components';
 // import { Code } from 'astro:components';
@@ -12,7 +12,7 @@ const pageTitle = 'About';
 <Layout title={pageTitle} maxW="60ch">
   <!-- <div class="app-colors"> -->
   <Stack>
-    <!-- <LitBox borderWidth="0">
+    <!-- <Box borderWidth="0">
       <Code code={`const foo = 'bar';`} lang="js" />
 
       <Code code={`const foo = 'bar';`} lang="js" theme="dark-plus" />
@@ -23,19 +23,19 @@ const pageTitle = 'About';
         <Code code={`const foo = 'bar';`} lang="js" inline />
         will be rendered inline.
       </p>
-    </LitBox> -->
+    </Box> -->
 
-    <LitBox>
+    <Box>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eius
         cupiditate architecto illo laudantium deleniti iure nemo. Doloribus,
         maiores ea mollitia nulla aperiam sapiente maxime sint suscipit quae
         nam? Culpa.
       </p>
-      <LitBox invert>
+      <Box invert>
         <h6>alert: o laudantium deleniti iure nemo</h6>
-      </LitBox>
-    </LitBox>
+      </Box>
+    </Box>
     <CardDelux num={1}>
       <span slot="headline">Lorem ipsum dolor sit amet</span>
       <span slot="sub">Delectus eius itaque accusantium.</span>
@@ -93,59 +93,59 @@ const pageTitle = 'About';
             nobis, delectus eius itaque accusantium. Odio, maiores fugit.
           </div><CardDelux>
             <div class="surface3 box">
-              <LitBox
+              <Box
                 ><em
                   >adipisicing elit. Doloribus quam non eaque sapiente,
                   inventore rem facere cum minima, tempora in accusamus
-                </em></LitBox
+                </em></Box
               >
-              <LitBox invert
+              <Box invert
                 ><em
                   >invert oloribus quam non eaque sapiente, inventore rem facere
                   cum minima, tempora in accusamus voluptatum nobis,
-                </em></LitBox
+                </em></Box
               >
 
-              <LitBox
+              <Box
                 ><p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Doloribus quam non eaque sapiente, inventore rem facere cum
                   minima, tempora in accusamus voluptatum nobis, delectus eius
                   itaque accusantium. Odio, maiores fugit.
                 </p>
-                <LitBox invert
+                <Box invert
                   ><em
                     >adipisicing elit. Doloribus quam non eaque sapiente,
                     inventore rem facere cum minima, tempora in accusamus
                     voluptatum nobis, delectus eius itaque accusantium. Odio,
                     maiores fugit.
                   </em>
-                  <LitBox
+                  <Box
                     ><em
                       >adipisicing elit. Doloribus quam non eaque sapiente,
                       inventore rem facere cum minima, tempora in accusamus
                       voluptatum nobis, delectus eius itaque accusantium. Odio,
                       maiores fugit.
-                    </em></LitBox
-                  ></LitBox
+                    </em></Box
+                  ></Box
                 >
-              </LitBox>
-              <LitBox
+              </Box>
+              <Box
                 ><p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Doloribus quam non eaque sapiente, inventore rem facere cum
                   minima, tempora in accusamus voluptatum nobis, delectus eius
                   itaque accusantium. Odio, maiores fugit.
                 </p>
-                <LitBox
+                <Box
                   ><em
                     >adipisicing elit. Doloribus quam non eaque sapiente,
                     inventore rem facere cum minima, tempora in accusamus
                     voluptatum nobis, delectus eius itaque accusantium. Odio,
                     maiores fugit.
-                  </em></LitBox
+                  </em></Box
                 >
-              </LitBox>
+              </Box>
             </div>
           </CardDelux>
         </CardDelux>

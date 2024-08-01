@@ -9,9 +9,9 @@ const { href } = Astro.props;
 // const { pathname } = Astro.url
 ---
 
-<!-- <LitBox padding='--sizes'><a href={href} class:list={[{ active: isActive }]}>
+<!-- <Box padding='--sizes'><a href={href} class:list={[{ active: isActive }]}>
     <slot />
-</a></LitBox> -->
+</a></Box> -->
 <div class="btn" :active="{ active: isActive }">
   <a href={href}>
     <slot />

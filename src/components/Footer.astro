@@ -4,37 +4,37 @@ import MyIcon from '@/components/MyIcon.astro';
 
 // import HeaderFooterWrapper from '@/components/header-footer.astro';
 
-import { Box as LitBox } from '@/lit-layout-components';
+import Box from '@/lit-layout-components/Box/index.astro';
 const ICONSIZE = 24;
 ---
 
-<LitBox invert transition:persist>
+<Box invert transition:persist>
   <Cluster justify="space-around" align="flex-start">
-    <LitBox borderWidth="0" padding="var(--s0)">
+    <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.linkedin.com/michaelgconnor">
         <MyIcon name="logos/linkedin" size={ICONSIZE} />
       </a>
-    </LitBox>
+    </Box>
 
-    <LitBox borderWidth="0" padding="var(--s0)">
+    <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.github.com/mconnor">
         <MyIcon name="logos/github" size={ICONSIZE} />
       </a>
-    </LitBox>
-    <LitBox borderWidth="0" padding="var(--s0)">
+    </Box>
+    <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.twitter.com/mikeconnor504">
         <MyIcon name="logos/x" size={ICONSIZE} />
       </a>
-    </LitBox>
-    <LitBox borderWidth="0" padding="var(--s0)">
+    </Box>
+    <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.twitter.com/mikeconnor504">
         <MyIcon name="mdi:account" size={ICONSIZE} />
       </a>
-    </LitBox>
+    </Box>
     <!-- <Icon name="mdi:account" /> -->
     <!-- <Social name="mdi:account" href="./" size={ICONSIZE} /> -->
   </Cluster>
-</LitBox>
+</Box>
 
 <style>
   a {

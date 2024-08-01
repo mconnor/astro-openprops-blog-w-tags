@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 
 // import { Box} from '@/lit-layout-components';
 
-import { Box } from '@/lit-layout-components';
+import Box from '@/lit-layout-components/Box/index.astro';
 // import type * as LitTypes '@/lit-layout-components/Types';
 // import { Debug } from 'astro:components';
 
@@ -28,7 +28,7 @@ const {
 const { slug, data } = post;
 const { title, pubDate, description, cover, author } = data;
 const authObj = await getEntry('authors', author.id);
-const { name } = authObj.data;
+// const { name } = authObj.data;
 ---
 
 <a slot="left" href={`/posts/${slug}`}>

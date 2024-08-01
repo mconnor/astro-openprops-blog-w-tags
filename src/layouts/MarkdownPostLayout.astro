@@ -9,7 +9,7 @@ import { Image } from 'astro:assets';
 
 import TagContainer from '@/components/TagContainer.astro';
 
-import { Box as LitBox } from '@/lit-layout-components';
+import Box from '@/lit-layout-components/Box/index.astro';
 
 import { Stack } from '@/astro-custom-layout-components';
 // { Percentage, RmUnitType, JustifyContentTypes, AlignItemsTypes }
@@ -36,26 +36,26 @@ const { name } = results.data;
   <!-- <Debug {author} /> -->
 
   <Stack space="var(--s0)">
-    <LitBox borderWidth="1px" padding="0">
+    <Box borderWidth="1px" padding="0">
       <Image width="600" height="300" src={cover.src} alt={cover.alt} />
-    </LitBox>
+    </Box>
 
-    <LitBox borderWidth="1px"><h1>{title}</h1></LitBox>
+    <Box borderWidth="1px"><h1>{title}</h1></Box>
 
-    <LitBox borderWidth="1px">
+    <Box borderWidth="1px">
       Written by: {name},
       {format(pubDate, 'd MMM, yyyy')}
-    </LitBox>
+    </Box>
 
     {
       tags && (
-        <LitBox borderWidth="1px">
+        <Box borderWidth="1px">
           <TagContainer tags={tags as string[]} />
-        </LitBox>
+        </Box>
       )
     }
-    <LitBox padding="var(--s00)" borderWidth="1px">
+    <Box padding="var(--s00)" borderWidth="1px">
       <slot />
-    </LitBox>
+    </Box>
   </Stack>
 </Layout>

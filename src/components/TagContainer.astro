@@ -1,7 +1,7 @@
 ---
 // import { Debug } from 'astro:components';
 import { Icon, Cluster } from '@/astro-custom-layout-components';
-import { Box as LitBox } from '@/lit-layout-components';
+import Box from '@/lit-layout-components/Box/index.astro';
 interface Props {
   tags: string[];
   tagCounts?: Record<string, number>;
@@ -17,7 +17,7 @@ const { tags, tagCounts } = Astro.props;
     tags
       .filter((tag) => tag !== undefined)
       .map((tag) => (
-        <LitBox padding="0" borderWidth="0">
+        <Box padding="0" borderWidth="0">
           <a href={`/tags/${tag}`}>
             <Icon space="var(--size-1)">
               <svg
@@ -32,7 +32,7 @@ const { tags, tagCounts } = Astro.props;
               {tagCounts ? `${tag}, ${tagCounts[tag]}` : `${tag}`}
             </Icon>
           </a>
-        </LitBox>
+        </Box>
       ))
   }
 </Cluster>

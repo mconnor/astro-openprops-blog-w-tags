@@ -2,92 +2,92 @@
 import Layout from '@/layouts/BaseLayout.astro';
 
 import { Stack, Frame } from '@/astro-custom-layout-components';
-import { Box as LitBox } from '@/lit-layout-components';
+import Box from '@/lit-layout-components/Box/index.astro';
 ---
 
 <Layout>
   <Stack recursive space="var(--s00)" splitAfter={4}>
-    <LitBox>
+    <Box>
       <p class="copy">Lorem ipsum dolor, sit amet consec</p>
-    </LitBox>
-    <LitBox>
+    </Box>
+    <Box>
       <p class="copy">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam sed
         non, fugit excepturi nihil illum similique culpa suscipit temporibus
         quasi accusantium, odio minima provident voluptas dolorum esse error!
         Expedita, molestiae!
       </p>
-    </LitBox>
-    <LitBox>
+    </Box>
+    <Box>
       <p class="copy">
         ectetur adipisicing elit. Veniam sed non, fugit excepturi nihil illum
         similique culpa suscipit temporibus quasi accusantium, odio minima
         provident voluptas dolorum esse error! Expedita, molestiae!
       </p>
-    </LitBox>
-    <LitBox>
-      <LitBox invert>
+    </Box>
+    <Box>
+      <Box invert>
         <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
-      </LitBox>
-      <LitBox invert>
+      </Box>
+      <Box invert>
         <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
-      </LitBox>
-      <LitBox invert>
+      </Box>
+      <Box invert>
         <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
-      </LitBox>
-      <LitBox invert>
+      </Box>
+      <Box invert>
         <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
-      </LitBox>
-    </LitBox>
-    <LitBox>
+      </Box>
+    </Box>
+    <Box>
       <p class="copy">Lorem ipsum dolor, sit amet consec</p>
-    </LitBox>
-    <LitBox>
+    </Box>
+    <Box>
       <p class="copy">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam sed
         non, fugit excepturi nihil illum similique culpa suscipit temporibus
         quasi accusantium, odio minima provident voluptas dolorum esse error!
         Expedita, molestiae!
       </p>
-    </LitBox>
+    </Box>
 
-    <LitBox>
+    <Box>
       <p class="copy">
         ectetur adipisicing elit. Veniam sed non, fugit excepturi nihil illum
         similique culpa suscipit temporibus quasi accusantium, odio minima
         provident voluptas dolorum esse error! Expedita, molestiae!
       </p>
-    </LitBox>
-    <LitBox>
+    </Box>
+    <Box>
       <p class="copy">Lorem ipsum dolor, sit amet consec</p>
-    </LitBox>
-    <LitBox>
+    </Box>
+    <Box>
       <p class="copy">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam sed
         non, fugit excepturi nihil illum similique culpa suscipit temporibus
         quasi accusantium, odio minima provident voluptas dolorum esse error!
         Expedita, molestiae!
       </p>
-    </LitBox>
-    <LitBox>
-      <LitBox>
-        <LitBox invert>
+    </Box>
+    <Box>
+      <Box>
+        <Box invert>
           <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
-        </LitBox>
-        <LitBox invert>
+        </Box>
+        <Box invert>
           <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
-        </LitBox>
-        <LitBox invert>
+        </Box>
+        <Box invert>
           <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
-        </LitBox>
-        <LitBox invert>
+        </Box>
+        <Box invert>
           <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
-        </LitBox>
-      </LitBox>
-      <LitBox>
+        </Box>
+      </Box>
+      <Box>
         <p class="copy">Lorem ipsum dolor, sit amet consec</p>
-      </LitBox>
-    </LitBox>
+      </Box>
+    </Box>
   </Stack>
 </Layout>
 

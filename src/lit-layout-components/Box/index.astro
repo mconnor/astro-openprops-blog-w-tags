@@ -1,16 +1,16 @@
 ---
-import { Box } from './Box';
+import { BoxClass } from './box-l';
 import type { RmUnitType } from '../Types';
 
 interface Props {
-  padding?: RmUnitType; //"var(--s1)"
-  borderWidth?: RmUnitType; //"var(--border-thin)"
-  invert?: boolean; // false
+  padding?: RmUnitType;
+  borderWidth?: RmUnitType;
+  invert?: boolean;
   children?: any;
 }
 const props = Astro.props;
 ---
 
-<Box {...props} client:visible>
+<BoxClass {...props} client:visible>
   <slot />
-</Box>
+</BoxClass>

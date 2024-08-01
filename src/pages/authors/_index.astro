@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 // import { authorSchema } from '@/schemas/idex.js';
 import { Stack } from '@/astro-custom-layout-components';
-import { Box as LitBox } from '@/lit-layout-components';
+import Box from '@/lit-layout-components/Box/index.astro';
 
 import Layout from '@/layouts/BaseLayout.astro';
 
@@ -13,13 +13,13 @@ const authors = await getCollection('authors');
   <!-- <Debug {tag} />
     <Debug {posts} /> -->
   <Stack space="var(--s1)">
-    <LitBox><h2>authors</h2></LitBox>
+    <Box><h2>authors</h2></Box>
 
     {
       authors.map(({ data }) => (
-        <LitBox>
+        <Box>
           <a href={`/authors/${data.id}`}>{data.name}</a>
-        </LitBox>
+        </Box>
       ))
     }
   </Stack>

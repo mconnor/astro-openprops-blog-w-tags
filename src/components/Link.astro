@@ -1,5 +1,5 @@
 ---
-import { Box as LitBox } from '@/lit-layout-components';
+import Box from '@/lit-layout-components/Box/index.astro';
 
 interface Props {
   href: string;
@@ -12,7 +12,7 @@ const { href, isMainNav = false } = Astro.props;
 const isActive = href === path || href === path.replace(/\/$/, '');
 ---
 
-<LitBox padding="var(--s01)" borderWidth="0">
+<Box padding="var(--s01)" borderWidth="0">
   <a
     href={href}
     class:list={[
@@ -21,7 +21,7 @@ const isActive = href === path || href === path.replace(/\/$/, '');
       { mainNavItem: isMainNav },
     ]}><slot /></a
   >
-</LitBox>
+</Box>
 
 <style>
   a {
