@@ -9,7 +9,19 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     }
-  }
+  },
+  "include": [
+    ".",
+    "jsx.d.ts",
+    "test/*.test.ts"
+  ],
+  "exclude": [
+    ".vercel",
+    ".astro",
+    "dist"
+  ]
 }
