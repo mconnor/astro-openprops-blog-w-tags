@@ -12,12 +12,15 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
-.env
 
+# Sentry Config File
+.env.sentry-build-plugin
 
-
+.env # loaded in all cases
+# .env.local          # loaded in all cases, ignored by git
+# .env.[mode]         # only loaded in specified mode
+# .env.[mode].local   # only loaded in specified mode, ignored by git
 
 .vercel
 /.DS_Store
@@ -33,6 +36,4 @@ pnpm-debug.log*
 
 # Sentry Config File
 .sentryclirc
-
-# Sentry Config File
-.env.sentry-build-plugin
+/.env

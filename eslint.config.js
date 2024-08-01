@@ -36,7 +36,7 @@ export default tseslint.config(
       sourceType: 'module',
 
       parserOptions: {
-        project: true,
+        project: './tsconfig.eslint.json',
 
         // For example, if you use a specific tsconfig.eslint.json for linting, you'd specify:
         // tsconfigRootDir: import.meta.dirname,
