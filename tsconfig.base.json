@@ -6,6 +6,7 @@
         "useDefineForClassFields": false, // default is true when "target" is "ES2022" or higher
         "declaration": true,
         "declarationMap": true,
+        "strictNullChecks": true,
         "baseUrl": ".",
         "paths": {
             "@/*": [

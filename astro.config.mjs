@@ -55,7 +55,7 @@ export default defineConfig({
     icon(),
   ],
   experimental: {
-    contentCollectionJsonSchema: true,
+    contentCollectionCache: true,
   },
   vite: {
     ssr: {
