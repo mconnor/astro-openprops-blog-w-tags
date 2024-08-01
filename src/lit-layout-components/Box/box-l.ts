@@ -37,7 +37,7 @@ export class BoxClass extends LitElement {
   padding: RmUnitType = 'var(--s0)';
 
   @property()
-  borderWidth = 'var(--border-thin)';
+  borderWidth = '1px';
 
   @property({ type: Boolean })
   invert = false;
