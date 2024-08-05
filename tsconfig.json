@@ -1,4 +1,25 @@
 {
-  "extends": "./tsconfig.base.json",
-  "include": ["src", "jsx.d.ts"]
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+    "experimentalDecorators": true, // default is false for TypeScript 5.0 and up
+    "useDefineForClassFields": false, // default is true when "target" is "ES2022" or higher
+    "declaration": true,
+    "declarationMap": true,
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    ".vercel",
+    ".astro",
+    "dist"
+  ]
 }

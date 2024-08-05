@@ -1,6 +1,8 @@
 // @ts-check
 // import astroEslintParser from 'astro-eslint-parser';
-
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+// import { builtinModules } from 'node:module';
 import astro from 'eslint-plugin-astro';
 import markdown from 'eslint-plugin-markdown';
 import regexp from 'eslint-plugin-regexp';
@@ -12,11 +14,16 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// parsers
+const typescriptParser = tseslint.parser;
 
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  ...tseslint.configs.stylistic,
+  // ...tseslint.configs.stylistic,
   //If your project enables typed linting, we suggest enabling the recommended-type-checked
   // and stylistic-type-checked configurations to start:
   // ...tseslint.configs.recommendedTypeChecked,
@@ -29,6 +36,18 @@ export default tseslint.config(
   regexp.configs['flat/recommended'],
   wc.configs['flat/recommended'],
   lit.configs['flat/recommended'],
+  {
+    ignores: [
+      '**/_*.*',
+      '**/temp.js',
+      '*lock.yaml',
+      '.astro/',
+      'dist/',
+      'my-custom-cache-directory',
+      'src/env.d.ts',
+      '.vercel/',
+    ],
+  },
 
   {
     languageOptions: {
@@ -39,7 +58,7 @@ export default tseslint.config(
         project: './tsconfig.eslint.json',
 
         // For example, if you use a specific tsconfig.eslint.json for linting, you'd specify:
-        // tsconfigRootDir: import.meta.dirname,
+        tsconfigRootDir: import.meta.dirname,
 
         ecmaFeatures: {
           jsx: true,
@@ -71,10 +90,7 @@ export default tseslint.config(
     ...tseslint.configs.disableTypeChecked,
   },
   {
-    files: [
-      'scr/lit-web-components/**/*.js',
-      'src/astro-custom-layout-components/**/*.js',
-    ],
+    files: ['**/*.js'],
     ...tseslint.configs.disableTypeChecked,
     rules: {
       'wc/no-constructor-attributes': 'off',
@@ -107,17 +123,5 @@ export default tseslint.config(
     },
   },
 
-  {
-    ignores: [
-      '**/_*.*',
-      '**/temp.js',
-      '*lock.yaml',
-      '.astro/',
-      'dist/',
-      'my-custom-cache-directory',
-      'src/env.d.ts',
-      '.vercel/',
-    ],
-  },
   eslintConfigPrettier,
 );
