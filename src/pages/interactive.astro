@@ -3,21 +3,28 @@
 
 import Layout from '@/layouts/BaseLayout.astro';
 import Box from '@/lit-layout-components/Box/index.astro';
-import HeartButton from '@/lit-web-components/HeartButton/index.astro';
+
+import LitHeartButton from '@/lit-web-components/HeartButton/index.astro';
+import AstroHeart from '@/astro-web-component/AstroHeart/index.astro';
 import MyElement from '@/lit-web-components/MyElement/index.astro';
 ---
 
 <Layout title="home">
-  <Box borderWidth="0">
+  <LitHeartButton>click me---- </LitHeartButton>
+  <!-- <Box borderWidth="0"
+    >AstroHeart
+    <AstroHeart />
+  </Box> -->
+  <!-- <Box borderWidth="0">
     <p>
       Astro Web components built with Lit. For updates, follow @buildWithLit on
       Twitter
     </p>
   </Box>
 
-  <HeartButton>click me</HeartButton>
+  <LitHeartButton client:load>click me</LitHeartButton>
 
-  <MyElement> this is my-element</MyElement>
+  <MyElement client:load> this is my-element</MyElement> -->
 
   <!-- <HeartButton>heart-btn</HeartButton> -->
 

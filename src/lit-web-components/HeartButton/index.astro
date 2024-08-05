@@ -1,7 +1,10 @@
 ---
-import { HeartButton } from './heart-button.mts';
+import { HeartButton } from './heart-button';
 ---
 
 <HeartButton client:visible>
   <slot />
 </HeartButton>
+
+<!-- Astro components do not render in the client and should not have a hydration directive.
+ Please use a framework component for client rendering. -->
