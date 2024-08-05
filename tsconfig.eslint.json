@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "./tsconfig.json",
   "include": [
     "src/**/*.ts",
     "src/**/*.mts",
@@ -9,7 +9,9 @@
     "src/**/*.tsx",
     "src/**/*.astro",
     "*.config.mjs",
-    "*.config.js"
+    "*.config.js",
+    "test/*.test.ts",
+    "jsx.d.ts"
   ],
   "exclude": [
     ".vercel",

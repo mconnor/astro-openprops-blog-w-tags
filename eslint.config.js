@@ -1,7 +1,7 @@
 // @ts-check
 // import astroEslintParser from 'astro-eslint-parser';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+// import path from 'node:path';
+// import { fileURLToPath } from 'node:url';
 // import { builtinModules } from 'node:module';
 import astro from 'eslint-plugin-astro';
 import markdown from 'eslint-plugin-markdown';
@@ -14,11 +14,11 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
-// parsers
-const typescriptParser = tseslint.parser;
+// // parsers
+// const typescriptParser = tseslint.parser;
 
 export default tseslint.config(
   js.configs.recommended,
@@ -46,6 +46,7 @@ export default tseslint.config(
       'my-custom-cache-directory',
       'src/env.d.ts',
       '.vercel/',
+      '.astro/',
     ],
   },
 
@@ -66,7 +67,7 @@ export default tseslint.config(
       },
       globals: {
         ...globals.browser,
-        // ...globals.node,
+        ...globals.node,
       },
     },
   },

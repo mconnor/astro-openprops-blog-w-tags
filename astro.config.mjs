@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx';
 // import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
 import vercel from '@astrojs/vercel/serverless';
+
 // import { dev } from 'astro';
 // import * as dotenv from 'dotenv';
 // import { loadEnv } from 'vite';
@@ -21,6 +22,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  compressHTML: true,
   redirects: {
     '/index': '/about',
   },
@@ -56,16 +58,6 @@ export default defineConfig({
   ],
   experimental: {
     contentCollectionCache: true,
-  },
-  vite: {
-    ssr: {
-      noExternal: ['date-fns', 'open-props'],
-    },
-    // lit: {
-    //   // Enable the `lit-analyzer` plugin to provide diagnostics in the editor.
-    //   litAnalyzer: true,
-    //   dev,
-    // },
   },
   // cacheDir: './my-custom-cache-directory',
   adapter: vercel(),
