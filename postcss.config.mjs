@@ -5,6 +5,7 @@ import postcssPow from 'postcss-pow';
 import postcssImport from 'postcss-import';
 import OpenProps from 'open-props';
 import postcssCustomMedia from 'postcss-custom-media';
+import nano from 'cssnano';
 // import process from 'process';
 
 // Use process.env.NODE_ENV to check if the environment is production
@@ -21,6 +22,7 @@ export default {
     postcssNesting,
     postcssPow,
     postcssCustomMedia,
+    nano,
   ],
 };
 // Use process.env.NODE_ENV to check if the environment is production
