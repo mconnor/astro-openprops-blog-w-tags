@@ -29,7 +29,7 @@ export class HeartButton extends LitElement {
     this.count++;
   }
 
-  render() {
+  protected render() {
     /* const styles = wcStyles; */
     return html`
       <div class="surface1">

@@ -28,7 +28,7 @@ const {
 const { slug, data } = post;
 const { title, pubDate, description, cover, author } = data;
 const authObj = await getEntry('authors', author.id);
-// const { name } = authObj.data;
+const { name } = authObj.data;
 ---
 
 <a slot="left" href={`/posts/${slug}`}>
@@ -38,7 +38,8 @@ const authObj = await getEntry('authors', author.id);
     <!-- <Stack space="var(--s00)" splitAfter={4}> -->
     <!-- <Cluster></Cluster> -->
 
-    <Box invert padding="var(--s0)" borderWidth="0"><h3>{title}</h3></Box>
+    <Box invert padding="var(--s0)" borderWidth="0"><h3>{title},{name}</h3></Box
+    >
 
     <!-- <Cluster justify="space-between" align="baseline">
       <Box padding="var(--s00)" borderWidth="0">{name}</Box>

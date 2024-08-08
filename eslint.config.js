@@ -96,6 +96,14 @@ export default tseslint.config(
   {
     files: ['**/*.js'],
     ...tseslint.configs.disableTypeChecked,
+  },
+  {
+    files: [
+      'src/astro-custom-layout-components/**/*js',
+      'src/astro-web-component/**/*js',
+    ],
+    ...tseslint.configs.disableTypeChecked,
+
     rules: {
       'no-unused-expressions': 'off',
       'wc/no-constructor-attributes': 'off',
