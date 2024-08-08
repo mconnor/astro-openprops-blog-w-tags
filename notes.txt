@@ -1,1 +1,0 @@
-pn remove @fontsource/patrick-hand @fontsource/patrick-hand-sc @fontsource/fugaz-one  @fontsource-variable/playpen-sans @fontsource/caveat-brush
