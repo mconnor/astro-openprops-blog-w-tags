@@ -9,18 +9,9 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    ".vercel",
-    ".astro",
-    "dist",
-    "src/**/_*.*",
-  ]
+  "include": ["src"],
+  "exclude": [".vercel", ".astro", "dist", "src/**/_*.*"]
 }

@@ -1,11 +1,5 @@
 {
   "extends": "./tsconfig.json",
-  "include": [
-    "."
-  ],
-  "exclude": [
-    ".vercel",
-    ".astro",
-    "dist"
-  ]
+  "include": ["."],
+  "exclude": [".vercel", ".astro", "dist"]
 }
