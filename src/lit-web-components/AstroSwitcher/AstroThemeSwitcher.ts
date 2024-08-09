@@ -2,7 +2,7 @@ import { html, css, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 @customElement('astro-theme-switcher')
-class AstroThemeSwitcher extends LitElement {
+export class AstroThemeSwitcher extends LitElement {
   static styles = [
     css`
       form {
@@ -30,9 +30,10 @@ class AstroThemeSwitcher extends LitElement {
   handleChange(e: Event) {
     const htmlTag = document.firstElementChild;
 
-    htmlTag &&
+    if (htmlTag) {
       htmlTag.setAttribute('data-theme', (e.target as HTMLInputElement).value);
-    localStorage.setItem('theme', (e.target as HTMLInputElement).value);
+      localStorage.setItem('theme', (e.target as HTMLInputElement).value);
+    }
   }
 
   override render() {
@@ -40,8 +41,8 @@ class AstroThemeSwitcher extends LitElement {
   }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'astro-theme-switcher': AstroThemeSwitcher;
-  }
-}
+// declare global {
+//   interface HTMLElementTagNameMap {
+//     'astro-theme-switcher': AstroThemeSwitcher;
+//   }
+// }
