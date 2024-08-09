@@ -1,11 +1,13 @@
 ---
 import { BoxClass } from './box-l';
-import type { RmUnitType } from '../Types';
+import type { RmUnitType, BorderStyle } from '@/lit-layout-components/Types';
 
 interface Props {
   padding?: RmUnitType;
   borderWidth?: RmUnitType;
   invert?: boolean;
+  highlight?: boolean;
+  borderStyle?: BorderStyle;
 }
 const props = Astro.props;
 ---

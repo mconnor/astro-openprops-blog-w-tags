@@ -1,8 +1,7 @@
-import { html, css, LitElement } from 'lit';
+import { html, css, LitElement as MyLit } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import type { RmUnitType } from '../Types';
 import { styleMap } from 'lit/directives/style-map.js';
-
+import type { RmUnitType, BorderStyle } from '@/lit-layout-components/Types';
 /**
  * @module box-l
  * @description
@@ -12,7 +11,7 @@ import { styleMap } from 'lit/directives/style-map.js';
  * @property {boolean} invert=false Whether to apply an inverted theme. Only recommended for greyscale designs.
  */
 @customElement('box-l')
-export class BoxClass extends LitElement {
+export class BoxClass extends MyLit {
   connectedCallback() {
     super.connectedCallback();
     // Check if this component was server-side rendered
@@ -30,30 +29,40 @@ export class BoxClass extends LitElement {
         outline: 0.125rem solid transparent;
         outline-offset: -0.125rem;
       }
+
+      .highlighted {
+        opacity: 0.2;
+      }
     `,
   ];
 
   @property({ type: String })
   padding: RmUnitType = 'var(--s0)';
 
-  @property()
-  borderWidth = '1px';
+  @property({ type: String })
+  borderWidth: RmUnitType = '1px';
 
   @property({ type: Boolean })
   invert = false;
 
   @property({ type: Boolean })
-  is = false;
+  highlight = false;
+
+  @property({ type: String })
+  borderStyle: BorderStyle = 'solid';
 
   override render() {
     const styles = {
-      border: `${this.borderWidth} solid`,
+      borderWidth: this.borderWidth,
+      borderStyle: this.borderStyle,
       padding: this.padding,
       color: this.invert ? 'var(--my-bg-color)' : 'var(--my-color)',
       backgroundColor: this.invert ? 'var(--my-color)' : 'var(--my-bt-color)',
     };
 
-    return html`<div style=${styleMap(styles)}><slot></slot></div>`;
+    return html`<div style=${styleMap(styles)}>
+      <slot></slot>
+    </div>`;
   }
 }
 
