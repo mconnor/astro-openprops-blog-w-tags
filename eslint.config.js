@@ -1,6 +1,6 @@
 // @ts-check
 import astroParser from 'astro-eslint-parser';
-import jestPlugin from 'eslint-plugin-jest';
+// import jestPlugin from 'eslint-plugin-jest';
 // import path from 'node:path';
 // import { fileURLToPath } from 'node:url';
 // import { builtinModules } from 'node:module';
@@ -43,7 +43,6 @@ export default tseslint.config(
   {
     ignores: [
       '*.d.ts',
-      'test',
       '**/_*.*',
       '**/temp.js',
       '*lock.yaml',
@@ -124,11 +123,11 @@ export default tseslint.config(
     },
   },
 
-  {
-    // enable jest rules on test files
-    files: ['test/**'],
-    ...jestPlugin.configs['flat/recommended'],
-  },
+  // {
+  //   // enable jest rules on test files
+  //   files: ['test/**'],
+  //   ...jestPlugin.configs['flat/recommended'],
+  // },
 
   {
     plugins: {

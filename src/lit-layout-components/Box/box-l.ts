@@ -1,4 +1,5 @@
-import { html, css, LitElement as MyLit } from 'lit';
+import { css, LitElement } from 'lit';
+import { html } from 'lit-html';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import type { RmUnitType, BorderStyle } from '@/lit-layout-components/Types';
@@ -11,7 +12,7 @@ import type { RmUnitType, BorderStyle } from '@/lit-layout-components/Types';
  * @property {boolean} invert=false Whether to apply an inverted theme. Only recommended for greyscale designs.
  */
 @customElement('box-l')
-export class BoxClass extends MyLit {
+export class BoxClass extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     // Check if this component was server-side rendered

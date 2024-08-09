@@ -4,7 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import { LitElement, html, css } from 'lit';
+import { LitElement, css } from 'lit';
+import { html } from 'lit-html';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
@@ -67,7 +68,7 @@ export class MyElement extends LitElement {
     `;
   }
 
-   _onClick() {
+  _onClick() {
     this.count++;
     // this.dispatchEvent(new CustomEvent('count-changed'));
   }
