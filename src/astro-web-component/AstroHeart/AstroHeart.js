@@ -5,6 +5,7 @@ class AstroHeart extends HTMLElement {
   }
 
   connectedCallback() {
+    super.connectedCallback();
     this.count = 100;
     const heartButton = this.querySelector('button');
     const countSpan = this.querySelector('span');
@@ -15,6 +16,16 @@ class AstroHeart extends HTMLElement {
     heartButton &&
       countSpan &&
       heartButton.addEventListener('click', () => {
+        this.count++;
+        countSpan.textContent = this.count.toString();
+      });
+  }
+  disconnectedCallBack() {
+    const heartButton = this.querySelector('button');
+    const countSpan = this.querySelector('span');
+    heartButton &&
+      countSpan &&
+      heartButton.removeEventListener('click', () => {
         this.count++;
         countSpan.textContent = this.count.toString();
       });

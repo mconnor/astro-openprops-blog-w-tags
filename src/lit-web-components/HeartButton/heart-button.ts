@@ -42,8 +42,8 @@ export class HeartButton extends LitElement {
   }
 }
 
-// declare global {
-//   interface HTMLElementTagNameMap {
-//     'heart-button': HeartButton;
-//   }
-// }
+declare global {
+  interface HTMLElementTagNameMap {
+    'heart-button': HeartButton;
+  }
+}
