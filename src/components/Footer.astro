@@ -1,7 +1,7 @@
 ---
 import { Cluster } from '@/astro-custom-layout-components';
 import MyIcon from '@/components/MyIcon.astro';
-
+import mdi from '@iconify-json/mdi';
 // import HeaderFooterWrapper from '@/components/header-footer.astro';
 
 import Box from '@/lit-layout-components/Box/index.astro';
@@ -12,23 +12,23 @@ const ICONSIZE = 24;
   <Cluster justify="space-around" align="flex-start">
     <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.linkedin.com/michaelgconnor">
-        <MyIcon name="logos/linkedin" size={ICONSIZE} />
+        <MyIcon name="mdi:linkedin" size={ICONSIZE} />
       </a>
     </Box>
 
     <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.github.com/mconnor">
-        <MyIcon name="logos/github" size={ICONSIZE} />
+        <MyIcon name="mdi:github" size={ICONSIZE} />
       </a>
     </Box>
     <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.twitter.com/mikeconnor504">
-        <MyIcon name="logos/x" size={ICONSIZE} />
+        <MyIcon name="mdi:x" size={ICONSIZE} />
       </a>
     </Box>
     <Box borderWidth="0" padding="var(--s0)">
       <a href="https://www.twitter.com/mikeconnor504">
-        <MyIcon name="mdi:account" size={ICONSIZE} />
+        <MyIcon name="mdi:twitter" size={ICONSIZE} />
       </a>
     </Box>
     <!-- <Icon name="mdi:account" /> -->
