@@ -2,27 +2,13 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 // import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
-// import vercel from '@astrojs/vercel/serverless';
 
-// import { dev } from 'astro';
-// import * as dotenv from 'dotenv';
-// import { loadEnv } from 'vite';
-
-// import { visualizer } from 'rollup-plugin-visualizer';
-// import myIntegration from './my-toolbar-app/my-integration.ts';
-
-// var token = loadEnv(process.env.SENTRY_AUTH_TOKEN, process.cwd(), ''),
-// pnpm does not allow you to import modules that are not directly installed in your project. If you are using pnpm, you will need to install vite to use the loadEnv helper.
-
-// // https://astro.build/config
-
-// import preact from '@astrojs/preact';
-
-import icon from 'astro-icon';
+// import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
+  cacheDir: './cache-directory',
   redirects: {
     '/index': '/about',
   },
@@ -54,8 +40,18 @@ export default defineConfig({
     //   },
     // }),
 
-    icon(),
+    // icon({
+    //   include: {
+    //     mdi: ['*'], // (Default) Loads entire Material Design Icon set
+    //     // mdi: ['account'], // Loads only Material Design Icon's "account" SVG
+    //   },
+    // }),
   ],
+  vite: {
+    ssr: {
+      noExternal: ['date-fns', 'open-props'],
+    },
+  },
   experimental: {
     contentCollectionCache: true,
   },

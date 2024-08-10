@@ -42,8 +42,8 @@ export default tseslint.config(
   lit.configs['flat/recommended'],
   {
     ignores: [
+      'cache-directory/',
       '*.d.ts',
-      '**/_*.*',
       '**/temp.js',
       '*lock.yaml',
       '.astro/',
