@@ -53,23 +53,26 @@ export default tseslint.config(
       'src/env.d.ts',
       '.vercel/',
       '.astro/',
+      '*.config.*',
+      ' test/',
     ],
   },
 
   {
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      parser: tseslint.parser,
+      // ecmaVersion: 'latest',
+      // sourceType: 'module',
+      // parser: tseslint.parser,
       parserOptions: {
+        // project: '@typescript-eslint/parser',
         projectServices: true,
         extraFileExtensions,
         // For example, if you use a specific tsconfig.eslint.json for linting, you'd specify:
         tsconfigRootDir: import.meta.dirname,
 
-        ecmaFeatures: {
-          jsx: true,
-        },
+        // ecmaFeatures: {
+        //   jsx: true,
+        // },
       },
       globals: {
         ...globals.browser,
@@ -111,21 +114,21 @@ export default tseslint.config(
     },
   },
 
-  {
-    files: ['src/**/*.astro'],
-    ...tseslint.configs.disableTypeChecked,
+  // {
+  //   files: ['src/**/*.astro'],
+  //   // ...tseslint.configs.disableTypeChecked,
 
-    languageOptions: {
-      parser: astroParser,
-      parserOptions: {
-        extraFileExtensions,
-      },
-    },
+  //   languageOptions: {
+  //     parser: astroParser,
+  //     parserOptions: {
+  //       extraFileExtensions,
+  //     },
+  //   },
 
-    rules: {
-      '@typescript-eslint/no-unused-vars': 'off',
-    },
-  },
+  //   rules: {
+  //     '@typescript-eslint/no-unused-vars': 'off',
+  //   },
+  // },
 
   // {
   //   // enable jest rules on test files
