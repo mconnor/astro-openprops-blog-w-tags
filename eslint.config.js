@@ -18,7 +18,7 @@ import tseslint from 'typescript-eslint';
 // import tsParser from '@typescript-eslint/parser';
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
-
+const extraFileExtensions = ['.astro'];
 // // parsers
 // const typescriptParser = tseslint.parser;
 
@@ -42,6 +42,7 @@ export default tseslint.config(
   lit.configs['flat/recommended'],
   {
     ignores: [
+      ' src/components/_Hamburger.astro',
       'cache-directory/',
       '*.d.ts',
       '**/temp.js',
@@ -59,13 +60,13 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-
+      parser: tseslint.parser,
       parserOptions: {
-        projectServices: '/tsconfig.eslint.json',
-
+        projectServices: true,
+        extraFileExtensions,
         // For example, if you use a specific tsconfig.eslint.json for linting, you'd specify:
         tsconfigRootDir: import.meta.dirname,
-        parser: tseslint.parser,
+
         ecmaFeatures: {
           jsx: true,
         },
@@ -116,6 +117,9 @@ export default tseslint.config(
 
     languageOptions: {
       parser: astroParser,
+      parserOptions: {
+        extraFileExtensions,
+      },
     },
 
     rules: {

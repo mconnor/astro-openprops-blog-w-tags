@@ -1,17 +1,22 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "experimentalDecorators": true, // default is false for TypeScript 5.0 and up
-    "useDefineForClassFields": false, // default is true when "target" is "ES2022" or higher
-    "declaration": true,
-    "declarationDir": "./types",
-    "declarationMap": true,
+    "rootDir": ".",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "strictNullChecks": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "allowArbitraryExtensions": true,
+    "verbatimModuleSyntax": true,
   },
-  "include": ["src"],
-  "exclude": [".vercel", ".astro", "dist", "src/**/_*.*"]
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".astro",
+    ".turbo",
+    "cache-directory",
+    "test/**/*"
+  ]
 }

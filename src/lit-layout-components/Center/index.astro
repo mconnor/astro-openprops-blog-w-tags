@@ -1,0 +1,18 @@
+---
+// Astro will include and optimize this CSS for you automatically
+import { CenterClass } from './center-l';
+// import './Center.css';
+import type { RmUnitType } from '#unit-types';
+
+interface Props {
+  max?: RmUnitType;
+  andText?: boolean;
+  gutters?: boolean;
+  intrinsic?: boolean;
+}
+const props = Astro.props;
+---
+
+<CenterClass {...props}>
+  <slot />
+</CenterClass>
