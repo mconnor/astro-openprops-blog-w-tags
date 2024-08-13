@@ -2,7 +2,7 @@ import { css, LitElement } from 'lit';
 import { html } from 'lit-html';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import type { RmUnitType, BorderStyle } from '@/lit-layout-components/Types';
+import type { RmUnitType, BorderStyle } from '#UnitTypes.js';
 /**
  * @module box-l
  * @description

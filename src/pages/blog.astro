@@ -1,11 +1,11 @@
 ---
 // import { Debug } from 'astro:components';
-import Layout from '@/layouts/BaseLayout.astro';
-import { Stack } from '@/astro-custom-layout-components';
+import Layout from '#layouts/BaseLayout.astro';
+import { Stack } from '#astro-custom-layout-components/index.ts';
 
 import { getCollection } from 'astro:content';
-import BlogCard from '@/components/BlogCard/index.astro';
-// import { blogSchema } from '@/schemas/index.js';
+import BlogCard from '#components/BlogCard/index.astro';
+// import { blogSchema } from '#schemas/index.js';
 const pageTitle = 'Blog';
 
 const publishsedPosts = await getCollection('blog', ({ data }) =>

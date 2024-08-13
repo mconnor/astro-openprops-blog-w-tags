@@ -139,6 +139,7 @@ export default tseslint.config(
   {
     plugins: {
       markdown,
+      // astro,
       // jsxA11y,
     },
   },

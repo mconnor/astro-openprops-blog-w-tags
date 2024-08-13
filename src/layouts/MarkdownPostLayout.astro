@@ -1,19 +1,19 @@
 ---
 // import { Debug } from 'astro:components';
 import '../styles/markdown-style.css';
-import Layout from '@/layouts/BaseLayout.astro';
+import Layout from '#layouts/BaseLayout.astro';
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
-import type { BlogSchemaType } from '@/schemas/index.js';
+import type { BlogSchemaType } from '#schemas/index.js';
 import { Image } from 'astro:assets';
 
-import TagContainer from '@/components/TagContainer.astro';
+import TagContainer from '#components/TagContainer.astro';
 
-import Box from '@/lit-layout-components/Box/index.astro';
+import Box from '#lit-layout-components/Box/index.astro';
 
-import { Stack } from '@/astro-custom-layout-components';
+import { Stack } from '#astro-custom-layout-components/index.ts';
 // { Percentage, RmUnitType, JustifyContentTypes, AlignItemsTypes }
-// import type { RmUnitType } from '@/astro-custom-layout-components';
+// import type { RmUnitType } from '#astro-custom-layout-components/index.ts';
 
 import type { AstroComponentFactory } from 'astro/runtime/server/render/astro/index.js';
 
