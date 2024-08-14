@@ -1,5 +1,6 @@
 // @ts-check
 import astroParser from 'astro-eslint-parser';
+
 // import jestPlugin from 'eslint-plugin-jest';
 // import path from 'node:path';
 // import { fileURLToPath } from 'node:url';
@@ -9,6 +10,7 @@ import markdown from 'eslint-plugin-markdown';
 import regexp from 'eslint-plugin-regexp';
 import wc from 'eslint-plugin-wc';
 import lit from 'eslint-plugin-lit';
+import tsEslintParser from '@typescript-eslint/parser';
 // import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 import eslintConfigPrettier from 'eslint-config-prettier';
@@ -16,16 +18,20 @@ import globals from 'globals';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 // import tsParser from '@typescript-eslint/parser';
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-const extraFileExtensions = ['.astro'];
+
 // // parsers
 // const typescriptParser = tseslint.parser;
 
 export default tseslint.config(
   js.configs.recommended,
+
   ...tseslint.configs.recommended,
-  ...tseslint.configs.stylistic,
+  // ...tseslint.configs.strict,
+  // ...tseslint.configs.recommendedTypeChecked,
+  // ...tseslint.configs.strictTypeChecked,
+  // ...tseslint.configs.stylisticTypeChecked,
+
+  // ...tseslint.configs.stylistic,
 
   // ...tseslint.configs.stylistic,
   //If your project enables typed linting, we suggest enabling the recommended-type-checked
@@ -60,14 +66,17 @@ export default tseslint.config(
 
   {
     languageOptions: {
-      // ecmaVersion: 'latest',
-      // sourceType: 'module',
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       // parser: tseslint.parser,
+      // parser: tsEslintParser,
       parserOptions: {
-        // project: '@typescript-eslint/parser',
-        projectServices: true,
-        extraFileExtensions,
-        // For example, if you use a specific tsconfig.eslint.json for linting, you'd specify:
+        // projectService: {
+        //   allowDefaultProject: ['*.js'],
+        //   defaultProject: './tsconfig.json',
+        // },
+        projectService: true,
+        // import.meta.dirname is only present for ESM files in Node.js >=20.11.0 / >= 21.2.0.
         tsconfigRootDir: import.meta.dirname,
 
         // ecmaFeatures: {
@@ -96,10 +105,10 @@ export default tseslint.config(
   //     'lit/no-invalid-html': 'warn',
   //   },
   // },
-  {
-    files: ['**/*.js'],
-    ...tseslint.configs.disableTypeChecked,
-  },
+  // {
+  //   files: ['**/*.js'],
+  //   ...tseslint.configs.disableTypeChecked,
+  // },
   {
     files: [
       'src/astro-custom-layout-components/**/*js',
@@ -114,16 +123,21 @@ export default tseslint.config(
     },
   },
 
-  // {
-  //   files: ['src/**/*.astro'],
-  //   // ...tseslint.configs.disableTypeChecked,
+  {
+    files: ['src/**/*.astro'],
+    ...tseslint.configs.disableTypeChecked,
 
-  //   languageOptions: {
-  //     parser: astroParser,
-  //     parserOptions: {
-  //       extraFileExtensions,
-  //     },
-  //   },
+    languageOptions: {
+      parser: astroParser,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+  },
 
   //   rules: {
   //     '@typescript-eslint/no-unused-vars': 'off',

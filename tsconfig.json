@@ -1,13 +1,10 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "rootDir": "./src",
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
-    "strictNullChecks": true,
-    "allowArbitraryExtensions": true,
-    "verbatimModuleSyntax": true,
   },
   "include": [
     "src"
