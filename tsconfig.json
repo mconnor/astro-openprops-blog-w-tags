@@ -1,13 +1,13 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "rootDir": "./src",
     "esModuleInterop": false,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
   },
   "include": [
-    "src"
+    "src/**/*",
+    "*.config.*"
   ],
   "exclude": [
     "node_modules",
