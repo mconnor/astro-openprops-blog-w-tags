@@ -3,12 +3,9 @@
   "compilerOptions": {
     "esModuleInterop": false,
     "experimentalDecorators": true,
-    "useDefineForClassFields": false,
+    "useDefineForClassFields": false
   },
-  "include": [
-    "src/**/*",
-    "*.config.*"
-  ],
+  "include": ["src/**/*", "*.config.*"],
   "exclude": [
     "node_modules",
     "dist",
