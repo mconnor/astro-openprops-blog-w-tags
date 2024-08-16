@@ -72,7 +72,7 @@ export default tseslint.config(
   },
   {
     files: ['**/*.md/*.js'],
-    ...tseslint.configs.disableTypeChecked,
+    extends: [tseslint.configs.disableTypeChecked],
     rules: {
       'no-console': 'off',
       'import/no-unresolved': 'off',
