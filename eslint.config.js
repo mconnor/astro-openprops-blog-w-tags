@@ -11,16 +11,14 @@ import regexp from 'eslint-plugin-regexp';
 import wc from 'eslint-plugin-wc';
 import lit from 'eslint-plugin-lit';
 
-export default tseslint.config(
+const config = tseslint.config(
   js.configs.recommended,
-  ...tseslint.configs.recommended,
-  ...tseslint.configs.stylistic,
+  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
   ...astro.configs.recommended,
-
   regexp.configs['flat/recommended'],
   wc.configs['flat/recommended'],
   lit.configs['flat/recommended'],
-
   {
     languageOptions: {
       // ecmaVersion: 'latest',
@@ -36,32 +34,47 @@ export default tseslint.config(
     },
   },
   {
-    files: ['src/**/*.astro'],
-    ...tseslint.configs.disableTypeChecked,
-
+    files: ['**/*.astro'],
+    extends: [tseslint.configs.disableTypeChecked],
     languageOptions: {
       parser: astroParser,
       parserOptions: {
-        // parser: tseslint.parser,
+        parser: tseslint.parser,
         project: true,
+        ecmaFeatures: {
+          jsx: true,
+        },
         extraFileExtensions: ['.astro'],
       },
     },
   },
   {
     files: ['**/*js'],
-    ...tseslint.configs.disableTypeChecked,
+    extends: [tseslint.configs.disableTypeChecked],
   },
   {
     files: [
       'src/astro-custom-layout-components/**/*js',
       'src/astro-web-component/**/*js',
     ],
-
+    extends: [tseslint.configs.disableTypeChecked],
     rules: {
       'no-unused-expressions': 'off',
       'wc/no-constructor-attributes': 'off',
       '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+    },
+  },
+  {
+    files: ['src/schemas/**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        project: true,
+      },
+    },
+    rules: {
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
     },
   },
 
@@ -78,12 +91,14 @@ export default tseslint.config(
       'import/no-unresolved': 'off',
     },
   },
-
   {
     linterOptions: {
       reportUnusedDisableDirectives: 'warn',
     },
   },
+);
+
+export default [
   {
     ignores: [
       'dist',
@@ -91,7 +106,7 @@ export default tseslint.config(
       '*.cjs',
       '*rss.xml.js',
       'src/env.d.ts',
-      ' src/components/_Hamburger.astro',
+      'src/components/_Hamburger.astro',
       'cache-directory/',
       '*.d.ts',
       '**/temp.js',
@@ -100,5 +115,6 @@ export default tseslint.config(
       ' test/',
     ],
   },
+  ...config,
   eslintConfigPrettier,
-);
+];

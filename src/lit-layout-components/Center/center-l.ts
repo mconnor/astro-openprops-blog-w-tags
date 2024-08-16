@@ -2,8 +2,8 @@ import { css, LitElement } from 'lit';
 import { html } from 'lit-html';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { classMap } from 'lit/directives/class-map.js';
-import type { RmUnitType } from '#Types';
+// import { classMap } from 'lit/directives/class-map.js';
+import type { RmUnitType } from '#unit-types';
 /**
  * @module center-l
  * @description
@@ -32,7 +32,14 @@ export class CenterClass extends LitElement {
         display: block;
         box-sizing: content-box;
         margin-inline: auto;
+        max-inline-size: 60ch;
+        background-color: red;
+        > div {
+          box-sizing: 'content-box';
+          margin-inline: 'auto';
+        }
       }
+
       .centerText {
         text-align: center;
       }
@@ -45,10 +52,10 @@ export class CenterClass extends LitElement {
   ];
 
   @property({ type: String })
-  max: RmUnitType = 'var(--measure)';
+  max: RmUnitType = '60ch';
 
-  @property({ type: Boolean })
-  gutters = false;
+  @property({ type: String })
+  gutters = '';
 
   @property({ type: Boolean })
   andText = false;
@@ -57,15 +64,20 @@ export class CenterClass extends LitElement {
   intrinsic = false;
 
   render() {
-    const classes = { centerText: this.andText, isIntrinsic: this.intrinsic };
+    // const classes = {
+    //   centerMe: true,
+    //   centerText: this.andText,
+    //   isIntrinsic: this.intrinsic,
+    // };
 
     const styles = {
       maxWidth: this.max,
       paddingInlineStart: this.gutters ?? '',
       paddingInlineEnd: this.gutters ?? '',
+      background: 'pink',
     };
 
-    return html`<div class=${classMap(classes)} style=${styleMap(styles)}>
+    return html`<div style=${styleMap(styles)}>
       <slot></slot>
     </div>`;
   }
@@ -76,3 +88,4 @@ declare global {
     'center-l': CenterClass;
   }
 }
+// class=${classMap(classes)}

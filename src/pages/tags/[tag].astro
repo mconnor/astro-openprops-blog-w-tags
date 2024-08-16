@@ -1,19 +1,23 @@
 ---
-export const prerender = true;
-// import { Debug } from 'astro:components';
+import { getCollection } from 'astro:content';
 import Layout from '#layouts/BaseLayout.astro';
+
 import BlogCard from '#components/BlogCard/index.astro';
 
-import { getCollection } from 'astro:content';
+export const prerender = true;
 
-export const getStaticPaths = async () => {
+// interface Props {
+//   posts: CollectionEntry<'blog'>[];
+// }
+
+export async function getStaticPaths() {
   const publishsedPosts = await getCollection(
     'blog',
     ({ data }) => data.draft !== true,
   );
 
   const uniqueTags = [
-    ...new Set(publishsedPosts.map(({ data }) => data?.tags || []).flat()),
+    ...new Set(publishsedPosts.map(({ data }) => data.tags ?? []).flat()),
   ];
 
   return uniqueTags.map((tag) => ({
@@ -24,13 +28,13 @@ export const getStaticPaths = async () => {
       ),
     },
   }));
-};
+}
 
 const { tag } = Astro.params;
 const { postsWithThisTag } = Astro.props;
 ---
 
-<Layout title={tag as string}>
+<Layout title={tag}>
   {
     postsWithThisTag.map((post) => (
       <BlogCard
@@ -40,5 +44,4 @@ const { postsWithThisTag } = Astro.props;
       />
     ))
   }
-  <!-- </Stack> -->
 </Layout>

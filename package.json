@@ -38,12 +38,12 @@
     "@astrojs/rss": "^4.0.7",
     "@astrojs/vercel": "^7.7.2",
     "@iconify-json/mdi": "^1.1.68",
-    "@sentry/astro": "^8.25.0",
-    "@sentry/browser": "^8.25.0",
+    "@sentry/astro": "^8.26.0",
+    "@sentry/browser": "^8.26.0",
     "@sentry/cli": "^2.33.1",
-    "@sentry/vite-plugin": "^2.22.1",
+    "@sentry/vite-plugin": "^2.22.2",
     "@webcomponents/template-shadowroot": "^0.2.1",
-    "astro": "^4.13.4",
+    "astro": "^4.14.2",
     "astro-icon": "^1.1.0",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
@@ -81,7 +81,7 @@
     "postcss-pow": "^1.0.1",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "stylelint": "^16.8.1",
+    "stylelint": "^16.8.2",
     "stylelint-config-html": "^1.1.0",
     "stylelint-prettier": "^5.0.2",
     "typescript": "^5.5.4",
@@ -91,5 +91,5 @@
     "node": ">= 20.11.0 <21 || >= 21.2.0",
     "pnpm": ">=9.1.2"
   },
-  "packageManager": "pnpm@9.7.0"
+  "packageManager": "pnpm@9.7.1"
 }
