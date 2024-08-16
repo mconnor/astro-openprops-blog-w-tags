@@ -26,9 +26,9 @@ export class HeartButton extends LitElement {
   @property({ attribute: false })
   borderW = '1px';
 
-  click() {
+  click = () => {
     this.count++;
-  }
+  };
 
   protected render() {
     /* const styles = wcStyles; */

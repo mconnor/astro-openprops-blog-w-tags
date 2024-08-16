@@ -19,23 +19,21 @@ export class AstroThemeSwitcher extends LitElement {
   isVisible = false;
 
   connectedCallback() {
-    const form = this.querySelector('[data-select-theme]') as HTMLFormElement;
-    form?.addEventListener('input', this.handleChange.bind(this));
+    const form = this.querySelector('[data-select-theme]')!;
+    form.addEventListener('input', this.handleChange.bind(this));
   }
 
   disconnectedCallback() {
-    const form = this.querySelector('[data-select-theme]');
-    form?.removeEventListener('input', this.handleChange);
+    const form = this.querySelector('[data-select-theme]')!;
+    form.removeEventListener('input', this.handleChange);
   }
 
-  handleChange(e: Event) {
-    const htmlTag = document.firstElementChild;
+  handleChange = (e: Event): void => {
+    const htmlTag = document.firstElementChild!;
 
-    if (htmlTag) {
-      htmlTag.setAttribute('data-theme', (e.target as HTMLInputElement).value);
-      localStorage.setItem('theme', (e.target as HTMLInputElement).value);
-    }
-  }
+    htmlTag.setAttribute('data-theme', (e.target as HTMLInputElement).value);
+    localStorage.setItem('theme', (e.target as HTMLInputElement).value);
+  };
 
   override render() {
     return html`<slot></slot>`;

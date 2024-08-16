@@ -68,10 +68,10 @@ export class MyElement extends LitElement {
     `;
   }
 
-  _onClick() {
+  _onClick = () => {
     this.count++;
     // this.dispatchEvent(new CustomEvent('count-changed'));
-  }
+  };
 
   /**
    * Formats a greeting
