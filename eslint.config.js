@@ -21,11 +21,12 @@ const config = tseslint.config(
   lit.configs['flat/recommended'],
   {
     languageOptions: {
-      // ecmaVersion: 'latest',
-      // sourceType: 'module',
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parser: tseslint.parser,
       parserOptions: {
         project: true,
+        tsconfigRootDir: import.meta.dirname,
       },
       globals: {
         ...globals.browser,
@@ -39,12 +40,13 @@ const config = tseslint.config(
     languageOptions: {
       parser: astroParser,
       parserOptions: {
+        extraFileExtensions: ['.astro'],
         parser: tseslint.parser,
         project: true,
+        tsconfigRootDir: import.meta.dirname,
         ecmaFeatures: {
           jsx: true,
         },
-        extraFileExtensions: ['.astro'],
       },
     },
   },
@@ -67,11 +69,6 @@ const config = tseslint.config(
   },
   {
     files: ['src/schemas/**/*.ts'],
-    languageOptions: {
-      parserOptions: {
-        project: true,
-      },
-    },
     rules: {
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
