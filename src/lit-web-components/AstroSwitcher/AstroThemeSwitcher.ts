@@ -19,7 +19,7 @@ export class AstroThemeSwitcher extends LitElement {
   isVisible = false;
 
   connectedCallback() {
-    const form = this.querySelector('[data-select-theme]')!;
+    const form: Element = this.querySelector('[data-select-theme]')!;
     form.addEventListener('input', this.handleChange.bind(this));
   }
 
@@ -29,8 +29,7 @@ export class AstroThemeSwitcher extends LitElement {
   }
 
   handleChange = (e: Event): void => {
-    const htmlTag = document.firstElementChild!;
-
+    const htmlTag = document.documentElement;
     htmlTag.setAttribute('data-theme', (e.target as HTMLInputElement).value);
     localStorage.setItem('theme', (e.target as HTMLInputElement).value);
   };
