@@ -46,7 +46,6 @@
     "@sentry/browser": "^8.26.0",
     "@sentry/cli": "^2.33.1",
     "@sentry/vite-plugin": "^2.22.2",
-    "@webcomponents/template-shadowroot": "^0.2.1",
     "astro": "^4.14.4",
     "astro-icon": "^1.1.1",
     "date-fns": "^3.6.0",

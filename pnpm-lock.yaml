@@ -38,9 +38,6 @@ importers:
       '@sentry/vite-plugin':
         specifier: ^2.22.2
         version: 2.22.2
-      '@webcomponents/template-shadowroot':
-        specifier: ^0.2.1
-        version: 0.2.1
       astro:
         specifier: ^4.14.4
         version: 4.14.4(@types/node@22.5.0)(rollup@4.21.0)(terser@5.31.5)(typescript@5.5.4)
