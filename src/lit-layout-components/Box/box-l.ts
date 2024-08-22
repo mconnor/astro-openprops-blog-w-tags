@@ -2,6 +2,7 @@ import { css, LitElement } from 'lit';
 import { html } from 'lit-html';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
+// import { classMap } from 'lit/directives/class-map.js';
 import type { RmUnitType, BorderStyle } from '#UnitTypes.js';
 /**
  * @module box-l
@@ -9,6 +10,7 @@ import type { RmUnitType, BorderStyle } from '#UnitTypes.js';
  * A custom element for generic boxes/containers
  * @property {string} padding=var(--s1) A CSS `padding` value
  * @property {string} borderWidth=var(--border-thin) A CSS `border-width` value
+ * @property {string} borderStyle
  * @property {boolean} invert=false Whether to apply an inverted theme. Only recommended for greyscale designs.
  */
 @customElement('box-l')
@@ -29,6 +31,18 @@ export class BoxClass extends LitElement {
         display: block;
         outline: 0.125rem solid transparent;
         outline-offset: -0.125rem;
+        border-style: solid;
+        color: inherit;
+        background-color: inherit;
+        /* border-width: var(--border-thin);
+        padding: var(--s1); */
+        /* color: var(--my-color);
+        background-color: var(--my-bg-color); */
+      }
+
+      :host(.invert) {
+        color: var(--my-bg-color, black);
+        background-color: var(--my-color, white);
       }
 
       .highlighted {
@@ -52,13 +66,11 @@ export class BoxClass extends LitElement {
   @property({ type: String })
   borderStyle: BorderStyle = 'solid';
 
-  override render() {
+  protected render() {
     const styles = {
       borderWidth: this.borderWidth,
       borderStyle: this.borderStyle,
       padding: this.padding,
-      color: this.invert ? 'var(--my-bg-color)' : 'var(--my-color)',
-      backgroundColor: this.invert ? 'var(--my-color)' : 'var(--my-bt-color)',
     };
 
     return html`<div style=${styleMap(styles)}>

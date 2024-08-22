@@ -20,7 +20,10 @@ export class AstroThemeSwitcher extends LitElement {
 
   connectedCallback() {
     const form: Element = this.querySelector('[data-select-theme]')!;
-    form.addEventListener('input', this.handleChange.bind(this));
+    form.addEventListener(
+      'input',
+      this.handleChange.bind(this) as EventListenerOrEventListenerObject,
+    );
   }
 
   disconnectedCallback() {

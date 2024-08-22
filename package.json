@@ -7,6 +7,10 @@
     "#*": "./src/*",
     "#unit-types": "./src/UnitTypes.ts"
   },
+  "keywords": [
+    "astro",
+    "lit"
+  ],
   "scripts": {
     "tboff": "astro preferences disable devToolbar",
     "tbon": "astro preferences ensable devToolbar",

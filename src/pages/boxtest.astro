@@ -1,5 +1,5 @@
 ---
-import Layout from '#layouts/SimpleLayout.astro';
+import Layout from '#layouts/BaseLayout.astro';
 import { Stack } from '#astro-custom-layout-components/index.ts';
 
 const pageTitle = 'box module';
@@ -15,17 +15,19 @@ import Box from '#lit-layout-components/Box/index.astro';
       officiis excepturi labore sunt, similique veniam, voluptatibus minus?
       Corrupti, nemo?
     </Box>
-    <Box invert>
+    <Box class="invert">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
       cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa quae
       officiis excepturi labore sunt, similique veniam, voluptatibus minus?
       Corrupti, nemo?
     </Box>
-    <Box invert>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
-      cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa quae
-      officiis excepturi labore sunt, similique veniam, voluptatibus minus?
-      Corrupti, nemo?
+    <Box class="invert">
+      <Box class="invert">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
+        cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa
+        quae officiis excepturi labore sunt, similique veniam, voluptatibus
+        minus? Corrupti, nemo?
+      </Box>
     </Box>
     <Box>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
