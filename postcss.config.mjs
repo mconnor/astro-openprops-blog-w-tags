@@ -7,14 +7,11 @@ import OpenProps from 'open-props';
 import postcssCustomMedia from 'postcss-custom-media';
 import nano from 'cssnano';
 // import process from 'process';
-
-// Use process.env.NODE_ENV to check if the environment is production
+console.log('xxxxxx ' + process.env.NODE_ENV);
 // const isProd = import.meta.env.PROD;
-// const isDev = import.meta.env.DEV;
+const isDev = process.env.NODE_ENV === 'development';
 
-// const isProd = process.env.NODE_ENV === 'production';
-
-export default {
+const devConfig = {
   plugins: [
     postcssImport,
     postcssJitProps(OpenProps),
@@ -25,4 +22,18 @@ export default {
     nano,
   ],
 };
-// Use process.env.NODE_ENV to check if the environment is production
+
+const prodConfig = {
+  plugins: [
+    postcssImport,
+    autoprefixer,
+    postcssNesting,
+    postcssPow,
+    postcssCustomMedia,
+    nano,
+  ],
+};
+
+const config = isDev ? devConfig : prodConfig;
+
+export default config;
