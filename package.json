@@ -1,11 +1,13 @@
 {
   "name": "astro_blog-w-tags",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "author": "Mike Connor",
   "imports": {
     "#*": "./src/*",
-    "#unit-types": "./src/UnitTypes.ts"
+    "#unit-types": "./src/UnitTypes.ts",
+    "#astro-wc/*": "./src/custom-layout-components/astro-wc/*",
+    "#lit-wc/*": "./src/custom-layout-components/lit-wc/*"
   },
   "keywords": [
     "astro",
