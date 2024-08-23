@@ -6,7 +6,7 @@ import postcssImport from 'postcss-import';
 import OpenProps from 'open-props';
 import postcssCustomMedia from 'postcss-custom-media';
 import nano from 'cssnano';
-// import process from 'process';
+import process from 'process';
 console.log('xxxxxx ' + process.env.NODE_ENV);
 // const isProd = import.meta.env.PROD;
 const isDev = process.env.NODE_ENV === 'development';
@@ -14,7 +14,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const devConfig = {
   plugins: [
     postcssImport,
-    postcssJitProps(OpenProps),
+
     autoprefixer,
     postcssNesting,
     postcssPow,
@@ -26,6 +26,7 @@ const devConfig = {
 const prodConfig = {
   plugins: [
     postcssImport,
+    postcssJitProps(OpenProps),
     autoprefixer,
     postcssNesting,
     postcssPow,
