@@ -56,8 +56,8 @@ const config = tseslint.config(
   },
   {
     files: [
-      'src/astro-custom-layout-components/**/*js',
-      'src/astro-web-component/**/*js',
+      'src/custom-layout-components/astro-wc/**/*js',
+      'src/custom-layout-components/lit-wc/**/*js',
     ],
     extends: [tseslint.configs.disableTypeChecked],
     rules: {
@@ -84,8 +84,8 @@ const config = tseslint.config(
     files: ['**/*.md/*.js'],
     extends: [tseslint.configs.disableTypeChecked],
     rules: {
-      'no-console': 'off',
-      'import/no-unresolved': 'off',
+      'no-console': 'warn',
+      'import/no-unresolved': 'warn',
     },
   },
   {
