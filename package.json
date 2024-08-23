@@ -48,7 +48,7 @@
     "@sentry/browser": "^8.26.0",
     "@sentry/cli": "^2.33.1",
     "@sentry/vite-plugin": "^2.22.2",
-    "astro": "^4.14.4",
+    "astro": "^4.14.5",
     "astro-icon": "^1.1.1",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
@@ -60,7 +60,7 @@
     "vitest": "^2.0.5"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
+    "@eslint/js": "^9.9.1",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint-plugin-markdown": "^2.0.2",
     "@types/eslint__js": "^8.42.3",
