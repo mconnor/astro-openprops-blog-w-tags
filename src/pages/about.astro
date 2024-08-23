@@ -1,9 +1,9 @@
 ---
-import Layout from '@/layouts/BaseLayout.astro';
-import { Stack } from '@/astro-custom-layout-components';
-import Box from '@/lit-layout-components/Box/index.astro';
-import CardDelux from '@/components/CardDelux.astro';
-import { Icon } from 'astro-icon/components';
+import Layout from '#layouts/BaseLayout.astro';
+import { Stack } from '#astro-wc/index.js';
+import Box from '#lit-wc/Box/index.astro';
+import CardDelux from '#components/CardDelux.astro';
+// import { Icon } from 'astro-icon/components';
 // import { Code } from 'astro:components';
 
 const pageTitle = 'About';
@@ -32,7 +32,7 @@ const pageTitle = 'About';
         maiores ea mollitia nulla aperiam sapiente maxime sint suscipit quae
         nam? Culpa.
       </p>
-      <Box invert>
+      <Box class="invert">
         <h6>alert: o laudantium deleniti iure nemo</h6>
       </Box>
     </Box>
@@ -40,7 +40,7 @@ const pageTitle = 'About';
       <span slot="headline">Lorem ipsum dolor sit amet</span>
       <span slot="sub">Delectus eius itaque accusantium.</span>
       <span slot="body">
-        <Icon name="mdi:check-all" size={60} />
+        <!-- <Icon name="mdi:check-all" size={60} /> -->
         <p>
           Consectetur adipisicing elit. Doloribus quam non eaque sapiente,
           inventore rem facere cum minima, tempora in accusamus voluptatum
@@ -99,7 +99,7 @@ const pageTitle = 'About';
                   inventore rem facere cum minima, tempora in accusamus
                 </em></Box
               >
-              <Box invert
+              <Box class="invert"
                 ><em
                   >invert oloribus quam non eaque sapiente, inventore rem facere
                   cum minima, tempora in accusamus voluptatum nobis,
@@ -113,7 +113,7 @@ const pageTitle = 'About';
                   minima, tempora in accusamus voluptatum nobis, delectus eius
                   itaque accusantium. Odio, maiores fugit.
                 </p>
-                <Box invert
+                <Box class="invert"
                   ><em
                     >adipisicing elit. Doloribus quam non eaque sapiente,
                     inventore rem facere cum minima, tempora in accusamus

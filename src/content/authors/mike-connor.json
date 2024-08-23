@@ -1,4 +1,5 @@
 {
+  "$schema": "../../../.astro/collections/authors.schema.json",
   "id": "mike-connor",
   "name": "Mike Connor",
   "email": "mike@mikeconnor.tech",

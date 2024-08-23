@@ -1,33 +1,36 @@
 ---
 // import { Debug } from 'astro:components';
+// import type { MarkdownLayoutProps } from 'astro';
 import '../styles/markdown-style.css';
-import Layout from '@/layouts/BaseLayout.astro';
+import Layout from '#layouts/BaseLayout.astro';
 import { format } from 'date-fns';
 import { getEntry } from 'astro:content';
-import type { BlogSchemaType } from '@/schemas/index.js';
+import type { BlogSchemaType } from '#schemas/index.js';
 import { Image } from 'astro:assets';
 
-import TagContainer from '@/components/TagContainer.astro';
+import TagContainer from '#components/TagContainer.astro';
 
-import Box from '@/lit-layout-components/Box/index.astro';
+import Box from '#lit-wc/Box/index.astro';
 
-import { Stack } from '@/astro-custom-layout-components';
-// { Percentage, RmUnitType, JustifyContentTypes, AlignItemsTypes }
-// import type { RmUnitType } from '@/astro-custom-layout-components';
-
-import type { AstroComponentFactory } from 'astro/runtime/server/render/astro/index.js';
+import { Stack } from '#astro-wc/index.js';
 
 interface Props {
   blogData: BlogSchemaType;
-  children: AstroComponentFactory;
 }
+
+// type Props = MarkdownLayoutProps<{
+//   // Define frontmatter props here
+//   blogData: BlogSchemaType;
+// }>;
+
+// type Props = CollectionEntry<'blog'>['data'];
+// const { blogData } = Astro.props;
 
 const { blogData } = Astro.props;
 
 const { title, description, pubDate, cover, author, tags } = blogData;
 
 const results = await getEntry('authors', author.id);
-
 const { name } = results.data;
 ---
 
@@ -50,7 +53,7 @@ const { name } = results.data;
     {
       tags && (
         <Box borderWidth="1px">
-          <TagContainer tags={tags as string[]} />
+          <TagContainer tags={tags} />
         </Box>
       )
     }

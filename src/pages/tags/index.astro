@@ -1,10 +1,10 @@
 ---
-import Layout from '@/layouts/BaseLayout.astro';
+import Layout from '#layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { zTags, tagCountTypeSchema } from '@/schemas/index.js';
+import { zTags, tagCountTypeSchema } from '#schemas/index.js';
 import { z } from 'astro:content';
 
-import TagContainer from '@/components/TagContainer.astro';
+import TagContainer from '#components/TagContainer.astro';
 
 const allBlogPost = await getCollection('blog');
 

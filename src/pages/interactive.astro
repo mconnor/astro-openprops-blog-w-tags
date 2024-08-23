@@ -1,28 +1,32 @@
 ---
-// import AstroNavigateSelect from '@/components/AstroNavigateSelect.astro';
+// import AstroNavigateSelect from '#components/AstroNavigateSelect.astro';
 
-import Layout from '@/layouts/BaseLayout.astro';
-import Box from '@/lit-layout-components/Box/index.astro';
-import HeartButton from '@/lit-web-components/HeartButton/index.astro';
-import MyElement from '@/lit-web-components/MyElement/index.astro';
+import Layout from '#layouts/BaseLayout.astro';
+// import Box from '#lit-layout-components/Box/index.astro';
+import Box from '#lit-wc/Box/index.astro';
+
+import LitHeartButton from '#lit-web-components/HeartButton/index.astro';
+import AstroHeart from '#astro-web-component/AstroHeart/index.astro';
+// import MyElement from '#lit-web-components/MyElement/index.astro';
 ---
 
 <Layout title="home">
-  <Box borderWidth="0">
-    <p>
-      Astro Web components built with Lit. For updates, follow @buildWithLit on
-      Twitter
-    </p>
+  <Box>
+    <Box borderStyle="double">Astro Web component</Box>
+    <Box> <AstroHeart /></Box>
   </Box>
 
-  <HeartButton>click me</HeartButton>
+  <Box>
+    <Box>
+      <Box>Lit Web component</Box>
+      <Box> <LitHeartButton>CLICK ME</LitHeartButton></Box>
+    </Box>
+    <Box>
+      <Box class="invert">Lit Web component again</Box>
+      <Box> <LitHeartButton>CLICK ME</LitHeartButton></Box>
+    </Box>
+  </Box>
 
-  <MyElement> this is my-element</MyElement>
-
-  <!-- <HeartButton>heart-btn</HeartButton> -->
-
-  <!-- <Box borderWidth="0" invert>
-    <MyElement client:only="lit">my-element</MyElement>
-    <HeartButton client:only="lit">heart-btn</HeartButton>
-  </Box> -->
+  <!--
+  <MyElement> this is my-element</MyElement> -->
 </Layout>

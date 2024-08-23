@@ -3,10 +3,14 @@ import { getViteConfig } from 'astro/config';
 // import { sentryVitePlugin } from '@sentry/vite-plugin';
 
 export default getViteConfig({
+  ssr: {
+    noExternal: ['date-fns', 'open-props'],
+  },
   test: {
     // Vitest configuration options
   },
   build: {
+    minify: 'esbuild',
     sourcemap: true, // Source map generation must be turned on
   },
   // plugins: [

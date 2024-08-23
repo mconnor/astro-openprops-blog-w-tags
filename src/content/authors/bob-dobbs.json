@@ -1,4 +1,5 @@
 {
+  "$schema": "../../../.astro/collections/authors.schema.json",
   "id": "bob-dobs",
   "name": "Bob Dobbs",
   "email": "bob@dobbs.com",

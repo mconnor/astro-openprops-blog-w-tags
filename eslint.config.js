@@ -1,123 +1,117 @@
 // @ts-check
-// import astroEslintParser from 'astro-eslint-parser';
-
+import astroParser from 'astro-eslint-parser';
+import globals from 'globals';
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
+
 import markdown from 'eslint-plugin-markdown';
 import regexp from 'eslint-plugin-regexp';
 import wc from 'eslint-plugin-wc';
 import lit from 'eslint-plugin-lit';
-// import jsxA11y from 'eslint-plugin-jsx-a11y';
 
-import eslintConfigPrettier from 'eslint-config-prettier';
-import globals from 'globals';
-import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
-
-export default tseslint.config(
+const config = tseslint.config(
   js.configs.recommended,
-  ...tseslint.configs.recommended,
-  ...tseslint.configs.stylistic,
-  //If your project enables typed linting, we suggest enabling the recommended-type-checked
-  // and stylistic-type-checked configurations to start:
-  // ...tseslint.configs.recommendedTypeChecked,
-  // ...tseslint.configs.stylisticTypeChecked,
-
+  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
   ...astro.configs.recommended,
-  // jsxA11y.flatConfigs.recommended,
-  // ...markdown.configs.recommended,
-
   regexp.configs['flat/recommended'],
   wc.configs['flat/recommended'],
   lit.configs['flat/recommended'],
-
   {
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-
+      parser: tseslint.parser,
       parserOptions: {
-        project: './tsconfig.eslint.json',
-
-        // For example, if you use a specific tsconfig.eslint.json for linting, you'd specify:
-        // tsconfigRootDir: import.meta.dirname,
-
+        project: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+  },
+  {
+    files: ['**/*.astro'],
+    extends: [tseslint.configs.disableTypeChecked],
+    languageOptions: {
+      parser: astroParser,
+      parserOptions: {
+        extraFileExtensions: ['.astro'],
+        parser: tseslint.parser,
+        project: true,
+        tsconfigRootDir: import.meta.dirname,
         ecmaFeatures: {
           jsx: true,
         },
       },
-      globals: {
-        ...globals.browser,
-        // ...globals.node,
-      },
     },
   },
   {
-    rules: {
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        {
-          argsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
-        },
-      ],
-      'lit/no-invalid-html': 'warn',
-    },
-  },
-
-  {
-    files: ['**/*.js', '**/*.mjs'],
-    ...tseslint.configs.disableTypeChecked,
+    files: ['**/*js'],
+    extends: [tseslint.configs.disableTypeChecked],
   },
   {
     files: [
-      'scr/lit-web-components/**/*.js',
-      'src/astro-custom-layout-components/**/*.js',
+      'src/custom-layout-components/astro-wc/**/*js',
+      'src/custom-layout-components/lit-wc/**/*js',
     ],
-    ...tseslint.configs.disableTypeChecked,
+    extends: [tseslint.configs.disableTypeChecked],
     rules: {
+      'no-unused-expressions': 'off',
       'wc/no-constructor-attributes': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+    },
+  },
+  {
+    files: ['src/schemas/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
     },
   },
 
   {
     plugins: {
       markdown,
-      // jsxA11y,
     },
   },
-  // {
-  //   files: ['**/*.md'],
-  //   processor: 'markdown/markdown',
-  // },
   {
     files: ['**/*.md/*.js'],
-    ...tseslint.configs.disableTypeChecked,
-    // ...
+    extends: [tseslint.configs.disableTypeChecked],
     rules: {
-      'no-console': 'off',
-      'import/no-unresolved': 'off',
+      'no-console': 'warn',
+      'import/no-unresolved': 'warn',
     },
   },
-
   {
     linterOptions: {
       reportUnusedDisableDirectives: 'warn',
     },
   },
+);
 
+export default [
   {
     ignores: [
-      '**/_*.*',
+      'dist',
+      '.astro',
+      '*.cjs',
+      '*rss.xml.js',
+      'src/env.d.ts',
+      'src/components/_Hamburger.astro',
+      'cache-directory/',
+      '*.d.ts',
       '**/temp.js',
       '*lock.yaml',
-      '.astro/',
-      'dist/',
-      'my-custom-cache-directory',
-      'src/env.d.ts',
       '.vercel/',
+      ' test/',
     ],
   },
+  ...config,
   eslintConfigPrettier,
-);
+];

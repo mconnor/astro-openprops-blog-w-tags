@@ -1,8 +1,8 @@
 ---
-import Layout from '@/layouts/BaseLayout.astro';
+import Layout from '#layouts/BaseLayout.astro';
 
-import { Stack, Frame } from '@/astro-custom-layout-components';
-import Box from '@/lit-layout-components/Box/index.astro';
+import { Stack } from '#astro-wc/index.js';
+import Box from '#lit-wc/Box/index.astro';
 ---
 
 <Layout>
@@ -26,16 +26,16 @@ import Box from '@/lit-layout-components/Box/index.astro';
       </p>
     </Box>
     <Box>
-      <Box invert>
+      <Box class="invert">
         <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
       </Box>
-      <Box invert>
+      <Box class="invert">
         <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
       </Box>
-      <Box invert>
+      <Box class="invert">
         <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
       </Box>
-      <Box invert>
+      <Box class="invert">
         <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
       </Box>
     </Box>
@@ -71,16 +71,16 @@ import Box from '@/lit-layout-components/Box/index.astro';
     </Box>
     <Box>
       <Box>
-        <Box invert>
+        <Box class="invert">
           <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
         </Box>
-        <Box invert>
+        <Box class="invert">
           <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
         </Box>
-        <Box invert>
+        <Box class="invert">
           <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
         </Box>
-        <Box invert>
+        <Box class="invert">
           <p class="copy">ectetur adipisicing elit. Veniam sed non, fugit</p>
         </Box>
       </Box>

@@ -1,37 +1,6 @@
+<!-- Wrap the component elements in our custom element “astro-heart”. -->
 <astro-heart>
   <button aria-label="Heart">💜</button> × <span>0</span>
 </astro-heart>
-<style>
-  button {
-    font-size: 1.5em;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-</style>
 
-<script>
-  // Define the behaviour for our new type of HTML element.
-  class AstroHeart extends HTMLElement {
-    constructor() {
-      super();
-      let count = 0;
-
-      // eslint-disable-next-line wc/no-constructor-attributes
-      const heartButton = this.querySelector('button');
-      // eslint-disable-next-line wc/no-constructor-attributes
-      const countSpan = this.querySelector('span');
-
-      // Each time the button is clicked, update the count.
-      heartButton &&
-        countSpan &&
-        heartButton.addEventListener('click', () => {
-          count++;
-          countSpan.textContent = count.toString();
-        });
-    }
-  }
-
-  // Tell the browser to use our AstroHeart class for <astro-heart> elements.
-  customElements.define('astro-heart', AstroHeart);
-</script>
+<script src="./AstroHeart.js"></script>

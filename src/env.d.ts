@@ -1,6 +1,5 @@
+/* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference path="../.astro/types.d.ts" />
-/// <reference types="astro/client" />
-/// <reference types="astro/astro-jsx" />
 interface ImportMetaEnv {
   readonly SENTRY_DSN: string;
   readonly SENTRY_AUTH_TOKEN: string;

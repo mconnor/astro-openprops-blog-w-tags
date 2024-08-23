@@ -1,15 +1,15 @@
 ---
-import { Cluster } from '@/astro-custom-layout-components';
+import { Cluster } from '#astro-wc/index.js';
 
-import Box from '@/lit-layout-components/Box/index.astro';
-import { AstroSwitcher } from '@/astro-web-component';
-// import AstroNavigateSelect from '@/components/AstroNavigateSelect.astro';
+import Box from '#lit-wc/Box/index.astro';
+import AstroSwitcher from '#lit-web-components/AstroSwitcher/index.astro';
+// import AstroNavigateSelect from '#components/AstroNavigateSelect.astro';
 
-import Link from '@/components/Link.astro';
+import Link from '#components/Link.astro';
 import MainNav from './MainNav.astro';
 ---
 
-<Box invert padding="var(--s1)">
+<Box class="invert" padding="var(--s1)" borderWidth="0">
   <AstroSwitcher />
   <Cluster align="baseline" justify="space-between" space="0">
     <Link isMainNav href="/">Mike Connor</Link>

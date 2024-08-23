@@ -1,5 +1,0 @@
-{
-  "extends": "./tsconfig.base.json",
-  "include": [".", "jsx.d.ts", "test/*.test.ts"],
-  "exclude": [".vercel", ".astro", "dist"]
-}

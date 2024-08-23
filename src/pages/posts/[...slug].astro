@@ -1,14 +1,15 @@
 ---
-// import { type CollectionEntry, getCollection } from 'astro:content';
-import Layout from '@/layouts/MarkdownPostLayout.astro';
-// import { blogSchema } from '@/schemas/index.js';
-
-import { getCollection } from 'astro:content';
-
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '#layouts/MarkdownPostLayout.astro';
+import { blogSchema } from '#schemas/index.js';
 export const prerender = true;
 
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getCollection('blog', ({ data }) => data.draft !== true);
 
   return posts.map((post) => ({
     params: { slug: post.slug },
@@ -20,14 +21,13 @@ const { post } = Astro.props;
 
 const { Content } = await post.render();
 
-// const { success, error, data: parsedData } = blogSchema.safeParse(post.data);
+const { error, data: parsedData } = await blogSchema.safeParseAsync(post.data);
 
-// if (error) {
-//   // handle error then return
-//   throw new Error('Validation error:', error);
-// }
+if (error) {
+  throw new Error('Validation error:', error);
+}
 ---
 
-<Layout blogData={post.data}>
+<Layout blogData={parsedData}>
   <Content />
 </Layout>
