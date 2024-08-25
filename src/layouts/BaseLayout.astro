@@ -1,14 +1,7 @@
 ---
-// import { z } from 'astro:content';
 import BaseHead from '#components/BaseHead.astro';
-import Cover from '#astro-wc/Cover/index.astro';
-import Center from '#astro-wc/Center/index.astro';
-import Header from '#components/Header.astro';
 
-// import Center from '#astro-custom-layout-components/Center/index.astro';
 import type { RmUnitType } from '#UnitTypes.js';
-
-// import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
   title?: string;
@@ -18,16 +11,13 @@ interface Props {
   children: unknown;
 }
 
-// const isProd = import.meta.env.PROD
-// const isDev = import.meta.env.DEV
-
 const {
   title = 'Mike Connor',
   description = 'my description',
   image = '/placeholder-social.jpg',
   maxW = 'var(--measure)',
 } = Astro.props;
-
+const mode = process.env.NODE_ENV?.toString().substring(0, 3) || 'xxx';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -38,11 +28,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
 
   <body>
-    <Cover centeredElement="center-l" space="0">
-      <Header transition:persist />
-
-      <Center max={maxW} transition:animate="slide"><slot /></Center>
-    </Cover>
+    <code class="mode">{mode}</code>
+    <slot />
 
     <script is:inline>
       // on page, get the last theme from the cookie and set it
@@ -59,3 +46,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </script>
   </body>
 </html>
+<style>
+  .mode {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+  }
+</style>

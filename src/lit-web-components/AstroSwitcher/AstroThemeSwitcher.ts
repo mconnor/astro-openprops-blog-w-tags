@@ -1,5 +1,5 @@
-import { css, LitElement } from 'lit';
-import { html } from 'lit-html';
+import { css, html, LitElement } from 'lit';
+
 import { customElement, property } from 'lit/decorators.js';
 
 @customElement('astro-theme-switcher')

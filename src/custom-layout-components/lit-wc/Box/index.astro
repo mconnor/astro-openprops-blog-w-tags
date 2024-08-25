@@ -1,13 +1,15 @@
 ---
+import type { RmUnitType, BorderStyle } from '#UnitTypes.js';
+
 import { BoxClass } from './box-l';
-import type { RmUnitType, BorderStyle } from '#unit-types';
 
 interface Props {
   padding?: RmUnitType;
   borderWidth?: RmUnitType;
   highlight?: boolean;
   borderStyle?: BorderStyle;
-  class?: string;
+  invert?: boolean;
+  children?: unknown;
 }
 const props = Astro.props;
 ---
@@ -30,8 +32,4 @@ const props = Astro.props;
     --box-color: var(--my-color, black);
     --box-background: var(--my-bg-color, white);
   }
-  /* box-l.inverted {
-    --box-color: var(--my-bg-color, white);
-    --box-background: var(--my-color, black);
-  } */
 </style>

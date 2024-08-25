@@ -6,13 +6,18 @@
 }
 
 [class^='box'].invert {
-  filter: invert(100%);
+  /* filter: invert(100%); */
+  color: var(--my-bg-color, black);
+  background-color: var(--my-color, white);
 }
 
 .box {
   padding: var(--s1);
-  border-width: var(--border-size-1);
-  border-color: var(--border-color);
+  outline: 0.125rem solid transparent;
+
+  border-color: var(--my-color, black);
+  border-style: solid;
+  border-width: var(--border-thin);
 }
 .box-no-border {
   padding: var(--s1);

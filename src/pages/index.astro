@@ -11,7 +11,7 @@
 import { Image } from 'astro:assets';
 // import Andy from '#assets/andyBushes.jpg';
 import AndyMud from '#assets/andy_mud_color.webp';
-import Layout from '#layouts/BaseLayout.astro';
+import Layout from '#layouts/Layout.astro';
 import { Stack, Frame } from '#astro-wc/index.js';
 import Box from '#lit-wc/Box/index.astro';
 ---
@@ -19,7 +19,7 @@ import Box from '#lit-wc/Box/index.astro';
 <Layout title="home">
   <!-- <div class="underCopy box">JavaScript | CSS | Astro | Monorepos | Burning Man Stuff | Rafting | Travel | Dogs | Radical Pragmatism</div> -->
   <Stack space="0">
-    <Box borderWidth="var(--s3)" padding="var(--s0)">
+    <Box padding="var(--s0)">
       <h1>Welcome to my long overdue public-professoinal-personal shingle.</h1>
       <p>This is a WIP. Standby for sizzling oringnal and nurtious content.</p>
       <p>
@@ -30,7 +30,7 @@ import Box from '#lit-wc/Box/index.astro';
       </p>
     </Box>
 
-    <Box class="invertedAppColor" borderWidth="1px" padding="var(--s0)">
+    <Box invert borderWidth="1px" padding="var(--s0)">
       <p>This is Andy. He's purebred mutt from the shelter in New Orleans.</p>
       <Frame ratio="16:9">
         <Image
@@ -47,49 +47,3 @@ import Box from '#lit-wc/Box/index.astro';
     >
   </Stack>
 </Layout>
-
-<style>
-  .underCopy {
-    position: absolute;
-    z-index: 2;
-    font-size: var(--font-size-8);
-    top: 30vh;
-    left: 0;
-    max-width: 50vw;
-    opacity: 10%;
-  }
-  h1 {
-    font-size: var(--font-size-fluid-1);
-
-    /* @media (--motionOK) {
-    animation: var(--animation-fade-in); */
-  }
-  p {
-    font-size: var(--font-size-1);
-    font-weight: var(--font-weight-5);
-    width: 100%;
-  }
-  caption {
-    font-size: var(--font-size-3);
-  }
-  /* h3 {
-
- font-size: var(--font-size-2);
-} */
-  .copy {
-    font-size: var(--font-size-2);
-  }
-
-  /* .circle-mask {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-
-
-img {
-
-    object-fit: none;
-  }*/
-</style>

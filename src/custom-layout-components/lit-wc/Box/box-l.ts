@@ -1,9 +1,9 @@
-import { css, LitElement } from 'lit';
-import { html } from 'lit-html';
+import type { RmUnitType, BorderStyle } from '#UnitTypes.js';
+
+import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
-// import { classMap } from 'lit/directives/class-map.js';
-import type { RmUnitType, BorderStyle } from '#UnitTypes.js';
+
 /**
  * @module box-l
  * @description
@@ -19,7 +19,7 @@ export class BoxClass extends LitElement {
     super.connectedCallback();
     // Check if this component was server-side rendered
     const isSSR = this.getAttribute('is:ssr') === 'true';
-    console.log(`Is SSR: ${isSSR}`);
+    console.log(`Issss SSR: ${isSSR}`);
   }
   disconnectedCallback() {
     super.disconnectedCallback();
@@ -40,7 +40,7 @@ export class BoxClass extends LitElement {
         background-color: var(--my-bg-color); */
       }
 
-      :host(.invert) {
+      :host([invert]) {
         color: var(--my-bg-color, black);
         background-color: var(--my-color, white);
       }
