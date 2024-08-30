@@ -2,6 +2,7 @@ import type { RmUnitType, BorderStyle } from '#UnitTypes.js';
 
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
 
 /**
@@ -13,40 +14,23 @@ import { styleMap } from 'lit/directives/style-map.js';
  * @property {string} borderStyle
  * @property {boolean} invert=false Whether to apply an inverted theme. Only recommended for greyscale designs.
  */
-@customElement('box-l')
-export class BoxClass extends LitElement {
-  connectedCallback() {
-    super.connectedCallback();
-    // Check if this component was server-side rendered
-    const isSSR = this.getAttribute('is:ssr') === 'true';
-    console.log(`Issss SSR: ${isSSR}`);
-  }
-  disconnectedCallback() {
-    super.disconnectedCallback();
-  }
 
+const mainColor = css`var(--my-color, blue)`;
+const bgColor = css`var(--my-bg-color, yellow)`;
+
+@customElement('box-l')
+export class Box extends LitElement {
   static styles = [
     css`
       :host {
         display: block;
         outline: 0.125rem solid transparent;
         outline-offset: -0.125rem;
-        border-style: solid;
-        color: inherit;
-        background-color: inherit;
-        /* border-width: var(--border-thin);
-        padding: var(--s1); */
-        /* color: var(--my-color);
-        background-color: var(--my-bg-color); */
       }
 
-      :host([invert]) {
-        color: var(--my-bg-color, black);
-        background-color: var(--my-color, white);
-      }
-
-      .highlighted {
-        opacity: 0.2;
+      .inverted {
+        color: ${bgColor};
+        background-color: ${mainColor};
       }
     `,
   ];
@@ -55,13 +39,10 @@ export class BoxClass extends LitElement {
   padding: RmUnitType = 'var(--s0)';
 
   @property({ type: String })
-  borderWidth: RmUnitType = '1px';
+  borderWidth: RmUnitType = 'var(--border-thin)';
 
-  @property({ type: Boolean })
+  @property({ type: Boolean, reflect: true })
   invert = false;
-
-  @property({ type: Boolean })
-  highlight = false;
 
   @property({ type: String })
   borderStyle: BorderStyle = 'solid';
@@ -73,7 +54,10 @@ export class BoxClass extends LitElement {
       padding: this.padding,
     };
 
-    return html`<div style=${styleMap(styles)}>
+    return html`<div
+      class=${classMap({ inverted: this.invert })}
+      style=${styleMap(styles)}
+    >
       <slot></slot>
     </div>`;
   }

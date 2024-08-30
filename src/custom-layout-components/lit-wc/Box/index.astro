@@ -1,7 +1,7 @@
 ---
 import type { RmUnitType, BorderStyle } from '#UnitTypes.js';
 
-import { BoxClass } from './box-l';
+import { Box } from './box-l';
 
 interface Props {
   padding?: RmUnitType;
@@ -14,22 +14,6 @@ interface Props {
 const props = Astro.props;
 ---
 
-<BoxClass {...props} client:visible>
+<Box {...props} client:visible>
   <slot />
-</BoxClass>
-
-<style>
-  box-l {
-    display: block;
-
-    /* background-color: var(--surface-1) !important;
-    color: var(--text-2) !important; */
-
-    /* ↓ For high contrast mode */
-    outline: 0.125rem solid transparent;
-    outline-offset: -0.125rem;
-
-    --box-color: var(--my-color, black);
-    --box-background: var(--my-bg-color, white);
-  }
-</style>
+</Box>
