@@ -8,32 +8,15 @@ import Box from '#lit-wc/Box/index.astro';
 
 <Layout title={pageTitle}>
   <!-- <div class="app-colors"> -->
-  <Stack space="8rem">
-    <Box>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
-      cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa quae
-      officiis excepturi labore sunt, similique veniam, voluptatibus minus?
-      Corrupti, nemo?
-    </Box>
+  <Stack recursive splitAfter={2}>
+    <Box> Lorem ipsum dolor </Box>
+    <!-- <Box>
+      <Box invert> Lorem ipsum d </Box>
+      <Box invert> Lorem ipsum dolor sit </Box>
+    </Box> -->
+    <Box invert> Lorem ipsum dolor sit </Box>
     <Box invert>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
-      cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa quae
-      officiis excepturi labore sunt, similique veniam, voluptatibus minus?
-      Corrupti, nemo?
-    </Box>
-    <Box invert>
-      <Box invert>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
-        cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa
-        quae officiis excepturi labore sunt, similique veniam, voluptatibus
-        minus? Corrupti, nemo?
-      </Box>
-    </Box>
-    <Box>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
-      cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa quae
-      officiis excepturi labore sunt, similique veniam, voluptatibus minus?
-      Corrupti, nemo?
+      <Box invert> Lorem ipsum dolor </Box>
     </Box>
   </Stack>
   <!-- </Box> -->

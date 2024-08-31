@@ -1,41 +1,29 @@
 ---
 import Layout from '#layouts/Layout.astro';
-import { Stack } from '#astro-wc/index.js';
-
+import { Stack, Sidebar } from '#astro-wc/index.js';
+import Box from '#lit-wc/Box/index.astro';
 const pageTitle = 'box class';
 ---
 
 <Layout title={pageTitle}>
+  <Sidebar contentMin="20%" noStretch={false} sideWidth="30ch">
+    <Stack recursive splitAfter={2}>
+      <Box>xxx</Box>
+      <Box>xxx</Box>
+      <Box>xxx</Box>
+    </Stack>
+    <Box
+      ><p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam magnam est
+        iure veniam eos saepe unde doloremque corporis? Mollitia ex reiciendis
+        ea iure, at neque velit vero nihil esse sed. Lorem ipsum, dolor sit amet
+        consectetur adipisicing elit. Nam magnam est iure veniam eos saepe unde
+        doloremque corporis? Mollitia ex reiciendis ea iure, at neque velit vero
+        nihil esse sed.
+      </p></Box
+    >
+  </Sidebar>
   <!-- <div class="app-colors"> -->
-  <Stack space="8rem">
-    <div class="box invert">
-      <pre
-        class="pre-wrap">&lt;div class="box invert"&gt;
-  Here using the box class rather than the Box web component.
-&lt;/div&gt;</pre>
-    </div>
-
-    <div class="box">
-      <pre
-        class="pre-wrap">&lt;div class="box"&gt;
-  Here using the box class rather than the Box web component.
-&lt;/div&gt;</pre>
-    </div>
-
-    <div class="box invert">
-      <pre
-        class="pre-wrap">&lt;div class="box invert"&gt;
-  Here using the box class rather than the Box web component.
-&lt;/div&gt;</pre>
-    </div>
-
-    <div class="box-no-border">
-      <pre
-        class="pre-wrap">&lt;div class="box-no-border"&gt;
-  Here using the box class rather than the Box web component.
-&lt;/div&gt;</pre>
-    </div>
-  </Stack>
 </Layout>
 <!-- </div> -->
 

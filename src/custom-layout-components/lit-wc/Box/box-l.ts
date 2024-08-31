@@ -20,11 +20,13 @@ const bgColor = css`var(--my-bg-color, yellow)`;
 
 @customElement('box-l')
 export class Box extends LitElement {
+  // Note that the host element can be affected by styles from outside the shadow tree,
+
   static styles = [
     css`
-      div {
+      :host {
         display: block;
-        outline: 0.125rem solid transparent;
+        outline: 0.125rem solid red;
         outline-offset: -0.125rem;
       }
 
@@ -47,7 +49,7 @@ export class Box extends LitElement {
   @property({ type: String })
   borderStyle: BorderStyle = 'solid';
 
-  protected render() {
+  render() {
     const styles = {
       borderWidth: this.borderWidth,
       borderStyle: this.borderStyle,
@@ -55,16 +57,20 @@ export class Box extends LitElement {
     };
 
     return html`<div
+      id="root"
       class=${classMap({ inverted: this.invert })}
       style=${styleMap(styles)}
     >
       <slot></slot>
     </div>`;
   }
+  // protected createRenderRoot() {
+  //   return this;
+  // }
 }
 
-// declare global {
-//   interface HTMLElementTagNameMap {
-//     'box-l': Box;
-//   }
-// }
+declare global {
+  interface HTMLElementTagNameMap {
+    'box-l': Box;
+  }
+}
