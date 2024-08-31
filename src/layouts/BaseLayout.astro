@@ -15,9 +15,8 @@ const {
   title = 'Mike Connor',
   description = 'my description',
   image = '/placeholder-social.jpg',
-  maxW = 'var(--measure)',
 } = Astro.props;
-const mode = process.env.NODE_ENV?.toString().substring(0, 3) || 'xxx';
+const mode = process.env.NODE_ENV?.toString().substring(0, 3);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 

@@ -18,16 +18,16 @@ export default class Stack extends HTMLElement {
         styleEl.id = this.i;
         styleEl.innerHTML = `
             [data-i="${this.i}"]${this.recursive ? '' : ' >'} * + * {
-              margin-block-start: ${this.space};
+              gap: ${this.space};
             }
-        
+
             ${
               this.splitAfter
                 ? `
               [data-i="${this.i}"]:only-child {
                 block-size: 100%;
               }
-        
+
               [data-i="${this.i}"] > :nth-child(${this.splitAfter}) {
                 margin-block-end: auto;
               }`
@@ -87,6 +87,6 @@ export default class Stack extends HTMLElement {
   }
 }
 
-if ('customElements' in window) {
-  customElements.define('stack-l', Stack);
-}
+// if ('customElements' in window) {
+//   customElements.define('stack-l', Stack);
+// }

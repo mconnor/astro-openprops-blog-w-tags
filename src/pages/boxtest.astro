@@ -1,40 +1,15 @@
 ---
 import Layout from '#layouts/Layout.astro';
-import { Stack } from '#astro-wc/index.js';
 
 const pageTitle = 'box module';
 import Box from '#lit-wc/Box/index.astro';
+import Stack from '#lit-wc/Stack/index.astro';
 ---
 
-<Layout title={pageTitle}>
-  <!-- <div class="app-colors"> -->
+<Layout maxW="100%" title={pageTitle}>
   <Stack>
-    <Box>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
-      cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa quae
-      officiis excepturi labore sunt, similique veniam, voluptatibus minus?
-      Corrupti, nemo?
-    </Box>
-    <Box invert>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
-      cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa quae
-      officiis excepturi labore sunt, similique veniam, voluptatibus minus?
-      Corrupti, nemo?
-    </Box>
-    <Box invert>
-      <Box invert>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
-        cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa
-        quae officiis excepturi labore sunt, similique veniam, voluptatibus
-        minus? Corrupti, nemo?
-      </Box>
-    </Box>
-    <Box>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis natus
-      cumque consequatur obcaecati perspiciatis nam sit doloribus aut culpa quae
-      officiis excepturi labore sunt, similique veniam, voluptatibus minus?
-      Corrupti, nemo?
-    </Box>
+    <Box invert> Lorem ipsum dolor sit amet consectetur</Box>
+    <Box>Lorem ipsum dolor sit amet consectetur</Box>
+    <Box invert> Lorem ipsum dolor sit amet consectetur</Box>
   </Stack>
-  <!-- </Box> -->
 </Layout>

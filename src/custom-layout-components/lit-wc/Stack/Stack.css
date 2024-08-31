@@ -1,6 +1,6 @@
 stack-l {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   gap: var(--s0);
 }
