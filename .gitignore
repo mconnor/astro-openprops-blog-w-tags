@@ -39,3 +39,5 @@ pnpm-debug.log*
 /.env
 /notes.txt
 /cache-directory
+/src/custom-layout-components/astro-wc/.DS_Store
+/src/custom-layout-components/.DS_Store

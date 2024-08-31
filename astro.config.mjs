@@ -24,7 +24,6 @@ export default defineConfig({
   },
   scopedStyleStrategy: 'attribute',
   integrations: [
-    // myIntegration,
     lit(),
     mdx({
       drafts: true,
