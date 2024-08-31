@@ -22,7 +22,7 @@ const bgColor = css`var(--my-bg-color, yellow)`;
 export class Box extends LitElement {
   static styles = [
     css`
-      :host {
+      div {
         display: block;
         outline: 0.125rem solid transparent;
         outline-offset: -0.125rem;
