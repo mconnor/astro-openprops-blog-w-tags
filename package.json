@@ -70,7 +70,7 @@
     "astro-eslint-parser": "^1.0.2",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.5",
-    "eslint": "9.9.0",
+    "eslint": "9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-jest": "^28.8.1",
@@ -99,5 +99,5 @@
     "node": ">= 20.11.0 <21 || >= 21.2.0",
     "pnpm": ">=9.1.2"
   },
-  "packageManager": "pnpm@9.8.0"
+  "packageManager": "pnpm@9.9.0"
 }
