@@ -40,3 +40,4 @@ pnpm-debug.log*
 /notes.txt
 /cache-directory
 **/*/.DS_Store
+/.turbo
