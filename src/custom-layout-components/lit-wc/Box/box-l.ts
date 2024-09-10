@@ -12,22 +12,32 @@ import { styleMap } from 'lit/directives/style-map.js';
  * @property {string} padding=var(--s1) A CSS `padding` value
  * @property {string} borderWidth=var(--border-thin) A CSS `border-width` value
  * @property {string} borderStyle
- * @property {boolean} invert=false Whether to apply an inverted theme. Only recommended for greyscale designs.
  */
 
-const mainColor = css`var(--my-color, blue)`;
-const bgColor = css`var(--my-bg-color, yellow)`;
+const mainColor = css`var(--theme-primary, blue)`;
+const bgColor = css`var(--theme-secondary, yellow)`;
 
 @customElement('box-l')
-export class Box extends LitElement {
-  // Note that the host element can be affected by styles from outside the shadow tree,
-
+export class BoxClass extends LitElement {
   static styles = [
     css`
       :host {
         display: block;
-        outline: 0.125rem solid red;
+        outline: 0.125rem solid transparent;
         outline-offset: -0.125rem;
+      }
+
+      ::slotted {
+        color: ${mainColor};
+        background-color: ${bgColor};
+      }
+      ::slotted(*) {
+        color: inherit;
+        background-color: inherit;
+      }
+
+      .highlighted {
+        opacity: 0.2;
       }
 
       .inverted {
@@ -41,15 +51,15 @@ export class Box extends LitElement {
   padding: RmUnitType = 'var(--s0)';
 
   @property({ type: String })
-  borderWidth: RmUnitType = 'var(--border-thin)';
-
-  @property({ type: Boolean, reflect: true })
-  invert = false;
+  borderWidth: RmUnitType = '1px';
 
   @property({ type: String })
   borderStyle: BorderStyle = 'solid';
 
-  render() {
+  @property({ type: Boolean })
+  invert = false;
+
+  protected render() {
     const styles = {
       borderWidth: this.borderWidth,
       borderStyle: this.borderStyle,
@@ -57,20 +67,16 @@ export class Box extends LitElement {
     };
 
     return html`<div
-      id="root"
       class=${classMap({ inverted: this.invert })}
       style=${styleMap(styles)}
     >
       <slot></slot>
     </div>`;
   }
-  // protected createRenderRoot() {
-  //   return this;
-  // }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'box-l': Box;
+    'box-l': BoxClass;
   }
 }

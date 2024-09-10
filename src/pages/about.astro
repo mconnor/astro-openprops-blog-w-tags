@@ -12,18 +12,14 @@ const pageTitle = 'About';
 <Layout title={pageTitle} maxW="60ch">
   <!-- <div class="app-colors"> -->
   <Stack>
-    <!-- <Box borderWidth="0">
-      <Code code={`const foo = 'bar';`} lang="js" />
-
-      <Code code={`const foo = 'bar';`} lang="js" theme="dark-plus" />
-
-      <Code code={`const foo = 'bar';`} lang="js" wrap />
-
-      <p>
-        <Code code={`const foo = 'bar';`} lang="js" inline />
-        will be rendered inline.
-      </p>
-    </Box> -->
+    <Box borderWidth="0">
+      xxx
+      <dialog aria-labelledby="message" id="decisionDialog">
+        <p id="message">It’s decision time, sunshine!</p>
+        <button type="button">Yes</button>
+        <button type="button">No</button>
+      </dialog>
+    </Box>
 
     <Box>
       <p>
@@ -154,3 +150,7 @@ const pageTitle = 'About';
   >
   <!-- </div> -->
 </Layout>
+<script>
+  const dialog: HTMLDialogElement = document.getElementById('decisionDialog');
+  dialog && dialog.showModal();
+</script>

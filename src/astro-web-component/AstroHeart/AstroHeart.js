@@ -19,7 +19,7 @@ class AstroHeart extends HTMLElement {
     });
   }
   disconnectedCallBack() {
-    const heartButton = this.querySelector('button');
+    const heartButton = this.querySelectorById('favDialog');
     const countSpan = this.querySelector('span');
     heartButton.removeEventListener('click', () => {
       this.count++;
