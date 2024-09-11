@@ -14,7 +14,7 @@ interface Props {
   children: unknown;
 }
 
-const { maxW = 'var(--measure)', ...rest } = Astro.props;
+const { maxW = 'var(--measure, 60ch)', ...rest } = Astro.props;
 ---
 
 <BaseLayout {...rest}>
