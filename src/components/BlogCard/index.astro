@@ -1,6 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { Debug } from 'astro:components';
 
 // import { Box} from '#lit-layout-components';
 
@@ -28,6 +29,7 @@ const authObj = await getEntry('authors', author.id);
 const { name } = authObj.data;
 ---
 
+<Debug post={post} />
 <a slot="left" href={`/posts/${slug}`}>
   <Box padding="0" borderWidth="0">
     <!-- <Box padding='4px'> -->

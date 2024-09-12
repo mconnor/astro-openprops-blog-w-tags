@@ -55,5 +55,13 @@
   },
   "explorerExclude.backup": {},
   "explorer.excludeGitIgnore": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/src/content/authors/**"
+      ],
+      "url": "./.astro/collections/authors.schema.json"
+    }
+  ]
 }
