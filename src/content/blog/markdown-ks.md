@@ -11,16 +11,17 @@ tags: ['astro', 'blogging', 'learning-in-public', 'successes']
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Main Topics](#main-topics)
-   - [Subtopic A](#subtopic-a)
-   - [Subtopic B](#subtopic-b)
-3. [Images](#images)
-4. [Lists](#lists)
-5. [Code Blocks](#code-blocks)
-6. [Tables](#tables)
-7. [Links & Quotes](#links--quotes)
-8. [Conclusion](#conclusion)
+- [h1](#h1)
+  - [h2](#h2)
+    - [h3](#h3)
+      - [h4](#h4)
+        - [h5](#h5)
+          - [h6](#h6)
+  - [Images](#images)
+  - [Lists](#lists)
+  - [Code Blocks](#code-blocks)
+  - [Tables](#tables)
+  - [Links \& Quotes](#links--quotes)
 
 ## Introduction
 
@@ -77,7 +78,7 @@ doloremque laudantium.
 
 Here's a `inline code` example.
 
-```python
+```
 def hello_world():
     print("Hello, Markdown!")
 ```

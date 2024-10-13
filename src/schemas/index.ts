@@ -11,8 +11,8 @@ const imageSrcSchema = z.object({ src: urlSchema, alt: strSC });
 
 // const refSchema = z.string(reference(['authors']));
 
-const datelike = z.union([z.number(), z.string(), z.date()]);
-const datelikeToDate = datelike.pipe(z.coerce.date());
+const dateLike = z.union([z.number(), z.string(), z.date()]);
+const dateLikeToDate = dateLike.pipe(z.coerce.date());
 
 export const authorSchema = z.object({
   id: z.string(),
@@ -24,7 +24,7 @@ export const authorSchema = z.object({
 
 export const blogSchema = z.object({
   title: strSC,
-  pubDate: datelikeToDate,
+  pubDate: dateLikeToDate,
   description: strSC,
   author: reference('authors'),
   draft: z.boolean().default(false),

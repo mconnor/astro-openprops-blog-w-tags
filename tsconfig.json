@@ -6,7 +6,7 @@
     "esModuleInterop": false,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
-    "strictNullChecks": true,
+    "strictNullChecks": true
   },
   "include": [
     "src"

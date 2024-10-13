@@ -9,7 +9,7 @@ cover:
 tags: ['space', 'liver', 'xanadu']
 ---
 
-## Introduction
+### Introduction
 
 I can link internally to [my conclusion](#conclusion) on the same page when writing Markdown.
 
