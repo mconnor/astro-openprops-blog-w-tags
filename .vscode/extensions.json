@@ -5,7 +5,7 @@
     "esbenp.prettier-vscode",
     "phoenisx.cssvar",
     "unifiedjs.vscode-mdx",
-    "stylelint.vscode-stylelint",
+    "stylelint.vscode-stylelint"
   ],
   "unwantedRecommendations": []
 }

@@ -5,9 +5,7 @@ dist/
 vercel/
 .frontmatter/
 
-**/*.json
-**/*.jsonc
-**/*.json5
+
 
 
 #  default ignored files
