@@ -2,13 +2,15 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "dist",
+    "outDir": "dist", // i can leave comments
     "esModuleInterop": false,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "strictNullChecks": true
   },
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules",
     "dist",
