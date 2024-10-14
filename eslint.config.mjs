@@ -17,7 +17,7 @@ const config = tseslint.config(
   // ...tseslint.configs.stylistic,
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
-  ...astro.configs.recommended,
+
   regexp.configs['flat/recommended'],
   wc.configs['flat/recommended'],
   lit.configs['flat/recommended'],
@@ -40,13 +40,14 @@ const config = tseslint.config(
   },
   {
     files: ['src/**/*.astro'],
-    extends: [tseslint.configs.disableTypeChecked],
-    // processor: astro.processors['client-side-ts'],
+    extends: [
+      ...astro.configs.recommended,
+      tseslint.configs.disableTypeChecked,
+    ],
+    processor: astro.processors['client-side-ts'],
     languageOptions: {
       parser: astroParser,
       parserOptions: {
-        // allowDefaultProject: ['*.js'],
-
         extraFileExtensions: ['.astro'],
         parser: tseslint.parser,
         ecmaFeatures: {
@@ -127,18 +128,18 @@ export default [
     ignores: [
       'node_modules/',
       '.frontmatter/',
+      'cache-directory/',
+      '.vercel/',
+      'test/',
       'stylelint.config.mjs',
-      'dist',
+      'dist/',
       '.astro',
       '*.cjs',
       'src/env.d.ts',
       'src/components/_Hamburger.astro',
-      'cache-directory/',
       '*.d.ts',
       '**/temp.js',
       '*lock.yaml',
-      '.vercel/',
-      'test/',
     ],
   },
 
