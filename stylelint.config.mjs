@@ -3,7 +3,7 @@
 import stylelintConfig from 'stylelint-config-html';
 
 export default {
-  extends: ['stylelint-config-html', 'stylelint-prettier'],
+  extends: ['stylelint-config-html'],
   stylelintConfig,
 
   rules: {

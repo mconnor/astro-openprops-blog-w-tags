@@ -34,8 +34,8 @@
     "astro": "astro",
     "lint:lit-analyzer": "lit-analyzer .",
     "lint": "pnpm run /^lint:.*/",
-    "lint:eslint": "eslint .",
-    "lint:json": "eslint . -c jsonLintConfig.mjs",
+    "lint:eslint": "eslint . --cache",
+    "lint:json": "eslint . -c jsonLintConfig.mjs --cache",
     "fix:json": "eslint . -c jsonLintConfig.mjs --fix",
     "fix": "eslint . --fix .",
     "inspect": "eslint . --inspect-config",
@@ -43,9 +43,8 @@
     "format": "prettier --write .",
     "stylelint": "stylelint 'src/**/*.css'",
     "sfix": "stylelint \"src/**/*.{css,astro}\" --fix",
-    "test": "vitest run",
     "sentry:sourcemaps": "sentry-cli sourcemaps inject --org mike-connor --project astro-openprops-blog-w-tags ./dist && sentry-cli sourcemaps upload --org mike-connor --project astro-openprops-blog-w-tags ./dist",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -88,6 +87,8 @@
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-wc": "^2.2.0",
     "globals": "^15.11.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "lit-analyzer": "^2.0.3",
     "postcss": "^8.4.47",
     "postcss-custom-media": "^11.0.3",

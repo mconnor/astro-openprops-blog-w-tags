@@ -41,3 +41,4 @@ pnpm-debug.log*
 /cache-directory
 **/*/.DS_Store
 /.turbo
+/.eslintcache

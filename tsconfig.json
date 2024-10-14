@@ -2,7 +2,7 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "dist", // i can leave comments
+    "outDir": "dist",
     "esModuleInterop": false,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
