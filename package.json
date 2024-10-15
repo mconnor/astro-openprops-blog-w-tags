@@ -43,6 +43,7 @@
     "format": "prettier --write .",
     "stylelint": "stylelint 'src/**/*.css'",
     "sfix": "stylelint \"src/**/*.{css,astro}\" --fix",
+    "test": "vitest run",
     "sentry:sourcemaps": "sentry-cli sourcemaps inject --org mike-connor --project astro-openprops-blog-w-tags ./dist && sentry-cli sourcemaps upload --org mike-connor --project astro-openprops-blog-w-tags ./dist",
     "prepare": "husky"
   },
