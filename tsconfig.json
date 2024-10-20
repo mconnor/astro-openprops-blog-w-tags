@@ -1,14 +1,22 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "rootDir": ".",
+    "rootDir": "src",
     "outDir": "dist",
     "esModuleInterop": false,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ]
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "*.config.mjs",
+    "types/*.d.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist",

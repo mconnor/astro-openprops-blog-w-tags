@@ -2,6 +2,7 @@
 dist/
 # generated types
 .astro/
+.turbo/
 
 # dependencies
 node_modules/
@@ -24,6 +25,7 @@ pnpm-debug.log*
 /src/.DS_Store
 /src/assets/.DS_Store
 /my-custom-cache-directory/
+/cache-directory
 
 /.env.development
 /.env.sentry-build-plugin
