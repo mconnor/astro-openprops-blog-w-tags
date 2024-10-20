@@ -6,21 +6,29 @@ import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
 
+// import vercelNode from '@vercel/style-guide/eslint/node';
+// import vercelTypeScript from '@vercel/style-guide/eslint/typescript';
+
 import markdown from '@eslint/markdown';
 import regexp from 'eslint-plugin-regexp';
 import wc from 'eslint-plugin-wc';
 import lit from 'eslint-plugin-lit';
 
+// const compat = new FlatCompat();
+
+// const { browser } = globals;
+// const { document, customElements } = browser;
+
 const config = tseslint.config(
   js.configs.recommended,
-  // ...tseslint.configs.recommended,
+  // ...compat.env(vercelNode.env),
+  // ...fixupConfigRules(compat.config(vercelTypeScript)),
+  ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylistic,
   ...tseslint.configs.recommendedTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
+  // ...tseslint.configs.stylisticTypeChecked,
 
   regexp.configs['flat/recommended'],
-  wc.configs['flat/recommended'],
-  lit.configs['flat/recommended'],
 
   {
     languageOptions: {
@@ -34,6 +42,7 @@ const config = tseslint.config(
       },
       globals: {
         ...globals.browser,
+        JSX: true,
         // ...globals.node,
       },
     },
@@ -48,8 +57,8 @@ const config = tseslint.config(
     languageOptions: {
       parser: astroParser,
       parserOptions: {
-        extraFileExtensions: ['.astro'],
         parser: tseslint.parser,
+
         ecmaFeatures: {
           jsx: true,
         },
@@ -63,16 +72,21 @@ const config = tseslint.config(
       '@typescript-eslint/no-unsafe-argument': 'off',
     },
   },
+  {
+    ...wc.configs['flat/recommended'],
+    ...lit.configs['flat/recommended'],
+    files: [
+      'src/lit-web-components/**/*.ts',
+      'src/custom-layout-components/lit-wc/**/*.ts',
+    ],
+  },
 
   {
     files: ['**/*js'],
     extends: [tseslint.configs.disableTypeChecked],
   },
   {
-    files: [
-      'src/custom-layout-components/astro-wc/**/*js',
-      'src/custom-layout-components/lit-wc/**/*js',
-    ],
+    files: ['src/custom-layout-components/astro-wc/**/*js'],
 
     rules: {
       'no-unused-expressions': 'off',
@@ -142,9 +156,7 @@ export default [
       '*lock.yaml',
     ],
   },
-
   mdConfig,
-
   ...config,
   eslintConfigPrettier,
 ];
