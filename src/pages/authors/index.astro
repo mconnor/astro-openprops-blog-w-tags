@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
+
 // import { authorSchema } from '#schemas/idex.js';
 import { Stack } from '#astro-wc/index.js';
-import Box from '#lit-wc/Box/index.astro';
-
 import Layout from '#layouts/Layout.astro';
+import Box from '#lit-wc/Box/index.astro';
 
 const authors = await getCollection('authors');
 ---

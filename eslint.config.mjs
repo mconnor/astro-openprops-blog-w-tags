@@ -1,18 +1,17 @@
 // @ts-check
-import astroParser from 'astro-eslint-parser';
-import globals from 'globals';
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import astro from 'eslint-plugin-astro';
-
 // import vercelNode from '@vercel/style-guide/eslint/node';
 // import vercelTypeScript from '@vercel/style-guide/eslint/typescript';
-
 import markdown from '@eslint/markdown';
-import regexp from 'eslint-plugin-regexp';
-import wc from 'eslint-plugin-wc';
+import astroParser from 'astro-eslint-parser';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import astro from 'eslint-plugin-astro';
 import lit from 'eslint-plugin-lit';
+import regexp from 'eslint-plugin-regexp';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import wc from 'eslint-plugin-wc';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 // const compat = new FlatCompat();
 
@@ -23,9 +22,10 @@ const config = tseslint.config(
   js.configs.recommended,
   // ...compat.env(vercelNode.env),
   // ...fixupConfigRules(compat.config(vercelTypeScript)),
+  // ...tseslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
-  // ...tseslint.configs.stylistic,
-  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.stylistic,
+  // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
 
   regexp.configs['flat/recommended'],
@@ -48,7 +48,7 @@ const config = tseslint.config(
     },
   },
   {
-    files: ['src/**/*.astro'],
+    files: ['**/*.astro'],
     extends: [
       ...astro.configs.recommended,
       tseslint.configs.disableTypeChecked,
@@ -79,6 +79,15 @@ const config = tseslint.config(
       'src/lit-web-components/**/*.ts',
       'src/custom-layout-components/lit-wc/**/*.ts',
     ],
+  },
+  {
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+    },
+    rules: {
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+    },
   },
 
   {
@@ -154,6 +163,7 @@ export default [
       '*.d.ts',
       '**/temp.js',
       '*lock.yaml',
+      '.turbo/**/*',
     ],
   },
   mdConfig,

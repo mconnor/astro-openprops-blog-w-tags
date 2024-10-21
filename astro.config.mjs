@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
 // import sentry from '@sentry/astro';
 import lit from '@astrojs/lit';
+import mdx from '@astrojs/mdx';
+import { defineConfig } from 'astro/config';
 
 // import icon from 'astro-icon';
 
