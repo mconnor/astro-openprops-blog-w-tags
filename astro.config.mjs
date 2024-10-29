@@ -2,8 +2,7 @@
 import lit from '@astrojs/lit';
 import mdx from '@astrojs/mdx';
 import { defineConfig } from 'astro/config';
-
-// import icon from 'astro-icon';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,13 +38,14 @@ export default defineConfig({
     //     authToken: import.meta.env.SENTRY_AUTH_TOKEN,
     //   },
     // }),
+    // icon(),
 
-    // icon({
-    //   include: {
-    //     mdi: ['*'], // (Default) Loads entire Material Design Icon set
-    //     // mdi: ['account'], // Loads only Material Design Icon's "account" SVG
-    //   },
-    // }),
+    icon({
+      include: {
+        mdi: ['*'], // (Default) Loads entire Material Design Icon set
+        // mdi: ['account'], // Loads only Material Design Icon's "account" SVG
+      },
+    }),
   ],
   vite: {
     ssr: {

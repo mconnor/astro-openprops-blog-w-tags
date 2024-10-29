@@ -1,8 +1,10 @@
 ---
 import { HeartButton } from './heart-button';
+
+const { count = 5 } = Astro.props;
 ---
 
-<HeartButton client:visible>
+<HeartButton data-count={count} client:visible>
   heart button-LitElement
   <slot />
 </HeartButton>
