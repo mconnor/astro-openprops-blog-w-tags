@@ -7,7 +7,7 @@ import astroParser from 'astro-eslint-parser';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
 import lit from 'eslint-plugin-lit';
-import regexp from 'eslint-plugin-regexp';
+import * as regexpPlugin from 'eslint-plugin-regexp';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import wc from 'eslint-plugin-wc';
 import globals from 'globals';
@@ -28,7 +28,7 @@ const config = tseslint.config(
   // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
 
-  regexp.configs['flat/recommended'],
+  regexpPlugin.configs['flat/recommended'],
 
   {
     languageOptions: {
@@ -168,5 +168,14 @@ export default [
   },
   mdConfig,
   ...config,
+  {
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+    },
+    rules: {
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+    },
+  },
   eslintConfigPrettier,
 ];
