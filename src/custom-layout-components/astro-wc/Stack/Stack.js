@@ -87,6 +87,4 @@ export default class Stack extends HTMLElement {
   }
 }
 
-if ('customElements' in window) {
-  customElements.define('stack-l', Stack);
-}
+customElements.define('stack-l', Stack);

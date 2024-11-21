@@ -2,7 +2,7 @@
 // import { Debug } from 'astro:components';
 import { getCollection } from 'astro:content';
 
-import { Stack } from '#astro-wc/index.ts';
+import Stack from '#astro-wc/Stack/index.astro';
 import BlogCard from '#components/BlogCard/index.astro';
 import Layout from '#layouts/Layout.astro';
 // import { blogSchema } from '#schemas/index.js';
@@ -26,8 +26,6 @@ const publishsedPosts = await getCollection('blog', ({ data }) =>
           id={id}
           postData={data}
         />
-
-        <h4>{id}</h4>
       ))
     }
   </Stack>

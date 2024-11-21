@@ -1,19 +1,17 @@
 ---
 // import { Debug } from 'astro:components';
 // import type { MarkdownLayoutProps } from 'astro';
-import { type CollectionEntry } from 'astro:content';
 import '../styles/markdown-style.css';
-import { Debug } from 'astro:components';
 
 import { Image } from 'astro:assets';
+import { type CollectionEntry } from 'astro:content';
 import { getEntry } from 'astro:content';
 import { format } from 'date-fns';
 
-import { Stack } from '#astro-wc/index.ts';
+import Stack from '#astro-wc/Stack/index.astro';
 import TagContainer from '#components/TagContainer.astro';
 import Layout from '#layouts/Layout.astro';
 import Box from '#lit-wc/Box/index.astro';
-import type { BlogSchemaType } from '#schemas/index.js';
 
 interface Props {
   blogData: CollectionEntry<'blog'>['data'];

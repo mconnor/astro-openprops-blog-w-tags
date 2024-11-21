@@ -30,18 +30,18 @@ export async function getStaticPaths() {
   }));
 }
 
-const { id } = Astro.params;
+const { tag } = Astro.params;
 const { postsWithThisTag } = Astro.props;
 ---
 
-<Layout title={id}>
+<Layout title={tag}>
   {
-    postsWithThisTag.map((postWTag) => (
+    postsWithThisTag.map(({ id, data }) => (
       <BlogCard
         backgroundColor="var(--surface-4)"
         foregroundColor="var(--text-2)"
         id={id}
-        postData={postWTag.data}
+        postData={data}
       />
     ))
   }
