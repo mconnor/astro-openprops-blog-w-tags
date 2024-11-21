@@ -1,7 +1,9 @@
 ---
 // import { Debug } from 'astro:components';
 // import type { MarkdownLayoutProps } from 'astro';
+import { type CollectionEntry } from 'astro:content';
 import '../styles/markdown-style.css';
+import { Debug } from 'astro:components';
 
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
@@ -14,7 +16,8 @@ import Box from '#lit-wc/Box/index.astro';
 import type { BlogSchemaType } from '#schemas/index.js';
 
 interface Props {
-  blogData: BlogSchemaType;
+  blogData: CollectionEntry<'blog'>['data'];
+  id: string;
 }
 
 // type Props = MarkdownLayoutProps<{
@@ -36,7 +39,7 @@ const { name } = results.data;
 <!-- TODO: fix the date format -->
 <Layout title={title} description={description}>
   <!-- <Debug {author} /> -->
-
+  <!-- <Debug>{results}</Debug> -->
   <Stack space="var(--s0)">
     <Box borderWidth="1px" padding="0">
       <Image width="600" height="300" src={cover.src} alt={cover.alt} />

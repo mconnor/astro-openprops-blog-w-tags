@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-
+import { blogSchema } from '#schemas/index.js';
 import Layout from '#layouts/MarkdownPostLayout.astro';
 
 export const prerender = true;
@@ -8,32 +8,31 @@ export const prerender = true;
 // type Props = CollectionEntry<'blog'>;
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => data.draft !== true);
-
+  //const posts = await getCollection('blog', ({ data }) => data.draft !== true);
+  const posts = await getCollection('blog');
   return posts.map((post) => ({
     params: { id: post.id },
     props: { post },
   }));
 }
-type Props = CollectionEntry<'blog'>;
+const { id } = Astro.params;
 const { post } = Astro.props;
 
 if (post === undefined) {
   return Astro.rewrite('/404');
 }
 
-const { data } = post;
 const { Content } = await render(post);
 
 // const { Content } = await post.render();
 
-// const { error, data: parsedData } = await blogSchema.safeParseAsync(post.data);
+const { error, data: parsedData } = await blogSchema.safeParseAsync(post.data);
 
-// if (error) {
-//   throw new Error('Validation error:', error);
-// }
+if (error) {
+  throw new Error('Validation error:', error);
+}
 ---
 
-<Layout {...data}>
+<Layout id={id} blogData={parsedData}>
   <Content />
 </Layout>
