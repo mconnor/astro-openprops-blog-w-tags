@@ -3,7 +3,7 @@ import Center from '#astro-wc/Center/index.astro';
 import Cover from '#astro-wc/Cover/index.astro';
 import Footer from '#components/Footer.astro';
 import Header from '#components/Header.astro';
-import type { RmUnitType } from '#UnitTypes.js';
+import type { RmUnitType } from '#UnitTypes.ts';
 
 import BaseLayout from './BaseLayout.astro';
 
@@ -24,18 +24,4 @@ const { maxW = 'var(--measure, 60ch)', ...rest } = Astro.props;
     <Center max={maxW} transition:animate="slide"><slot /></Center>
     <Footer />
   </Cover>
-
-  <script is:inline>
-    // on page, get the last theme from the cookie and set it
-    document.addEventListener('astro:page-load', () => {
-      const storedTheme = localStorage.getItem('theme');
-      const doc = document.documentElement;
-      if (storedTheme) {
-        doc.setAttribute('data-theme', storedTheme);
-        // $currTheme.set(storedTheme);
-      } else {
-        doc.setAttribute('data-theme', 'light');
-      }
-    });
-  </script>
 </BaseLayout>

@@ -3,7 +3,7 @@ import js from '@eslint/js';
 // import vercelNode from '@vercel/style-guide/eslint/node';
 // import vercelTypeScript from '@vercel/style-guide/eslint/typescript';
 import markdown from '@eslint/markdown';
-import astroParser from 'astro-eslint-parser';
+import * as astroParser from 'astro-eslint-parser';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
 import lit from 'eslint-plugin-lit';
@@ -42,6 +42,7 @@ const config = tseslint.config(
       },
       globals: {
         ...globals.browser,
+
         JSX: true,
         // ...globals.node,
       },
@@ -50,7 +51,7 @@ const config = tseslint.config(
   {
     files: ['**/*.astro'],
     extends: [
-      ...astro.configs.recommended,
+      ...astro.configs['flat/recommended'],
       tseslint.configs.disableTypeChecked,
     ],
     processor: astro.processors['client-side-ts'],
@@ -128,7 +129,7 @@ const config = tseslint.config(
 
 const mdConfig = {
   // Apply the Markdown processor to all .md files
-  files: ['src/content/blog**/*.md'],
+  files: ['src/content/blog/**/*.md'],
   plugins: {
     markdown,
   },

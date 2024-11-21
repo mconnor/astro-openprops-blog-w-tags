@@ -1,7 +1,7 @@
 ---
-import type { BorderStyle, RmUnitType } from '#UnitTypes.js';
+import type { BorderStyle, RmUnitType } from '#UnitTypes.ts';
 
-import { BoxClass } from './box-l';
+// import { BoxClass } from './box-l';
 
 interface Props {
   padding?: RmUnitType;
@@ -14,8 +14,11 @@ interface Props {
 const props = Astro.props;
 ---
 
+<script>
+  import './Box';
+</script>
 <div>
-  <BoxClass {...props} client:visible>
+  <box-l {...props}>
     <slot />
-  </BoxClass>
+  </box-l>
 </div>

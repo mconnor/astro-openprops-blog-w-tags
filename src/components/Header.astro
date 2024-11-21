@@ -1,10 +1,10 @@
 ---
 import { Cluster } from '#astro-wc/index.js';
-// import AstroSwitcher from '#lit-web-components/AstroSwitcher/index.astro';
 // import AstroNavigateSelect from '#components/AstroNavigateSelect.astro';
 import Link from '#components/Link.astro';
 // import Hamburger from './Hamburger.astro';
 import Box from '#lit-wc/Box/index.astro';
+import AstroSwitcher from '#lit-web-components/AstroSwitcher/index.astro';
 
 import MainNav from './MainNav.astro';
 ---
@@ -12,6 +12,7 @@ import MainNav from './MainNav.astro';
 <Box invert padding="var(--s1)" borderWidth="0">
   <!-- <Hamburger />
   <AstroSwitcher /> -->
+  <AstroSwitcher />
   <Cluster align="baseline" justify="space-between" space="0">
     <Link isMainNav href="/"><h1>Mike Connor</h1></Link>
 
