@@ -21,13 +21,14 @@ const {
   post,
 } = Astro.props;
 
-const { slug, data } = post;
+const { id, data, id } = post;
 const { title, description, cover, author } = data;
 const authObj = await getEntry('authors', author.id);
 const { name } = authObj.data;
 ---
 
-<Debug post={post} />
+<Debug id={id} />
+
 <a slot="left" href={`/posts/${slug}`}>
   <Box padding="0" borderWidth="0">
     <!-- <Box padding='4px'> -->

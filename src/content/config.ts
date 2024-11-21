@@ -1,9 +1,12 @@
 import { defineCollection } from 'astro:content';
-
+import { glob } from 'astro/loaders';
 import { authorSchema, blogSchema } from '#schemas/index.ts';
 
 const blog = defineCollection({
-  type: 'content',
+  loader: glob({
+    pattern: ['**/*.md', '**/*.mdx'],
+    base: './src/blog',
+  }),
   schema: blogSchema,
 });
 
