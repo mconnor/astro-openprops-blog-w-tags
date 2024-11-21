@@ -8,6 +8,9 @@
     "useDefineForClassFields": false,
     "strictNullChecks": true,
   },
+  "files": [
+    ".astro/types.d.ts",
+  ],
   "include": [
     "."
   ],
