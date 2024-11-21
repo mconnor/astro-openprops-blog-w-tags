@@ -3,7 +3,7 @@ import js from '@eslint/js';
 // import vercelNode from '@vercel/style-guide/eslint/node';
 // import vercelTypeScript from '@vercel/style-guide/eslint/typescript';
 import markdown from '@eslint/markdown';
-import astroParser from 'astro-eslint-parser';
+import * as astroParser from 'astro-eslint-parser';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
 import lit from 'eslint-plugin-lit';
@@ -12,6 +12,7 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import wc from 'eslint-plugin-wc';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+// import { fixupPluginRules } from '@eslint/compat';
 
 // const compat = new FlatCompat();
 
@@ -24,7 +25,7 @@ const config = tseslint.config(
   // ...fixupConfigRules(compat.config(vercelTypeScript)),
   // ...tseslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
-  ...tseslint.configs.stylistic,
+  ...tseslint.configs.stylisticTypeChecked,
   // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
 
@@ -46,22 +47,25 @@ const config = tseslint.config(
         // ...globals.node,
       },
     },
+    rules: {
+      '@typescript-eslint/triple-slash-reference': 'off',
+    },
   },
+
   {
     files: ['**/*.astro'],
     extends: [
       ...astro.configs.recommended,
       tseslint.configs.disableTypeChecked,
     ],
-    processor: astro.processors['client-side-ts'],
+    // processor: astro.processors['client-side-ts'],
     languageOptions: {
       parser: astroParser,
       parserOptions: {
         parser: tseslint.parser,
-
-        ecmaFeatures: {
-          jsx: true,
-        },
+        project: true,
+        jsx: false,
+        extraFileExtensions: ['.astro'],
       },
     },
     rules: {
@@ -157,10 +161,6 @@ export default [
       'stylelint.config.mjs',
       'dist/',
       '.astro',
-      '*.cjs',
-      'src/env.d.ts',
-      'src/components/_Hamburger.astro',
-      '*.d.ts',
       '**/temp.js',
       '*lock.yaml',
       '.turbo/**/*',
