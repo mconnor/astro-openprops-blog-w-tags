@@ -16,9 +16,6 @@ import tseslint from 'typescript-eslint';
 
 // const compat = new FlatCompat();
 
-// const { browser } = globals;
-// const { document, customElements } = browser;
-
 const config = tseslint.config(
   js.configs.recommended,
   // ...compat.env(vercelNode.env),
