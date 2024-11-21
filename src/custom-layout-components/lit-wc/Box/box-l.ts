@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
 
-import type { BorderStyle, RmUnitType } from '#UnitTypes.js';
+import type { BorderStyle, RmUnitType } from '#UnitTypes.ts';
 
 /**
  * @module box-l
