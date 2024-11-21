@@ -13,9 +13,7 @@
     "jsx.d.ts"
   ],
   "include": [
-    "src",
-    "*.config.mjs",
-    "types/*.d.ts"
+    "."
   ],
   "exclude": [
     "dist",
