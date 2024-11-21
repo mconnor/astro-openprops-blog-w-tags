@@ -1,11 +1,14 @@
 // import sentry from '@sentry/astro';
 
 import mdx from '@astrojs/mdx';
+import vercel from '@astrojs/vercel';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
+  adapter: vercel(),
   compressHTML: true,
   cacheDir: './cache-directory',
   redirects: {
@@ -46,7 +49,4 @@ export default defineConfig({
       },
     }),
   ],
-
-  // cacheDir: './my-custom-cache-directory',
-  // adapter: vercel(),
 });

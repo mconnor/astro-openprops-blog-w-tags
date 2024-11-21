@@ -6,8 +6,6 @@ import { blogSchema } from '#schemas/index.js';
 
 export const prerender = true;
 
-// type Props = CollectionEntry<'blog'>;
-
 export async function getStaticPaths() {
   //const posts = await getCollection('blog', ({ data }) => data.draft !== true);
   const posts = await getCollection('blog');
