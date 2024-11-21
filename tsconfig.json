@@ -1,13 +1,17 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist",
     "esModuleInterop": false,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
-    "strictNullChecks": true,
+    "strict": true,
   },
+  "files": [
+    ".astro/types.d.ts",
+    "jsx.d.ts"
+  ],
   "include": [
     "src",
     "*.config.mjs",
