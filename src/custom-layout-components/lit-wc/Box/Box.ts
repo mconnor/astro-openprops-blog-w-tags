@@ -18,7 +18,7 @@ const mainColor = css`var(--theme-primary, blue)`;
 const bgColor = css`var(--theme-secondary, yellow)`;
 
 @customElement('box-l')
-export class BoxClass extends LitElement {
+export class Box extends LitElement {
   static styles = [
     css`
       :host {
@@ -77,6 +77,6 @@ export class BoxClass extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'box-l': BoxClass;
+    'box-l': Box;
   }
 }

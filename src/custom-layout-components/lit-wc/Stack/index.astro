@@ -1,7 +1,6 @@
 ---
 import type { RmUnitType } from '#UnitTypes.ts';
 
-import { Stack } from './stack-l.js';
 interface Props {
   space?: RmUnitType; //"var(--s000)"
   recursive?: boolean; //false
@@ -10,6 +9,10 @@ interface Props {
 const props = Astro.props;
 ---
 
-<Stack {...props} client:load>
+<script>
+  import './Stack.ts';
+</script>
+
+<stack-l {...props}>
   <slot />
-</Stack>
+</stack-l>

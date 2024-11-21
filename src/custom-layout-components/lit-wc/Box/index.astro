@@ -1,8 +1,6 @@
 ---
 import type { BorderStyle, RmUnitType } from '#UnitTypes.ts';
 
-import { BoxClass } from './box-l';
-
 interface Props {
   padding?: RmUnitType;
   borderWidth?: RmUnitType;
@@ -14,8 +12,12 @@ interface Props {
 const props = Astro.props;
 ---
 
+<script>
+  import './Box.ts';
+</script>
+
 <div>
-  <BoxClass {...props} client:visible>
+  <box-l {...props}>
     <slot />
-  </BoxClass>
+  </box-l>
 </div>

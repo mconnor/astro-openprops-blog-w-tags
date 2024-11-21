@@ -1,5 +1,5 @@
 // import sentry from '@sentry/astro';
-import lit from '@astrojs/lit';
+
 import mdx from '@astrojs/mdx';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
@@ -24,7 +24,6 @@ export default defineConfig({
   },
   scopedStyleStrategy: 'attribute',
   integrations: [
-    lit(),
     mdx({
       drafts: true,
     }),
@@ -52,9 +51,7 @@ export default defineConfig({
       noExternal: ['date-fns', 'open-props'],
     },
   },
-  experimental: {
-    contentCollectionCache: true,
-  },
+
   // cacheDir: './my-custom-cache-directory',
   // adapter: vercel(),
 });
