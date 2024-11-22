@@ -8,16 +8,15 @@ interface Props {
   borderStyle?: BorderStyle;
   invert?: boolean;
   children?: unknown;
+  active?: boolean;
 }
-const props = Astro.props;
+const { borderWidth, borderStyle, ...rest } = Astro.props;
 ---
 
 <script>
   import './Box.ts';
 </script>
 
-<div>
-  <box-l {...props}>
-    <slot />
-  </box-l>
-</div>
+<box-l border-width={borderWidth} border-style={borderStyle} {...rest}>
+  <slot />
+</box-l>
