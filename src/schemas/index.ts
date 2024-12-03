@@ -1,11 +1,11 @@
 import { z } from 'astro:content';
 
 const urlSchema = z.string().url();
-const urlSchemaOptional = urlSchema.optional();
+// const urlSchemaOptional = urlSchema.optional();
 const strSC = z.string();
-const strSCOptional = strSC.optional();
-const emailSchema = z.string().email();
-const emailSchemaOptional = emailSchema.optional();
+// const strSCOptional = strSC.optional();
+// const emailSchema = z.string().email();
+// const emailSchemaOptional = emailSchema.optional();
 
 const imageSrcSchema = z.object({ src: urlSchema, alt: strSC });
 

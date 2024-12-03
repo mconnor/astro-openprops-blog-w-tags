@@ -1,7 +1,8 @@
 import { glob } from 'astro/loaders';
 import { defineCollection } from 'astro:content';
 
-import { blogSchema } from './schemas/index.ts';
+// import authorJson from './data/authors/authors.json';
+import { blogSchema } from './schemas';
 
 const blog = defineCollection({
   // type: 'content',
@@ -13,9 +14,16 @@ const blog = defineCollection({
 });
 
 // const authors = defineCollection({
-//   loader: file('src/data/authors.toml', {
-//     parser: (text) => parseToml(text).authors,
-//   }),
+//   loader: async () => {
+//     const response = authorJson;
+//     const data = await response.json();
+//     // Must return an array of entries with an id property
+//     // or an object with IDs as keys and entries as values
+//     return data.map((author) => ({
+//       id: author.id,
+//       ...author,
+//     }));
+//   },
 
 //   schema: authorSchema,
 // });
