@@ -4,18 +4,14 @@
     "rootDir": ".",
     "outDir": "dist",
     "esModuleInterop": false,
+    "verbatimModuleSyntax": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "strictNullChecks": true,
   },
-  "files": [
-    ".astro/types.d.ts",
-    "types/my.d.ts",
-    "jsx.d.ts"
-  ],
   "include": [
-    "src",
-    "*.config.mjg"
+    ".astro/types.d.ts",
+    "**/*"
   ],
   "exclude": [
     "dist",

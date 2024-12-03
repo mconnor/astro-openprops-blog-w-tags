@@ -1,4 +1,5 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 import BlogCard from '#components/BlogCard/index.astro';
@@ -16,7 +17,7 @@ export async function getStaticPaths() {
     ...new Set(publishsedPosts.map(({ data }) => data.tags ?? []).flat()),
   ];
 
-  return uniqueTags.map((tag) => ({
+  return uniqueTags.map((tag: string) => ({
     params: { tag: tag },
     props: {
       postsWithThisTag: publishsedPosts.filter(({ data }) =>
@@ -25,9 +26,10 @@ export async function getStaticPaths() {
     },
   }));
 }
+type Props = CollectionEntry<'blog'>;
 
 const { tag } = Astro.params;
-const { postsWithThisTag } = Astro.props;
+const { postsWithThisTag } = Astro.props as Props;
 ---
 
 <Layout title={tag}>

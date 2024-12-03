@@ -5,7 +5,6 @@ import '../styles/markdown-style.css';
 
 import { Image } from 'astro:assets';
 import { type CollectionEntry } from 'astro:content';
-import { getEntry } from 'astro:content';
 import { format } from 'date-fns';
 
 import Stack from '#astro-wc/Stack/index.astro';
@@ -13,25 +12,19 @@ import TagContainer from '#components/TagContainer.astro';
 import Layout from '#layouts/Layout.astro';
 import Box from '#lit-wc/Box/index.astro';
 
-interface Props {
-  blogData: CollectionEntry<'blog'>['data'];
-  id: string;
-}
+type Props = CollectionEntry<'blog'>['data'];
 
-// type Props = MarkdownLayoutProps<{
-//   // Define frontmatter props here
-//   blogData: BlogSchemaType;
-// }>;
+const {
+  title,
+  description,
+  pubDate,
+  cover,
+  //  author,
+  tags,
+} = Astro.props as Props;
 
-// type Props = CollectionEntry<'blog'>['data'];
-// const { blogData } = Astro.props;
-
-const { blogData } = Astro.props;
-
-const { title, description, pubDate, cover, author, tags } = blogData;
-
-const results = await getEntry('authors', author.id);
-const { name } = results.data;
+// const results = await getEntry('authors', author.id);
+// const { name } = results.data;
 ---
 
 <!-- TODO: fix the date format -->
@@ -46,7 +39,7 @@ const { name } = results.data;
     <Box borderWidth="1px"><h1>{title}</h1></Box>
 
     <Box borderWidth="1px">
-      Written by: {name},
+      <!-- Written by: {name}, -->
       {format(pubDate, 'd MMM, yyyy')}
     </Box>
 

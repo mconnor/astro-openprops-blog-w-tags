@@ -58,7 +58,7 @@ export class Box extends LitElement {
   @property({ type: String, reflect: true, attribute: 'border-width' })
   borderWidth?: RmUnitType = '1px';
 
-  @property({ type: String, reflect: true ,attribute: 'border-style' })
+  @property({ type: String, reflect: true, attribute: 'border-style' })
   borderStyle?: BorderStyle = 'solid';
 
   @property({ type: Boolean, reflect: true })
