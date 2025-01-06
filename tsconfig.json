@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "strictNullChecks": true,
+    "strict": true
   },
   "include": [
     ".astro/types.d.ts",

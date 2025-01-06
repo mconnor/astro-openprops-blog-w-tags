@@ -21,8 +21,8 @@ const config = tseslint.config(
   // ...compat.env(vercelNode.env),
   // ...fixupConfigRules(compat.config(vercelTypeScript)),
   // ...tseslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
+  tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
   // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
 
@@ -150,6 +150,7 @@ const mdConfig = {
 export default [
   {
     ignores: [
+      'src/content.config.ts',
       'node_modules/',
       '.frontmatter/',
       'cache-directory/',
