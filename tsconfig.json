@@ -1,6 +1,7 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "baseUrl": ".",
     "rootDir": ".",
     "outDir": "dist",
     "esModuleInterop": false,
@@ -8,16 +9,13 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "strictNullChecks": true,
-    "strict": true
   },
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
   "exclude": [
     "dist",
     ".astro",
     ".turbo",
+    ".vercel",
+    "husky",
     "cache-directory",
     "test/**/*"
   ]

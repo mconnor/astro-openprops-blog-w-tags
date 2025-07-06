@@ -12,10 +12,15 @@ const pageTitle = 'Blog';
 
 
 
-const publishsedPosts = await getCollection('blog');
-const sortedPosts = publishsedPosts.sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const publishsedPosts = await getCollection('blogCollection');
+// const sortedPosts = publishsedPosts.sort(
+//   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+// );
+const sortedPosts = publishsedPosts.sort((a, b) => {
+  const dateA = a.data.date ? a.data.date.valueOf() : 0;
+  const dateB = b.data.date ? b.data.date.valueOf() : 0;
+  return dateB - dateA;
+});
 ---
 
 <Layout title={pageTitle}>

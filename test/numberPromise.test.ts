@@ -1,4 +1,4 @@
-import { z } from 'astro:content';
+import { z } from 'astro:schema';
 import { expect, test } from 'vitest';
 
 const isNum = z.number({

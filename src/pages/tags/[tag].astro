@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+// import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
 import BlogCard from '#components/BlogCard/index.astro';
@@ -9,7 +9,7 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const publishsedPosts = await getCollection(
-    'blog',
+    'blogCollection',
     ({ data }) => data.draft !== true,
   );
 
@@ -26,10 +26,10 @@ export async function getStaticPaths() {
     },
   }));
 }
-type Props = CollectionEntry<'blog'>;
+// type Props = CollectionEntry<'blog'>;
 
 const { tag } = Astro.params;
-const { postsWithThisTag } = Astro.props as Props;
+const { postsWithThisTag } = Astro.props;
 ---
 
 <Layout title={tag}>
