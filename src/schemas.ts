@@ -2,8 +2,6 @@ import { z } from 'astro:schema';
 
 const strSC = z.string();
 
-
-
 const dateLike = z.union([z.number(), z.string(), z.date()]);
 const dateLikeToDate = dateLike.pipe(z.coerce.date());
 
@@ -28,7 +26,6 @@ export const blogSchema = z.object({
   tags: z.array(z.string()).default([]),
   cover: z.object({ src: z.string().url(), alt: z.string() }).optional(),
 });
-
 
 export const tagCountTypeSchema = z.record(z.number());
 

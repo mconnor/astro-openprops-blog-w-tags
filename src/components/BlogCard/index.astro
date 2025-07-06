@@ -6,13 +6,11 @@ import { format } from 'date-fns/format';
 import Cluster from '#astro-wc/Cluster/index.astro';
 import Box from '#lit-wc/Box/index.astro';
 
-// interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
-
 interface Props {
   foregroundColor?: string;
   backgroundColor?: string;
   id: string;
-  postData: CollectionEntry<'blog'>['data'];
+  postData: CollectionEntry<'blogCollection'>['data'];
 }
 
 const {

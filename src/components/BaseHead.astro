@@ -47,7 +47,27 @@ const isDev = process.env.NODE_ENV === 'development';
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <meta name="color-scheme" content="dark light dim grape choco toucan" />
+<script is:inline>
+  function applyTheme() {
+    const storedTheme = localStorage.getItem('theme');
+    const doc = document.documentElement;
+    if (storedTheme) {
+      doc.setAttribute('data-theme', storedTheme);
+      // $currTheme.set(storedTheme);
+    } else {
+      doc.setAttribute('data-theme', 'light');
+    }
+  }
 
+  // on page, get the last theme from the cookie and set it
+  document.addEventListener('astro:page-load', applyTheme);
+  applyTheme();
+  // ☝️ This script prevent the FART effect.
+</script>
+<script>
+  import { themeChange } from 'theme-change';
+  themeChange();
+</script>
 <!-- <script src="https://unpkg.com/lucide@latest"></script> -->
 
 <!-- <script>
