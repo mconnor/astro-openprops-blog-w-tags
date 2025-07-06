@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
-import { z } from 'astro:content';
+import { z } from 'astro:schema';
 
 import TagContainer from '#components/TagContainer.astro';
-import Layout from '#layouts/Layout.astro';
-import { tagCountTypeSchema, zTags } from '#schemas/index.js';
 
-const allBlogPost = await getCollection('blog');
+import { zTags, tagCountTypeSchema } from '#schemas.ts';
+import Layout from '#layouts/Layout.astro';
+
+const allBlogPost = await getCollection('blogCollection');
 
 const allBlogDataObjs = allBlogPost.map((post) => post);
 
@@ -15,7 +16,7 @@ const slugTags = allBlogDataObjs
   .filter((post) => post.data.draft !== true)
   .map((post) => {
     return {
-      slug: post.slug,
+      slug: post.id,
       tags: post.data.tags,
     };
   });
@@ -28,7 +29,7 @@ const slugTags = allBlogDataObjs
 //   throw new Error('Invalid blog post data');
 // }
 
-const zString = z.string();
+const zString = z.string().regex(/^[a-z](?:[a-z-]*[a-z])?$/);
 
 const tagCountsObject = slugTags.reduce(
   (tagCountAcc, post) => {
@@ -53,12 +54,18 @@ const zUniqueTagArray = zTags.safeParse(uniqueTagArray);
 
 const { success: tagCountSuccess, data: tagCountData } =
   tagCountTypeSchema.safeParse(tagCountsObject);
+
+const { success, error, data: tagArray } = zUniqueTagArray;
+
+if (!success) {
+  throw new Error(error.message);
+}
 ---
 
 <Layout title="Tag Index">
   {
     zUniqueTagArray.success && tagCountSuccess ? (
-      <TagContainer tags={zUniqueTagArray.data} tagCounts={tagCountData} />
+      <TagContainer tags={tagArray} tagCounts={tagCountData} />
     ) : (
       <p>No tags</p>
     )

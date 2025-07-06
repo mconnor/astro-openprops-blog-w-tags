@@ -1,5 +1,5 @@
 ---
-import { Stack } from '#astro-wc/index.js';
+import Stack from '#astro-wc/Stack/index.astro';
 import CardDelux from '#components/CardDelux.astro';
 import Layout from '#layouts/Layout.astro';
 import Box from '#lit-wc/Box/index.astro';
@@ -12,9 +12,9 @@ const pageTitle = 'About';
 <Layout title={pageTitle} maxW="60ch">
   <!-- <div class="app-colors"> -->
   <Stack>
-    <Box>
+    <Box borderStyle="double" borderWidth="8px">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eius
+        active ipsum dolor sit amet, consectetur adipisicing elit. Debitis eius
         cupiditate architecto illo laudantium deleniti iure nemo. Doloribus,
         maiores ea mollitia nulla aperiam sapiente maxime sint suscipit quae
         nam? Culpa.
@@ -93,7 +93,7 @@ const pageTitle = 'About';
                 </em></Box
               >
 
-              <Box
+              <Box active
                 ><p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Doloribus quam non eaque sapiente, inventore rem facere cum

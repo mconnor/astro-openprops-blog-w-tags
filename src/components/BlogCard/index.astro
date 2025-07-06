@@ -1,10 +1,9 @@
 ---
 import { Image } from 'astro:assets';
-import { Debug } from 'astro:components';
 import type { CollectionEntry } from 'astro:content';
-import { getEntry } from 'astro:content';
+import { format } from 'date-fns/format';
 
-// import { Box} from '#lit-layout-components';
+import Cluster from '#astro-wc/Cluster/index.astro';
 import Box from '#lit-wc/Box/index.astro';
 
 // interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
@@ -12,38 +11,37 @@ import Box from '#lit-wc/Box/index.astro';
 interface Props {
   foregroundColor?: string;
   backgroundColor?: string;
-  post: CollectionEntry<'blog'>;
+  id: string;
+  postData: CollectionEntry<'blog'>['data'];
 }
 
 const {
   foregroundColor = 'var(--text-2)',
   backgroundColor = 'var(--surface-4)',
-  post,
+  postData,
+  id,
 } = Astro.props;
 
-const { slug, data } = post;
-const { title, description, cover, author } = data;
-const authObj = await getEntry('authors', author.id);
-const { name } = authObj.data;
+const { title, description, cover, pubDate } = postData;
+// const authObj = await getEntry('authors', author.id);
+// const { name } = authObj.data;
 ---
 
-<Debug post={post} />
-<a slot="left" href={`/posts/${slug}`}>
+<a slot="left" href={`/posts/${id}`}>
   <Box padding="0" borderWidth="0">
     <!-- <Box padding='4px'> -->
 
     <!-- <Stack space="var(--s00)" splitAfter={4}> -->
     <!-- <Cluster></Cluster> -->
 
-    <Box invert padding="var(--s0)" borderWidth="0"><h3>{title},{name}</h3></Box
-    >
+    <Box invert padding="var(--s0)" borderWidth="0"><h1>{title}</h1></Box>
 
-    <!-- <Cluster justify="space-between" align="baseline">
-      <Box padding="var(--s00)" borderWidth="0">{name}</Box>
+    <Cluster justify="space-between" align="baseline">
+      <!-- <Box padding="var(--s00)" borderWidth="0">{name}</Box> -->
       <Box padding="var(--s00)" borderWidth="0">
         <p>{format(pubDate, 'MMMM dd, yyyy')}</p></Box
       >
-    </Cluster> -->
+    </Cluster>
 
     <Box padding="0" borderWidth="0">
       <Image src={cover.src} alt={cover.alt} width="600" height="300" /></Box

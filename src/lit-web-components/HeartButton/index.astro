@@ -1,13 +1,15 @@
 ---
-import { HeartButton } from './heart-button';
-
 const { count = 5 } = Astro.props;
 ---
 
-<HeartButton data-count={count} client:visible>
+<script>
+  import './HeartButton';
+</script>
+
+<heart-button data-count={count} client:visible>
   heart button-LitElement
   <slot />
-</HeartButton>
+</heart-button>
 
 <!-- Astro components do not render in the client and should not have a hydration directive.
  Please use a framework component for client rendering. -->

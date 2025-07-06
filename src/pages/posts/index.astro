@@ -1,0 +1,42 @@
+---
+// import { Debug } from 'astro:components';
+import { getCollection } from 'astro:content';
+
+import Stack from '#astro-wc/Stack/index.astro';
+import BlogCard from '#components/BlogCard/index.astro';
+import Layout from '#layouts/Layout.astro';
+import Box from '#lit-wc/Box/index.astro';
+// import { blogSchema } from '#schemas/index.ts';
+const pageTitle = 'Blog';
+
+
+
+
+const publishsedPosts = await getCollection('blogCollection');
+// const sortedPosts = publishsedPosts.sort(
+//   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+// );
+const sortedPosts = publishsedPosts.sort((a, b) => {
+  const dateA = a.data.date ? a.data.date.valueOf() : 0;
+  const dateB = b.data.date ? b.data.date.valueOf() : 0;
+  return dateB - dateA;
+});
+---
+
+<Layout title={pageTitle}>
+  <!-- The space (margin) between successive sibling elements -->
+  <Stack space="var(--s1)">
+    <Box borderWidth="0"><h2>{pageTitle}</h2></Box>
+    {
+      sortedPosts.map(({ id, data }) => (
+        <Box invert borderWidth="4px">{data.title}</Box>
+        <BlogCard
+          backgroundColor="var(--surface-4)"
+          foregroundColor="var(--text-2)"
+          id={id}
+          postData={data}
+        />
+      ))
+    }
+  </Stack>
+</Layout>

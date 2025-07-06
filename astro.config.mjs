@@ -1,12 +1,18 @@
 // import sentry from '@sentry/astro';
 
 import mdx from '@astrojs/mdx';
+import vercel from '@astrojs/vercel';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  // compressHTML: true,
+  // output: 'server',
+  adapter: vercel({
+    imageService: true,
+    devImageService: 'sharp',
+  }),
+  compressHTML: true,
   cacheDir: './cache-directory',
   redirects: {
     '/index': '/about',
@@ -14,7 +20,7 @@ export default defineConfig({
   // your configuration options here...
   // https://docs.astro.build/en/reference/configuration-reference/
   outDir: 'dist',
-  output: 'static',
+
   site: 'https://astro-openprops-blog-w-tags-git-staging-mike-connors-projects.vercel.app',
   image: {
     domains: ['astro.build', 'picsum.photos', 'https://doodleipsum.com'],
@@ -24,7 +30,6 @@ export default defineConfig({
   },
   scopedStyleStrategy: 'attribute',
   integrations: [
-    // lit(),
     mdx({
       drafts: true,
     }),
@@ -47,14 +52,4 @@ export default defineConfig({
       },
     }),
   ],
-  vite: {
-    ssr: {
-      noExternal: ['date-fns', 'open-props'],
-    },
-  },
-  experimental: {
-    contentCollectionCache: true,
-  },
-  // cacheDir: './my-custom-cache-directory',
-  // adapter: vercel(),
 });

@@ -1,22 +1,4 @@
 {
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "astro", // Enable .astro
-    "typescript", // Enable .ts
-    "typescriptreact" // Enable .tsx
-  ],
-  // add support for autocomplete in JS or JS like files
-  /**
-   * This setting controls whether inlay hints are enabled in the editor.
-   * Inlay hints are small pieces of information displayed inline with the code,
-   * providing additional context or details about the code.
-   *
-   * Possible values:
-   * - "off": Inlay hints are disabled.
-   * - "on": Inlay hints are enabled.
-   * - "off": Inlay hints are disabled.
-   */
   "workbench.colorTheme": "Visual Studio Dark",
   "terminal.integrated.scrollback": 10000,
   // Do not ignore node_modules css files, which is ignored by default
@@ -53,13 +35,8 @@
   },
   "vitest.disableWorkspaceWarning": true,
   "explorer.excludeGitIgnore": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "json.schemas": [
-    {
-      "fileMatch": [
-        "/src/content/authors/**"
-      ],
-      "url": "./.astro/collections/authors.schema.json"
-    }
-  ]
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "/Users/mikeconnor/.local/share/mise/shims/node"
+  },
 }

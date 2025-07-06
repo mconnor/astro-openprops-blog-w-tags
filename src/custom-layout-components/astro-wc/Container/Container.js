@@ -32,7 +32,12 @@ class Container extends HTMLElement {
   }
 
   set name(val) {
-    val ? this.setAttribute('name', val) : this.removeAttribute('name');
+    // val ? this.setAttribute('name', val) : this.removeAttribute('name');
+    if (val) {
+      this.setAttribute('name', val);
+    } else {
+      this.removeAttribute('name');
+    }
   }
 
   static get observedAttributes() {
